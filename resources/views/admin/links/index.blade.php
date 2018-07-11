@@ -1,15 +1,5 @@
 @extends('index')
 @section('content')
-@if (session('success'))
-    <div class="mws-form-message success">
-        {{ session('success') }}
-    </div>
-@endif
-@if (session('error'))
-    <div class="mws-form-message error">
-        {{ session('error') }}
-    </div>
-@endif
 <div class="mws-panel grid_8">
 	<div class="mws-panel-header" style="height:46px">
 		<span>
@@ -39,7 +29,7 @@
 		            <td>{{ $v -> link_depict }}</td>
 		            <td>{{ $v -> link_url }}</td>
 		            <td><img src="/uploads/{{ $v -> link_logo }}" alt="" width="50px" height="50px"></td>
-		            <td >
+		            <td>
 						<a href="/Admin/link/{{ $v -> link_id }}/edit" class="btn btn-warning" style="display:inline;">修改</a>
 						<form action="/Admin/link/{{ $v -> link_id }}" method="post" style="display:inline;">
 							{{ csrf_field() }}

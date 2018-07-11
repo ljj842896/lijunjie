@@ -71,9 +71,14 @@ Route::resource('Admin/cate','Admin\CateController');
 Route::resource('Admin/link','Admin\LinkController');
 //轮播图管理
 Route::resource('Admin/ad','Admin\AdController');
-
-
-
+//订单管理路由
+Route::resource('Admin/order','Admin\OrderController');
+//订单详情路由
+Route::get('Admin/order/details/{id}','Admin\OrderController@details');
+//前台路由
+Route::get('home/','HomeController@index');
+//网站配置
+Route::resource('Admin/config','Admin\ConfigController');
 
 
 

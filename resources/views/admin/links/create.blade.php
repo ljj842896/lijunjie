@@ -1,15 +1,5 @@
 @extends('index')
 @section('content')
-@if (session('success'))
-    <div class="mws-form-message success">
-        {{ session('success') }}
-    </div>
-@endif
-@if (session('error'))
-    <div class="mws-form-message error">
-        {{ session('error') }}
-    </div>
-@endif
 <div class="mws-panel grid_8">
 	<div class="mws-panel-header" style="height:46px">
     	<span>

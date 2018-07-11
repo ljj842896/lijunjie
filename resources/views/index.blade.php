@@ -218,12 +218,7 @@
                     </li>
                     <!-- 刘大海 -->
                     <li>
-                        <a href="#"><i class="icon-truck"></i> 订单管理</a>
-                         <ul class="closed">
-                            <li><a href="/a/form_layouts.html"><i class="icon-indent-left"></i> 添加订单</a></li>
-                            <li><a href="/a/form_layouts.html"><i class="icon-list"></i> 管理订单</a></li>
-                            
-                        </ul>
+                        <a href="/Admin/order"><i class="icon-truck"></i> 订单管理</a>
                     </li>
 
                     <li>
@@ -247,7 +242,7 @@
                     <li><a href="/a/charts.html"><i class="icon-graph"></i> 统计图表</a></li>
                     <li><a href="/a/calendar.html"><i class="icon-calendar"></i> 日历</a></li>
                 
-                    <li><a href="/a/charts.html"><i class="icon-wrench"></i> 网站配置</a></li>
+                    <li><a href="/Admin/config"><i class="icon-wrench"></i> 网站配置</a></li>
                     
                     <!-- qwer -->
 
