@@ -1,15 +1,5 @@
 @extends('index')
 @section('content')
-@if (session('success'))
-    <div class="mws-form-message success">
-        {{ session('success') }}
-    </div>
-@endif
-@if (session('error'))
-    <div class="mws-form-message error">
-        {{ session('error') }}
-    </div>
-@endif
 <div class="mws-panel grid_8">
 	<div class="mws-panel-header" style="height:46px">
 		<span>
@@ -31,18 +21,20 @@
 		        </tr>
 		    </thead>
 		    <tbody >
+		    @foreach($absdata as $k => $v)
 		        <tr>
-		            <td>XXXX分类</td>
-		            <td><img src="" alt="" width="50px" height="50px"></td>
+		            <td>{{ $v -> ad_cates -> cat_name }}</td>
+		            <td><img src="/uploads/ad/{{ $v -> ad_img }}" alt="" width="50px" height="50px"></td>
 		            <td >
-						<a href="/Admin/ad/" class="btn btn-warning" style="display:inline;">修改</a>
-						<form action="/Admin/ad/" method="post" style="display:inline;>
+						<a href="/Admin/ad/{{ $v -> ad_id }}/edit" class="btn btn-warning" style="display:inline;">修改</a>
+						<form action="/Admin/ad/{{ $v -> ad_id }}" method="post" style="display:inline;">
 							{{ csrf_field() }}
 							{{ method_field('DELETE') }}
 							<button type="submit" class="btn btn-danger" onclick="return confirm('确定删除吗?')">删除</button> 
 						</form>
 		            </td>
 		        </tr>
+		    @endforeach
 		    </tbody>
 		</table>
 		<div style="position:absolute;left:45%;top:450px">

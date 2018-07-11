@@ -43,7 +43,7 @@ class LinkController extends Controller
     {
         $data = $request -> except('_token');
         $links = new Links;
-        if ($request -> hasFile('link_logo')) 
+        if ($request -> hasFile('link_logo') && $request -> has('link_url') && $request -> has('link_name') && $request -> has('link_depict')) 
         {
             //创建文件上传对象
             $profile = $request -> file('link_logo');
@@ -60,11 +60,11 @@ class LinkController extends Controller
             $links -> link_url = $data['link_url'];
             $links -> save();
             return redirect('/Admin/link')->with('success','添加成功!');
-        }else{
-            return back() -> with('error','请选择图片!');
+        }else
+        {
+            return back() -> with('error','初次添加请填写完整信息!');
         }
     }
-
     /**
      * Display the specified resource.
      *
@@ -118,14 +118,14 @@ class LinkController extends Controller
             $links -> link_depict = $data['link_depict'];
             $links -> link_url = $data['link_url'];
             $links -> save();
-            return redirect('/Admin/link');
+            return redirect('/Admin/link') -> with('success','修改成功!');
         }else{
             //执行添加
             $links -> link_name = $data['link_name'];
             $links -> link_depict = $data['link_depict'];
             $links -> link_url = $data['link_url'];
             $links -> save();
-            return redirect('/Admin/link');
+            return redirect('/Admin/link')->with('success','修改成功!');
         }
     }
 
