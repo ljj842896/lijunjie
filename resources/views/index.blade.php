@@ -202,8 +202,10 @@
                     <li>
                         <a href="#"><i class="icon-shopping-cart"></i> 商品管理</a>
                         <ul class="closed">
-                            <li><a href="/a/form_layouts.html"><i class="icon-indent-left"></i> 发布商品</a></li>
-                            <li><a href="/a/form_layouts.html"><i class="icon-list"></i> 商品管理</a></li>
+
+                            <li><a href="/Admin/goods/create"><i class="icon-indent-left"></i> 商品样式库</a></li>
+                            <li><a href="/Admin/goods/create"><i class="icon-indent-left"></i> 发布商品</a></li>
+                            <li><a href="/Admin/goods"><i class="icon-list"></i> 商品管理</a></li>
                             
                         </ul>
                     </li>
@@ -278,8 +280,19 @@
                 @endif
 
 
+                @if (count($errors) > 0)
+                    <div class="mws-form-message error">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
-            
+
+
+            <!-- 内容填充区 -->
             @section('content')
                 
             @show

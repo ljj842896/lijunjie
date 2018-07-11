@@ -42,6 +42,8 @@ Route::resource('Admin/goods','Admin\GoodsController');
 //商品分类路由
 Route::resource('Admin/cate','Admin\CateController');
 
+//商品管理查询ajax专用路由
+Route::get('/ajax','Admin\GoodsController@ajaxGoods');
 
 
 
