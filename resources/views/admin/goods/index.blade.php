@@ -61,8 +61,8 @@
                                     <td>{{$v -> shop_price}}/元</td>
                                     <td>
                                       <span class="btn-group">
-                                          <a href="/Admin/cate/32/edit" class="btn btn-small"><i class="icon-search"></i></a>
-                                          <a href="/Admin/cate/32/edit" class="btn btn-small"><i class="icon-pencil"></i></a>
+                                          <a href="/Admin/goods/{{$v -> goods_id}}" class="btn btn-small"><i class="icon-search"></i></a>
+                                          <a href="/Admin/goods/{{$v -> goods_id}}" class="btn btn-small"><i class="icon-pencil"></i></a>
                                           <form action="/Admin/cate/32" method="post">
                                             <input type="hidden" name="_token" value="R3b0b0D6rXERKWvTlHQdZ4zXqlwOBM2QEDxSkNUz">
                                             <input type="hidden" name="_method" value="DELETE">
@@ -88,7 +88,7 @@
   //无刷新按名称查询
 
   // console.log($('#input_serach'));
-  $('input').eq(1).blur(function(){
+  $('input').eq(1).keyup(function(){
         // alert($(this).val());
         var goods_name = $(this).val();
 
@@ -97,7 +97,7 @@
             $('.odd').empty();
             for (var i = 0; i < msg.length; i++) {
 
-                            $('tbody').first().append('<tr class="odd"><td>'+msg[i].goods_id+'</td><td>'+'<img style="width: 50px; height: 50px" src="/goods_img/'+msg[i].goods_img+'">'+'</td><td>'+msg[i].goods_name+'</td><td>'+msg[i].goods_sn+'</td><td>'+msg[i].cat_id+'</td><td>'+msg[i].shop_price+'/元</td><td><span class="btn-group"><a href="/Admin/cate/32/edit" class="btn btn-small"><i class="icon-search"></i></a><a href="/Admin/cate/32/edit" class="btn btn-small"><i class="icon-pencil"></i></a><form action="/Admin/cate/32" method="post"><input type="hidden" name="_token" value="R3b0b0D6rXERKWvTlHQdZ4zXqlwOBM2QEDxSkNUz"><input type="hidden" name="_method" value="DELETE"><button type="submit" class="btn btn-small"><i class="icon-trash"></i></button></form></span></td></tr>')
+                            $('tbody').first().append('<tr class="odd"><td>'+msg[i].goods_id+'</td><td>'+'<img style="width: 50px; height: 50px" src="/goods_img/'+msg[i].goods_img+'">'+'</td><td>'+msg[i].goods_name+'</td><td>'+msg[i].goods_sn+'</td><td>'+msg[i].cat_id+'</td><td>'+msg[i].shop_price+'/元</td><td><span class="btn-group"><a href="/Admin/goods/'+msg[i].goods_id+'" class="btn btn-small"><i class="icon-search"></i></a><a href="/Admin/goods/'+msg[i].goods_id+'" class="btn btn-small"><i class="icon-pencil"></i></a><form action="/Admin/cate/32" method="post"><input type="hidden" name="_token" value="R3b0b0D6rXERKWvTlHQdZ4zXqlwOBM2QEDxSkNUz"><input type="hidden" name="_method" value="DELETE"><button type="submit" class="btn btn-small"><i class="icon-trash"></i></button></form></span></td></tr>')
      
            }
    
@@ -120,7 +120,7 @@
             $('.odd').empty();
             for (var i = 0; i < msg.length; i++) {
 
-                            $('tbody').first().append('<tr class="odd"><td>'+msg[i].goods_id+'</td><td>'+'<img style="width: 50px; height: 50px" src="/goods_img/'+msg[i].goods_img+'">'+'</td><td>'+msg[i].goods_name+'</td><td>'+msg[i].goods_sn+'</td><td>'+msg[i].cat_id+'</td><td>'+msg[i].shop_price+'/元</td><td><span class="btn-group"><a href="/Admin/cate/32/edit" class="btn btn-small"><i class="icon-search"></i></a><a href="/Admin/cate/32/edit" class="btn btn-small"><i class="icon-pencil"></i></a><form action="/Admin/cate/32" method="post"><input type="hidden" name="_token" value="R3b0b0D6rXERKWvTlHQdZ4zXqlwOBM2QEDxSkNUz"><input type="hidden" name="_method" value="DELETE"><button type="submit" class="btn btn-small"><i class="icon-trash"></i></button></form></span></td></tr>')
+                            $('tbody').first().append('<tr class="odd"><td>'+msg[i].goods_id+'</td><td>'+'<img style="width: 50px; height: 50px" src="/goods_img/'+msg[i].goods_img+'">'+'</td><td>'+msg[i].goods_name+'</td><td>'+msg[i].goods_sn+'</td><td>'+msg[i].cat_id+'</td><td>'+msg[i].shop_price+'/元</td><td><span class="btn-group"><a href="/Admin/goods/'+msg[i].goods_id+'" class="btn btn-small"><i class="icon-search"></i></a><a href="/Admin/goods/'+msg[i].goods_id+'" class="btn btn-small"><i class="icon-pencil"></i></a><form action="/Admin/cate/32" method="post"><input type="hidden" name="_token" value="R3b0b0D6rXERKWvTlHQdZ4zXqlwOBM2QEDxSkNUz"><input type="hidden" name="_method" value="DELETE"><button type="submit" class="btn btn-small"><i class="icon-trash"></i></button></form></span></td></tr>')
      
            }
    

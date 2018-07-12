@@ -28,8 +28,8 @@ class GoodsController extends Controller
 
         $name = isset($_GET['name']) ? $_GET['name'] : null;
         if (isset($name)) {
-            
-            $data = DB::select('select * from s_goods where goods_name like "%?%"',[$name]);
+             $p = '%'.$name.'%';
+            $data = DB::select('select * from s_goods where goods_name like ?',[$p]);
         }
 
         // dd($data);
@@ -272,6 +272,12 @@ class GoodsController extends Controller
     public function show($id)
     {
         //
+        // echo $id;
+        //调取对应的商品详情
+        $good = Goods::find($id);
+        // dump($good -> goods_images);
+        // dd($good);
+        return view('admin/goods/edit',['good' => $good]);
     }
 
     /**
