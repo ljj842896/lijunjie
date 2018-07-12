@@ -140,22 +140,30 @@
             </div>
             
             <!-- User Information and functions section -->
-            <div id="mws-user-info" class="mws-inset">
-            
-            	<!-- User Photo -->
-            	<div id="mws-user-photo">
-                	<img src="/a/example/profile.jpg" alt="User Photo">
+            <div id="mws-user-info" class="mws-inset" style="height: 40px">
+       
+                <!-- User Photo -->
+                <div id="mws-user-photo">
+                    <img src="/uploads/{{session('data')->user_pic}}" style="height: 30px" walt="User Photo">
                 </div>
                 
                 <!-- Username and Functions -->
                 <div id="mws-user-functions">
                     <div id="mws-username">
-                        你好, 管理员
+                        {{session('data')->user_name}}  
+                        @if(session('data')->qx == 1)
+                            超管
+                        @elseif(session('data')->qx == 2))
+                           管理员
+                        @else
+                           普通用户
+                        @endif
+                            
                     </div>
                     <ul>
-                    	<li><a href="#">头像</a></li>
-                        <li><a href="#">修改密码</a></li>
-                        <li><a href="index.html">退出</a></li>
+                        <li><a href="/Admin/infor">个人中心</a></li>
+                        <li><a href="/Admin/repass">修改密码</a></li>
+                        <li><a href="/Admin/loginout">退出</a></li>
                     </ul>
                 </div>
             </div>
@@ -193,15 +201,15 @@
                     <li class="active"><a href="/Admin"><i class="icon-home"></i>首页</a></li>
                     <li>
                         <a href="#"><i class="icon-user"></i> 用户管理</a>
-                        <ul class="closed">
-                            <li><a href="/a/form_layouts.html"><i class="icon-add-contact"></i> 添加用户</a></li>
-                            <li><a href="/a/form_layouts.html"><i class="icon-users"></i> 用户列表</a></li>
+                        <ul>
+                            <li><a href="/Admin/user/create"><i class="icon-add-contact"></i> 添加用户</a></li>
+                            <li><a href="/Admin/user"><i class="icon-users"></i> 用户列表</a></li>
                             
                         </ul>
                     </li>
                     <li>
                         <a href="#"><i class="icon-shopping-cart"></i> 商品管理</a>
-                        <ul class="closed">
+                        <ul>
                             <li><a href="/a/form_layouts.html"><i class="icon-indent-left"></i> 发布商品</a></li>
                             <li><a href="/a/form_layouts.html"><i class="icon-list"></i> 商品管理</a></li>
                             
