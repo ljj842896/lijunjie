@@ -127,7 +127,7 @@ class UserController extends Controller
           $data->sex=$request['sex'];
           $data->phone=$request['phone'];
           $data->user_pic=$request['user_pic'];
-          $data->user_address=$request['user_pic'];
+          $data->user_address=$request['user_address'];
           $data->qx=$request['qx'];
         
            
