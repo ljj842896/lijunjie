@@ -22,7 +22,7 @@ class UserController extends Controller
           $users = user::all();
            
           return view('admin.user.index',['users'=>$users]);
-
+          
     }
 
     /**

@@ -278,7 +278,7 @@ class GoodsController extends Controller
         $good = Goods::find($id);
         // dump($good -> goods_images);
         // dd($good);
-        return view('admin/goods/edit',['good' => $good]);
+        return view('admin/goods/edit',['good' => $good,'cates' => self::getCates()]);
     }
 
     /**
