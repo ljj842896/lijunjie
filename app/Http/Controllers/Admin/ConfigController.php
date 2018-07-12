@@ -17,7 +17,8 @@ class ConfigController extends Controller
     public function index()
     {
         //
-        return view('admin.sys.config');
+        $config = Config::find(1);
+        return view('admin.sys.index',['config' => $config]);
     }
 
     /**
@@ -28,6 +29,7 @@ class ConfigController extends Controller
     public function create()
     {
         //
+        return view('admin.sys.config');
     }
 
     /**
