@@ -18,6 +18,7 @@ class IndexController extends Controller
     {
         //
         // echo "string";
+        
         return view('admin.index');
     }
 

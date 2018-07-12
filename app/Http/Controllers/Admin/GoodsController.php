@@ -90,6 +90,7 @@ class GoodsController extends Controller
         // echo "string";
         // dd($goods);
             $goods = goods::paginate(4);
+            // dd(session('data'));
         return view('admin/goods/index',['goods' => $goods,'cates' => self::getCates()]);
          
     }
