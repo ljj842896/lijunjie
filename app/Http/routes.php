@@ -45,8 +45,23 @@ Route::resource('Admin/cate','Admin\CateController');
 //商品管理查询ajax专用路由
 Route::get('/ajax','Admin\GoodsController@ajaxGoods');
 
+//商品相册的图片添加
+Route::post('/goodimgadd','Admin\GoodsController@goodimg_add');
 
+//商品相册的图片删除
+Route::get('/goodimgdel/{imgId}','Admin\GoodsController@goodimg_del');
 
+//商品回收站路由
+Route::get('Admin/rec/index','Admin\RecycleController@index');
+
+//商品回收站回复路由
+Route::get('Admin/rec/del/{id}','Admin\RecycleController@destroy');
+
+//回收站商品永久删除
+Route::get('Admin/rec/remove/{id}','Admin\RecycleController@create');
+
+//商品上架路由
+Route::get('Admin/rec/store/{id}','Admin\RecycleController@store');
 
 
 //李俊杰区域-----------------end----------------------------

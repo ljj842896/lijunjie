@@ -85,10 +85,8 @@
      			<font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input type="submit" value="提交" class="btn btn-danger"></font></font>
      			<input type="reset" value="Reset" class="btn ">
      		</div>
-     	</form>
-	 <div style="position: absolute;left: 400px;top: 380px">
-	 	
-	 </div>
+  </form>
+ 
 </div>
 </div>
 
