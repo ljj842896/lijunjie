@@ -275,9 +275,10 @@ class GoodsController extends Controller
         //
         // echo $id;
         //调取对应的商品详情
-        $good = Goods::find($id);
+        $good = Goods::find($id); 
         // dd($good -> goods_images);
         return view('admin/goods/show',['good' => $good]);
+ 
     }
 
     /**

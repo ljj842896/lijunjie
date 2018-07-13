@@ -26,10 +26,17 @@
 
 
                         网站开关：　
+<<<<<<< HEAD
                         <input type="radio" name="sys_close" disabled="disabled" value="y" {{ $config -> sys_close == 'y' ? 'checked' : ''}}>
 
 
                         <input type="radio" name="sys_close" disabled="disabled" value="n" {{ $config -> sys_close == 'n' ? 'checked' : ''}}>
+=======
+                        开启：<input type="radio" name="sys_close" disabled="disabled" value="y" {{ $config -> sys_close == 'y' ? 'checked' : ''}}>
+
+
+                        关闭：<input type="radio" name="sys_close" disabled="disabled" value="n" {{ $config -> sys_close == 'n' ? 'checked' : ''}}>
+>>>>>>> origin/liudahai
 
                         
                      

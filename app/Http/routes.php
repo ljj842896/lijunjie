@@ -102,7 +102,9 @@ Route::get('home/','HomeController@index');
 //网站配置
 Route::resource('Admin/config','Admin\ConfigController');
 
-
+//前台订单管理路由
+Route::resource('Home/order','Home\OrderController');
+Route::get('Home/orderdetails','Home\OrderController@details');
 
 
 

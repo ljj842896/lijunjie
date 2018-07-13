@@ -64,7 +64,7 @@
                          @endif
                 </td>
 				<td>{{ $orders -> rece_user_tel }}</td>
-				<td>{{ $orders -> rece_user_name }}</td>
+				<td>{{ $orders -> user_order -> user_name }}</td>
 				<td>{{ $orders -> rece_user_address }}</td>
 			</tr>
 		</tbody>
