@@ -29,31 +29,42 @@
 				<td>{{ $orders -> order_time }}</td>
 				<td>{{ $orders -> goods_name }}</td>
 				<td>{{ $orders -> shop_price }}</td>
-				<td>{{ $orders -> goods_attr_color }}</td>
+				<td>
+					@if($orders -> goods_attr_color == 1)
+						红色
+					@elseif($orders -> goods_attr_color == 2)
+						橙色
+					@elseif($orders -> goods_attr_color == 3)
+						黄色
+					@elseif($orders -> goods_attr_color == 4)
+						绿色
+					@elseif($orders -> goods_attr_color == 5)
+						天蓝色
+					@elseif($orders -> goods_attr_color == 6)
+						海蓝色
+					@elseif($orders -> goods_attr_color == 7)
+						紫色
+					@endif
+				</td>
 				<td>{{ $orders -> goods_attr_rule }}</td>
 				<td>
 					<img src="/uploads/orders/{{ $orders -> goods_img }}" style="height:50px;width:70px">
 				</td>
 				<td>{{ $orders -> order_count }}</td>
 				<td>{{ $orders -> order_amount }}</td>
-				<?php
-                        switch ($orders['order_status']) {
-                            case 1:
-                                echo '<td>未付款</td>';
-                                break;
-                            case 2:
-                                echo '<td>已付款</td>';
-                                break;
-                            case 3:
-                                echo '<td>已发货</td>';
-                                break;
-                            default:
-                                echo '<td>已收货</td>';
-                                break;
-                         }
-                    ?>
+				<td>
+                        @if($orders['order_status'] == 1)
+                            未付款
+                        @elseif($orders['order_status'] == 2)
+                            已付款
+                        @elseif($orders['order_status'] == 3)
+                            已发货
+                        @elseif($orders['order_status'] == 4)
+                            已收货
+                         @endif
+                </td>
 				<td>{{ $orders -> rece_user_tel }}</td>
-				<td>{{ $orders -> rece_user_name }}</td>
+				<td>{{ $orders -> user_order -> user_name }}</td>
 				<td>{{ $orders -> rece_user_address }}</td>
 			</tr>
 		</tbody>

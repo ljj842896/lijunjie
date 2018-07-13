@@ -23,7 +23,7 @@
     			</div>
     		</div>
     		<div class="mws-button-row">
-    			<font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input type="submit" value="修改" class="btn btn-danger"></font></font>
+    			<font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input type="submit" value="执行添加" class="btn btn-danger"></font></font>
     		</div>
     	</form>
     </div>    	

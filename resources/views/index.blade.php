@@ -201,7 +201,7 @@
                     <li class="active"><a href="/Admin"><i class="icon-home"></i>首页</a></li>
                     <li>
                         <a href="#"><i class="icon-user"></i> 用户管理</a>
-                        <ul>
+                        <ul class="closed">
                             <li><a href="/Admin/user/create"><i class="icon-add-contact"></i> 添加用户</a></li>
                             <li><a href="/Admin/user"><i class="icon-users"></i> 用户列表</a></li>
                             

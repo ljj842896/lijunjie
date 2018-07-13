@@ -26,22 +26,17 @@
                     <td>{{ $v -> order_time }}</td>
                     <td>{{ $v -> goods_name }}</td>
                     <td>{{ $v -> order_count }}</td>
-                    <?php
-                        switch ($v['order_status']) {
-                            case 1:
-                                echo '<td>未付款</td>';
-                                break;
-                            case 2:
-                                echo '<td>已付款</td>';
-                                break;
-                            case 3:
-                                echo '<td>已发货</td>';
-                                break;
-                            default:
-                                echo '<td>已收货</td>';
-                                break;
-                         }
-                    ?>
+                    <td>
+                        @if($v['order_status'] == 1)
+                            未付款
+                        @elseif($v['order_status'] == 2)
+                            已付款
+                        @elseif($v['order_status'] == 3)
+                            已发货
+                        @elseif($v['order_status'] == 4)
+                            已收货
+                         @endif
+                    </td>
                     <td>{{ $v -> order_amount }}</td>
                     <td>
 						<a href="/Admin/order/details/{{ $v -> order_id }}" class="btn btn-info" style="display:inline;">查看</a>&nbsp
