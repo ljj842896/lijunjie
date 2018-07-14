@@ -144,13 +144,15 @@
        
                 <!-- User Photo -->
                 <div id="mws-user-photo">
-                    <img src="/uploads/{{session('data')->user_pic}}" style="height: 30px" walt="User Photo">
+                    <img src="/uploads/{{isset(session('data')->user_pic) ? session('data')->user_pic : '20180713Kv1mendwvD.JPG'}}" style="height: 30px" walt="User Photo">
                 </div>
                 
                 <!-- Username and Functions -->
+                    @if(session('data'))
                 <div id="mws-user-functions">
+
                     <div id="mws-username">
-                        {{session('data')->user_name}}  
+                        {{session('data')->user_name}}   
                         @if(session('data')->qx == 1)
                             超管
                         @elseif(session('data')->qx == 2))
@@ -165,7 +167,15 @@
                         <li><a href="/Admin/repass">修改密码</a></li>
                         <li><a href="/Admin/loginout">退出</a></li>
                     </ul>
+                    
                 </div>
+                    @else
+                <div id="mws-user-functions">
+                    <div id="mws-username">
+                    <a href="/Admin/login">请登录！</a>
+                    </div>
+                </div>
+                    @endif
             </div>
         </div>
 
@@ -254,8 +264,7 @@
                     </li>
 
 
-                    <li><a href="/a/charts.html"><i class="icon-graph"></i> 统计图表</a></li>
-                    <li><a href="/a/calendar.html"><i class="icon-calendar"></i> 日历</a></li>
+                    
                 
                     <li><a href="/Admin/config"><i class="icon-wrench"></i> 网站配置</a></li>
                     

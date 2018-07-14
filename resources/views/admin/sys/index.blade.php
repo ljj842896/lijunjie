@@ -14,10 +14,10 @@
     		<div class="mws-form-inline">
     			<div class="mws-form-row">
     				<div class="mws-form-item">
-                        网站标题：<input type="text" class="small" name="sys_title" value="{{ isset($config -> sys_title) ? $config -> sys_title :''}}" disabled="disabled"><br><br>
+                        网 站 标 题 ：<input type="text" class="small" name="sys_title" value="{{ isset($config -> sys_title) ? $config -> sys_title :''}}" disabled="disabled"><br><br>
                         网站关键字：<input type="text" class="small" name="sys_keyword" value="{{ isset($config -> sys_keyword) ? $config -> sys_keyword : ''}}" disabled="disabled"><br><br>
-                        网站备案：<input type="text" class="small" name="sys_file" value="{{ isset($config->sys_file) ? $config->sys_file : ''}}" disabled="disabled"><br><br>
-                        网站logo： 
+                        网 站 备 案 ：<input type="text" class="small" name="sys_file" value="{{ isset($config->sys_file) ? $config->sys_file : ''}}" disabled="disabled"><br><br>
+                        网 站 logo ： 
                         @if(isset($config -> sys_log))
                         <img width="100px" height="100px" src="/uploads/sys/{{ $config -> sys_log }}" alt="">
                         @endif
@@ -25,18 +25,13 @@
                         <br><br>
 
 
-                        网站开关：　
-<<<<<<< HEAD
+                        网 站 开 关：　
+
                         <input type="radio" name="sys_close" disabled="disabled" value="y" {{ $config -> sys_close == 'y' ? 'checked' : ''}}>
 
 
                         <input type="radio" name="sys_close" disabled="disabled" value="n" {{ $config -> sys_close == 'n' ? 'checked' : ''}}>
-=======
-                        开启：<input type="radio" name="sys_close" disabled="disabled" value="y" {{ $config -> sys_close == 'y' ? 'checked' : ''}}>
 
-
-                        关闭：<input type="radio" name="sys_close" disabled="disabled" value="n" {{ $config -> sys_close == 'n' ? 'checked' : ''}}>
->>>>>>> origin/liudahai
 
                         
                      

@@ -25,16 +25,11 @@ class StoreBlogPostRequest extends Request
     {
         return [
 
-            'user_name' => [
-            'required',
-            'regex:/^[a-zA-Z0-9_-]{4,16}$/'
-              ],
+            'user_name' => 'required|regex:/^[a-zA-Z0-9_-]{4,16}$/',
             
-            'password' => array('regex:/^[\w_-]{6,16}$/'),
-          
-            'password' =>'confirmed',
+            'password' =>'confirmed|regex:/^[\w_-]{6,16}$/',
 
-            'email'=> array('regex:/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/'),
+            'email'=> 'email',
 
             'phone'=> array('regex:/^[1][3,4,5,7,8][0-9]{9}$/'),
              
@@ -53,7 +48,7 @@ class StoreBlogPostRequest extends Request
              'password.confirmed'=>'两次密码不一致！',
 
              //邮箱验证
-             'email.regex'=>'请输入正确的邮箱格式',
+             'email.email'=>'请输入正确的邮箱格式',
               //手机验证
              'phone.regex'=>'请输入正确的手机格式', 
         ];

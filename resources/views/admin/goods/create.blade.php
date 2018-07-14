@@ -2,6 +2,9 @@
 
 @section('content')
  
+<script type="text/javascript" src="/u/utf8-php/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+<script type="text/javascript" src="/u/utf8-php/ueditor.all.js"></script>
  
 
 
@@ -51,7 +54,7 @@
 
                                                                                             
                                          
-                              尺&nbsp;&nbsp; 寸 :<input name="goods_attr_rule" type="text" class="small" value="{{old('goods_attr_rule')}}"><br><br>
+                              尺 &nbsp; &nbsp;&nbsp; 寸 : <input name="goods_attr_rule" type="text" class="small" value="{{old('goods_attr_rule')}}"><br><br>
                               关键字:　<input name="keywords" type="text" name="keywords" class="small" value="{{old('keywords')}}"><br><br>
                               库　存:　<input name="goods_number" type="text" class="small" value="{{old('goods_number')}}"><br><br>
                               市场价:　<input name="market_price" type="text" class="small" value="{{old('market_price')}}"><br><br>
@@ -60,12 +63,24 @@
                                         <div class="fileinput-holder" style="position: absolute;left: 200px;top: 400px"> <span class="fileinput-btn btn" type="button" style="display:block; overflow: hidden; position: absolute; top: 0; right: 0; cursor: pointer;">代表图片<input name="goods_img" type="file" style="position: absolute; top: 0px; right: 0px; margin: 0px; cursor: pointer; font-size: 999px; opacity: 0; z-index: 999;"></span></div> 
 
                                         <div class="fileinput-holder" style="position: absolute;left: 400px;top: 400px"> <span class="fileinput-btn btn" type="button" style="display:block; overflow: hidden; position: absolute; top: 0; right: 0; cursor: pointer;">宝贝相册<input name="img_url[]" type="file" multiple style="position: absolute; top: 0px; right: 0px; margin: 0px; cursor: pointer; font-size: 999px; opacity: 0; z-index: 999;"></span></div> 
-                                       
+                                       <!-- {{old('goods_brief') ? old('goods_brief') : '请介绍您的宝贝...'}}  -->
                                         <br><br>
                                         <br><br>
-                                        商品描述:<textarea name="goods_brief" style="width: 55%" rows="" cols="" class="required large"> {{old('goods_brief') ? old('goods_brief') : '请介绍您的宝贝...'}}                                           
- 
-                                       </textarea>
+                                        商品描述:
+
+                                       <!-- 加载编辑器的容器 -->
+                                        <script id="container" class="small" name="goods_brief" style="width: 80%;height: 150px" type="text/plain">
+                                          这里写你的初始化内容
+                                        </script>
+
+                                        <!-- 实例化编辑器 -->
+                                        <script type="text/javascript">
+                                            var ue = UE.getEditor('container',{
+                                              toolbars: [
+                                                            ['fullscreen', 'snapscreen','italic','underline','blockquote','selectall','date','time','fontfamily','fontsize','simpleupload','insertimage','emotion','spechars','searchreplace','map','forecolor','backcolor','wordimage','touppercase','music','inserttable','customstyle','indent', 'source', 'undo', 'redo', 'bold']
+                                                  ]
+                                            });
+                                        </script>
                                 
                               <div class="mws-form-row">
                                             <label class="mws-form-label">是否上架： <span class="required">*</span></label>

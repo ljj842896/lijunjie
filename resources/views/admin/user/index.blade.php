@@ -5,7 +5,7 @@
                 	<div class="mws-panel-header" style="height: 50px">
                     	<span><i class="icon-users"></i>用户列表</span>
                     </div>
-                    <div class="mws-panel-body no-padding">
+                    <div class="mws-panel-body no-padding" style="display: online;">
                         <table class="mws-table">
                             <thead>
                                 <tr>
@@ -43,22 +43,20 @@
                                     <td>
                                     	@if($y->qx == 1)
                                           超管
-                                        @elseif($y->sex == 2)
+                                        @elseif($y->qx == 2)
                                           管理员
-                                        @elseif($y->sex == 2)
+                                        @elseif($y->qx == 2)
                                           普通用户
                                         @endif
                                     </td>
 
-                                 <td>
+                                    <td width="100px">
 
-                                    <a href="/Admin/user/{{$y->user_id}}/edit" class="btn btn-warning">修改</a>
-
-									<form action="/Admin/user/{{$y->user_id}}" method="post">
-											{{ csrf_field() }}
-											{{ method_field('DELETE') }}
-										<input type="submit" class="btn btn-danger" value="删除">
-									</form>
+                                        <span class="btn-group">
+                                           
+                                          <a href="/Admin/user/{{$y->user_id}}/edit" class="btn btn-small"><i class="icon-pencil"></i></a>
+                                          <form action="/Admin/user/{{$y->user_id}}" method="post">{{csrf_field()}}{{method_field('DELETE')}}<button type="submit" class="btn btn-small"><i class="icon-trash"></i></button></form>
+                                        </span>
   
                                     </td>        
                                 </tr>

@@ -7,17 +7,7 @@
                              
  <div class="container">                
  <div class="mws-panel grid_8" >                
-
-
- 	                    @if (count($errors) > 0)
-						    <div class="alert alert-danger">
-						        <ul>
-						            @foreach ($errors->all() as $error)
-						                <li>{{ $error }}</li>
-						            @endforeach
-						        </ul>
-						    </div>
-				    @endif
+ 
     <div class="mws-panel-body no-padding">         
 	               <div class="mws-panel-header" style="height: 50px">
                     	<span><i class="icon-pencil"></i>用户添加</span>

@@ -60,7 +60,8 @@
                               本店售价:<input name="shop_price" type="text" class="small" value="{{ $good -> shop_price }}/元" disabled><br><br>
                                        
                                         <br><br>
-                                        商品描述:   &nbsp;&nbsp;&nbsp;&nbsp;{{$good -> goods_brief}}                                           
+                                        <div class="text-left text-"><h2>商品详情描述：</h2</div>
+                                        {!!$good -> goods_brief!!}                                           
  
                                         
  
