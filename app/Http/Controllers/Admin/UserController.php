@@ -17,12 +17,21 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-          $users = user::all();
-           
-          return view('admin.user.index',['users'=>$users]);
-          
+             
+            $user_name = $request->input('user_name','');
+          if(empty($user_name)){
+                 $users = user::paginate(4);
+
+             }else{
+
+                 $users = user::where('user_name', 'like',$user_name.'%')->paginate(4);
+                 
+             }
+
+           return view('admin.user.index',['users'=>$users,'user_name'=>$user_name]);
+
     }
 
     /**
@@ -32,8 +41,15 @@ class UserController extends Controller
      */
     public function create()
     {
-        //echo "string";
+         //设置用户登录权限
+         if (session('data')->qx=='1') {
+           
           return view('admin.user.create');
+
+         }else{
+
+             return back()->with('error','当前用户没有添加权限');
+         }
     }
 
     /**
@@ -41,6 +57,7 @@ class UserController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     * 执行添加
      */
      public function store(StoreBlogPostRequest $request)
     {
@@ -52,7 +69,17 @@ class UserController extends Controller
             //把密码进行加密
             $data['password'] = Hash::make( $password);
             
-           
+            
+            if (empty($data['user_pic'])){
+               
+                   
+                 return back()->with('error',' 请添加头像');
+                   
+ 
+            }else{
+              
+
+
             /**/
             //复制变量
             $profile = $data['user_pic'];
@@ -68,6 +95,7 @@ class UserController extends Controller
             $profile -> move('./uploads/',$name);
             //使用模板存储
            $data = user::create($data);
+
             
               if($data){
                   
@@ -78,6 +106,7 @@ class UserController extends Controller
               }
 
           
+            }
     }
 
     /**
@@ -88,7 +117,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+           $data = user::find($id);
+
+           return view('admin.user.show',['data'=>$data]);
     }
 
     /**
@@ -96,6 +127,7 @@ class UserController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * 跳转用户修改页面
      */
     public function edit($id)
     {
@@ -111,33 +143,50 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     * //$user = Admin::find(1);
-    //$user->username = 'jack';
-    //$bool = $user->save();
-    //dd($bool);
+     * 执行修改
      */
     public function update(StoreBlogPostRequest $request, $id)
     {
             
 
-          $data = user::find($id);
+            $data = user::find($id);
 
-          $data->user_name=$request['user_name'];
-          $data->email=$request['email'];
-          $data->sex=$request['sex'];
-          $data->phone=$request['phone'];
-          $data->user_pic=$request['user_pic'];
-          $data->user_address=$request['user_address'];
-          $data->qx=$request['qx'];
-        
-           
-            if($data -> save()){
-                  
+            $data->user_name=$request['user_name'];
+            $data->email=$request['email'];
+            $data->sex=$request['sex'];
+            $data->phone=$request['phone'];
+            $data->user_address=$request['user_address'];
+            $data->qx=$request['qx'];
+             
+             if(empty($request['user_pic'])){
+                
+                 $data->user_pic = session('data')->user_pic;
+
+             }else{
+
+
+                $profile=$request['user_pic'];
+                //获取图片的后缀名
+                $ext = $profile->getClientOriginalExtension();
+                // 处理文件名称随机起名
+                $temp_name = str_random(20);
+                //拼接全名
+                $name =  $temp_name.'.'.$ext;
+                //重新赋值方便以存储
+                
+                //使用move进行上传设置上传的地址和 文件的名字
+                $profile -> move('./uploads/',$name);
+                $data->user_pic=$name;
+              
+             } 
+              
+            if ($data -> save())
+            {
                    return redirect('/Admin/user')->with('success','修改成功');
 
-              }else{
+            }else{
                    return back()->with('error','修改失败');
-              }
+            }
          
 
     }
@@ -147,17 +196,26 @@ class UserController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * 执行删除
      */
     public function destroy($id)
     {
+ 
+              if (session('data')->qx=='3') {
 
-         $data = user::where('user_id','=',$id)->delete();
-          if($data){
-                  
-                   return redirect('/Admin/user')->with('success','删除成功');
+                return back()->with('error','当前用户没有删除权限');
 
               }else{
-                   return back()->with('error','删除失败');
+
+                  $data = user::where('user_id','=',$id)->delete();
+
+                      if($data)
+                     {
+                           return redirect('/Admin/user')->with('success','删除成功');
+
+                      }else{
+                           return back()->with('error','删除失败');
+                      }
               }
     }
 }

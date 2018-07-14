@@ -68,12 +68,17 @@ Route::get('Admin/rec/store/{id}','Admin\RecycleController@store');
 
 //叶贵丰区域-----------------start---------------------------------
 Route::get('Admin/login','Admin\LoginController@login');//后台登录页面
+
 Route::post('Admin/exect','Admin\LoginController@exect');//执行登录
-Route::get('Admin/loginout','Admin\LoginController@loginout');//退出登录
-Route::get('Admin/infor','Admin\LoginController@infor');//跳转个人信息页面
 Route::post('Admin/revise','Admin\LoginController@revise');//修改个人信息
-Route::get('Admin/repass','Admin\LoginController@repass');//修改密码頁面
 Route::post('Admin/reset','Admin\LoginController@reset');//執行修改密码
+//控制登录的中间件
+Route::group(['middleware'=>'login'],function(){
+Route::get('Admin/repass','Admin\LoginController@repass');//修改密码頁面
+Route::get('Admin/serach','Admin\UserController@index');
+Route::get('Admin/infor','Admin\LoginController@infor');//跳转个人信息页面
+Route::get('Admin/loginout','Admin\LoginController@loginout');//退出登录
+});
 
 
 

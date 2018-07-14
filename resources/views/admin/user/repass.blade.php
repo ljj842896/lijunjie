@@ -3,10 +3,10 @@
 
 
 <!--内容区-->
-                    		 
+                         
                              
  <div class="container">                
- 	                  
+                    
  <div class="mws-panel grid_8" >                
 
     <div class="mws-panel-body no-padding">         
@@ -37,12 +37,12 @@
                                         </div>
                                    </div>
                                                                 
-                    		  <input type="hidden" name="user_id" value="{{session('data')->user_id}}">
-                    		</div>
-                    		<div class="mws-button-row text-center">
+                          <input type="hidden" name="user_id" value="{{session('data')->user_id}}">
+                        </div>
+                        <div class="mws-button-row text-center">
                                    <input type="submit" value="修改" class="btn btn-success">
                                    
-                    			 <a href="/Admin/" class="btn btn-success">退出</a> 
+                           <a href="" class="btn btn-success">退出</a> 
                               </div>
                          </form>
                     </div>

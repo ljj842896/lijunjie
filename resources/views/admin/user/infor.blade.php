@@ -3,10 +3,10 @@
 
 
 <!--内容区-->
-                    		 
+                         
                              
  <div class="container">                
- 	                  
+                    
  <div class="mws-panel grid_8" >                
 
 
@@ -39,9 +39,10 @@
                                         <label class="mws-form-label">个人头像:</label>
                                         <img src="/uploads/{{session('data')->user_pic}}" style="width: 100px">
                                         <div class="mws-form-item" style="width: 200px">
-                                              <input type="file" class="small"  name="user_pic" value="" style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none;">
+                                              <input type="file" class="small"  name="user_pic" style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none;">
                                         </div>
                                    </div>
+
                                    <div class="mws-form-row">
                                         <label class="mws-form-label">邮箱:</label>
                                         <div class="mws-form-item">
@@ -61,33 +62,33 @@
                                    </div>
                                 
                                    <div class="mws-form-row">
-                                        <label class="mws-form-label">地址:</label>
-                                        <div class="mws-form-item">
-                                             <input type="text" class="small" name="user_address" value="{{session('data')->user_address}}" style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none">
-                                        </div>
-                                   </div>
+                                    <label class="mws-form-label">地址 <span class="required">*</span></label>
+                                    <div class="mws-form-item">
+                                        <textarea name="user_address" rows="" cols="" class="required large" value="{{session('data')->phone}}" style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none">{{session('data')->phone}}</textarea>
+                                    </div>
+                                </div>
                                    
                                 
 
 
 
-                    			<div class="mws-form-row">
-                    				<label class="mws-form-label">性别:</label>
-                    				<div class="mws-form-item clearfix">
-                    					<ul class="mws-form-list inline">
-                    						<li><input type="radio" name="sex" @if(session('data')->qx==0) checked @else @endif value="0"> <label>保密</label></li>
-                    						<li><input type="radio" name="sex" @if(session('data')->qx==1) checked @else @endif  value="1"> <label>男</label></li>
-                    						<li><input type="radio" name="sex" value="2" @if(session('data')->qx==1) checked @else @endif> <label>女</label></li>
-                    						
-                    					</ul>
-                    				</div>
-                    			</div>  
-                    		  <input type="hidden" name="user_id" value="{{session('data')->user_id}}">
-                    		</div>
-                    		<div class="mws-button-row text-center">
+                          <div class="mws-form-row">
+                            <label class="mws-form-label">性别:</label>
+                            <div class="mws-form-item clearfix">
+                              <ul class="mws-form-list inline">
+                                <li><input type="radio" name="sex" @if(session('data')->qx==0) checked @else @endif value="0"> <label>保密</label></li>
+                                <li><input type="radio" name="sex" @if(session('data')->qx==1) checked @else @endif  value="1"> <label>男</label></li>
+                                <li><input type="radio" name="sex" value="2" @if(session('data')->qx==1) checked @else @endif> <label>女</label></li>
+                                
+                              </ul>
+                            </div>
+                          </div>  
+                          <input type="hidden" name="user_id" value="{{session('data')->user_id}}">
+                        </div>
+                        <div class="mws-button-row text-center">
                                    <input type="submit" value="修改" class="btn btn-success">
                                    
-                    			 <a href="/Admin" class="btn btn-success">退出</a> 
+                           <a href="" class="btn btn-success">退出</a> 
                               </div>
                          </form>
                     </div>

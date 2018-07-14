@@ -35,46 +35,23 @@ class LoginController extends Controller
     public function exect(LoginPostRequest $request)
     {
         //获取对应的密码
-        $uname = $request->input('user_name');   
+       $uname = $request->input('user_name');   
         $passwords = $request->input('password');
         $data = user::where('user_name','=',$uname)->first();
         //获取对应的值
        
-        if (Hash::check($passwords,$data['password'])) {
-              
+      
               session(['data'=>$data]);
 
               return redirect('/Admin')->with('success','登录成功');
-        }else{
-                 if(!$data)
-                 {
-                      
-                      return back()->with('error','用户名不存在');
-
-                  }
-
-                  if(!Hash::check($passwords,$data['password']))
-                   {
-                       return back()->with('error','密码不对');
-
-                   }
-                
-            }
-
-       
+      
     }
     //退出登录
     public function loginout()
     {
 
          $data = session()->flush();
-
-         if (empty($data)) {
-                return redirect('/Admin/login');
-         }else{
-            
-         }
-           
+         return redirect('/Admin/login');
     }
 
 
@@ -88,21 +65,45 @@ class LoginController extends Controller
     public function revise(InforPostRequest $request){
 
        
-        $data = $request->except('_token');
-        $id = $data['user_id'];
-        
-         $aaa=user::find($id)->update($data);
-  
-      
-       if($aaa){
+                $data = $request->except('_token');
+                $id = $data['user_id'];
+                 
+               
+            if (empty($request['user_pic']))
+            {
+
+                $data['user_pic'] = session('data')->user_pic;
+
+            }else{
+            
+                $profile = $data['user_pic'];
+                //获取图片的后缀名
+                $ext = $profile->getClientOriginalExtension();
+                // 处理文件名称随机起名
+                $temp_name = str_random(20);
+                //拼接全名
+                $name =  $temp_name.'.'.$ext;
+                //重新赋值方便以存储
+                $data['user_pic']=$name;
+                //使用move进行上传设置上传的地址和 文件的名字
+                $profile -> move('./uploads/',$name);
+
+     
+             }
+               
+              
+                $all=user::find($id)->update($data);
+
+            if($all){
                   
                    return redirect('/Admin')->with('success','修改成功');
 
               }else{
 
                    return back()->with('error','修改失败');
+              }
          }
-    }
+    
 
     public function repass()
     {
@@ -114,30 +115,31 @@ class LoginController extends Controller
     public function reset(Request $request)
     {
 
-        $data = $request->all();
-        $id= $data['user_id'];
-        $users = user::find($id);
-        $pass = $users->password;//原密碼
-        $oldpass = $data['password'];
-       if(Hash::check($oldpass,$pass))
-        { 
-          if($data['password'] !== $data['newpassword'])
-            {
-               
-                $users ->password = Hash::make($data['newpassword']);
-                $users ->save();
+            $data = $request->all();
+            $id= $data['user_id'];
+            $users = user::find($id);
+            $pass = $users->password;//原密碼
+            $oldpass = $data['password'];
 
-                return redirect('/Admin')-> with('success','修改成功');   
+           if(Hash::check($oldpass,$pass))
+            { 
+              if($data['password'] !== $data['newpassword'])
+                {
+                   
+                    $users ->password = Hash::make($data['newpassword']);
+                    $users ->save();
 
-            }else{
-                return back()->with('error','密码重复不正确'); 
-                 }
+                    return redirect('/Admin')-> with('success','修改成功');   
 
-            }else{
+                }else{
+                    return back()->with('error','新密码不能与原密码重复'); 
+                     }
 
-                return back()->with('error','原密码不正确');
-           }   
-        }
+                }else{
+
+                    return back()->with('error','原密码不正确');
+               }   
+            }
     
 
 }

@@ -27,7 +27,7 @@ class InforPostRequest extends Request
 
             'user_name' => [
             'required',
-            'regex:/^[a-zA-Z0-9_-]{4,16}$/'
+            'regex:/[^a-zA-Z0-9_^\x00-\x80]+/'
               ],
             
             'email'=> array('regex:/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/'),
@@ -42,7 +42,7 @@ class InforPostRequest extends Request
         return [
               //用户名
              'user_name.required'=>'用户名不能为空',
-             'user_name.regex'=>'用户名请设置字母，数字，下划线',
+             'user_name.regex'=>'用户名请以汉字~字母~数字命名有效字符命名',
              'user_address.required'=>'请输入有效地址',
              //邮箱验证
              'email.regex'=>'请输入正确的邮箱格式',
