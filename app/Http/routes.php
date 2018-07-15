@@ -30,8 +30,11 @@ Route::get('/', function () {
 
 //李俊杰区域-----------------start---------------------------------
 
-//首页路由
-Route::resource('Admin/','Admin\IndexController');
+//后台首页路由
+Route::resource('Admin','Admin\IndexController');
+
+//前台首页路由
+Route::resource('Home','HomeController');
 
 //用户路由
 Route::resource('Admin/user','Admin\UserController');
