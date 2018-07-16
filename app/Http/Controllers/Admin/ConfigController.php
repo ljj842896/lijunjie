@@ -125,26 +125,27 @@ class ConfigController extends Controller
     {
         //
             $data = $request ->except('_token');
+            $config = Config::find(1);
             // dd($data['sys_close']);
          if ($request -> hasFile('sys_log')) 
             {
-                     $config = Config::find(1);
                     //准备文件对象
                     $profile = $request -> file('sys_log');
                     $prefix = time().str_random(10);
                     $ext = $profile -> getClientOriginalExtension();
                     $logo_name = $prefix.'.'.$ext;
                     $profile -> move('./uploads/sys',$logo_name);
+                    $config -> sys_log = $logo_name;
+            }
+
+
                     $config -> sys_title = $data['sys_title'];
                     $config -> sys_keyword = $data['sys_keyword'];
                     $config -> sys_file = $data['sys_file'];
                     $config -> sys_close = $data['sys_close'];
-                    $config -> sys_log = $logo_name;
 
-                    $res = $config -> save();
-                }else{
-                return back() -> with('error','请选择网站Logo图片!');
-            }
+            $res = $config -> save();
+            
             if ($res) {
                 return redirect('/Admin/config') -> with('success','修改配置成功!');
             }else{

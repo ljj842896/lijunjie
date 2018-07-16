@@ -5,20 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
+use App\Models\Cates;
+use App\Models\Goods;
+use App\Models\Links;
+use App\Models\Ads;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     *  首页控制器
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
-        // echo "string";
+        //取数据
+        //分类数据调取
+        // $cates = Cates::get();
+        // dd($cates[0]['cat_name']);
         return view('home.index');
     }
 
@@ -29,7 +34,10 @@ class HomeController extends Controller
      */
     public function create()
     {
-        //
+        
+
+        
+
     }
 
     /**

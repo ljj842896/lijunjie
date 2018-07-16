@@ -34,7 +34,7 @@ Route::get('/', function () {
 Route::resource('Admin/','Admin\IndexController');
 
 //前台首页路由
-Route::resource('Home','HomeController');
+Route::resource('Home/','HomeController');
 
 //用户路由
 Route::resource('Admin/user','Admin\UserController');
@@ -47,6 +47,9 @@ Route::resource('Admin/cate','Admin\CateController');
 
 //商品管理查询ajax专用路由
 Route::get('/ajax','Admin\GoodsController@ajaxGoods');
+
+//分类管理查询ajax专用路由
+Route::get('/catajax','Admin\CateController@ajaxCates');
 
 //商品相册的图片添加
 Route::post('/goodimgadd','Admin\GoodsController@goodimg_add');
@@ -100,8 +103,7 @@ Route::resource('Admin/ad','Admin\AdController');
 Route::resource('Admin/order','Admin\OrderController');
 //订单详情路由
 Route::get('Admin/order/details/{id}','Admin\OrderController@details');
-//前台路由
-Route::get('home/','HomeController@index');
+
 //网站配置
 Route::resource('Admin/config','Admin\ConfigController');
 

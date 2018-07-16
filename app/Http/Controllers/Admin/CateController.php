@@ -17,6 +17,32 @@ class CateController extends Controller
     }
     
 
+
+    public function ajaxCates()
+    {
+         
+        $cat_id = isset($_GET['id']) ? $_GET['id'] : null;
+
+
+        if (isset($cat_id)) {
+            # code...
+            $data = DB::select('select * from s_cates where cat_id = ?',[$cat_id]);
+        }
+
+        $name = isset($_GET['name']) ? $_GET['name'] : null;
+        if (isset($name)) {
+             $p = '%'.$name.'%';
+            $data = DB::select('select * from s_cates where cat_name like ?',[$p]);
+        }
+
+        // dd($data);
+        
+        // dd($data[1]['cat_id']);
+        echo json_encode($data);
+    }
+
+
+
     public static function getCates($id)
     {
         //使用原生函数拼接一个新字段，通过其升序排列         

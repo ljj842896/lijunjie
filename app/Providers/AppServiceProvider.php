@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+use App\Models\Cates;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -13,7 +14,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //共享分类数据
+        $cates = Cates::get();
+
+        view() -> share(['cates' => $cates]);
+
     }
 
     /**

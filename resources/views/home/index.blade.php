@@ -3,62 +3,159 @@
 
 @section('content')
 
+
+<!-- 导航栏start -->
+
+<div class="nav nav-index">
+    <div class="clearfix">
+        <a href="http://www.biyao.com/home/index.html" class="nav-logo"></a>
+      
+        <div class="nav-search">
+            <p>
+                <input type="text" id="searchInput" name="search" placeholder="请输入要搜索的商品"><span id="searchBtn"></span>
+            </p>
+            <ul>
+                <li>伞</li>
+                <li>眼霜</li>
+                <li>口红</li>
+                <li>内裤</li>
+                <li>毛巾</li>
+                <li>行李箱</li>
+                <li>耳机</li>
+                <li>纸尿裤</li>
+                <li>眼镜</li>
+                <li>电动牙刷</li>
+            </ul>
+        </div>
+        <div class="nav-tab">
+            <span><i></i>全部分类</span>
+            <ul>
+                <li><a href="http://www.biyao.com/article/topicList.html">精选专题</a></li>
+                <li class="nav-tab-last"><a href="http://www.biyao.com/classify/newProduct.html">每日上新</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- 导航栏end -->
+
+
+
+
+<div class="banner" style="margin-top: 146px ">
+    <div class="banner-slider">
+
+            <ul>
+                        
+
+                        <!-- 轮播图展示区start -->
+                            <li><a target="_blank" href="http://www.biyao.com/classify/supplier.html?supplierId=130118"><img src="/h/picture/rbacw1thhvearhwqaac2tkrx5us499.jpg" alt="" /></a></li>
+             
+                
+                    
+                    
+                        
+                        
+                            <li><a target="_blank" href="http://www.biyao.com/classify/supplier.html?supplierId=130104"><img src="/h/picture/rbacw1thh7qau16iaadj4dddskk499.jpg" alt="" /></a></li>
+                        
+                        <!-- 轮播图展示区end -->
+            </ul>
+        
+
+
+        <span class="slider-left"></span>
+        <span class="slider-right"></span>
+    </div>
+
+
+    <!-- 商品分类表start -->
+    
+    <ul class="nav-list">
+        
+
+
+            <!-- 一级分类start -->
+            <li class="nav-main">
+                <p>
+                    
+                        
+                        <a href="">
+                            经典男装
+                        </a>
+                    
+                        
+                            <span>/</span>
+                        
+                        <a href="">
+                            潮流女装
+                        </a>
+                    
+                </p>
+                <ul>
+                    
+                    <!-- 二级分类start -->
+                        <li class="nav-sub clearfix">
+                            <a href="http://www.biyao.com/classify/category.html?categoryId=280">
+                                男士内搭
+                            </a>
+                            <i>&gt;</i>
+                            <ul>
+                                
+
+                                <!-- 三级分类start -->
+                                    <li class="nav-item">
+                                        <a href="http://www.biyao.com/classify/category.html?categoryId=281">
+                                            T恤
+                                        </a>
+                                    </li>
+                                   
+                                <!-- 三级分类start -->
+                                
+
+                            </ul>
+                        </li>
+                    <!-- 二级分类start -->
+                  
+                </ul>
+            </li>
+            <!-- 一级分类end -->
+ 
+    </ul>
+    
+    <!-- 商品分类表end -->
+
+
+
+</div>
+
+
+
+
+
+
+
+
 <div class="pd_t10">
     <span class="staticpage none"></span>
-    <div class="home_banner auto"  id="banner_switch">
 
-        <ul class="home_banner_list sizeZero"   id="banner_switch_list">
-            <li class="inline" ><a href="list.html#textiles/index.html?f_upd=fb-291" target="_blank" id="bl_image_url" class="inline" style="background: url('/h/files/data0/web/f2502f959dcb45f0bb5ccea5136e38c7.jpg') center center no-repeat; "></a></li>
-            <li class="inline" ><a href="list.html#mknitwear/index.html?f_upd=fb-356" target="_blank" id="bl_image_url" class="inline" style="background: url('/h/files/data0/web/93b66cf221d848798353494bf1fd008c.jpg') center center no-repeat; "></a></li>
-            <li class="inline" ><a href="list.html#textiles/index.html?f_upd=fb-359" target="_blank" id="bl_image_url" class="inline" style="background: url('/h/files/data0/web/394d9fff0ada45d3941203289f47745d.jpg') center center no-repeat; "></a></li>
-            <li class="inline" ><a href="list.html#/socks/index.html?f_upd=fb-365" target="_blank" id="bl_image_url" class="inline" style="background: url('/h/files/data0/web/2b128c8cb4c34134ac3ddebc1738caf7.jpg') center center no-repeat; "></a></li>
-            <li class="inline" ><a href="list.html#/man/index.html?f_upd=fb-319" target="_blank" id="bl_image_url" class="inline" style="background: url('/h/files/data0/web/ba49c38006804b4f8669c78bb520d548.jpg') center center no-repeat; "></a></li>
-            <li class="inline" ><a href="list.html#polo/index.html?f_upd=fb-329" target="_blank" id="bl_image_url" class="inline" style="background: url('/h/files/data0/web/529a480a1da74563a32e73f73b6d0c2d.jpg') center center no-repeat; "></a></li>
-        </ul>
-        <ol class="home_banner_order xb ">
-            <li class="inline checked">1</li>
-            <li class="inline">2</li>
-            <li class="inline">3</li>
-            <li class="inline">4</li>
-            <li class="inline">5</li>
-            <li class="inline">6</li>
-        </ol>
-    </div>
-    <div class="feature_info auto">
-        <ul class="feature_info_list sizeZero">
-            <li class="inline">
-                <i class="inline mg_r5"><img src="/h/files/data0/web/96a7cff302474a6a9c12b6462b351db3.png" width="30" height="30" alt="" /></i>
-                        <span class="inline f18 col_523">直连一线制造
-</span>
-            </li>
-            <li class="inline">
-                <i class="inline mg_r5"><img src="/h/files/data0/web/3754469f2abb485eae613e01a7f754e5.png" width="30" height="30" alt="" /></i>
-                <span class="inline f18 col_523">7天无忧退换货</span>
-            </li>
-            <li class="inline">
-                <i class="inline mg_r5"><img src="/h/files/data0/web/7aa60b3fef7f4d539013f601a55fbe1c.png" width="30" height="30" alt="" /></i>
-                <span class="inline f18 col_523">平台先行赔付</span>
-            </li>
-            <li class="inline">
-                <i class="inline mg_r5"><img src="/h/files/data0/web/9a4a21dfe8914533978d0e848e0b4939.png" width="30" height="30" alt="" /></i>
-                <span class="inline f18 col_523">全品类包邮</span>
-            </li>
-        </ul>
-    </div>
+    
+
+
     <div class="pd_b40">
 
+        <!-- 商品分类start -->
+        @for($i = 0;$i < 5;$i++)
 
-
-        <!-- 分类 -->
-        <div class="pd_t30 wrap auto">
-            <div class="banner_tit t_c">
+        <div class="pd_t30 wrap auto" style="margin-left: 10%; width: 67%">
+            <div class="banner_tit t_c" style="margin-left: 23%">
                 <h3>男士专区</h3>
             </div>
 
-            <!-- 单个商品遍历区 -->
+            <!-- 单个商品遍历区start -->
+            @for($j = 0;$j < 5;$j++)
             <div class="banner_con">
                 <div class="" style="width: 100%;height: 280px;float: left;">
-                    <div class="" style="width: 40%;height: 100%;background-color: orange;float:left;">
+                    <div class="" style="width: 40%;height: 100%;background-color: #ccc;float:left;">
                         <div class="text-center" style="margin: auto;margin-top: 40px; width: 60%;border-bottom: 3px solid #ccc">
                             <p style="font-size: 28px;">户外·RC女士</p>
                         </div>
@@ -70,19 +167,70 @@
                         </div>
                     </div>
                     <div class="" style="width: 60%;height: 100%;background-color: green;float: left;">
-                       <a href="#"><img width="720px" height="280" src=""></a>
+                       <img width="720px" height="280" src="/goods_img/1531296416E4JL01gCBc.PNG">
                     </div>
                     
+                  
                 </div>
-                <div class="" style="width: 100%;height: 20px">
-                    
+                <div class="" style="width: 100%;height: 20px;clear: both;">
                 </div>
             </div>
-            <!-- 单个商品遍历区 -->
+            @endfor
+            
+            <!-- 单个商品遍历区end -->
         </div>
- 
+        @endfor
+        <!-- 商品分类end -->
+        
+
+
     </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+ 
+
+
+
+                <div  class="" style="margin-bottom:-100px; margin: auto;width: 80%;border-bottom: 3px solid #ccc;border-top: 3px solid #ccc;">
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
+                       
+                </div> 
 @endsection
 
