@@ -9,6 +9,12 @@ use App\Http\Controllers\Controller;
 
 class IndexController extends Controller
 {
+
+        public function __construct()
+        {
+           $this -> middleware('login');
+        }
+    
     /**
      * Display a listing of the resource.
      *
@@ -16,6 +22,7 @@ class IndexController extends Controller
      */
     public function index()
     {
+     
         //
         // echo "string";
         

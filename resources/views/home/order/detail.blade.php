@@ -1,4 +1,4 @@
-@extends('home.index')
+@extends('home_index')
 @section('content')
 <div class="relative">
                     <h4 class="nTitle">我的订单</h4>
@@ -27,7 +27,7 @@
                         <tr>
                             <td width="7.5%" class="bd_l" align="center">
                                 <a target="_blank" href="/products/1300910000000030000-0.html#editor">
-                                    <img style="width:90px;height:65px" alt="" src="http://img.biyao.com/files/temp/render_zs/result/1300910000/272079c5d789a84c_130091000000003_0_800_363/img_6_800_200.jpg">
+                                    <img style="width:90px;height:65px" alt="" src="{{ $orders['goods_img'] }}">
                                 </a>
                             </td>
                             <td width="7.5%" class="bd_l" align="center">

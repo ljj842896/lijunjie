@@ -2,13 +2,18 @@
 
 @section('content')
 
-<h1>这是分类添加</h1>
+ 
  
  
 
 <div class="mws-panel grid_8">
-                	<div class="mws-panel-header">
-                    	<span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> </font></font></span>
+                	<div class="mws-panel-header" style="height:46px">
+                         <span>
+                              <font style="vertical-align: inherit;">
+                              <font style="vertical-align: inherit;"> 分类添加</font>
+                              
+                              </font>
+                         </span>
                     </div>
                     <div class="mws-panel-body no-padding">
                     	<form class="mws-form" action="/Admin/cate" method="post">

@@ -42,7 +42,7 @@
                     		<div class="mws-button-row text-center">
                                    <input type="submit" value="修改" class="btn btn-success">
                                    
-                    			 <a href="" class="btn btn-success">退出</a> 
+                    			 <a href="/Admin/" class="btn btn-success">退出</a> 
                               </div>
                          </form>
                     </div>

@@ -14,7 +14,7 @@
     		<div class="mws-form-inline">
     			<div class="mws-form-row">
     				<div class="mws-form-item">
-                        网站标题：<input type="text" class="small" name="sys_title" value=""><br><br>
+                        网 站 标 题：<input type="text" class="small" name="sys_title" value=""><br><br>
                         网站关键字：<input type="text" class="small" name="sys_keyword" value=""><br><br>
                         网站备案：<input type="text" class="small" name="sys_file" value=""><br><br>
                         网站logo：<input type="file" name="sys_log"><br><br>

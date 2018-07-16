@@ -22,7 +22,7 @@ class OrderController extends Controller
 
     public function index()
     {
-        //
+
         $user_orders = Orders::find(3);
         return view('home.order.index',['user_orders' => $user_orders]);
     }

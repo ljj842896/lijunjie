@@ -12,6 +12,10 @@ use DB;
 use Hash;
 class UserController extends Controller
 {
+   public function __construct()
+    {
+       $this -> middleware('login');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -55,18 +59,24 @@ class UserController extends Controller
            
             /**/
             //复制变量
-            $profile = $data['user_pic'];
-            //获取图片的后缀名
-            $ext = $profile->getClientOriginalExtension();
-            // 处理文件名称随机起名
-            $temp_name = str_random(20);
-            //拼接全名
-            $name =  $temp_name.'.'.$ext;
-            //重新赋值方便以存储
-            $data['user_pic']=$name;
-            //使用move进行上传设置上传的地址和 文件的名字
-            $profile -> move('./uploads/',$name);
-            //使用模板存储
+            // dd($request -> hasFile('user_pic'));
+            if ($request -> hasFile('user_pic')) {
+              # code...
+              $profile = $data['user_pic'];
+              //获取图片的后缀名
+              $ext = $profile->getClientOriginalExtension();
+              // 处理文件名称随机起名
+              $temp_name = str_random(20);
+              //拼接全名
+              $name =  $temp_name.'.'.$ext;
+              // dd($name);
+              //重新赋值方便以存储
+              $data['user_pic']=$name;
+              //使用move进行上传设置上传的地址和 文件的名字
+              $profile -> move('./uploads/',$name);
+              //使用模板存储
+            }
+
            $data = user::create($data);
             
               if($data){
@@ -126,7 +136,25 @@ class UserController extends Controller
           $data->email=$request['email'];
           $data->sex=$request['sex'];
           $data->phone=$request['phone'];
-          $data->user_pic=$request['user_pic'];
+
+          // dd($request -> file('user_pic') -> getClientoriginalextension());
+          if ($request -> hasFile('user_pic')) {
+              # code...
+              $profile = $request -> file('user_pic');
+              //获取图片的后缀名
+              $ext = $profile->getClientOriginalExtension();
+              // 处理文件名称随机起名
+              $temp_name = str_random(20);
+              //拼接全名
+              $name =  $temp_name.'.'.$ext;
+              // dd($name);
+              //重新赋值方便以存储
+              $data->user_pic = $name;
+              //使用move进行上传设置上传的地址和 文件的名字
+              $profile -> move('./uploads/',$name);
+              //使用模板存储
+            }
+         
           $data->user_address=$request['user_address'];
           $data->qx=$request['qx'];
         

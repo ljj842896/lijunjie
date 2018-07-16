@@ -16,54 +16,57 @@
 	</div>
 	 
  	<div class="mws-panel-body no-padding">
-	<form class="mws-form" action="/Admin/goods" method="post" enctype="multipart/form-data">
+	<form class="mws-form" action="/Admin/goods/{{$good -> goods_id}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
+        {{method_field('PUT')}}
      		<div class="mws-form-inline">
      			<div class="mws-form-row">
      				<div class="mws-form-item">
-                              商品名:　<input type="text" name="goods_name" class="small"  value="{{old('goods_name')}}"><br><br>
+                              商品名:　<input type="text" name="goods_name" class="small"  value="{{$good -> goods_name}}"><br><br>
  
                                 <label class="mws-form-label"> 商品分类:</label>
                                       <div class="mws-form-item">
                                         <select  name="cat_id">
                                             <option value="">--请选择--</option>
                                             @foreach($cates as $v)
-                                            <option value="{{$v -> cat_id}}">{{$v -> cat_name}}</option>
+                                            <option value="{{$v -> cat_id}}" {{$v -> cat_id == $good -> cat_id ? 'selected' : ''}}>{{$v -> cat_name}}</option>
                                             @endforeach
                                         </select><br><br>
                                         </div>
 
                                 <label class="mws-form-label"> 商品颜色:</label>
-                                      <div class="mws-form-item">
+                                      <div class="mws-form-item"> 
                                         <select  name="goods_attr_color">
                                             <option value="">--请选择--</option>
                                             
-                                            <option value="1">玉米黄</option>
-                                            <option value="2">象牙白</option>
-                                            <option value="3">橘红</option>
-                                            <option value="4">火焰红</option>
-                                            <option value="5">胭脂红</option>
-                                            <option value="6">珍珠黑</option>
-                                            <option value="7">天青蓝</option>
+                                            <option value="1" {{$good -> goods_attr_color == '1' ? 'selected' : ''}}>玉米黄</option>
+                                            <option value="2" {{$good -> goods_attr_color == '2' ? 'selected' : ''}}>象牙白</option>
+                                            <option value="3" {{$good -> goods_attr_color == '3' ? 'selected' : ''}}>橘红</option>
+                                            <option value="4" {{$good -> goods_attr_color == '4' ? 'selected' : ''}}>火焰红</option>
+                                            <option value="5" {{$good -> goods_attr_color == '5' ? 'selected' : ''}}>胭脂红</option>
+                                            <option value="6" {{$good -> goods_attr_color == '6' ? 'selected' : ''}}>珍珠黑</option>
+                                            <option value="7" {{$good -> goods_attr_color == '7' ? 'selected' : ''}}>天青蓝</option>
                                             
                                         </select><br><br>
                                       </div>
 
                                                                                             
                                          
-                              尺&nbsp;&nbsp; 寸 :<input name="goods_attr_rule" type="text" class="small" value="{{old('goods_attr_rule')}}"><br><br>
-                              关键字:　<input name="keywords" type="text" name="keywords" class="small" value="{{old('keywords')}}"><br><br>
-                              库　存:　<input name="goods_number" type="text" class="small" value="{{old('goods_number')}}"><br><br>
-                              市场价:　<input name="market_price" type="text" class="small" value="{{old('market_price')}}"><br><br>
-     					                本店售价:<input name="shop_price" type="text" class="small" value="{{old('shop_price')}}"><br><br>
+                              尺&nbsp;&nbsp; 寸 :<input name="goods_attr_rule" type="text" class="small" value="{{ $good -> goods_attr_rule }}"><br><br>
+                              关键字:　<input name="keywords" type="text" name="keywords" class="small" value="{{ $good -> keywords }}"><br><br>
+                              库　存:　<input name="goods_number" type="text" class="small" value="{{ $good -> goods_number }}"><br><br>
+                              市场价:　<input name="market_price" type="text" class="small" value="{{ $good -> market_price }}"><br><br>
+     					                本店售价:<input name="shop_price" type="text" class="small" value="{{ $good -> shop_price }}"><br><br>
                               宝贝图片： 
                                         <div class="fileinput-holder" style="position: absolute;left: 200px;top: 400px"> <span class="fileinput-btn btn" type="button" style="display:block; overflow: hidden; position: absolute; top: 0; right: 0; cursor: pointer;">代表图片<input name="goods_img" type="file" style="position: absolute; top: 0px; right: 0px; margin: 0px; cursor: pointer; font-size: 999px; opacity: 0; z-index: 999;"></span></div> 
 
-                                        <div class="fileinput-holder" style="position: absolute;left: 400px;top: 400px"> <span class="fileinput-btn btn" type="button" style="display:block; overflow: hidden; position: absolute; top: 0; right: 0; cursor: pointer;">宝贝相册<input name="img_url[]" type="file" multiple style="position: absolute; top: 0px; right: 0px; margin: 0px; cursor: pointer; font-size: 999px; opacity: 0; z-index: 999;"></span></div> 
+                                        <div style="width: 60px; height: 60px; position: absolute;left: 250px;top: 410px"><img src="/goods_img/{{$good -> goods_img}}"></div>
+
+                                         
                                        
                                         <br><br>
                                         <br><br>
-                                        商品描述:<textarea name="goods_brief" style="width: 55%" rows="" cols="" class="required large"> {{old('goods_brief') ? old('goods_brief') : '请介绍您的宝贝...'}}                                           
+                                        商品描述:<textarea name="goods_brief" style="width: 55%" rows="" cols="" class="required large">{{$good -> goods_brief}} {{old('goods_brief')}}                                           
  
                                        </textarea>
                                 

@@ -9,7 +9,38 @@ use App\Http\Controllers\Controller;
 use App\Models\Orders;
 class OrderController extends Controller
 {
+     public function __construct()
+    {
+       $this -> middleware('login');
+    }
+
+    public function reset($id)
+    {
+        $res = Orders::onlyTrashed()-> where('order_id',$id) -> restore();
+        if ($res) {  
+            return redirect('/Admin/order') -> with('success','恢复成功!');
+        }else{
+            return back() -> with('error','恢复失败!');
+        }
+    }
+
+    public function delindex()
+    {
+        $data = Orders::onlyTrashed() -> get();
+        return view('admin.order.del',['data' => $data]);
+    }
+
+    public function cdsc($id)
+    {
+        $res = Orders::onlyTrashed() -> where('order_id','=',$id) -> forceDelete();
+        if ($res) {
+            return redirect('/Admin/order') -> with('success','彻底删除成功!');
+        }else{
+            return back() -> with('error','彻底删除失败!');
+        }
+    }
     /**
+     * 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

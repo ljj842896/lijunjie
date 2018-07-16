@@ -30,8 +30,11 @@ Route::get('/', function () {
 
 //李俊杰区域-----------------start---------------------------------
 
-//首页路由
+//后台首页路由
 Route::resource('Admin/','Admin\IndexController');
+
+//前台首页路由
+Route::resource('Home/','HomeController');
 
 //用户路由
 Route::resource('Admin/user','Admin\UserController');
@@ -45,8 +48,23 @@ Route::resource('Admin/cate','Admin\CateController');
 //商品管理查询ajax专用路由
 Route::get('/ajax','Admin\GoodsController@ajaxGoods');
 
+//商品相册的图片添加
+Route::post('/goodimgadd','Admin\GoodsController@goodimg_add');
 
+//商品相册的图片删除
+Route::get('/goodimgdel/{imgId}','Admin\GoodsController@goodimg_del');
 
+//商品回收站路由
+Route::get('Admin/rec/index','Admin\RecycleController@index');
+
+//商品回收站回复路由
+Route::get('Admin/rec/del/{id}','Admin\RecycleController@destroy');
+
+//回收站商品永久删除
+Route::get('Admin/rec/remove/{id}','Admin\RecycleController@create');
+
+//商品上架路由
+Route::get('Admin/rec/store/{id}','Admin\RecycleController@store');
 
 
 //李俊杰区域-----------------end----------------------------
@@ -78,12 +96,17 @@ Route::post('Admin/reset','Admin\LoginController@reset');//執行修改密码
 Route::resource('Admin/link','Admin\LinkController');
 //轮播图管理
 Route::resource('Admin/ad','Admin\AdController');
+//订单回收站
+Route::get('Admin/order/hsz','Admin\OrderController@delindex');
+//订单恢复
+Route::get('Admin/order/reset/{id}','Admin\OrderController@reset');
+//彻底删除
+Route::get('Admin/order/cdsc/{id}','Admin\OrderController@cdsc');
 //订单管理路由
 Route::resource('Admin/order','Admin\OrderController');
 //订单详情路由
 Route::get('Admin/order/details/{id}','Admin\OrderController@details');
-//前台路由
-Route::get('home/','HomeController@index');
+
 //网站配置
 Route::resource('Admin/config','Admin\ConfigController');
 
@@ -91,7 +114,7 @@ Route::resource('Admin/config','Admin\ConfigController');
 Route::resource('Home/order','Home\OrderController');
 Route::get('Home/orderdetails','Home\OrderController@details');
 
-
+Route::resource('Home/address','Home\AddressController');
 
 
 

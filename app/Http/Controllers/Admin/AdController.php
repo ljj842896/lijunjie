@@ -11,6 +11,11 @@ use App\Models\Ads;
 use DB;
 class AdController extends Controller
 {
+     public function __construct()
+    {
+       $this -> middleware('login');
+    }
+    
     public static function getCates($id)
     {
         //使用原生函数拼接一个新字段，通过其升序排列         
