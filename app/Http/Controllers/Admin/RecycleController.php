@@ -13,6 +13,10 @@ use App\Models\GoodImgs;
 
 class RecycleController extends Controller
 {
+     public function __construct()
+    {
+       $this -> middleware('login');
+    }
 
 
 

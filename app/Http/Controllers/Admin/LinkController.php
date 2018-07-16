@@ -9,6 +9,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Links;
 class LinkController extends Controller
 {
+     public function __construct()
+    {
+       $this -> middleware('login');
+    }
     /**
      * Display a listing of the resource.
      *

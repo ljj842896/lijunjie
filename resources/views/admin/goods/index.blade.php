@@ -2,7 +2,7 @@
 
 @section('content')
 
-<!-- {{session('data') -> user_pic}} -->
+
   
                 
  <div class="mws-panel grid_8">

@@ -9,6 +9,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Config;
 class ConfigController extends Controller
 {
+
+     public function __construct()
+    {
+       $this -> middleware('login');
+    }
     /**
      * Display a listing of the resource.
      *

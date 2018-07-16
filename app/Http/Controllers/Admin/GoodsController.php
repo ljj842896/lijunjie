@@ -14,6 +14,12 @@ use App\Http\Requests\GoodsRequest;
 
 class GoodsController extends Controller
 {
+    // public $login = null;
+    public function __construct()
+    {
+       $this -> middleware('login');
+    }
+ 
 
     public function ajaxGoods()
     {

@@ -13,6 +13,7 @@ use App\Http\Requests\InforPostRequest;
 use DB;
 class LoginController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -38,6 +39,8 @@ class LoginController extends Controller
         $uname = $request->input('user_name');   
         $passwords = $request->input('password');
         $data = user::where('user_name','=',$uname)->first();
+        $data['login'] = true;
+        // dd($data);
         //获取对应的值
        
         if (Hash::check($passwords,$data['password'])) {
