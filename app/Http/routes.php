@@ -95,23 +95,32 @@ Route::post('Admin/reset','Admin\LoginController@reset');//執行修改密码
 //叶贵丰区域-----------------end----------------------------
 
 //刘大海区域-----------------start---------------------------------
-//友情链接路由
+
+//友情链接
 Route::resource('Admin/link','Admin\LinkController');
 //轮播图管理
 Route::resource('Admin/ad','Admin\AdController');
+//订单回收站
+Route::get('Admin/order/hsz','Admin\OrderController@delindex');
+//订单恢复
+Route::get('Admin/order/reset/{id}','Admin\OrderController@reset');
+//彻底删除
+Route::get('Admin/order/cdsc/{id}','Admin\OrderController@cdsc');
 //订单管理路由
 Route::resource('Admin/order','Admin\OrderController');
 //订单详情路由
 Route::get('Admin/order/details/{id}','Admin\OrderController@details');
 
+
 //网站配置
 Route::resource('Admin/config','Admin\ConfigController');
+
 
 //前台订单管理路由
 Route::resource('Home/order','Home\OrderController');
 Route::get('Home/orderdetails','Home\OrderController@details');
-
-
+//前台地址
+Route::resource('Home/address','Home\AddressController');
 
 
 
