@@ -13,12 +13,12 @@
 
 //===============公共区域start=================
 
-Route::get('/', function () {
-	// echo "string";
-	// dump(Config::get('app.timezone'));
-	// dump(date('Y-m-d',time()));
-    return view('welcome');
-});
+// Route::get('/', function () {
+// 	// echo "string";
+// 	// dump(Config::get('app.timezone'));
+// 	// dump(date('Y-m-d',time()));
+//     return view('welcome');
+// });
 
 
 
@@ -34,7 +34,7 @@ Route::get('/', function () {
 Route::resource('Admin/','Admin\IndexController');
 
 //前台首页路由
-Route::resource('Home/','HomeController');
+Route::resource('/','HomeController');
 
 //用户路由
 Route::resource('Admin/user','Admin\UserController');

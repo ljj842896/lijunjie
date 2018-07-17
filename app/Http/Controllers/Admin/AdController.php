@@ -45,6 +45,7 @@ class AdController extends Controller
     {
         
         $absdata = Ads::paginate(5);
+        // dd($absdata);
         return view('admin.ad.index',['absdata' => $absdata]);
     }
 

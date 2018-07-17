@@ -71,28 +71,19 @@
     <!-- 商品分类表start -->
     
     <ul class="nav-list">
-        
-
 
             <!-- 一级分类start -->
             <li class="nav-main">
                 <p>
-                    
-                        
                         <a href="">
                             经典男装
                         </a>
-                    
-                        
                             <span>/</span>
-                        
                         <a href="">
                             潮流女装
                         </a>
-                    
                 </p>
                 <ul>
-                    
                     <!-- 二级分类start -->
                         <li class="nav-sub clearfix">
                             <a href="http://www.biyao.com/classify/category.html?categoryId=280">
@@ -100,31 +91,22 @@
                             </a>
                             <i>&gt;</i>
                             <ul>
-                                
-
                                 <!-- 三级分类start -->
                                     <li class="nav-item">
                                         <a href="http://www.biyao.com/classify/category.html?categoryId=281">
                                             T恤
                                         </a>
                                     </li>
-                                   
                                 <!-- 三级分类start -->
-                                
-
                             </ul>
                         </li>
                     <!-- 二级分类start -->
-                  
                 </ul>
             </li>
             <!-- 一级分类end -->
- 
+            
     </ul>
-    
     <!-- 商品分类表end -->
-
-
 
 </div>
 

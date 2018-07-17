@@ -27,7 +27,7 @@ class StoreBlogPostRequest extends Request
 
             'user_name' => 'required|regex:/^[a-zA-Z0-9_-]{4,16}$/',
             
-            'password' =>'confirmed|regex:/^[\w_-]{6,16}$/',
+            'password' =>'required|confirmed|regex:/^[\w_-]{6,16}$/',
 
             'email'=> 'email',
 
@@ -46,6 +46,8 @@ class StoreBlogPostRequest extends Request
              'password.regex'=>'4~6位密码必须以字母数字下划线',
              //验证密码重复
              'password.confirmed'=>'两次密码不一致！',
+
+             'password.required'=>'密码不能为空！',
 
              //邮箱验证
              'email.email'=>'请输入正确的邮箱格式',

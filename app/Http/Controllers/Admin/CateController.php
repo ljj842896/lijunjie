@@ -83,7 +83,7 @@ class CateController extends Controller
     public function create()
     {
         
-        return view('admin/cate/create',['data' => self::getCates(0)]);
+        return view('admin/cate/create',['data' => self::getCates(200)]);
     }
 
     /**
@@ -117,7 +117,8 @@ class CateController extends Controller
             $res = $cate -> save();
             if ($res) {
                 
-                return redirect('/Admin/cate') -> with('success','分类添加成功！');
+                // return redirect('/Admin/cate') -> with('success','分类添加成功！');
+                return back() -> with('success','分类添加成功！');
             }else{
 
             }
@@ -159,7 +160,7 @@ class CateController extends Controller
              $login = false;
          }
          // dd($login);
-        return view('/admin/cate/edit',['cate' => $cate,'data' => self::getCates(0),'login' => $login]);
+        return view('/admin/cate/edit',['cate' => $cate,'data' => self::getCates(200),'login' => $login]);
     }
 
     /**
@@ -189,6 +190,17 @@ class CateController extends Controller
            // dump($request -> has('cat_pid'));
             // dd($data);
             $cate -> cat_pid = $request -> input('cat_pid');
+
+            if ($request['cat_pid'] == 0) {
+                
+                $cate -> cat_path = '0';
+            }else{
+
+                $res = Cates::where('cat_id',$request['cat_pid']) -> first();
+                $cate -> cat_path = $res->cat_path.','.$res->cat_id;
+                // $cate -> cat_path = $res[''];
+            }
+
         } 
             
             

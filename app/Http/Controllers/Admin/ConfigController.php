@@ -13,6 +13,7 @@ class ConfigController extends Controller
      public function __construct()
     {
        $this -> middleware('login');
+       $this -> middleware('qx');
     }
     /**
      * Display a listing of the resource.

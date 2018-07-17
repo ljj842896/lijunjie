@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\user;
 use App\Http\Requests\StoreBlogPostRequest;
 use App\Http\Requests\LoginPostRequest;
-use App\Http\Requests\InforPostRequest;
+
 use DB;
 class LoginController extends Controller
 {
@@ -88,7 +88,7 @@ class LoginController extends Controller
     }
 
     //修改个人信息
-    public function revise(InforPostRequest $request){
+    public function revise(StoreBlogPostRequest $request){
 
        
         $data = $request->except('_token');
