@@ -34,7 +34,7 @@ Route::get('/', function () {
 Route::resource('Admin/','Admin\IndexController');
 
 //前台首页路由
-Route::resource('Home/','HomeController');
+Route::resource('/','HomeController');
 
 //用户路由
 Route::resource('Admin/user','Admin\UserController');
@@ -111,10 +111,10 @@ Route::get('Admin/order/details/{id}','Admin\OrderController@details');
 Route::resource('Admin/config','Admin\ConfigController');
 
 //前台订单管理路由
-Route::resource('Home/order','Home\OrderController');
-Route::get('Home/orderdetails','Home\OrderController@details');
-
-Route::resource('Home/address','Home\AddressController');
+Route::resource('/order','Home\OrderController');
+Route::get('/orderdetails','Home\OrderController@details');
+//前台地址
+Route::resource('/address','Home\AddressController');
 
 
 

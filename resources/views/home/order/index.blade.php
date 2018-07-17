@@ -57,7 +57,8 @@
                     <div class="app_box">
                         <span class="inline upArre"></span>
                         <div class="bg_fff down_list_box">
-                            <a class="inline" href="Home/order">我的订单</a>
+                            <a class="inline" href="/order">我的订单</a>
+                            <a class="inline" href="/address">地址管理</a>
                             <a class="inline" href="Profile.html">个人设置</a>
                         </div>
                     </div>
