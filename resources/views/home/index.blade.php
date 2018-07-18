@@ -17,7 +17,8 @@
             <ul>
                 <!-- 随机十个三级类 -->
                 @foreach($cates as $cate)
-                @if()
+                @if(substr_count($cate['cat_path'],',') == 3)
+                 
                 <li><a href="">{{$cate['cat_name']}}</a></li>
                 @endif
                 @endforeach
