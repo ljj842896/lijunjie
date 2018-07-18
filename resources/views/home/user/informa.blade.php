@@ -101,6 +101,15 @@
     </div>
     <div>
     </div>
+    @if(session('success'))
+     <script type="text/javascript">
+         layer.alert('更新成功', {icon: 1});
+     </script>
+     @elseif(session('error'))
+      <script type="text/javascript">
+         layer.msg('更新失败。。', {icon: 5});
+     </script>
+     @endif
              {{ csrf_field() }}
          <button type="button" class="layui-btn" id="informa" style="display: none;">
              <i class="layui-icon">&#xe67c;</i>上传图片

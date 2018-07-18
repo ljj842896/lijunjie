@@ -135,6 +135,11 @@ class LoginController extends Controller
          $data->user_name=$username;
          $data->sex=$sexs;
          $data -> save();
+         if($data){
+             return back()->with('success','更新成功');
+         }else{
+             return back()->with('error','更新失败');
+         }
     }
 
     /**
