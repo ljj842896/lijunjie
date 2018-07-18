@@ -9,6 +9,7 @@ use App\Models\Cates;
 use App\Models\Goods;
 use App\Models\Links;
 use App\Models\Ads;
+
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
@@ -21,10 +22,11 @@ class HomeController extends Controller
     public function index()
     {
         //取数据
-        //分类数据调取
-        // $cates = Cates::get();
-        // dd($cates[0]['cat_name']);
-        return view('home.index');
+        //轮播图数据调取
+        $ads = Ads::get();
+        $links = Links::get();
+        // dd($ads);
+        return view('home.index',['ads' => $ads, 'links' => $links]);
     }
 
     /**

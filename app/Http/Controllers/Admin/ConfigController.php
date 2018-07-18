@@ -14,6 +14,7 @@ class ConfigController extends Controller
     {
        $this -> middleware('login');
        $this -> middleware('qx');
+
     }
     /**
      * Display a listing of the resource.

@@ -57,7 +57,7 @@ class AdController extends Controller
     public function create()
     {
         //获取分类信息
-        return view('admin.ad.create',['cates' => self::getCates(0)]);
+        return view('admin.ad.create',['cates' => self::getCates(200)]);
     }
 
     /**

@@ -111,16 +111,17 @@ Route::resource('Admin/order','Admin\OrderController');
 //订单详情路由
 Route::get('Admin/order/details/{id}','Admin\OrderController@details');
 
-
 //网站配置
 Route::resource('Admin/config','Admin\ConfigController');
 
 
 //前台订单管理路由
-Route::resource('Home/order','Home\OrderController');
-Route::get('Home/orderdetails','Home\OrderController@details');
+
+Route::resource('/order','Home\OrderController');
+Route::get('/orderdetails','Home\OrderController@details');
 //前台地址
-Route::resource('Home/address','Home\AddressController');
+Route::resource('/address','Home\AddressController');
+
 
 
 

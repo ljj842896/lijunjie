@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //共享分类数据
-        $cates = Cates::get();
+        $cates = Cates::orderBy('cat_id', 'asc') -> get();
 
         view() -> share(['cates' => $cates]);
 

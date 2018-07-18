@@ -15,16 +15,14 @@
                 <input type="text" id="searchInput" name="search" placeholder="请输入要搜索的商品"><span id="searchBtn"></span>
             </p>
             <ul>
-                <li>伞</li>
-                <li>眼霜</li>
-                <li>口红</li>
-                <li>内裤</li>
-                <li>毛巾</li>
-                <li>行李箱</li>
-                <li>耳机</li>
-                <li>纸尿裤</li>
-                <li>眼镜</li>
-                <li>电动牙刷</li>
+                <!-- 随机十个三级类 -->
+                @foreach($cates as $cate)
+                @if()
+                <li><a href="">{{$cate['cat_name']}}</a></li>
+                @endif
+                @endforeach
+                <!-- 随机十个三级类 -->
+             
             </ul>
         </div>
         <div class="nav-tab">
@@ -49,15 +47,9 @@
                         
 
                         <!-- 轮播图展示区start -->
-                            <li><a target="_blank" href="http://www.biyao.com/classify/supplier.html?supplierId=130118"><img src="/h/picture/rbacw1thhvearhwqaac2tkrx5us499.jpg" alt="" /></a></li>
-             
-                
-                    
-                    
-                        
-                        
-                            <li><a target="_blank" href="http://www.biyao.com/classify/supplier.html?supplierId=130104"><img src="/h/picture/rbacw1thh7qau16iaadj4dddskk499.jpg" alt="" /></a></li>
-                        
+                        @foreach($ads as $ad)
+                            <li><a target="_blank" href=""><img src="/uploads/ad/{{$ad['ad_img']}}" alt="" /></a></li>
+                        @endforeach
                         <!-- 轮播图展示区end -->
             </ul>
         
@@ -73,36 +65,44 @@
     <ul class="nav-list">
 
             <!-- 一级分类start -->
+            @foreach($cates as $cate)
+            @if(strlen($cate['cat_path']) == 3)
             <li class="nav-main">
                 <p>
                         <a href="">
-                            经典男装
-                        </a>
-                            <span>/</span>
-                        <a href="">
-                            潮流女装
+                            {{$cate['cat_name']}}
                         </a>
                 </p>
                 <ul>
                     <!-- 二级分类start -->
+                        @foreach($cates as $val)
+                        @if($val['cat_path'] == $cate['cat_path'].','.$cate['cat_id'])
                         <li class="nav-sub clearfix">
-                            <a href="http://www.biyao.com/classify/category.html?categoryId=280">
-                                男士内搭
+                            <a href="">
+                                {{$val['cat_name']}}
                             </a>
                             <i>&gt;</i>
                             <ul>
                                 <!-- 三级分类start -->
+                                    @foreach($cates as $v)
+                                    @if($v['cat_path'] == $val['cat_path'].','.$val['cat_id'])
                                     <li class="nav-item">
                                         <a href="http://www.biyao.com/classify/category.html?categoryId=281">
-                                            T恤
+                                            {{$v['cat_name']}}
                                         </a>
                                     </li>
+                                    @endif
+                                    @endforeach
                                 <!-- 三级分类start -->
                             </ul>
                         </li>
+                        @endif
+                        @endforeach
                     <!-- 二级分类start -->
                 </ul>
             </li>
+            @endif
+            @endforeach
             <!-- 一级分类end -->
             
     </ul>
@@ -126,7 +126,7 @@
     <div class="pd_b40">
 
         <!-- 商品分类start -->
-        @for($i = 0;$i < 5;$i++)
+        @for($i = 0;$i < 4;$i++)
 
         <div class="pd_t30 wrap auto" style="margin-left: 10%; width: 67%">
             <div class="banner_tit t_c" style="margin-left: 23%">
@@ -134,7 +134,7 @@
             </div>
 
             <!-- 单个商品遍历区start -->
-            @for($j = 0;$j < 5;$j++)
+            @for($j = 0;$j < 2;$j++)
             <div class="banner_con">
                 <div class="" style="width: 100%;height: 280px;float: left;">
                     <div class="" style="width: 40%;height: 100%;background-color: #ccc;float:left;">
@@ -142,6 +142,7 @@
                             <p style="font-size: 28px;">户外·RC女士</p>
                         </div>
                         <div class="text-center" style="margin: auto;margin-top: 15px; width: 50%;height: 30%;overflow: hidden;text-overflow: ellipsis;">
+
                             <p style="font-size: 20px;">再见！上世纪的手刷时代上世纪的手刷时代</p>
                         </div>
                         <div class="text-center" style="margin: auto;margin-top: 10px;  width: 60%;height: 30%">
@@ -149,12 +150,14 @@
                         </div>
                     </div>
                     <div class="" style="width: 60%;height: 100%;background-color: green;float: left;">
+
                        <img width="720px" height="280" src="/goods_img/1531296416E4JL01gCBc.PNG">
                     </div>
                     
                   
                 </div>
                 <div class="" style="width: 100%;height: 20px;clear: both;">
+
                 </div>
             </div>
             @endfor
@@ -191,28 +194,13 @@
 
 
                 <div  class="" style="margin-bottom:-100px; margin: auto;width: 80%;border-bottom: 3px solid #ccc;border-top: 3px solid #ccc;">
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                        <a href="//page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a><b>|</b>
-                       
+
+                    <!-- 友情链接展示区start -->
+                        @foreach($links as $link)
+                        <a href="{{$link['link_url']}}"> {{$link['link_name']}} </a> <b> | </b>
+                        @endforeach
+                    <!-- 友情链接展示区end -->
                 </div> 
+
 @endsection
 

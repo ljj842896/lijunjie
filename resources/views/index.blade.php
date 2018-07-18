@@ -167,7 +167,7 @@
                         <li><a href="/Admin/repass">修改密码</a></li>
                         <li><a href="/Admin/loginout">退出</a></li>
                     </ul>
-                    
+
                 </div>
                     @else
                 <div id="mws-user-functions">
@@ -175,6 +175,7 @@
                     <a href="/Admin/login">请登录！</a>
                     </div>
                 </div>
+
                     @endif
             </div>
         </div>
@@ -243,9 +244,12 @@
                     </li>
                     <!-- 刘大海 -->
                     <li>
-                        <a href="/Admin/order"><i class="icon-truck"></i> 订单管理</a>
+                        <a href=""><i class="icon-link"></i> 订单管理</a>
+                        <ul class="closed">
+                            <li><a href="/Admin/order"><i class="icon-truck"></i> 订单管理</a></li>
+                            <li><a href="/Admin/order/hsz"><i class="icon-truck"></i> 回收站</a></li>
+                        </ul>
                     </li>
-
                     <li>
                         <a href=""><i class="icon-link"></i> 友情链接</a>
                         <ul class="closed">

@@ -2,7 +2,7 @@
 @section('content')
 <div class="mws-panel grid_8">
 	<div class="mws-panel-header" style="height:46px">
-    	<span><i class="icon-table"></i>订单管理</span>
+    	<span><i class="icon-table"></i>订单管理 <a href="/Admin/order/hsz" style="float:right;">回收站</a></span>
     </div>
 
     <div class="mws-panel-body no-padding">

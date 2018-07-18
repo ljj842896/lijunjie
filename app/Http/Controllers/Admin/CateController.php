@@ -15,7 +15,6 @@ class CateController extends Controller
     {
        $this -> middleware('login');
     }
-    
 
 
     public function ajaxCates()
@@ -40,8 +39,6 @@ class CateController extends Controller
         // dd($data[1]['cat_id']);
         echo json_encode($data);
     }
-
-
 
     public static function getCates($id)
     {
