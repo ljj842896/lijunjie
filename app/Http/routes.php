@@ -33,9 +33,6 @@
 //后台首页路由
 Route::resource('Admin/','Admin\IndexController');
 
-//前台首页路由
-Route::resource('/','HomeController');
-
 //用户路由
 Route::resource('Admin/user','Admin\UserController');
 
@@ -68,6 +65,12 @@ Route::get('Admin/rec/remove/{id}','Admin\RecycleController@create');
 
 //商品上架路由
 Route::get('Admin/rec/store/{id}','Admin\RecycleController@store');
+
+
+// 前台路由
+
+//前台首页路由
+Route::resource('/','HomeController');
 
 
 //李俊杰区域-----------------end----------------------------

@@ -64,7 +64,7 @@
                             <a class="inline" href="/order">我的订单</a>
                             <a class="inline" href="/address">地址管理</a>
 
-                            <a class="inline" href="Profile.html">个人设置</a>
+                            <a class="inline" href="/Informa">个人设置</a>
                         </div>
                     </div>
                 </li>
@@ -78,117 +78,7 @@
         </div>
     </div>
 </div>
-<div class="index_bg_fff">
-    <div class="wrap pub_logo_box clearfix">
-        <div class="pub_logo f_l"><a href="/home/index.html"><img alt="" src="/h/pc/common/img/logo.png?v=biyao_4637d54"></a></div>
-        <div class="f_r">
-            <ul class="sizeZero menu_nav_list">
-                <li class="inline ">
-                    <a href="javascript:;">眼镜</a>
-                    <div class="sub_nav_list pos_pub">
-                        <span class="sub_nav_jd"></span>
-                        <a href="list.html#/man/index.html?f_upd=fc-27" class="escp ">男士</a>
-                        <a href="list.html#/women/index.html?f_upd=fc-28" class="escp last">女士</a>
-                    </div>
-                </li>
-                <li class="inline ">
-                    <a href="javascript:;">男装</a>
-                    <div class="sub_nav_list pos_pub">
-                        <span class="sub_nav_jd"></span>
-                        <a href="product.html#/1300935002130200001-0.html?f_upd=fc-283" class="escp ">Bland单西</a>
-                        <a href="list.html#/socks/index.html?f_upd=fc-278" class="escp ">RZLZL袜子</a>
-                        <a href="list.html#polo/index.html?f_upd=fc-237" class="escp ">亓口男装</a>
-                        <a href="list.html#belt/index.html?f_upd=fc-223" class="escp ">皮具</a>
-                        <a href="list.html#mknitwear/index.html?f_upd=fc-214" class="escp ">针织短T</a>
-                        <a href="product.html#/1300590001010100001-0.html?f_upd=fc-137" class="escp ">内裤</a>
-                        <a href="list.html#man/index.html?f_upd=fc-161" class="escp ">G＆M男装</a>
-                        <a href="list.html#man/index.html?f_upd=fc-164" class="escp ">G&M商务长裤</a>
-                        <a href="list.html#jeans/index.html?f_upd=fc-116" class="escp ">牛仔</a>
-                        <a href="list.html#man/index.html?f_upd=fc-122" class="escp last">GCMT POLO衫</a>
-                    </div>
-                </li>
-                <li class="inline ">
-                    <a href="javascript:;">户外</a>
-                    <div class="sub_nav_list pos_pub">
-                        <span class="sub_nav_jd"></span>
-                        <a href="list.html#man/index.html?f_upd=fc-258" class="escp ">RC男士户外服</a>
-                        <a href="list.html#women/index.html?f_upd=fc-257" class="escp ">RC女士户外服</a>
-                        <a href="list.html#outside/index.html?f_upd=fc-224" class="escp last">户外鞋</a>
-                    </div>
-                </li>
-                <li class="inline ">
-                    <a href="javascript:;">运动</a>
-                    <div class="sub_nav_list pos_pub">
-                        <span class="sub_nav_jd"></span>
-                        <a href="list.html#shoes/index.html?f_upd=fc-111" class="escp last">运动休闲鞋</a>
-                    </div>
-                </li>
-                <li class="inline ">
-                    <a href="javascript:;">鞋靴</a>
-                    <div class="sub_nav_list pos_pub">
-                        <span class="sub_nav_jd"></span>
-                        <a href="list.html#menshoes/index.html?f_upd=fc-44" class="escp ">VIZ男鞋</a>
-                        <a href="list.html#womenshoes/index.html?f_upd=fc-45" class="escp ">C&M女鞋</a>
-                        <a href="list.html#womenshoes/index.html?f_upd=fc-232" class="escp last">VIZ女鞋</a>
-                    </div>
-                </li>
-                <li class="inline ">
-                    <a href="javascript:;">个人护理</a>
-                    <div class="sub_nav_list pos_pub">
-                        <span class="sub_nav_jd"></span>
-                        <a href="list.html#toothbrush/index.html?f_upd=fc-264" class="escp ">电动牙刷</a>
-                        <a href="list.html#shaver/index.html?f_upd=fc-110" class="escp ">男士剃须刀</a>
-                        <a href="product.html#/1300510001000000010-0.html?f_upd=fc-222" class="escp last">女士刮毛刀</a>
-                    </div>
-                </li>
-                <li class="inline ">
-                    <a href="javascript:;">箱包</a>
-                    <div class="sub_nav_list pos_pub">
-                        <span class="sub_nav_jd"></span>
-                        <a href="list.html#belt/index.html?f_upd=fc-290" class="escp ">男士钱包</a>
-                        <a href="product.html#/1300895007050000001-0.html?f_upd=fc-265" class="escp ">RC双肩包</a>
-                        <a href="list.html#backpack/index.html?f_upd=fc-218" class="escp ">stayalive双肩包</a>
-                        <a href="list.html#backpack/index.html?f_upd=fc-66" class="escp ">airleaf箱包</a>
-                        <a href="list.html#suitcase/index.html?f_upd=fc-148" class="escp last">GRIFFIN LAND拉杆箱</a>
-                    </div>
-                </li>
-                <li class="inline ">
-                    <a href="javascript:;">女装</a>
-                    <div class="sub_nav_list pos_pub">
-                        <span class="sub_nav_jd"></span>
-                        <a href="list.html#/socks/index.html?f_upd=fc-279" class="escp ">RZLZL袜子</a>
-                        <a href="list.html#women/index.html?f_upd=fc-268" class="escp ">春风女装</a>
-                        <a href="list.html#jeanswomen/index.html?f_upd=fc-206" class="escp ">牛仔</a>
-                        <a href="list.html#skirt/index.html?f_upd=fc-204" class="escp ">女裙</a>
-                        <a href="list.html#knitwear/index.html?f_upd=fc-215" class="escp ">针织短T</a>
-                        <a href="list.html#women/index.html?f_upd=fc-205" class="escp ">POLO衫</a>
-                        <a href="list.html#women/index.html?f_upd=fc-203" class="escp ">婚纱礼服</a>
-                        <a href="list.html#children/index.html?f_upd=fc-261" class="escp ">儿童公主裙</a>
-                        <a href="list.html#scarf/index.html?f_upd=fc-221" class="escp ">围巾</a>
-                        <a href="list.html#women/index.html?f_upd=fc-246" class="escp last">内衣</a>
-                    </div>
-                </li>
-                <li class="inline last">
-                    <a href="javascript:;">家居生活</a>
-                    <div class="sub_nav_list pos_pub_last">
-                        <span class="sub_nav_jd"></span>
-                        <a href="http://straford.biyao.com/kettle/index.html?f_upd=fc-282" class="escp ">STRAFORD水具</a>
-                        <a href="list.html#kitchen/index.html?f_upd=fc-167" class="escp ">厨具</a>
-                        <a href="list.html#textiles/index.html?f_upd=fc-271" class="escp ">融暄家纺</a>
-                        <a href="list.html#textiles/index.html?f_upd=fc-201" class="escp ">必柔家纺</a>
-                        <a href="list.html#textiles/index.html?f_upd=fc-240" class="escp ">M&N家纺</a>
-                        <a href="list.html#lamp/index.html?f_upd=fc-183" class="escp ">灯具</a>
-                        <a href="list.html#mattress/index.html?f_upd=fc-209" class="escp ">床垫</a>
-                        <a href="list.html#bedroom/index.html?f_upd=fc-155" class="escp ">卧室家具</a>
-                        <a href="list.html#livingroom/index.html?f_upd=fc-77" class="escp ">客厅家具</a>
-                        <a href="list.html#diningroom/index.html?f_upd=fc-78" class="escp ">餐厅家具</a>
-                        <a href="list.html#studyroom/index.html?f_upd=fc-79" class="escp last">书房家具</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+ 
 <div class="wrap  posR mg_t20 mH810 pd_b40">
     <div class="per_left">
         <div class="per_leftbox  pd_t14">
@@ -205,9 +95,9 @@
             <div class="perleft_menu pdtb_20">
                 <ul>
                     <li class=" "><a href="/order" ><i class="f_r mcMIcon3 inline"></i>我的订单</a> </li>
-                    <li class=" "><a href="MyRefunds.html" ><i class="f_r mcMIcon4 inline"></i>退款管理</a></li>
+                    <li class=" "><a href="/address" ><i class="f_r mcMIcon4 inline"></i>退款管理</a></li>
                     <!--<li class=" "><a href="/MyCenter/MyIncomeRules.html" ><i class="f_r mcMIcon5 inline"></i>我的收益</a></li>-->
-                    <li class="a_check "><a href="Profile.html" ><i class="f_r mcMIcon8 inline"></i>个人设置</a></li>
+                    <li class="a_check "><a href="/Informa" ><i class="f_r mcMIcon8 inline"></i>个人设置</a></li>
                     <!-- <div class="div_line"></div> -->
                     <!-- <a href="#"><i class="f_r mcMIcon9 inline"></i>设计师主页</a> <a
                         href="#"><i class="f_r mcMIcon10 inline"></i>设计师提现</a> -->
@@ -227,6 +117,15 @@
     @endif
 @section('content')
 
+
+
+
+
+
+
+
+
+
 @show
     <script type="text/javascript">
         function getCookie(cname) {
@@ -242,7 +141,8 @@
         if((typeof(getCookie("__qc__k"))!="undefined"&&getCookie("__qc__k")!="")||(typeof(getCookie("mobileNO"))!="undefined"&&getCookie("mobileNO")!="")){
             $("#forgetPasswordID").html("");
         }
-    </script></div>
+    </script>
+</div>
 <div data-selector="J_im" id="webIM_showDiv"></div>
 
 <div class="footer_links clearfix J_1200 auto">

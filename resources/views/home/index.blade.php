@@ -16,11 +16,10 @@
             </p>
             <ul>
                 <!-- 随机十个三级类 -->
-                @foreach($cates as $cate)
-                @if(substr_count($cate['cat_path'],',') == 3)
+                @foreach($cat_key as $key)
                  
-                <li><a href="">{{$cate['cat_name']}}</a></li>
-                @endif
+                <li><a href="">{{$cates[$key]['cat_name']}}</a></li>
+
                 @endforeach
                 <!-- 随机十个三级类 -->
              
@@ -77,7 +76,7 @@
                 <ul>
                     <!-- 二级分类start -->
                         @foreach($cates as $val)
-                        @if($val['cat_path'] == $cate['cat_path'].','.$cate['cat_id'])
+                        @if($val['cat_pid'] == $cate['cat_id'])
                         <li class="nav-sub clearfix">
                             <a href="">
                                 {{$val['cat_name']}}
@@ -86,7 +85,7 @@
                             <ul>
                                 <!-- 三级分类start -->
                                     @foreach($cates as $v)
-                                    @if($v['cat_path'] == $val['cat_path'].','.$val['cat_id'])
+                                    @if($v['cat_pid'] == $val['cat_id'])
                                     <li class="nav-item">
                                         <a href="http://www.biyao.com/classify/category.html?categoryId=281">
                                             {{$v['cat_name']}}
@@ -173,27 +172,7 @@
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-       
  
-
-
-
                 <div  class="" style="margin-bottom:-100px; margin: auto;width: 80%;border-bottom: 3px solid #ccc;border-top: 3px solid #ccc;">
 
                     <!-- 友情链接展示区start -->
