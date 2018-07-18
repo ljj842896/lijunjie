@@ -33,7 +33,7 @@
                         <input type="radio" name="sys_close" disabled="disabled" value="n" {{ $config -> sys_close == 'n' ? 'checked' : ''}}>
 
 
-                        
+    
                      
                         <br><br>
     				</div>

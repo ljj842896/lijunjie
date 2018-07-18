@@ -44,7 +44,7 @@ class UserController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     *執行添加
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */

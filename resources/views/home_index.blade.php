@@ -98,8 +98,8 @@
         </div>
         <div class="f_r">
             <ul class="pub_nav_list sizeZero">
-                <li class="inline" id="welcomID"><span class="col_aaa mg_r10">欢迎来到必要，请</span><a class="" onclick='LT.login_uri("login.html")'>登录</a><span class="bg"></span></li>
-                <li class="inline" id="messageID"><a onclick='LT.register_uri("register.html")'>注册</a><span class="bg"></span></li>
+                <li class="inline" id="welcomID"><span class="col_aaa mg_r10">欢迎来到必要</span><a class="" onclick='LT.login_uri("login.html")'>{{session('users')->user_name}}</a><span class="bg"></span></li>
+                <li class="inline" id="messageID"><a onclick='LT.register_uri("register.html")'>退出</a><span class="bg"></span></li>
                 <li class="inline last">
                     <a href="javascript:void(0);" class="">个人中心<i class="inline pep_bg mg_l10"></i></a>
                     <div class="app_box">
