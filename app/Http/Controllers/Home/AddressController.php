@@ -43,7 +43,7 @@ class AddressController extends Controller
     {
         //
         $data = $request -> except('_token');
-        // dump($data);
+        //dump($data);
         $addr = new Address;
         // dump($addr);
         $addr -> address = $data['address'];
@@ -54,10 +54,10 @@ class AddressController extends Controller
         if ($df == 1) {
             $res = DB::table('address') -> where('df','=',1) -> update(['df' => 0]);
             $addr -> save();
-            return redirect('/Home/address') -> with('success','添加成功!');
+            return redirect('/address') -> with('success','添加成功!');
         }else{
             $addr -> save();
-            return redirect('/Home/address') -> with('success','添加成功!');
+            return redirect('/address') -> with('success','添加成功!');
         }
 }
     /**
@@ -94,6 +94,20 @@ class AddressController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $new_data = $request -> except('_token','_method');
+        $old_date = Address::find($id);
+        Address::where('df',1) -> update(['df' => 0]);
+        $old_date -> df = $new_data['df'];
+        $old_date -> uname = $new_data['uname'];
+        $old_date -> address = $new_data['address'];
+        $old_date -> tel = $new_data['phone'];
+        $res = $old_date -> save();
+        $data = Address::all();
+        if ($res) {
+            return view('home.address.index',['data' => $data]) -> with('success','修改成功!');
+        }else{
+            return back() -> with('error','修改失败!');
+        }
     }
 
     /**
