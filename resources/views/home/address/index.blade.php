@@ -54,7 +54,7 @@
                 </table>
                 <table border="0" cellspacing="1" cellpadding="0" class="J_table per_list1  bg_fff">
                     <tbody>
-                    @foreach($data as $k => $v)
+                    @foreach($address as $k => $v)
                     <tr data-addressid="476683">
                         <td width="9%" class="J_td2">{{ $v -> uname }}</td>
                         <td width="30%" class="J_td3">

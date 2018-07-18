@@ -69,6 +69,7 @@
                     </tr>
                     </tbody>
                 </table>
+                @foreach($address as $k => $v)
                 <table border="0" cellspacing="1" cellpadding="0" class="J_table per_list1  bg_fff">
                     <tbody>
                     <tr data-addressid="476683">
@@ -87,7 +88,7 @@
 
                     </tbody>
                 </table>
-
+                @endforeach
             </div>
         </div>
     </div>

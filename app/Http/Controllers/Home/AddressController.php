@@ -18,8 +18,7 @@ class AddressController extends Controller
     public function index()
     {
         //
-        $data = Address::all();
-        return view('home.address.index',['data' => $data]);
+        return view('home.address.index');
     }
 
     /**
