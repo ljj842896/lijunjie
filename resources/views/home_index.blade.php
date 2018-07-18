@@ -11,6 +11,14 @@
           type="image/x-icon" />
     <link href="/h/pc/favicon.ico" rel="icon"
           type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <script type="text/javascript" src="/layui/layui.all.js"></script>
+    <script>
+        ;!function(){
+              var layer = layui.layer
+              ,form = layui.form;
+         }();
+    </script>
     <script type="text/javascript">
         window.ApiSite = "http://api.biyao.com";
         window.ControllerSite="";
@@ -32,8 +40,8 @@
     <script type="text/javascript" src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script type="text/javascript"  src="/h/pc/common/js/jquery-1.8.3.js?v=biyao_7d074dc"></script>
     <script type="text/javascript"  src="/h/pc/common/js/jquery.extention.js?v=biyao_98daa33"></script>
-    <script type="text/javascript" src="pc/common/js/lazyload.js?v=biyao_80d4f78"></script>
-    <script type="text/javascript" src="pc/minisite/byshoes/js/jquery.cookie.js?v=biyao_a5283b2"></script>
+    <script type="text/javascript" src="/h/pc/common/js/lazyload.js?v=biyao_80d4f78"></script>
+    <script type="text/javascript" src="/h/pc/minisite/byshoes/js/jquery.cookie.js?v=biyao_a5283b2"></script>
     <script type="text/javascript">
         function GetRequest() {
             var url = location.search; //获取url中"?"符后的字串
@@ -76,10 +84,34 @@
                 </li>
             </ul>
         </div>
+        @if(session('users'))
         <div class="f_r">
             <ul class="pub_nav_list sizeZero">
                 <li class="inline" id="welcomID"><span class="col_aaa mg_r10">欢迎来到必要</span><a class="" onclick='LT.login_uri("login.html")'>{{session('users')->user_name}}</a><span class="bg"></span></li>
-                <li class="inline" id="messageID"><a onclick='LT.register_uri("register.html")'>退出</a><span class="bg"></span></li>
+                <li class="inline" id="messageID"><a href="/Home/loginout" onclick='LT.register_uri("register.html")'>退出</a><span class="bg"></span></li>
+                <li class="inline last">
+                    <a href="javascript:void(0);" class="">个人中心<i class="inline pep_bg mg_l10"></i></a>
+                    <div class="app_box">
+                        <span class="inline upArre"></span>
+                        <div class="bg_fff down_list_box">
+                            <a class="inline" href="MyOrder.html">我的订单</a>
+                            <a href="/Home/Informa" class="inline" href="Profile.html">个人设置</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="inline last pd_r0 shopping_cart vTop">
+                    <a class="inline sizeZero" href="shopcars.html">
+                        <i class="inline"></i>
+                        <span id="shopcarNumID" class="inline">购物车 0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        @else
+        <div class="f_r">
+            <ul class="pub_nav_list sizeZero">
+                <li class="inline" id="welcomID"><span class="col_aaa mg_r10">欢迎来到必要，请</span><a href="/Home/login" onclick='LT.login_uri("login.html")'>登录</a><span class="bg"></span></li>
+                <li class="inline" id="messageID"><a onclick='LT.register_uri("register.html")'>注册</a><span class="bg"></span></li>
                 <li class="inline last">
                     <a href="javascript:void(0);" class="">个人中心<i class="inline pep_bg mg_l10"></i></a>
                     <div class="app_box">
@@ -98,6 +130,8 @@
                 </li>
             </ul>
         </div>
+        @endif
+
     </div>
 </div>
 <div class="index_bg_fff">

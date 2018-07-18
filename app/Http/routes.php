@@ -82,6 +82,9 @@ Route::post('Admin/reset','Admin\LoginController@reset');//執行修改密码
 Route::get('Home/login','Home\LoginController@login');//前台登录页面
 Route::get('Home/exect','Home\LoginController@exect');//前台登录页面验证
 Route::post('Home/entry','Home\LoginController@entry');//前台执行
+Route::get('Home/loginout','Home\LoginController@loginout');//前台执行
+Route::get('Home/Informa','Home\LoginController@Informa');//前台执行
+Route::post('Home/uploads','Home\LoginController@uploads');//文件上传
 
 
 
