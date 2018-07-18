@@ -1,4 +1,4 @@
-@extends('home.address.address')
+@extends('home_index')
 
 @section('content')
 <div class="per_right_out backg_fff">
@@ -14,7 +14,7 @@
                         <a class="bd_r_none" href="Profile.html" id="forgetPasswordID"><span>修改密码</span></a>
                     </h3>
                 </div>
-                <form method="post" id="formAddress" action="/Home/address/{{ $v -> id }}">
+                <form method="post" id="formAddress" action="/address/{{ $v -> id }}">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
                     <div class="pd10">
@@ -58,7 +58,6 @@
                                 <td colspan="2"><button type="submit" id="btn_SaveAddress" class="btnCom1 btnComS btnBg2 btnH1 w80 inline J_save"><span>确 定</span></button></td>
                             </tr>
                             </tbody></table>
-                        }
                     </div>
                 </form>
                 <h3 class="perTitle col_523 lineH24">已保存的地址</h3>

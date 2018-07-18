@@ -1,4 +1,4 @@
-@extends('home.address.address')
+@extends('home_index')
 
 @section('content')
 <div class="per_right_out backg_fff">
