@@ -21,7 +21,7 @@
         ;!function(){
               var layer = layui.layer
               ,form = layui.form;
-         }();
+        }();
     </script>
     <script type="text/javascript">
         window.ApiSite = "http://api.biyao.com";
@@ -82,7 +82,7 @@
     </script>
 </head>
 <body id="pagebody">
-<div class="pub_nav topBanner slideUp">
+
     <div class="wrap clearfix bg_333">
         <div class="f_l">
             <ul class="pub_nav_list sizeZero">
@@ -109,7 +109,7 @@
         <div class="f_r">
             <ul class="pub_nav_list sizeZero">
                 <li class="inline" id="welcomID"><span class="col_aaa mg_r10">欢迎来到必要</span><a class="" onclick='LT.login_uri("login.html")'>{{session('users')->user_name}}</a><span class="bg"></span></li>
-                <li class="inline" id="messageID"><a href="/Home/loginout" onclick='LT.register_uri("register.html")'>退出</a><span class="bg"></span></li>
+                <li class="inline" id="messageID"><a href="/loginout" onclick='LT.register_uri("register.html")'>退出</a><span class="bg"></span></li>
  
                 <li class="inline last">
                     <a href="javascript:void(0);" class="">个人中心<i class="inline pep_bg mg_l10"></i></a>
@@ -118,7 +118,7 @@
                         <div class="bg_fff down_list_box">
                             <a class="inline" href="/order">我的订单</a>
                             <a class="inline" href="/address">地址管理</a>
-                            <a href="/Home/Informa" class="inline" href="Profile.html">个人设置</a>
+                            <a href="/Informa" class="inline" href="Profile.html">个人设置</a>
                         </div>
                     </div>
                 </li>

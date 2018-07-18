@@ -1,4 +1,4 @@
-@extends('home.index')
+@extends('home_index')
 @section('content')
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -25,16 +25,15 @@
             <ul class="per_leftul">
                 <li class="t_c">
                     <a href="Profile.html">
-                        <label for="infor">
-                        <img id="pro" src="/uploads/{{session('users')->user_pic}}" alt="" onerror="javascript:this.src='/h/pc/www/img/avatar/head_150.png'" style="width: 150px; height: 150px">
+                        <label for="informa">
+                        <img id="pro" src="/uploads/{{session('users')->user_pic}}" alt="" onerror="javascript:this.src='/h/pc/www/img/avatar/head_150.png'" style="width: 150px; height: 150px">    
                         </label>
                     </a>
                 </li>
                 <li class="f14 col_fff mg_t10 t_c">{{session('users')->user_name}}</li>
             </ul>
         </div>
-                        {{csrf_field()}}
-                        <button type="button" class="layui-btn" id="infor" style="display: none;"><i class="layui-icon">&#xe67c;</i>修改图片</button>
+                       
         <div class="per_leftbox">
             <div class="perleft_menu pdtb_20">
                 <ul>
@@ -58,7 +57,8 @@
                 </div>
                    <div class="pd10 bd_b_eee">
                     <h4 class="f14 col_666 mg_t20">基本信息</h4>
-                    <form method="post" id="submitForm" action="">
+                    <form method="post" id="submitForm" action="/inforupdete">
+                         {{ csrf_field() }}
                         <table cellspacing="0" cellpadding="0" border="0" class="per_table th80">
                             <tbody>
                             <tr>
@@ -67,7 +67,7 @@
                             </tr>
                             <tr>
                                 <th>昵　称：&nbsp;&nbsp;</th>
-                                <td><input type="text" onkeyup="$(this).css('color','#000')" value="{{session('users')->user_name}}" class="inpCom w200" maxlength="10" name="nickname" id="txtNickname"> <span class="col_b76 inline" id="nicknameHint"></span></td>
+                                <td><input type="text" onkeyup="$(this).css('color','#000')" value="{{session('users')->user_name}}" class="inpCom w200" maxlength="10" name="user_name" id="txtNickname"> <span class="col_b76 inline" id="nicknameHint"></span></td>
 
                             </tr>
                              <tr>
@@ -79,54 +79,56 @@
                                 <td class="J_gender_select">
                                 <label class=" col_666 cursor mg_r10">
                        
-                                    <li style="display: inline;"> <input type="radio" value="1" name="gender">&nbsp;&nbsp;保密</li>
+                                    <li style="display: inline;"> <input type="radio" value="0" name="sex" @if(session('users')->sex == 0)checked @endif>&nbsp;&nbsp;保密</li>
                                 </label> 
                                 <label class=" col_666 cursor mg_r10">
-                                     <li style="display: inline;"> <input type="radio" value="1" name="gender">&nbsp;&nbsp;男</li>
+                                     <li style="display: inline;"> <input type="radio" value="1" name="sex" @if(session('users')->sex == 1)checked @endif>&nbsp;&nbsp;男</li>
                                 </label> 
                                 <label class=" col_666 cursor mg_r10">
-                                     <li style="display: inline;"><input type="radio" value="1" name="gender">&nbsp;&nbsp;女</li>
+                                     <li style="display: inline;"><input type="radio" value="2" name="sex" @if(session('users')->sex == 2)checked @endif>&nbsp;&nbsp;女</li>
                                 </label>
                             </td>
                             </tr>
                             </tbody>
-                        </table>
+                        </table>  <p class="per_imgp clearfix mg_l40">
+                         <input type="submit" class="btnCom1 btnComS btnBg2 btnH1 w80 inline J_save"></p>
                     </form>
                 </div>
                 </div>
-                <p class="per_imgp clearfix mg_l40">
-                    <a href="javascript:;" class="btnCom1 btnComS btnBg2 btnH1 w80 inline J_save"><span>保
-                    存</span></a>
-                </p>
               </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-       layui.use('upload', function(){
+    <div>
+    </div>
+             {{ csrf_field() }}
+         <button type="button" class="layui-btn" id="informa" style="display: none;">
+             <i class="layui-icon">&#xe67c;</i>上传图片
+        </button>
+    <script>
+        layui.use('upload', function(){
           var upload = layui.upload;
            
           //执行实例
           var uploadInst = upload.render({
-            elem: '#infor' //绑定元素
-            ,url: '/Home/uploads' //上传接口
+             elem: '#informa' //绑定元素
+            ,url: '/infor/uploads' //上传接口
             ,data:{'_token':$('input[type=hidden]').val()}
             ,field:'profile'
             ,done: function(res){
-          
-            if (res.code==0) {
-                //layer.msg(res.msg,{icon: 6});
+               if (res.code==0) {
+                layer.msg(res.msg,{icon: 6});
                  $('#pro').attr('src',res.data.src)
-            }else{
+              }else{
 
                 layer.msg(res.msg,{icon: 5});
 
               }
 
             }
-
+            
           });
         });
-    </script>
+</script>
 @endsection
 

@@ -67,7 +67,7 @@ class LoginController extends Controller
     {
          $users = session()->flush();
 
-         return redirect('/Home/login');
+         return redirect('/login');
     }
 
     /**
@@ -79,27 +79,24 @@ class LoginController extends Controller
     public function Informa()
     {
 
-         return view('home.user.Informa');
+        // echo "string";
+         return view('home.user.informa');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function uploads(Request $request)
-    {       
+     public function upload(Request $request)
+     {
+               
+             $un=user::find(session('users')->user_id);
+
               $profile=$request->file('profile');
               $ext = $profile->getClientOriginalExtension();
               $temp_name = str_random(20);
               $name =  $temp_name.'.'.$ext;
+              $un['user_pic']=$name;
               $res=$profile->move('./uploads/',$name);
               
               if ($res) {
-                      
                       $arr=[
-
                           'code'=>0,
                           'msg'=>'更改成功',
                           'data'=>[
@@ -119,8 +116,9 @@ class LoginController extends Controller
 
                       ];
                  }
-             echo json_encode($arr);        
-     }       
+                $un -> save();
+                echo json_encode($arr); 
+     }
 
     /**
      * Update the specified resource in storage.
@@ -129,9 +127,14 @@ class LoginController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function inforupdete(Request $request)
     {
-        //
+         $username = $request->input('user_name');
+         $sexs = $request->input('sex');
+         $data=user::find(session('users')->user_id);
+         $data->user_name=$username;
+         $data->sex=$sexs;
+         $data -> save();
     }
 
     /**
