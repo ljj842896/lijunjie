@@ -71,7 +71,7 @@
                         <form action="/address/{{ $v -> id }}" method="post" style="display:inline">
                         {{ csrf_field() }}                        
                         {{ method_field('DELETE') }}                        
-                            <button class="btn btn-danger">删除</button>
+                            <input id="addr_del" type="submit" class="btn btn-danger" value="删除" style="display:inline" onclick="return confirm('确定删除吗?')"></input>
                         </form>
                         </td>
                     </tr>
