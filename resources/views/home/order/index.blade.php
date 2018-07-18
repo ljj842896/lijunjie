@@ -277,7 +277,7 @@
                                 <td  align="center" class="bd_l vTop pd_t15 lineH20" width="18%"><strong class="col_f60 f14">{{ $user_orders['order_amount'] }}￥</strong>
                                 </td>
                                 <td  align="center" class="bd_l vTop pd_t15 lineH20" width="18%">
-                                    <a href="/Home/orderdetails" class="col_link ">订单详情</a>
+                                    <a href="/orderdetails" class="col_link ">订单详情</a>
                                 </td>
                                 <td  align="center" class="bd_l vTop  pd_l20 pd_r20 pd_t5" width="18%">
                                     <a href="#" class="publicBtn publicBtn_h25 publicBtn_f60 inline mg_t10">立即付款</a><br>

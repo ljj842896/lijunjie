@@ -9,12 +9,12 @@
                     <h3 class="per_title">
                         <a href="Profile.html"><span>个人信息</span></a>
 
-                        <a class="a_checked" href="Home/address"><span>管理收货地址</span></a>
+                        <a class="a_checked" href="/address"><span>管理收货地址</span></a>
 
                         <a class="bd_r_none" href="Profile.html" id="forgetPasswordID"><span>修改密码</span></a>
                     </h3>
                 </div>
-                <a href="/Home/address/create" class="btn btn-info">添加地址</a>
+                <a href="/address/create" class="btn btn-info">添加地址</a>
                 <h3 class="perTitle col_523 lineH24">已保存的地址</h3>
                 <table border="0" cellspacing="0" cellpadding="0" class="perTableTitle1">
                     <tbody><tr>
@@ -41,7 +41,13 @@
                             默认地址
                             @endif
                             </span></td>
-                        <td width="10%"><a class="J_edit col_link" href="/Home/address/{{ $v -> id }}/edit">修改</a> / <a class="J_dele col_link">删除</a></td>
+                        <td width="10%"><a class="btn btn-warning" href="/address/{{ $v -> id }}/edit">修改</a>
+                        <form action="/address/{{ $v -> id }}" method="post" style="display:inline">
+                        {{ csrf_field() }}                        
+                        {{ method_field('DELETE') }}                        
+                            <button style="submit" class="btn btn-danger">删除</button>
+                        </form>
+                        </td>
                     </tr>
                     @endforeach
                     </tbody>

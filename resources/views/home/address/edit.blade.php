@@ -9,7 +9,7 @@
                     <h3 class="per_title">
                         <a href="Profile.html"><span>个人信息</span></a>
 
-                        <a class="a_checked" href="Home/address"><span>管理收货地址</span></a>
+                        <a class="a_checked" href="/address"><span>管理收货地址</span></a>
 
                         <a class="bd_r_none" href="Profile.html" id="forgetPasswordID"><span>修改密码</span></a>
                     </h3>

@@ -9,12 +9,12 @@
                     <h3 class="per_title">
                         <a href="Profile.html"><span>个人信息</span></a>
 
-                        <a class="a_checked" href="Home/address"><span>管理收货地址</span></a>
+                        <a class="a_checked" href="/address"><span>管理收货地址</span></a>
 
                         <a class="bd_r_none" href="Profile.html" id="forgetPasswordID"><span>修改密码</span></a>
                     </h3>
                 </div>
-                <form method="post" id="formAddress" action="/Home/address">
+                <form method="post" id="formAddress" action="/address">
                     {{ csrf_field() }}
                     <div class="pd10">
                         <table border="0" cellspacing="0" class="per_table th80">
