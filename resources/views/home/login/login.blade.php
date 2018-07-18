@@ -76,7 +76,7 @@
 </div>
 <div class="wrap h580">
     <div class="loginItem auto ">
-        <form action="/Home/entry" class="loginBox" method="post" id="J_login">
+        <form action="/entry" class="loginBox" method="post" id="J_login">
         	{{csrf_field()}}
             <div class="inline loginTitBox"><i class="inline loginListBg spIcon mg_r10"></i><span class="inline">用户登录</span></div>
             <dl class="mg_t20 ">
@@ -251,7 +251,7 @@
  	     var userss = false;
          login.username.onblur = function(){
          var username = login.username.value;
-            $.get('/Home/exect',{'username':username},function(msg){
+            $.get('/exect',{'username':username},function(msg){
 			    
 			       if (msg=='3') {
                        

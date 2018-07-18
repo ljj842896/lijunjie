@@ -106,7 +106,8 @@
                     <div class="app_box">
                         <span class="inline upArre"></span>
                         <div class="bg_fff down_list_box">
-                            <a class="inline" href="MyOrder.html">我的订单</a>
+                            <a class="inline" href="/order">我的订单</a>
+                            <a class="inline" href="/address">地址管理</a>
                             <a href="/Home/Informa" class="inline" href="Profile.html">个人设置</a>
                         </div>
                     </div>
@@ -122,24 +123,9 @@
         @else
         <div class="f_r">
             <ul class="pub_nav_list sizeZero">
-                <li class="inline" id="welcomID"><span class="col_aaa mg_r10">欢迎来到必要，请</span><a href="/Home/login" onclick='LT.login_uri("login.html")'>登录</a><span class="bg"></span></li>
+                <li class="inline" id="welcomID"><span class="col_aaa mg_r10">欢迎来到必要，请</span><a href="/login" onclick='LT.login_uri("login.html")'>登录</a><span class="bg"></span></li>
                 <li class="inline" id="messageID"><a onclick='LT.register_uri("register.html")'>注册</a><span class="bg"></span></li>
-                <li class="inline last">
-                    <a href="javascript:void(0);" class="">个人中心<i class="inline pep_bg mg_l10"></i></a>
-                    <div class="app_box">
-                        <span class="inline upArre"></span>
-                        <div class="bg_fff down_list_box">
-                            <a class="inline" href="MyOrder.html">我的订单</a>
-                            <a class="inline" href="Profile.html">个人设置</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="inline last pd_r0 shopping_cart vTop">
-                    <a class="inline sizeZero" href="shopcars.html">
-                        <i class="inline"></i>
-                        <span id="shopcarNumID" class="inline">购物车 0</span>
-                    </a>
-                </li>
+                
             </ul>
         </div>
         @endif
