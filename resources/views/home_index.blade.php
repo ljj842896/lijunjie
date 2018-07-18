@@ -21,22 +21,9 @@
         ;!function(){
               var layer = layui.layer
               ,form = layui.form;
-         }();
+        }();
     </script>
-<!--     <script type="text/javascript">
-        window.ApiSite = "http://api.biyao.com";
-        window.ControllerSite="";
-        window.loginUserId=0;
-        window.__pageType="other";
-
-        if (window.loginUserId!=""){
-            window.WebIMSite="http://webim.idstaff.com";
-        }
-        else
-        {
-            window.WebIMSite="http://webim.idstaff.com";
-        }
-    </script> -->
+ 
     <link href="/h/pc/common/css/common.css?v=biyao_1227846" rel="stylesheet" />
     <link href="/h/pc/www/css/cm_www.css?v=biyao_3f1d92e" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
@@ -63,35 +50,19 @@
     <script type="text/javascript" src="/h/js/index.js" ></script>
     <script type="text/javascript" src="/h/js/bytrack.js"></script>
  
-<!--     <script type="text/javascript">
-        function GetRequest() {
-            var url = location.search; //获取url中"?"符后的字串
-            var theRequest = new Object();
-            if (url.indexOf("?") != -1) {
-                var str = url.substr(1);
-                strs = str.split("&");
-                for (var i = 0; i < strs.length; i++) {
-                    theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
-                }
-            }
-            return theRequest;
-        }
-        var Request = new Object();
-        Request = GetRequest();
-        if(!$.cookie("source")){
-            $.cookie('source', Request['source'],{domain:"biyao.com",path:"/"});
-        }
-    </script> -->
 </head>
 <body id="pagebody">
-<div class="pub_nav topBanner slideUp">
-    <div class="wrap clearfix bg_333">
+
+<div class="pub_nav topBanner slideUp" style="height: 30px">
+    
+
+    <div class="wrap clearfix bg_333"  style="height: 30px">
         <div class="f_l">
             <ul class="pub_nav_list sizeZero">
 
                 <li class="inline"><a href="/">首页</a><span class="bg"></span></li>
                 <li class="inline"><a href="/create">商家中心</a><span class="bg"></span></li>
-                <li class="inline"><a href="sjzx.html">平台政策</a><span class="bg"></span></li>
+                <li class="inline"><a href="/create">平台政策</a><span class="bg"></span></li>
                 <!--                    <li class="inline last"><a href="list.html#complaint/toAddComplaint">非法信息投诉</a><span class="bg"></span></li> -->
                 <li class="inline last newapp">
                     <a href="#">必要手机版</a>
@@ -110,8 +81,10 @@
  
         <div class="f_r">
             <ul class="pub_nav_list sizeZero">
-                <li class="inline" id="welcomID"><span class="col_aaa mg_r10">欢迎来到必要</span><a class="" >{{session('users')->user_name}}</a><span class="bg"></span></li>
-                <li class="inline" id="messageID"><a href="/Home/loginout">退出</a><span class="bg"></span></li>
+
+                <li class="inline" id="welcomID"><span class="col_aaa mg_r10">欢迎来到必要</span><a class="">{{session('users')->user_name}}</a><span class="bg"></span></li>
+                <li class="inline" id="messageID"><a href="/loginout">退出</a><span class="bg"></span></li>
+ 
  
                 <li class="inline last">
                     <a href="javascript:void(0);" class="">个人中心<i class="inline pep_bg mg_l10"></i></a>
@@ -120,7 +93,9 @@
                         <div class="bg_fff down_list_box">
                             <a class="inline" href="/order">我的订单</a>
                             <a class="inline" href="/address">地址管理</a>
+
                             <a href="/Informa" class="inline">个人设置</a>
+
                         </div>
                     </div>
                 </li>
@@ -144,6 +119,7 @@
         </div>
         @endif
     </div>
+
 </div>
 
 

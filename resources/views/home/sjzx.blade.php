@@ -56,8 +56,8 @@ var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm
         <div class="f_l">
             <ul class="pub_nav_list sizeZero">
                 <li class="inline"><a href="/">首页</a><span class="bg"></span></li>
-                <li class="inline"><a href="sjzx.html">商家中心</a><span class="bg"></span></li>
-                <li class="inline"><a href="sjzx.html">平台政策</a><span class="bg"></span></li>
+                <li class="inline"><a href="/create">商家中心</a><span class="bg"></span></li>
+                <li class="inline"><a href="/create">平台政策</a><span class="bg"></span></li>
                 <!-- 					<li class="inline last"><a href="list.html#complaint/toAddComplaint">非法信息投诉</a></li> -->
                 <li class="inline last newapp">
                     <a href="#">必要手机版</a>
