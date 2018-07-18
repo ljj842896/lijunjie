@@ -202,7 +202,7 @@
         <div class="per_leftbox">
             <div class="perleft_menu pdtb_20">
                 <ul>
-                    <li class=" "><a href="MyOrder.html" ><i class="f_r mcMIcon3 inline"></i>我的订单</a> </li>
+                    <li class=" "><a href="/order" ><i class="f_r mcMIcon3 inline"></i>我的订单</a> </li>
                     <li class=" "><a href="MyRefunds.html" ><i class="f_r mcMIcon4 inline"></i>退款管理</a></li>
                     <!--<li class=" "><a href="/MyCenter/MyIncomeRules.html" ><i class="f_r mcMIcon5 inline"></i>我的收益</a></li>-->
                     <li class="a_check "><a href="Profile.html" ><i class="f_r mcMIcon8 inline"></i>个人设置</a></li>
