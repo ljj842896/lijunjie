@@ -7,15 +7,22 @@
     <meta name="Keywords" content="必要;必要商城;必要平台;必要电商;C2M商城;工业4.0;定制平台;定制商城;奢侈品定制;定制鞋;定制包;定制眼镜;定制饰品;定制运动服;定制运动鞋" />
     <meta property="qc:admins" content="35713343766211176375747716" />
     <title>必要 - 全球首家C2M电子商务平台</title>
-
+ 
     <link href="/h/pc/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-    <link href="/h/pc/favicon.ico" rel="icon" type="image/x-icon" />
-
-    <link href="/h/pc/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="/h/css/common.css" rel="stylesheet" type="text/css" />
     <link href="/h/css/new.main.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="/h/css/new.index.css"/>
-
+ 
+    <link href="/h/pc/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="/h/pc/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <script type="text/javascript" src="/layui/layui.all.js"></script>
+    <script>
+        ;!function(){
+              var layer = layui.layer
+              ,form = layui.form;
+         }();
+    </script>
     <script type="text/javascript">
         window.ApiSite = "http://api.biyao.com";
         window.ControllerSite="";
@@ -44,7 +51,7 @@
     <script type="text/javascript"  src="/h/pc/common/js/jquery.extention.js?v=biyao_98daa33"></script>
     <script type="text/javascript" src="/h/pc/common/js/lazyload.js?v=biyao_80d4f78"></script>
     <script type="text/javascript" src="/h/pc/minisite/byshoes/js/jquery.cookie.js?v=biyao_a5283b2"></script>
-
+ 
     <script type="text/javascript"  src="/h/js/jquery-1.8.3.js"></script>
     <script type="text/javascript"  src="/h/js/jquery.cookie.js"></script>
     <script type="text/javascript"  src="/h/js/md5.js"></script>
@@ -53,7 +60,7 @@
     <script type="text/javascript"  src="/h/js/common.js"></script>
     <script type="text/javascript" src="/h/js/index.js" ></script>
     <script type="text/javascript" src="/h/js/bytrack.js"></script>
-
+ 
     <script type="text/javascript">
         function GetRequest() {
             var url = location.search; //获取url中"?"符后的字串
@@ -96,11 +103,14 @@
                 </li>
             </ul>
         </div>
+ 
   @if(session('users'))
+ 
         <div class="f_r">
             <ul class="pub_nav_list sizeZero">
                 <li class="inline" id="welcomID"><span class="col_aaa mg_r10">欢迎来到必要</span><a class="" onclick='LT.login_uri("login.html")'>{{session('users')->user_name}}</a><span class="bg"></span></li>
                 <li class="inline" id="messageID"><a href="/Home/loginout" onclick='LT.register_uri("register.html")'>退出</a><span class="bg"></span></li>
+ 
                 <li class="inline last">
                     <a href="javascript:void(0);" class="">个人中心<i class="inline pep_bg mg_l10"></i></a>
                     <div class="app_box">
@@ -120,7 +130,9 @@
                 </li>
             </ul>
         </div>
+ 
         @else
+ 
         <div class="f_r">
             <ul class="pub_nav_list sizeZero">
                 <li class="inline" id="welcomID"><span class="col_aaa mg_r10">欢迎来到必要，请</span><a href="/login" onclick='LT.login_uri("login.html")'>登录</a><span class="bg"></span></li>

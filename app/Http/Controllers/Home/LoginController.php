@@ -18,7 +18,7 @@ class LoginController extends Controller
     public function login()
     {   
         
-        return view('home.login.login');
+        return view('home.user.login');
     }
 
     /**
@@ -53,7 +53,7 @@ class LoginController extends Controller
                      session(['users'=>$users]);
                      return redirect('/');
                 }else{
-                     return back()->with(['error'=>'请输入正确的密码','userss'=>$user]);       
+                     return back()->with(['error'=>'请输入正确的密码','userss'=>$user]);           
               }
      }   
 
@@ -63,9 +63,11 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function loginout()
     {
-        //
+         $users = session()->flush();
+
+         return redirect('/Home/login');
     }
 
     /**
@@ -74,9 +76,10 @@ class LoginController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function Informa()
     {
-        //
+
+         return view('home.user.Informa');
     }
 
     /**
@@ -85,10 +88,39 @@ class LoginController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+    public function uploads(Request $request)
+    {       
+              $profile=$request->file('profile');
+              $ext = $profile->getClientOriginalExtension();
+              $temp_name = str_random(20);
+              $name =  $temp_name.'.'.$ext;
+              $res=$profile->move('./uploads/',$name);
+              
+              if ($res) {
+                      
+                      $arr=[
+
+                          'code'=>0,
+                          'msg'=>'更改成功',
+                          'data'=>[
+                             'src'=>'/uploads/'.$name
+                          ]
+
+                      ];
+              }else{
+
+                      $arr=[
+
+                          'code'=>1,
+                          'msg'=>'更新失败',
+                          'data'=>[
+                             'src'=>''
+                          ]
+
+                      ];
+                 }
+             echo json_encode($arr);        
+     }       
 
     /**
      * Update the specified resource in storage.

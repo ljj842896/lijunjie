@@ -81,7 +81,7 @@
             <div class="inline loginTitBox"><i class="inline loginListBg spIcon mg_r10"></i><span class="inline">用户登录</span></div>
             <dl class="mg_t20 ">
                 <!-- <dt class="inline">手机号：</dt> -->
-                <dd class="inline mg_r5"><input value="请输入您的手机号码" type="text" id="username" name="username" class=" loginTxt  w360 col_999"/></dd>
+                <dd class="inline mg_r5"><input value="请输入用户名" type="text" id="username" name="username" class=" loginTxt  w360 col_999"/></dd>
                 <dd class="J_validate inline col_f90 "><span id="users"></span></dd>
             </dl>
          
@@ -94,7 +94,7 @@
                 <dd class="J_validate inline col_f90" >  	
                  @if (session('error'))
                         {{ session('error') }} 
-                @endif
+                 @endif
                 </dd>
             </dl>
 
