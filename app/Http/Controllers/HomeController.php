@@ -25,20 +25,27 @@ class HomeController extends Controller
         //轮播图数据调取
         $ads = Ads::get();
         $links = Links::get();
-        // dd($ads);
-        return view('home.index',['ads' => $ads, 'links' => $links]);
+        $cat = Cates::get();
+        foreach ($cat as $key => $val) {
+            if (substr_count($val['cat_path'], ',') == 3) {
+                
+                $cate[] = $val;
+            }
+        }
+        $cat_key = array_rand($cate,10);
+        return view('home.index',['ads' => $ads, 'links' => $links, 'cat_key' => $cat_key]);
     }
 
     /**
      * Show the form for creating a new resource.
-     *
+     *  首页商家中心页面
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        
-
-        
+        //商家中心
+        echo "";
+        return view('home/sjzx');
 
     }
 

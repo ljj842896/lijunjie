@@ -39,13 +39,15 @@ class LoginController extends Controller
         $uname = $request->input('user_name');   
         $passwords = $request->input('password');
         $data = user::where('user_name','=',$uname)->first();
-        $data['login'] = true;
         // dd($data);
         //获取对应的值
        
         if (Hash::check($passwords,$data['password'])) {
+           
+            //添加login标记
+            $data['login'] = true;
               
-              session(['data'=>$data]);
+            session(['data'=>$data]);
 
               return redirect('/Admin')->with('success','登录成功');
         }else{

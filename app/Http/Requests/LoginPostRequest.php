@@ -30,7 +30,7 @@ class LoginPostRequest extends Request
             'regex:/^[a-zA-Z0-9_-]{4,16}$/'
               ],
             
-            'password' => array('regex:/^[\w_-]{6,16}$/'),
+            'password' => 'required|regex:/^[\w_-]{6,16}$/',
              
         ];
     }
@@ -42,8 +42,11 @@ class LoginPostRequest extends Request
              'user_name.required'=>'<font color="red">用户名不能为空</font>',
              'user_name.regex'=>'<font color="red">用户名请设置字母，数字，下划线</font>',
               //密码验证
-             'password.regex'=>'<font color="red">4~6位密码必须以字母数字下划线</font>',
 
+             'password.regex'=>'<font color="red">请输入6~16位密码</font>',
+
+
+             'password.required'=>'请输入密码！',
         ];
     }
 }

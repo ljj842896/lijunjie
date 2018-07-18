@@ -7,7 +7,8 @@
                 <div class="relative">
                     <h4 class="nTitle">个人设置</h4>
                     <h3 class="per_title">
-                        <a href="Profile.html"><span>个人信息</span></a>
+                        
+                        <a href="/"><span>个人信息</span></a>
 
                         <a class="a_checked" href="/address"><span>管理收货地址</span></a>
 

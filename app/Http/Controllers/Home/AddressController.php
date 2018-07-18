@@ -18,6 +18,8 @@ class AddressController extends Controller
     public function index()
     {
         //
+
+        
         return view('home.address.index');
     }
 
