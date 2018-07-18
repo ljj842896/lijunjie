@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Models\Cates;
+use App\Models\Goods;
+use App\Models\Links;
+use App\Models\Ads;
 
 use App\Http\Controllers\Controller;
 
@@ -12,13 +16,17 @@ class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     *  首页控制器
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
-        return view('home.index');
+        //取数据
+        //轮播图数据调取
+        $ads = Ads::get();
+        $links = Links::get();
+        // dd($ads);
+        return view('home.index',['ads' => $ads, 'links' => $links]);
     }
 
     /**
@@ -28,7 +36,10 @@ class HomeController extends Controller
      */
     public function create()
     {
-        //
+        
+
+        
+
     }
 
     /**

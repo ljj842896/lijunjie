@@ -2,14 +2,18 @@
 
 @section('content')
 
-<h1>这是分类添加</h1>
- 
+
  
 
 <div class="mws-panel grid_8">
-                	<div class="mws-panel-header">
-                    	<span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> </font></font></span>
-                    </div>
+       <div class="mws-panel-header" style="height:46px">
+        <span>
+            <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;"> 商品分类修改</font>
+            
+            </font>
+        </span>
+    </div>
                     <div class="mws-panel-body no-padding">
                     	<form class="mws-form" action="/Admin/cate/{{$cate -> cat_id}}" method="post">
                     		{{csrf_field()}}
@@ -20,7 +24,7 @@
                                              分类名称　：<input type="text" class="small" name="cat_name" value="{{$cate -> cat_name}}"><br><br>
                                              选择分类　： 
 				                                        <select name="cat_pid">
-
+                                                                        <option value="">-- 请选择 --</option>
                                                                  @foreach($data as $v)
                                                                       <option value="{{$v -> cat_id}}" {{$v -> cat_id == $cate -> cat_id ? 'selected' : ''}}>{{$v -> cat_name}}</option>
                                                                  @endforeach

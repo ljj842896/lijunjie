@@ -11,7 +11,7 @@
 
                 <tr>
                     <th>订单号</th>
-                    <th>创建时间(order_time)</th>
+                    <th>创建时间</th>
                     <th>商品名称</th>
                     <th>商品数量</th>
                     <th>订单状态</th>

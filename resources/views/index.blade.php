@@ -167,7 +167,7 @@
                         <li><a href="/Admin/repass">修改密码</a></li>
                         <li><a href="/Admin/loginout">退出</a></li>
                     </ul>
-                    
+
                 </div>
                     @else
                 <div id="mws-user-functions">
@@ -175,6 +175,7 @@
                     <a href="/Admin/login">请登录！</a>
                     </div>
                 </div>
+
                     @endif
             </div>
         </div>

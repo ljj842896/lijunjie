@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\user;
 use App\Http\Requests\StoreBlogPostRequest;
 use App\Http\Requests\LoginPostRequest;
-use App\Http\Requests\InforPostRequest;
+
 use DB;
 class LoginController extends Controller
 {
@@ -88,10 +88,31 @@ class LoginController extends Controller
     }
 
     //修改个人信息
-    public function revise(InforPostRequest $request){
+    public function revise(StoreBlogPostRequest $request){
 
        
         $data = $request->except('_token');
+       
+
+        if ($request -> hasFile('user_pic')) {
+            // dd($request -> hasFile('user_pic'));
+            $profile = $request -> file('user_pic');
+            // dd($profile);
+            $ext = $profile -> getClientoriginalextension();
+            // dd($ext); 
+            $filename = time().str_random(10).$ext;
+            // dd($filename);
+            $res = $profile -> move('./uploads/',$filename);
+
+            if ($res) {
+                $data['user_pic'] = $filename;
+            }else{
+                return back() -> with('error','图像修改失败！');
+            }
+        }
+
+        // dd($data['user_pic']);
+
         $id = $data['user_id'];
         
          $aaa=user::find($id)->update($data);

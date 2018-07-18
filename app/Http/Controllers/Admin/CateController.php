@@ -15,7 +15,30 @@ class CateController extends Controller
     {
        $this -> middleware('login');
     }
-    
+
+
+    public function ajaxCates()
+    {
+         
+        $cat_id = isset($_GET['id']) ? $_GET['id'] : null;
+
+
+        if (isset($cat_id)) {
+            # code...
+            $data = DB::select('select * from s_cates where cat_id = ?',[$cat_id]);
+        }
+
+        $name = isset($_GET['name']) ? $_GET['name'] : null;
+        if (isset($name)) {
+             $p = '%'.$name.'%';
+            $data = DB::select('select * from s_cates where cat_name like ?',[$p]);
+        }
+
+        // dd($data);
+        
+        // dd($data[1]['cat_id']);
+        echo json_encode($data);
+    }
 
     public static function getCates($id)
     {
@@ -57,7 +80,7 @@ class CateController extends Controller
     public function create()
     {
         
-        return view('admin/cate/create',['data' => self::getCates(0)]);
+        return view('admin/cate/create',['data' => self::getCates(200)]);
     }
 
     /**
@@ -91,7 +114,8 @@ class CateController extends Controller
             $res = $cate -> save();
             if ($res) {
                 
-                return redirect('/Admin/cate') -> with('success','分类添加成功！');
+                // return redirect('/Admin/cate') -> with('success','分类添加成功！');
+                return back() -> with('success','分类添加成功！');
             }else{
 
             }
@@ -133,7 +157,7 @@ class CateController extends Controller
              $login = false;
          }
          // dd($login);
-        return view('/admin/cate/edit',['cate' => $cate,'data' => self::getCates(0),'login' => $login]);
+        return view('/admin/cate/edit',['cate' => $cate,'data' => self::getCates(200),'login' => $login]);
     }
 
     /**
@@ -163,6 +187,17 @@ class CateController extends Controller
            // dump($request -> has('cat_pid'));
             // dd($data);
             $cate -> cat_pid = $request -> input('cat_pid');
+
+            if ($request['cat_pid'] == 0) {
+                
+                $cate -> cat_path = '0';
+            }else{
+
+                $res = Cates::where('cat_id',$request['cat_pid']) -> first();
+                $cate -> cat_path = $res->cat_path.','.$res->cat_id;
+                // $cate -> cat_path = $res[''];
+            }
+
         } 
             
             
