@@ -66,11 +66,10 @@ Route::get('Admin/rec/store/{id}','Admin\RecycleController@store');
 
 // 前台路由
 
-
-
 //前台首页路由
 Route::resource('/','HomeController');
-
+//前台分类商品页
+Route::get('cates/{id}','HomeController@store');
 
 //李俊杰区域-----------------end----------------------------
 

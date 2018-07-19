@@ -36,7 +36,7 @@
 
                                 <label class="mws-form-label"> 商品颜色:</label>
                                       <div class="mws-form-item"> 
-                                        <select  name="goods_attr_color">
+                                        <select  name="goods_attr_color" multiple>
                                             <option value="">--请选择--</option>
                                             
                                             <option value="1" {{$good -> goods_attr_color == '1' ? 'selected' : ''}}>玉米黄</option>
@@ -58,9 +58,9 @@
                               市场价:　<input name="market_price" type="text" class="small" value="{{ $good -> market_price }}"><br><br>
      					                本店售价:<input name="shop_price" type="text" class="small" value="{{ $good -> shop_price }}"><br><br>
                               宝贝图片： 
-                                        <div class="fileinput-holder" style="position: absolute;left: 200px;top: 400px"> <span class="fileinput-btn btn" type="button" style="display:block; overflow: hidden; position: absolute; top: 0; right: 0; cursor: pointer;">代表图片<input name="goods_img" type="file" style="position: absolute; top: 0px; right: 0px; margin: 0px; cursor: pointer; font-size: 999px; opacity: 0; z-index: 999;"></span></div> 
+                                        <div class="fileinput-holder" style="position: absolute;left: 200px;top: 450px"> <span class="fileinput-btn btn" type="button" style="display:block; overflow: hidden; position: absolute; top: 0; right: 0; cursor: pointer;">代表图片<input name="goods_img" type="file" style="position: absolute; top: 0px; right: 0px; margin: 0px; cursor: pointer; font-size: 999px; opacity: 0; z-index: 999;"></span></div> 
 
-                                        <div style="width: 60px; height: 60px; position: absolute;left: 250px;top: 410px"><img src="/goods_img/{{$good -> goods_img}}"></div>
+                                        <div style="width: 60px; height: 60px; position: absolute;left: 250px;top: 450px"><img src="/goods_img/{{$good -> goods_img}}"></div>
 
                                          
                                        

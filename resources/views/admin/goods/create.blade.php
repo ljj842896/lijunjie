@@ -38,7 +38,7 @@
 
                                 <label class="mws-form-label"> 商品颜色:</label>
                                       <div class="mws-form-item">
-                                        <select  name="goods_attr_color">
+                                        <select  name="goods_attr_color[]"  multiple="multiple">
                                             <option value="">--请选择--</option>
                                             
                                             <option value="1">玉米黄</option>
@@ -60,9 +60,9 @@
                               市场价:　<input name="market_price" type="text" class="small" value="{{old('market_price')}}"><br><br>
      					                本店售价:<input name="shop_price" type="text" class="small" value="{{old('shop_price')}}"><br><br>
                               宝贝图片： 
-                                        <div class="fileinput-holder" style="position: absolute;left: 200px;top: 400px"> <span class="fileinput-btn btn" type="button" style="display:block; overflow: hidden; position: absolute; top: 0; right: 0; cursor: pointer;">代表图片<input name="goods_img" type="file" style="position: absolute; top: 0px; right: 0px; margin: 0px; cursor: pointer; font-size: 999px; opacity: 0; z-index: 999;"></span></div> 
+                                        <div class="fileinput-holder" style="position: absolute;left: 200px;top: 450px"> <span class="fileinput-btn btn" type="button" style="display:block; overflow: hidden; position: absolute; top: 0; right: 0; cursor: pointer;">代表图片<input name="goods_img" type="file" style="position: absolute; top: 0px; right: 0px; margin: 0px; cursor: pointer; font-size: 999px; opacity: 0; z-index: 999;"></span></div> 
 
-                                        <div class="fileinput-holder" style="position: absolute;left: 400px;top: 400px"> <span class="fileinput-btn btn" type="button" style="display:block; overflow: hidden; position: absolute; top: 0; right: 0; cursor: pointer;">宝贝相册<input name="img_url[]" type="file" multiple style="position: absolute; top: 0px; right: 0px; margin: 0px; cursor: pointer; font-size: 999px; opacity: 0; z-index: 999;"></span></div> 
+                                        <div class="fileinput-holder" style="position: absolute;left: 400px;top: 450px"> <span class="fileinput-btn btn" type="button" style="display:block; overflow: hidden; position: absolute; top: 0; right: 0; cursor: pointer;">宝贝相册<input name="img_url[]" type="file" multiple style="position: absolute; top: 0px; right: 0px; margin: 0px; cursor: pointer; font-size: 999px; opacity: 0; z-index: 999;"></span></div> 
                                        <!-- {{old('goods_brief') ? old('goods_brief') : '请介绍您的宝贝...'}}  -->
                                         <br><br>
                                         <br><br>

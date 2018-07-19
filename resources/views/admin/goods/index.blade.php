@@ -37,7 +37,7 @@
 
                                   <tr role="row">
 
-                                  <th style="width: 10%;"><input type="checkbox" name="goods_id[]" value="del"><input type="submit" name="del" value="多 删"></th>
+                                  <th style="width: 10%;"><input style="display: none;" type="checkbox" name="goods_id[]" value="del"><input type="submit" name="del" value="多 删"></th>
 
                                   <th style="width: 8%;">商品ID</th>
 
@@ -51,7 +51,7 @@
 
                                   <th style="width: 8%;">售价</th> 
                                   
-                                  <th>操作  <input type="checkbox" name="goods_id[]" value="store"><input type="submit" name="store" value="批量上/下架"></th>
+                                  <th>操作  <input style="display: none;" type="checkbox" name="goods_id[]" value="store"><input type="submit" name="store" value="批量上/下架"></th>
                                   </tr>
                             </thead>
                             

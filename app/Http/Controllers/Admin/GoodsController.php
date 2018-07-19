@@ -170,6 +170,8 @@ class GoodsController extends Controller
         }
 
 
+        $data['goods_attr_color'] = implode($data['goods_attr_color'], ',');
+        
         // dd($data);
         //==================执行保存====================
         //先开启事务

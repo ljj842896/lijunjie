@@ -34,7 +34,7 @@
                                         <br><br>
                                 <label class="mws-form-label"> 商品颜色:</label>
                                       <div class="mws-form-item">
-                                        <select  name="goods_attr_color" disabled>
+                                        <select  name="goods_attr_color" disabled multiple>
                                             <option value="">--请选择--</option>
                                             
  
