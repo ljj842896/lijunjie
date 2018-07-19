@@ -113,7 +113,7 @@
         <div class="f_r">
             <ul class="pub_nav_list sizeZero">
                 <li class="inline" id="welcomID"><span class="col_aaa mg_r10">欢迎来到必要，请</span><a href="/login">登录</a><span class="bg"></span></li>
-                <li class="inline" id="messageID"><a>注册</a><span class="bg"></span></li>
+                <li class="inline" id="messageID"><a href="/register">注册</a><span class="bg"></span></li>
                 
             </ul>
         </div>
