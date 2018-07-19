@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Address;
 use DB;
+use App\Http\Requests\AddressRequest;
 class AddressController extends Controller
 {
     /**
@@ -18,9 +19,10 @@ class AddressController extends Controller
     public function index()
     {
         //
-
-        
-        return view('home.address.index');
+        $user_id = session('users');
+        $users_id = $user_id['user_id'];
+        $data = Address::where('user_id',$users_id) -> get();
+        return view('home.address.index',['users_address' => $data]);
     }
 
     /**
@@ -31,7 +33,10 @@ class AddressController extends Controller
     public function create()
     {
         //
-        return view('home.address.create');
+        $user_id = session('users');
+        $users_id = $user_id['user_id'];
+        $data = Address::where('user_id',$users_id) -> get();
+        return view('home.address.create',['users_address' => $data]);
     }
 
     /**
@@ -40,25 +45,31 @@ class AddressController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddressRequest $request)
     {
         //
         $data = $request -> except('_token');
         //dump($data);
         $addr = new Address;
         // dump($addr);
-        $addr -> address = $data['address'];
-        $addr -> user_id = 2;
-        $addr -> tel = $data['phone'];
+        $user_id = session('users');
+        if ($user_id['user_id']) {
+            $addr -> user_id = $user_id['user_id'];
+        }
+        if($data['df'] == 1){
+                DB::table('address') -> where('df','=',1) -> update(['df' => 0]);
+                $addr -> df = 1;
+            }else{
+                $addr -> df = 0;
+            }
         $addr -> uname = $data['uname'];
-        $df = $addr -> df = $data['df'];
-        if ($df == 1) {
-            $res = DB::table('address') -> where('df','=',1) -> update(['df' => 0]);
-            $addr -> save();
+        $addr -> address = $data['address'];
+        $addr -> tel = $data['phone'];
+        $res = $addr -> save();
+        if ($res) {
             return redirect('/address') -> with('success','添加成功!');
         }else{
-            $addr -> save();
-            return redirect('/address') -> with('success','添加成功!');
+            return back() -> with('error','添加失败!');
         }
 }
     /**
@@ -81,8 +92,11 @@ class AddressController extends Controller
     public function edit($id)
     {
         //
+        $user_id = session('users');
+        $users_id = $user_id['user_id'];
+        $users_data = Address::where('user_id',$users_id) -> get();
         $data = Address::find($id);
-        return view('home.address.edit',['v' => $data]);
+        return view('home.address.edit',['v' => $data,'users_data' => $users_data]);
     }
 
     /**
@@ -92,20 +106,26 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AddressRequest $request, $id)
     {
         //
         $new_data = $request -> except('_token','_method');
         $old_date = Address::find($id);
-        Address::where('df',1) -> update(['df' => 0]);
-        $old_date -> df = $new_data['df'];
+        if ($request -> df == 1) {
+            Address::where('df',1) -> update(['df' => 0]);
+            $old_date -> df = 1;
+        }else{
+            $old_date -> df = 0;
+        }
+        
+        
         $old_date -> uname = $new_data['uname'];
         $old_date -> address = $new_data['address'];
         $old_date -> tel = $new_data['phone'];
         $res = $old_date -> save();
-        $data = Address::all();
+
         if ($res) {
-            return view('home.address.index',['data' => $data]) -> with('success','修改成功!');
+            return redirect('/address') -> with('success','修改成功!');
         }else{
             return back() -> with('error','修改失败!');
         }

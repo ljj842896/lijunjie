@@ -16,7 +16,7 @@ class CartsController extends Controller
      */
     public function index()
     {
-        //
+        return view('home.cart.index');
     }
 
     /**
@@ -26,7 +26,7 @@ class CartsController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
