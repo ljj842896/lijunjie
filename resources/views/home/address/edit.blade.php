@@ -64,31 +64,31 @@
                 <table border="0" cellspacing="0" cellpadding="0" class="perTableTitle1">
                     <tbody><tr>
                         <td width="9%"><span class="inline">收货人</span></td>
-                        <td width="20%"><span class="inline">所在省市</span></td>
                         <td width="30%"><span class="inline">街道地址</span></td>
                         <td width="10%"><span class="inline">手机</span></td>
-                        <td width="10%"><span class="inline"></span></td>
+                        <td width="10%"><span class="inline">默认地址</span></td>
                         <td width="10%"><span class="inline">操作</span></td>
                     </tr>
                     </tbody>
                 </table>
                 <table border="0" cellspacing="1" cellpadding="0" class="J_table per_list1  bg_fff">
+                @foreach($users_data as $v)
                     <tbody>
                     <tr data-addressid="476683">
-                        <td width="9%" class="J_td2">阿茂</td>
-                        <td width="20%" class="J_td3">
-                            北京市西城区<input type="hidden" value="110000" data-text="北京市">
-                            <input type="hidden" value="110100" data-text="市辖区">
-                            <input type="hidden" value="110102" data-text="西城区">
-                        </td>
-                        <td width="30%" align="left" class="J_td2">网路1</td>
-                        <td width="11%" class="J_td2">13303032929</td>
+                        <td width="9%" class="J_td2">{{ $v -> uname }}</td>
+                        <td width="30%" align="left" class="J_td2">{{ $v -> address }}</td>
+                        <td width="11%" class="J_td2">{{ $v -> tel }}</td>
                         <td width="10%" type="true" class="J_td">
-                            <span class="col_ee5b47">默认地址</span></td>
+                            <span class="col_ee5b47">
+                            @if($v -> df == 1)
+                            默认地址
+                            @endif
+                            </span></td>
                         <td width="10%"><a class="J_edit col_link">修改</a> / <a class="J_dele col_link">删除</a></td>
                     </tr>
-
+        
                     </tbody>
+                @endforeach
                 </table>
 
             </div>

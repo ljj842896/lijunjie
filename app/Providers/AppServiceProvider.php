@@ -18,9 +18,12 @@ class AppServiceProvider extends ServiceProvider
     {
         //共享分类数据
         $cates = Cates::orderBy('cat_id', 'asc') -> get();
+
         $address = Address::all();
+
         $goods = Goods::where('goods_top','=','y') -> get();
         view() -> share(['cates' => $cates,'address' => $address,'com_goods' => $goods]);
+
 
     }
 

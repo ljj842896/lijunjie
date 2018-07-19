@@ -129,6 +129,7 @@ Route::get('/orderdetails','Home\OrderController@details');
 //前台地址
 Route::resource('/address','Home\AddressController');
 
+Route::resource('/cart','Home\CartsController');
 
 
 

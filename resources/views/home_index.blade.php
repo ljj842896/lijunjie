@@ -104,7 +104,7 @@
                     </div>
                 </li>
                 <li class="inline last pd_r0 shopping_cart vTop">
-                    <a class="inline sizeZero" href="shopcars.html">
+                    <a class="inline sizeZero" href="/cart">
                         <i class="inline"></i>
                         <span id="shopcarNumID" class="inline">购物车 0</span>
                     </a>

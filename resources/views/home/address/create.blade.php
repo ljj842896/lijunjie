@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="per_right_out backg_fff">
-        <div class="per_right ">
+        <div class="per_right">
             <div class="">
                 <div class="relative">
                     <h4 class="nTitle">个人设置</h4>
@@ -70,10 +70,11 @@
                     </tr>
                     </tbody>
                 </table>
+                @foreach($address as $k => $v)
                 <table border="0" cellspacing="1" cellpadding="0" class="J_table per_list1  bg_fff">
                     <tbody>
                     <tr data-addressid="476683">
-                        <td width="9%" class="J_td2">阿茂</td>
+                        <td width="9%" class="J_td2">{{ $v -> uname }}</td>
                         <td width="20%" class="J_td3">
                             北京市西城区<input type="hidden" value="110000" data-text="北京市">
                             <input type="hidden" value="110100" data-text="市辖区">
@@ -88,7 +89,7 @@
 
                     </tbody>
                 </table>
-
+                @endforeach
             </div>
         </div>
     </div>
