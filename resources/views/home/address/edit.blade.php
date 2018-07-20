@@ -67,7 +67,6 @@
                         <td width="30%"><span class="inline">街道地址</span></td>
                         <td width="10%"><span class="inline">手机</span></td>
                         <td width="10%"><span class="inline">默认地址</span></td>
-                        <td width="10%"><span class="inline">操作</span></td>
                     </tr>
                     </tbody>
                 </table>
@@ -83,8 +82,8 @@
                             @if($v -> df == 1)
                             默认地址
                             @endif
-                            </span></td>
-                        <td width="10%"><a class="J_edit col_link">修改</a> / <a class="J_dele col_link">删除</a></td>
+                            </span>
+                        </td>                  
                     </tr>
         
                     </tbody>

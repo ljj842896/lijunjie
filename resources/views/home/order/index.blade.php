@@ -37,10 +37,10 @@
             <ul class="per_leftul">
                 <li class="t_c">
                     <a href="Profile.html">
-                        <img src="/h/pc/www/img/avatar/head_150.png" alt="" onerror="javascript:this.src='/h/pc/www/img/avatar/head_150.png'" style="width: 150px; height: 150px">
+                        <img src="/uploads/{{ session('users') -> user_pic }}" alt="" onerror="javascript:this.src='/h/pc/www/img/avatar/head_150.png'" style="width: 150px; height: 150px">
                     </a>
                 </li>
-                <li class="f14 col_fff mg_t10 t_c">用户名</li>
+                <li class="f14 col_fff mg_t10 t_c">{{session('users')->user_name}}</li>
             </ul>
         </div>
         <div class="per_leftbox">
@@ -80,17 +80,18 @@
 
                 <div class="DZPager mg_b20">
                     <table cellspacing="0" cellpadding="0" class="sop_table4 border ">
+                    @foreach($user_orders as $v)
                             <tr data-unfacceptance="0" data-supplierid="130091" data-orderid="122007043946180978">
                                 <td width="16%"  align="center" class="bd_l vTop pd_t15 lineH20"> 
-                                    {{ $user_orders['goods_name'] }}
+                                    {{ $v -> goods_name }}
                                 </td>
                                 <td width="16%"  align="center" class="bd_l vTop pd_t15 lineH20">
-                                    {{ $user_orders['order_time'] }}
+                                    {{ $v -> order_time }}
                                 </td>
                                 <td width="14%"  align="center" class="bd_l vTop pd_t15 lineH20">
-                                    {{ $user_orders['order_sn'] }}
+                                    {{ $v -> order_sn }}
                                 </td>
-                                <td  align="center" class="bd_l vTop pd_t15 lineH20" width="18%"><strong class="col_f60 f14">{{ $user_orders['order_amount'] }}￥</strong>
+                                <td  align="center" class="bd_l vTop pd_t15 lineH20" width="18%"><strong class="col_f60 f14">{{ $v -> order_amount }}￥</strong>
                                 </td>
                                 <td  align="center" class="bd_l vTop pd_t15 lineH20" width="18%">
                                     <a href="/orderdetails" class="col_link ">订单详情</a>
@@ -101,6 +102,7 @@
                                     <br>
                                 </td>
                             </tr>
+                        @endforeach
                         </table>
                 </div>
             </div>
