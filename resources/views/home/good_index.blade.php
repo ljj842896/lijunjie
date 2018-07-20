@@ -398,7 +398,12 @@
 
             // alert($('.userinfo').text())  
             if ($('.userinfo').text()) {
-                alert('下单成功！')
+                //将数据发送给订单页
+                $.get('/order/create',{'good_color':good_color,'good_rule':good_rule,'good_number':good_number },function(msg){
+                    console.log(msg)
+                })
+
+
             }else{
                 // window.location = '/login'
                 $('#1532048350284').css('display','block')
@@ -416,6 +421,7 @@
 
                     // alert($('.userinfo').text())  
                     if ($('.userinfo').text()) {
+                        //将数据发送给购物车页
                         alert('下单成功！')
                     }else{
                         // window.location = '/login'

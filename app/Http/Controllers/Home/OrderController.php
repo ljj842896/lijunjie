@@ -41,6 +41,13 @@ class OrderController extends Controller
     public function create()
     {
         //
+        //接收商品详情页的商品信息
+        //商品数量
+        $good_number = $_GET['good_number'];
+        //商品颜色
+        $good_color = $_GET['good_color'];
+        //商品尺寸
+        $good_rule = $_GET['good_rule'];
     }
 
     /**
