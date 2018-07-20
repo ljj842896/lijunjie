@@ -16,15 +16,21 @@ class OrderController extends Controller
      */
     public function details()
     {
-        $orders = Orders::find(3);
-        return view('home.order.detail',['orders' => $orders]);
+        $user_data = session('users');
+        $user_id = $user_data['user_id'];
+        $data = Orders::where('user_id',$user_id) -> get();
+        // $orders = Orders::find(3);
+        // dd($data);
+        return view('home.order.detail',['user_orders' => $data]);
     }
 
     public function index()
     {
-
-        $user_orders = Orders::find(3);
-        return view('home.order.index',['user_orders' => $user_orders]);
+        $user_data = session('users');
+        $user_id = $user_data['user_id'];
+        $data = Orders::where('user_id',$user_id) -> get();
+        // dd(session('users'));
+        return view('home.order.index',['user_orders' => $data]);
     }
 
     /**

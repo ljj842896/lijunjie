@@ -125,12 +125,12 @@ Route::resource('Admin/config','Admin\ConfigController');
 
 //前台订单管理路由
 
-Route::resource('/order','Home\OrderController');
-Route::get('/orderdetails','Home\OrderController@details');
+Route::resource('/order','Home\OrderController');//订单
+Route::get('/orderdetails','Home\OrderController@details');//订单详情
 //前台地址
-Route::resource('/address','Home\AddressController');
+Route::resource('/address','Home\AddressController');//前台地址管理
 
-Route::resource('/cart','Home\CartsController');
+Route::resource('/cart','Home\CartsController');//前台购物车
 
 
 

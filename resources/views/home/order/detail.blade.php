@@ -1,7 +1,8 @@
 @extends('home_index')
 @section('content')
+<div class="per_right" style="margin-left:100px;margin-right:100px">
 <div class="relative">
-    <h4 class="nTitle">我的订单</h4>
+    <h4 style="color:red;" align="center">我的订单</h4>
 </div>
     <table cellspacing="0" cellpadding="0" class="w100w t_c  perTabTitn ">
         <tbody>
@@ -24,61 +25,62 @@
     </table>
     <div class="DZPager mg_b20">
 		<table cellspacing="0" cellpadding="0" class="sop_table4 border ">
+            @foreach($user_orders as $v)
             <tr>
                 <td width="7.5%" class="bd_l" align="center">
                     <a target="_blank" href="/products/1300910000000030000-0.html#editor">
-                        <img style="width:90px;height:65px" alt="" src="/goods_img/{{ $orders['goods_img'] }}">
+                        <img style="width:90px;height:65px" alt="" src="{{ $v -> goods_img }}">
                     </a>
                 </td>
                 <td width="7.5%" class="bd_l" align="center">
                 	<div class="inline mg_l10 vTop mg_t5 lineH20 w50">
                         <a class="col_666" href="/products/1300910000000030000-0.html#editor" target="_blank">
-                            <span class="col_666">{{ $orders['goods_name'] }}</span>
+                            <span class="col_666">{{ $v -> goods_name}}</span>
                         </a><br>
                         <span class=" col_999">规格:<br></span>
-                        <span class=" col_999">{{ $orders['goods_attr_rule'] }}<br></span>
+                        <span class=" col_999">{{ $v -> goods_attr_rule }}<br></span>
                         <div class="refund_tips"></div>
                     </div>
                 </td>
                 <td width="7.5%" class="bd_l" align="center">
-                    @if($orders['goods_attr_color'] == 1 )
+                    @if($v -> goods_attr_color == 1 )
                         玉米黄
-                    @elseif($orders['goods_attr_color'] == 2 )
+                    @elseif($v -> goods_attr_color == 2 )
                         象牙白
-                    @elseif($orders['goods_attr_color'] == 3 )
+                    @elseif($v -> goods_attr_color  == 3 )
                         橘红
-                    @elseif($orders['goods_attr_color'] == 4 )
+                    @elseif($v -> goods_attr_color == 4 )
                         火焰红
-                    @elseif($orders['goods_attr_color'] == 5 )
+                    @elseif($v -> goods_attr_color == 5 )
                         胭脂红
-                    @elseif($orders['goods_attr_color'] == 6 )
+                    @elseif($v -> goods_attr_color == 6 )
                         珍珠黑
-                    @elseif($orders['goods_attr_color'] == 7 )
+                    @elseif($v -> goods_attr_color == 7 )
                         天青蓝
                     @endif
                 </td>
                 <td width="7.5%" class="bd_l" align="center">
-                	{{ $orders['order_count'] }}
+                	{{ $v -> order_count }}
                 </td>
                 <td width="7.5%" class="bd_l" align="center">
-                	{{ $orders['shop_price'] }}.00 ￥
+                	{{ $v -> shop_price }}.00 ￥
                 </td class="bd_l">
                 <td width="7.5%" class="bd_l" align="center">
-                	{{ $orders['order_time'] }}
+                	{{ $v -> order_time }}
                 </td class="bd_l">
                 <td width="7.5%" class="bd_l" align="center">
-                    {{ $orders['order_sn'] }}
+                    {{ $v -> order_sn }}
                 </td class="bd_l">
                 <td width="7.5%" class="bd_l" align="center">
-                    {{ $orders['rece_user_name'] }}
+                    {{ $v -> rece_user_name }}
                 </td class="bd_l">
                 <td width="7.5%" class="bd_l" align="center">
-                    {{ $orders['rece_user_tel'] }}
+                    {{ $v -> rece_user_tel }}
                 </td class="bd_l">
                 <td width="7.5%" class="bd_l" align="center">
-                    {{ $orders['rece_user_address'] }}
+                    {{ $v -> rece_user_address }}
                 </td class="bd_l">
-                <td width="7.5%" class="bd_l" align="center"><strong class="col_f60 f14">{{ $orders['order_amount'] }}￥</strong>
+                <td width="7.5%" class="bd_l" align="center"><strong class="col_f60 f14">{{ $v -> order_amount }}￥</strong>
                     <br> <span>（运费：￥0）</span>
                 </td>
                             
@@ -94,6 +96,8 @@
                 <br>
                 </td>
             </tr>
+            @endforeach
         </table>
     </div>
+</div>
 @endsection
