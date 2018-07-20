@@ -140,10 +140,10 @@
                                     <li class="specs-detail" parent="false" nomod="true">{{$v}}<em></em></li>
                                     @endforeach
                                     <!-- 选中 -->
-                                    <li style="display: none;" class="specs-detail lowModel-specs-active" parent="false" nomod="true">40<em></em></li>
+                                    <!-- <li style="display: none;" class="specs-detail lowModel-specs-active" parent="false" nomod="true">40<em></em></li> -->
 
                                     <!-- 缺货 -->
-                                    <li style="display: none;" class="specs-detail lowModel-specs-gray" parent="false" nomod="true">43<em></em></li>
+                                    <!-- <li style="display: none;" class="specs-detail lowModel-specs-gray" parent="false" nomod="true">43<em></em></li> -->
                                 
                                 </ul>
                             </div>
@@ -160,10 +160,10 @@
                                     <li class="specs-detail" parent="false" nomod="true">{{$v}}<em></em></li>
                                     @endforeach
                                     <!-- 选中 -->
-                                    <li style="display: none;" class="specs-detail lowModel-specs-active" parent="false" nomod="true">40<em></em></li>
+                                    <!-- <li style="display: none;" class="specs-detail lowModel-specs-active" parent="false" nomod="true">40<em></em></li> -->
 
                                     <!-- 缺货 -->
-                                    <li style="display: none;" class="specs-detail lowModel-specs-gray" parent="false" nomod="true">43<em></em></li>
+                                    <!-- <li style="display: none;" class="specs-detail lowModel-specs-gray" parent="false" nomod="true">43<em></em></li> -->
                                 </ul>
                             </div>
                         </li>
@@ -396,11 +396,35 @@
 
             var good_number = $('.panel-number').text()
 
+            var good_attr = true
             // alert($('.userinfo').text())  
+            //判断是否登录，未登录则弹出登录层，登录则执行cookie存值和跳转
             if ($('.userinfo').text()) {
+
+                //判断是否选择商品参数
+                if (good_color && good_rule && good_number) {
+                    // console.log(good_color)
+                    // alert('下单成功！')
+                    layer.msg('下单成功！')
+
+                    $.cookie('order_good_color',good_color,{path:'/'}) 
+                    $.cookie('order_good_rule',good_rule,{path:'/'}) 
+                    $.cookie('order_good_number',good_number,{path:'/'}) 
+
+                    // console.log($.cookie('good_attr').good_color)
+                }else{
+                    layer.msg('请选择商品参数！')
+                    // alert('请选择商品参数！')
+
+                }
+
                 //将数据发送给订单页
-                $.get('/order/create',{'good_color':good_color,'good_rule':good_rule,'good_number':good_number },function(msg){
-                    console.log(msg)
+                $.get('/order/create',{'good_attr':good_attr},function(msg){
+
+                    if (msg) {
+                        // console.log(msg)                        
+                        window.location = '/order/create'
+                    }
                 })
 
 

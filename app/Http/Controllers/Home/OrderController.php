@@ -43,11 +43,21 @@ class OrderController extends Controller
         //
         //接收商品详情页的商品信息
         //商品数量
-        $good_number = $_GET['good_number'];
-        //商品颜色
-        $good_color = $_GET['good_color'];
-        //商品尺寸
-        $good_rule = $_GET['good_rule'];
+        // $good_number = isset($_GET['good_number']) ? $_GET['good_number'] : null;
+        // //商品颜色
+        // $good_color = isset($_GET['good_color']) ? $_GET['good_color'] : null;
+        // //商品尺寸
+        // $good_rule = isset($_GET['good_rule']) ? $_GET['good_rule'] : null;
+        if (isset($_GET['good_attr'])) {
+            echo 1;
+        }
+            // return redirect('')
+            
+
+        //订单页模板
+
+            return view('home.order.create');
+
     }
 
     /**

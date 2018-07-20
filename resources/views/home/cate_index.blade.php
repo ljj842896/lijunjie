@@ -16,7 +16,19 @@
 	<link href="/h/css/common.css" rel="stylesheet" type="text/css" />
 	<link href="/h/css/new.main.css" rel="stylesheet" type="text/css" />
 	<link type="text/css" href="/h/css/new.product.css" rel="stylesheet" />
-	<script type="text/javascript" src="/h/js/jquerysession.js"></script>
+	<link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <script type="text/javascript" src="/layui/layui.all.js"></script>
+        <script>
+            //一般直接写在一个js文件中
+            layui.use(['layer', 'form'], function(){
+              var layer = layui.layer
+              ,form = layui.form;
+              
+       
+            });
+        </script> 
+
+
 
 <link rel="stylesheet" type="text/css" href="/h/css/new.category.css" />
 	

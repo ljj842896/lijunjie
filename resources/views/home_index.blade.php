@@ -23,12 +23,16 @@
     <link href="/h/pc/favicon.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
     <script type="text/javascript" src="/layui/layui.all.js"></script>
-    <script>
-        ;!function(){
+        <script>
+            //一般直接写在一个js文件中
+            layui.use(['layer', 'form'], function(){
               var layer = layui.layer
               ,form = layui.form;
-        }();
-    </script>
+             
+            });
+        </script> 
+ 
+
  
     <link href="/h/pc/common/css/common.css?v=biyao_1227846" rel="stylesheet" />
     <link href="/h/pc/www/css/cm_www.css?v=biyao_3f1d92e" rel="stylesheet" />
@@ -42,10 +46,10 @@
 
     <script type="text/javascript" src="/bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/h/pc/common/js/jquery-1.8.3.js?v=biyao_7d074dc"></script>
-    <script type="text/javascript" src="/h/pc/common/js/jquery.extention.js?v=biyao_98daa33"></script>
-    <script type="text/javascript" src="/h/pc/common/js/lazyload.js?v=biyao_80d4f78"></script>
-    <script type="text/javascript" src="/h/pc/minisite/byshoes/js/jquery.cookie.js?v=biyao_a5283b2"></script>
+    <script type="text/javascript" src="/h/pc/common/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="/h/pc/common/js/jquery.extention.js"></script>
+    <script type="text/javascript" src="/h/pc/common/js/lazyload.js"></script>
+    <script type="text/javascript" src="/h/pc/minisite/byshoes/js/jquery.cookie.js"></script>
  
     <script type="text/javascript"  src="/h/js/jquery-1.8.3.js"></script>
     <script type="text/javascript"  src="/h/js/jquery.cookie.js"></script>
