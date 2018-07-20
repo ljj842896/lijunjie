@@ -107,6 +107,8 @@
             <div class="panel-top">
                 <h1>{{$good['goods_name']}}</h1>
 
+                <input type="hidden" class="good_id" value="{{$good['goods_id']}}">
+
                 <p>{{$good['keywords']}}</p>
             </div>
             
@@ -116,7 +118,7 @@
                 <li class="panel-press">
                     <span>售价</span>
                     <div>
-                        <span class="panel-maney">￥<i>249</i></span>
+                        <span class="panel-maney">￥<i id="shop_price">{{$good['shop_price']}}</i></span>
                             <span class="panel-duration">生产周期：<span>7</span>天
                         </span>
                     </div>
@@ -390,11 +392,23 @@
 
         // 立即购买业务处理
         $('#buyNow').click(function(){
+            //获取商品颜色
             var good_color = $('#good_color .lowModel-specs-active').text()
 
+            //获取商品尺寸
             var good_rule = $('#good_rule .lowModel-specs-active').text()
 
+            //获取商品数量
             var good_number = $('.panel-number').text()
+            
+            //获取商品id
+            var good_id = $('.good_id').val()
+
+            //获取商品单价
+            var good_price = $('#shop_price').text()
+
+            //获取商品名称
+            var good_name = $('.panel-top h1').text()
 
             var good_attr = true
             // alert($('.userinfo').text())  
@@ -405,29 +419,33 @@
                 if (good_color && good_rule && good_number) {
                     // console.log(good_color)
                     // alert('下单成功！')
-                    layer.msg('下单成功！')
+                    // layer.msg('下单成功！')
 
+                    //将数据存到cookie中
                     $.cookie('order_good_color',good_color,{path:'/'}) 
                     $.cookie('order_good_rule',good_rule,{path:'/'}) 
                     $.cookie('order_good_number',good_number,{path:'/'}) 
+                    $.cookie('order_good_id',good_id,{path:'/'}) 
+                    $.cookie('order_good_price',good_price,{path:'/'}) 
+                    $.cookie('order_good_name',good_name,{path:'/'}) 
+
+
+                    //跳转到订单页
+                    $.get('/order/create',{'good_attr':good_attr},function(msg){
+
+                        if (msg) {
+                            // console.log(msg)                        
+                            window.location = '/order/create'
+                        }
+                    })
 
                     // console.log($.cookie('good_attr').good_color)
                 }else{
                     layer.msg('请选择商品参数！')
                     // alert('请选择商品参数！')
 
+  
                 }
-
-                //将数据发送给订单页
-                $.get('/order/create',{'good_attr':good_attr},function(msg){
-
-                    if (msg) {
-                        // console.log(msg)                        
-                        window.location = '/order/create'
-                    }
-                })
-
-
             }else{
                 // window.location = '/login'
                 $('#1532048350284').css('display','block')
@@ -435,6 +453,11 @@
             }
         })
  
+
+
+
+
+
         // 加入购物车业务处理
         $('#addShopCar').click(function(){
                     var good_color = $('#good_color .lowModel-specs-active').text()
@@ -443,15 +466,33 @@
 
                     var good_number = $('.panel-number').text()
 
-                    // alert($('.userinfo').text())  
-                    if ($('.userinfo').text()) {
+                    var good_attr = true
+
+                    if (good_color && good_rule && good_number) {
                         //将数据发送给购物车页
-                        alert('下单成功！')
+                        layer.msg('添加购物车成功！')
+                        $.cookie('cart_good_color',good_color,{path:'/'}) 
+                        $.cookie('cart_good_rule',good_rule,{path:'/'}) 
+                        $.cookie('cart_good_number',good_number,{path:'/'}) 
+
+                      //跳转到购物车页
+                        $.get('/cart/create',{'good_attr':good_attr,'good_color':good_color,'good_rule':good_rule,'good_number':good_number},function(msg){
+
+                            if (msg) {
+                                // alert(msg)   
+
+                                window.location = '/cart/create'
+                            }
+                        })
+
+
+
+
+                        // console.log($.cookie('cart_good_rule'))
                     }else{
-                        // window.location = '/login'
-                        $('#1532048350284').css('display','block')
-                        $('#back').css('display','block')
+                        layer.msg('请选择商品参数！')
                     }
+                 
                 })
 
 

@@ -26,11 +26,9 @@ class CartsController extends Controller
      */
     public function create()
     {
-        // Cookie::get('name');
-        // Cookie::queue('name','iloveyou',10);
-        // $request->cookie('name');
-        // return response('haha')->withCookie('uid',10,10);
-        return response('设置Cookie') -> withCookie('cart',true,10);
+        if (isset($_GET['good_attr'])) {
+            echo 1;
+        }
     }
 
     /**

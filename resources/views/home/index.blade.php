@@ -3,6 +3,79 @@
 
 @section('content')
 
+<!-- ============================================================= -->
+
+<!-- 导航栏 -->
+<div class="nav retract" style="top: 30px;background-color:rgba(0,0,0,0);">
+    <div class="clearfix">
+        <a href="/" class="nav-logo"></a>
+        <div class="nav-category">
+            <p><span>全部分类</span><i></i></p>
+            <div>
+                <ul class="nav-list">
+                    
+
+                    <!-- 一级分类start -->
+                     @foreach($cates as $cate)
+                     @if(strlen($cate['cat_path']) == 3)
+                        <li class="nav-main">
+                            <p>
+                                
+                                <a href="">
+                                    {{$cate['cat_name']}}
+                                </a>
+                                
+                            </p>
+                            <ul>
+                                <!-- 二级分类 -->
+                                @foreach($cates as $val)
+                                @if($val['cat_pid'] == $cate['cat_id'])
+                                    <li class="nav-sub clearfix">
+                                        <a href="">
+                                            {{$val['cat_name']}}
+                                        </a>
+                                        <i>&gt;</i>
+                                        <ul>
+                                            <!-- 三级分类 -->
+                                            @foreach($cates as $v)
+                                            @if($v['cat_pid'] == $val['cat_id'])
+                                                <li class="nav-item">
+                                                    <a href="/cates/{{$v['cat_id']}}">
+                                                        {{$v['cat_name']}}
+                                                    </a>
+                                                </li>
+                                            @endif
+                                            @endforeach
+                                            <!-- 三级分类 -->
+                                             
+                                            
+                                        </ul>
+                                    </li>
+                                @endif
+                                @endforeach
+                                <!-- 二级分类 -->
+
+                                
+                            </ul>
+                        </li>
+                        @endif
+                        @endforeach
+                    <!-- 一级分类end -->
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="nav-search">
+            <p><input type="text" id="searchInput"/><span id="searchBtn"></span></p>
+            <ul></ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================================================= -->
+
+
 
 <!-- 导航栏start -->
 

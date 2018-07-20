@@ -22,4 +22,7 @@
     console.log($.cookie('order_good_color'))//商品颜色
     console.log($.cookie('order_good_rule'))//商品尺寸
     console.log($.cookie('order_good_number'))//商品数量
+    console.log($.cookie('order_good_id'))//商品id
+    console.log($.cookie('order_good_price'))//商品价格
+    console.log($.cookie('order_good_name'))//商品名称
 </script>

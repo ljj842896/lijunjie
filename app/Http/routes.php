@@ -64,7 +64,7 @@ Route::get('Admin/rec/remove/{id}','Admin\RecycleController@create');
 Route::get('Admin/rec/store/{id}','Admin\RecycleController@store');
 
 
-// 前台路由
+// ============前台路由============
 
 //前台首页路由
 Route::resource('/','HomeController');
@@ -72,6 +72,8 @@ Route::resource('/','HomeController');
 Route::get('cates/{id}','HomeController@store');
 //前台商品详情路由
 Route::get('good/{id}','HomeController@show');
+//前台购物车
+Route::resource('/cart','Home\CartsController');
 
 //李俊杰区域-----------------end----------------------------
 
@@ -131,7 +133,7 @@ Route::get('/orderdetails','Home\OrderController@details');//订单详情
 //前台地址
 Route::resource('/address','Home\AddressController');//前台地址管理
 
-Route::resource('/cart','Home\CartsController');//前台购物车
+
 
 
 

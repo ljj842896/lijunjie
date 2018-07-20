@@ -66,9 +66,8 @@
 <body id="pagebody">
 
 
-    
+ 
 <div class="pub_nav topBanner slideUp" style="height: 30px">
-    
 
     <div class="wrap clearfix bg_333"  style="height: 30px">
         <div class="f_l">
@@ -134,11 +133,10 @@
         @endif
     </div>
 
+
+
 </div>
-
-
-
-
+ 
 
 <ul class="rightBar" style="margin-left: 550px; display: block;">
     <li class="rightBar-top" style="display: none;"></li>
