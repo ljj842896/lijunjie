@@ -52,6 +52,9 @@ class UserController extends Controller
     {
             //获取值
             $data = $request->except('_token');
+            if (empty($data['password'])) {
+              return back() -> with('error','密码不能为空！');
+            }
             $password = $request->input('password');
 
             

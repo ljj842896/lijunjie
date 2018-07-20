@@ -41,13 +41,13 @@
                                         <select  name="goods_attr_color[]"  multiple="multiple">
                                             <option value="">--请选择--</option>
                                             
-                                            <option value="1">玉米黄</option>
-                                            <option value="2">象牙白</option>
-                                            <option value="3">橘红</option>
-                                            <option value="4">火焰红</option>
-                                            <option value="5">胭脂红</option>
-                                            <option value="6">珍珠黑</option>
-                                            <option value="7">天青蓝</option>
+                                            <option value="玉米黄">玉米黄</option>
+                                            <option value="象牙白">象牙白</option>
+                                            <option value="橘红">橘红</option>
+                                            <option value="火焰红">火焰红</option>
+                                            <option value="胭脂红">胭脂红</option>
+                                            <option value="珍珠黑">珍珠黑</option>
+                                            <option value="天青蓝">天青蓝</option>
                                             
                                         </select><br><br>
                                       </div>

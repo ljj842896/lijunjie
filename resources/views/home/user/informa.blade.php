@@ -9,7 +9,7 @@
                     <a href="Profile.html">
 
                         <label for="informa">
-                        <img id="pro" src="/uploads/{{session('users')->user_pic}}" alt="" onerror="javascript:this.src='/h/pc/www/img/avatar/head_150.png'" style="width: 150px; height: 150px">    
+                        <img id="pro" src="/uploads/{{isset(session('users')->user_pic) ? session('users')->user_pic : '6ME8Kv0V19E7c9TDgPV7.jpg'}}" alt="" onerror="javascript:this.src='/h/pc/www/img/avatar/head_150.png'" style="width: 150px; height: 150px">    
                         </label>
 
                     </a>
@@ -66,16 +66,16 @@
                             <tbody>
                             <tr>
                                 <th>账户名：&nbsp;&nbsp;</th>
-                                <td id="">{{session('users')->phone}}</td>
+                                <td id="">{{isset(session('users')->phone) ? session('users')->phone : ''}}</td>
                             </tr>
                             <tr>
                                 <th>昵　称：&nbsp;&nbsp;</th>
-                                <td><input type="text" onkeyup="$(this).css('color','#000')" value="{{session('users')->user_name}}" class="inpCom w200" maxlength="10" name="user_name" id="txtNickname"> <span class="col_b76 inline" id="nicknameHint"></span></td>
+                                <td><input type="text" onkeyup="$(this).css('color','#000')" value="{{isset(session('users')->user_name) ? session('users')->user_name : ''}}" class="inpCom w200" maxlength="10" name="user_name" id="txtNickname"> <span class="col_b76 inline" id="nicknameHint"></span></td>
 
                             </tr>
                              <tr>
                                 <th>邮　箱：&nbsp;&nbsp;</th>
-                                <td id="txtEmail">{{session('users')->email}}</td>
+                                <td id="txtEmail">{{isset(session('users')->email) ? session('users')->email : ''}}</td>
                             </tr>
                             <tr>
                                 <th>性　别：&nbsp;&nbsp;</th>

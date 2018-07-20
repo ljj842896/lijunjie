@@ -79,23 +79,8 @@ class GoodsController extends Controller
      */
     public function index()
     {
-        //ajax交互数据
-        // $cat_id = empty($_GET['cat_id']) ? null : $_GET['cat_id'];
-        // // echo $cat_id;
-        // if (isset($cat_id)) {
-            
-        //     $goods = goods::where('cat_id',$cat_id) -> paginate(4);
-        // }else{
-
-            
-        // }
-        // exit();
-        // //
-        // echo "this is GoodsController";
-        //从数据库中提取出商品分类的数据
-        // echo "string";
-        // dd($goods);
-            $goods = goods::paginate(4);
+        
+        $goods = goods::paginate(4);
             // dd(session('data'));
         return view('admin/goods/index',['goods' => $goods,'cates' => self::getCates()]);
          
@@ -180,13 +165,7 @@ class GoodsController extends Controller
 
         //保存商品表
         $id = DB::table('s_goods')->insertGetId($data);
-
-       
-
-        //保存商品详情
-        $res = DB::table('s_good_attrs')->insert(['goods_id' => $id,'goods_attr_color' => $data['goods_attr_color'],'goods_attr_rule' => $data['goods_attr_rule']]);
-
-
+ 
 
         //保存商品相册图片
         //判断是否有商品相册的数据
@@ -233,16 +212,16 @@ class GoodsController extends Controller
                 }
             }
                 if ($i == $j) {
-                    $res2 = true;
+                    $res = true;
                 }else{
                     
-                    $res2 = false;
+                    $res = false;
                 }
 
 
 
                 //执行最后判断
-                if ($id && $res && $res2) 
+                if ($id && $res) 
                 {
                     //提交并跳转商品列表
                     DB::commit();
@@ -340,10 +319,7 @@ class GoodsController extends Controller
 
         }
 
-
-        //先生使用时间戳和随机数成商品货号
-        $data['goods_sn'] = time().mt_rand(10000,99999);
-        
+ 
         //判断是否有商品关键字
         if ($request -> has('keywords')) {
             $data['keywords'] = $request['keywords'];
@@ -364,27 +340,18 @@ class GoodsController extends Controller
 
 
         //=====================执行修改=======================
-        DB::beginTransaction();
-
+         
 
         //保存商品表
         $res1 = DB::table('s_goods') -> where('goods_id',$id) -> update($data);
-
-       
-
-        //保存商品详情
-        $res2 = DB::table('s_good_attrs')-> where('goods_id',$id) -> update(['goods_id' => $id,'goods_attr_color' => $data['goods_attr_color'],'goods_attr_rule' => $data['goods_attr_rule']]);
-
-
+ 
         //执行保存
-         if ($res1 && $res2) 
+         if ($res1) 
                 {
-                    //提交并跳转商品列表
-                    DB::commit();
+                     
                     return redirect('/Admin/goods') -> with('success','商品修改成功！');
                 }else{
-                    //回滚并返回create页面
-                    DB::rollBack();
+                     
                     return back() -> with('error','商品修改失败！');
                 }
 

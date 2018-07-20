@@ -191,7 +191,7 @@
                 @foreach($com_goods as $good)
                 @if($good['cat_id'] == $v['cat_id'])
                 <li>
-                    <a target="_blank" href="#">
+                    <a target="_blank" href="/good/{{$good['goods_id']}}">
                         <i><img width="204" height="204" src="/goods_img/{{$good['goods_img']}}" alt=""></i>
                         <dl>
                             <dt style="margin: auto;margin-top: 5px; height: 20px;overflow: hidden;text-overflow: ellipsis;">{{$good['goods_name']}}</dt>
@@ -307,7 +307,7 @@
 </div>
 
  
-                <div  class="" style="margin-bottom:-100px; margin: auto;width: 80%;border-bottom: 3px solid #ccc;border-top: 3px solid #ccc;">
+                <div  class="" style="margin-bottom:-100px; margin: auto;width: 88%;border-bottom: 3px solid #ccc;border-top: 3px solid #ccc;">
 
                     <!-- 友情链接展示区start -->
                         @foreach($links as $link)

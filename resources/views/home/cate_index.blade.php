@@ -15,7 +15,8 @@
 	<link href="/h/pc/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 	<link href="/h/css/common.css" rel="stylesheet" type="text/css" />
 	<link href="/h/css/new.main.css" rel="stylesheet" type="text/css" />
-	
+	<link type="text/css" href="/h/css/new.product.css" rel="stylesheet" />
+	<script type="text/javascript" src="/h/js/jquerysession.js"></script>
 
 <link rel="stylesheet" type="text/css" href="/h/css/new.category.css" />
 	
@@ -54,10 +55,14 @@
         </div>
  
    
+
+<!-- 头部 -->
+ 	  @if(session('users'))
+ 
         <div class="f_r">
             <ul class="pub_nav_list sizeZero">
 
-                <li class="inline" id="welcomID"><span class="col_aaa mg_r10">欢迎来到必要</span><a class="">77777777</a><span class="bg"></span></li>
+                <li class="inline" id="welcomID"><span class="col_aaa mg_r10">欢迎来到必要</span><a class="userinfo">{{session('users')->user_name}}</a><span class="bg"></span></li>
                 <li class="inline" id="messageID"><a href="/loginout">退出</a><span class="bg"></span></li>
  
  
@@ -75,7 +80,7 @@
                     </div>
                 </li>
                 <li class="inline last pd_r0 shopping_cart vTop">
-                    <a class="inline sizeZero" href="shopcars.html">
+                    <a class="inline sizeZero" href="/cart">
                         <i class="inline"></i>
                         <span id="shopcarNumID" class="inline">购物车 0</span>
                     </a>
@@ -83,7 +88,20 @@
             </ul>
         </div>
  
-            </div>
+        @else
+ 
+        <div class="f_r">
+            <ul class="pub_nav_list sizeZero">
+                <li class="inline" id="welcomID"><span class="col_aaa mg_r10">欢迎来到必要，请</span><a href="/login">登录</a><span class="bg"></span></li>
+                <li class="inline" id="messageID"><a>注册</a><span class="bg"></span></li>
+                
+            </ul>
+        </div>
+        @endif
+
+<!-- 头部 -->
+ 
+	</div>
 
 </div>
 <!-- 头部end -->
@@ -202,13 +220,13 @@
 	</div>
 </div>
 	
-
+@section('cate')
 
 <!-- 面包屑 -->
 <div class="bread">
 	<a href="/">首页</a>
    	
-  	<span><b>&gt;</b>{{$cat['cat_name']}}</span>
+  	<span><b>&gt;</b>{{isset($cat['cat_name']) ? $cat['cat_name'] : ''}}</span>
 </div>
 <!-- 分类栏 -->
  
@@ -234,7 +252,7 @@
 						
 							<li id="281">
 								<dl class="category-title">
-									<dt>{{$cat['cat_name']}}</dt>
+									<dt>{{isset($cat['cat_name']) ? $cat['cat_name'] : ''}}</dt>
 									<dd></dd>
 								</dl>
 								<ul class="category-list clearfix">
@@ -243,7 +261,7 @@
 									@foreach($goods as $good)
 									@if($good['cat_id'] == $cat['cat_id'])
 										<li>
-											<a target="_blank" href="#">
+											<a target="_blank" href="/good/{{$good['goods_id']}}">
 												<i><img src="/goods_img/{{$good -> goods_img}}" alt="" /></i>
 												
 												<dl>
@@ -272,7 +290,7 @@
 	
 </ul>
 
-	
+@show
 
 <!-- 底部栏 -->
 <div class="footer">

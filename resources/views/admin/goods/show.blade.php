@@ -32,27 +32,11 @@
                                          {{$good -> goods_cate -> cat_name}}
                                         </div>
                                         <br><br>
-                                <label class="mws-form-label"> 商品颜色:</label>
-                                      <div class="mws-form-item">
-                                        <select  name="goods_attr_color" disabled multiple>
-                                            <option value="">--请选择--</option>
-                                            
- 
-                                            <option value="1" {{$good -> goods_attr_color == 1 ? 'selected' : ''}}>玉米黄</option>
-                                            <option value="2" {{$good -> goods_attr_color == 2 ? 'selected' : ''}}>象牙白</option>
-                                            <option value="3" {{$good -> goods_attr_color == 3 ? 'selected' : ''}}>橘红</option>
-                                            <option value="4" {{$good -> goods_attr_color == 4 ? 'selected' : ''}}>火焰红</option>
-                                            <option value="5" {{$good -> goods_attr_color == 5 ? 'selected' : ''}}>胭脂红</option>
-                                            <option value="6" {{$good -> goods_attr_color == 6 ? 'selected' : ''}}>珍珠黑</option>
-                                            <option value="7" {{$good -> goods_attr_color == 7 ? 'selected' : ''}}>天青蓝</option>
- 
-                                            
-                                        </select><br><br>
-                                      </div>
 
                                                                                             
                                          
  
+                              商品颜色:<input type="text" name="" class="small" disabled value="{{$good -> goods_attr_color}}"><br><br>
                               尺 &nbsp;&nbsp; 寸： <input name="goods_attr_rule" type="text" class="small" value="{{ $good -> goods_attr_rule }}" disabled><br><br>
                               关键字:　<input name="keywords" type="text" name="keywords" class="small" value="{{ $good -> keywords }}" disabled><br><br>
                               库　存:　<input name="goods_number" type="text" class="small" value="{{ $good -> goods_number }}/件" disabled><br><br>

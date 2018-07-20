@@ -83,13 +83,22 @@ class HomeController extends Controller
 
     /**
      * Display the specified resource.
-     *
+     *  商品详情页
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         //
+        $good = Goods::find($id);
+        // dd();
+        //颜色
+        $color = explode(',', $good['goods_attr_color']);
+        //尺寸
+        $rule = explode(',', $good['goods_attr_rule']);
+        // dd($rule);
+        return view('home/good_index',['good' => $good, 'color'=> $color, 'rule' => $rule]);
+
     }
 
     /**
