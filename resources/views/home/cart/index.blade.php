@@ -1,10 +1,10 @@
 @extends('home_index')
 @section('content')
-    <link href="pc/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="pc/favicon.ico" rel="icon" type="image/x-icon" />
-    <link href="pc/common/css/common.css?v=biyao_9cf87cc" rel="stylesheet"/>
-    <link href="pc/www/css/cm_www.css?v=biyao_c0d1bd0" rel="stylesheet"/>
-    <link href="pc/buy/css/newBuy.css?v=biyao_dac4785" rel="stylesheet"/>
+    <link href="/h/pc/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="/h/pc/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="/h/pc/common/css/common.css?v=biyao_9cf87cc" rel="stylesheet"/>
+    <link href="/h/pc/www/css/cm_www.css?v=biyao_c0d1bd0" rel="stylesheet"/>
+    <link href="/h/pc/buy/css/newBuy.css?v=biyao_dac4785" rel="stylesheet"/>
     <script type="text/javascript">
         window.basePath = "";
         window.ControllerSite = "http://www.biyao.com";

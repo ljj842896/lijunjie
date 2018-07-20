@@ -29,7 +29,7 @@
             <tr>
                 <td width="7.5%" class="bd_l" align="center">
                     <a target="_blank" href="/products/1300910000000030000-0.html#editor">
-                        <img style="width:90px;height:65px" alt="" src="{{ $v -> goods_img }}">
+                        <img style="width:90px;height:65px" alt="" src="/uploads/orders/{{ $v -> goods_img }}">
                     </a>
                 </td>
                 <td width="7.5%" class="bd_l" align="center">
