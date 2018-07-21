@@ -460,31 +460,52 @@
 
         // 加入购物车业务处理
         $('#addShopCar').click(function(){
-                    var good_color = $('#good_color .lowModel-specs-active').text()
+            //获取商品颜色
+            var good_color = $('#good_color .lowModel-specs-active').text()
 
-                    var good_rule = $('#good_rule .lowModel-specs-active').text()
+            //获取商品尺寸
+            var good_rule = $('#good_rule .lowModel-specs-active').text()
 
-                    var good_number = $('.panel-number').text()
+            //获取商品数量
+            var good_number = $('.panel-number').text()
+            
+            //获取商品id
+            var good_id = $('.good_id').val()
 
-                    var good_attr = true
+            //获取商品单价
+            var good_price = $('#shop_price').text()
+
+            //获取商品名称
+            var good_name = $('.panel-top h1').text()
+
+            var good_attr = true
 
                     if (good_color && good_rule && good_number) {
                         //将数据发送给购物车页
                         layer.msg('添加购物车成功！')
-                        $.cookie('cart_good_color',good_color,{path:'/'}) 
-                        $.cookie('cart_good_rule',good_rule,{path:'/'}) 
-                        $.cookie('cart_good_number',good_number,{path:'/'}) 
+                         //将数据存到cookie中
+                        $.cookie('order_good_color',good_color,{path:'/'}) 
+                        $.cookie('order_good_rule',good_rule,{path:'/'}) 
+                        $.cookie('order_good_number',good_number,{path:'/'}) 
+                        $.cookie('order_good_id',good_id,{path:'/'}) 
+                        $.cookie('order_good_price',good_price,{path:'/'}) 
+                        $.cookie('order_good_name',good_name,{path:'/'}) 
 
-                      //跳转到购物车页
-                        $.get('/cart/create',{'good_attr':good_attr,'good_color':good_color,'good_rule':good_rule,'good_number':good_number},function(msg){
 
-                            if (msg) {
-                                // alert(msg)   
 
-                                window.location = '/cart/create'
+                    //将数据发送至购物车添加执行方法中
+               
+
+                        $.get('/cart/create',{'good_attr':good_attr,'good_color':good_color,'good_rule':good_rule,'good_number':good_number,'good_id':good_id,'good_price':good_price,'good_name':good_name,},function(msg){
+
+                            if (msg == 1) {
+                                // console.log(msg)   
+
+                                //跳转到购物车页
+                                window.location = '/cart'
                             }
                         })
-
+                   
 
 
 

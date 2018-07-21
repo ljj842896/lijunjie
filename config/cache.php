@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('CACHE_DRIVER', 'file'),
+    'default' => env('CACHE_DRIVER', 'memcached'),
 
     /*
     |--------------------------------------------------------------------------
@@ -53,6 +53,13 @@ return [
                 [
                     'host' => '127.0.0.1', 'port' => 11211, 'weight' => 100,
                 ],
+            ],
+        ],
+        'memcached' => [
+            [
+                'host' => '/var/run/memcached/memcached.sock',
+                'port' => 0,
+                'weight' => 100
             ],
         ],
 

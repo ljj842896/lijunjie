@@ -9,6 +9,7 @@ use App\Models\Cates;
 use App\Models\Goods;
 use App\Models\Links;
 use App\Models\Ads;
+use Cache;
 
 use App\Http\Controllers\Controller;
 
@@ -76,7 +77,9 @@ class HomeController extends Controller
         // dd($id);
         $cate = Cates::find($id);
         // dd($cate);
-        $goods = Goods::where('cat_id',$id) -> get();
+        $goods = Cache::remember('goods',120,function(){
+            return Goods::where('cat_id',$id) -> where('goods_top','=','y') -> get();
+        });
         // dd(empty($goods[0]));
         return view('home/cate_index',['cat' => $cate,'goods' => $goods]);
     }

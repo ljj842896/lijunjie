@@ -4,7 +4,7 @@ namespace App\Providers;
 use App\Models\Cates;
 use App\Models\Address;
 use App\Models\Goods;
-
+use Cache;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,7 +21,11 @@ class AppServiceProvider extends ServiceProvider
 
         $address = Address::all();
 
-        $goods = Goods::where('goods_top','=','y') -> get();
+        $goods = Cache::remember('goods',120,function(){
+            return Goods::where('goods_top','=','y') -> get();
+        });
+
+
         view() -> share(['cates' => $cates,'address' => $address,'com_goods' => $goods]);
 
 
