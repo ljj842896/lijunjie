@@ -139,46 +139,61 @@
 </div>
 <div class="wrap">
     <div class="loginItem auto ">
-        <input type="hidden"  id="returnUrl" value="index.html"/>
-        <form method="post" action="list.html#account/isregister" id="J_phone">
+  
+        <form action="/Zhuce/client" method="post" id="J_phone">
+            {{ csrf_field() }}
             <div class="loginBox">
-                <div class="inline loginTitBox"><i class="inline loginListBg spIcon mg_r10"></i><span class="inline">基本信息登记</span></div>
-               
-                    <!-- <dt class="inline">手机号：</dt> -->
+                <div class="inline loginTitBox" style="position: absolute;left: 600px;top: 115px;"><i class="inline loginListBg spIcon mg_r10"></i><span class="inline" >基本信息登记</span></div>
                 <dl class="mg_t20">
                     <!-- <dt class="inline">手机号：</dt> -->
-                    <dd class="inline mg_r5">
-                        <input  type="text" value="请输入您的手机号码" class="loginTxt w360 col_999 border" name="Mobile" data-type="mobile-number" maxlength="11"  />
-                        <input type="hidden" value="" name="source" id="sourceID"/>
-                    </dd>
-                    <dd class="J_validate inline col_f90"></dd>
+                    <span>手机：</span>
+                    <dd class="inline mg_r5"><input value="{{session('pho')}}" type="text" id="username" name="phone" class="us"style="background:#fff;border:1px solid #e8e8e8;width:360px;height:17px;line-height: 17px;font-size: 14px;padding: 11px 20px; color:#523669; "readonly="value" /></dd>
+                    <dd class="J_validate inline col_f90 "><span id="users"></span></dd>
                 </dl>
                     <!-- <dt class="inline">手机号：</dt> -->
-                <dl class="mg_t20">
+                 <dl class="mg_t20">
                     <!-- <dt class="inline">手机号：</dt> -->
+                    <span>昵称：</span>
                     <dd class="inline mg_r5">
-                        <input  type="text" value="邮箱" class="loginTxt w360 col_999 border" name="Mobile" data-type="mobile-number" maxlength="11"  />
-                        <input type="hidden" value="" name="source" id="sourceID"/>
+                        <input  type="text" value="" class="loginTxt w360 col_999 border" name="user_name" data-type="mobile-number" maxlength="50" id="us" />
                     </dd>
                     <dd class="J_validate inline col_f90"></dd>
-                </dl>
+                </dl> 
+                
 
-                <dl class="mg_t20">
-                    <!-- <dt class="inline">手机号：</dt> -->
+                    
+               <dl class="mg_t20">
+                    <span>邮件：</span>
                     <dd class="inline mg_r5">
-                        <input  type="text" value="地址" class="loginTxt w360 col_999 border" name="Mobile" data-type="mobile-number" maxlength="11"  />
-                        <input type="hidden" value="" name="source" id="sourceID"/>
+                        <input  type="text" value="" class="loginTxt w360 col_999 border" name="email" data-type="mobile-number" maxlength="50"  id="em"/>
                     </dd>
                     <dd class="J_validate inline col_f90"></dd>
                 </dl>
+                 <dl class="mg_t20">
+                 <tr>
+                                <th>性　别：&nbsp;&nbsp;</th>
+                                <td class="J_gender_select">
+                                <label class=" col_666 cursor mg_r10">
+                       
+                                    <li style="display: inline;"> <input type="radio" value="0" name="sex" checked>&nbsp;&nbsp;保密</li>
+                                </label> 
+                                <label class=" col_666 cursor mg_r10">
+                                     <li style="display: inline;"> <input type="radio" value="1" name="sex">&nbsp;&nbsp;男</li>
+                                </label> 
+                                <label class=" col_666 cursor mg_r10">
+                                     <li style="display: inline;"><input type="radio" value="2" name="sex" >&nbsp;&nbsp;女</li>
+                                </label>
+                            </td>
+                            </tr>
+                            <br>
+                </dl>
+                    <input type="hidden" name="password" value="{{session('passs')}}">
+                <dl class="mg_t20">
+                <input type="submit" class="btnCom1 btnComS btnBg2 btnH1 w80 inline J_save" value="确认提交" />
+            </dl>
               
-                <input href="javascript:;" type="submit" class="loginBtn w400 inline t_c mg_t20" value="确认提交"/>
-                <div class="pop_mark" style="display:none"></div>
-                <div class="pop pd_b30" style="width:600px;top:90px;left:50%;margin-left:-300px; display: none;">
-                    
-                </div>
-            </div>
         </form>
+                  
     </div>
 </div>
 </body>
@@ -188,6 +203,33 @@
 <script src="/h/pc/common/js/ui/dialog.js?v=biyao_130c013"></script>
 <script src="/h/pc/www/js/mycenter/registNew.js?v=biyao_d929892"></script>
 <script src="/h/pc/www/js/login/regval.js?v=biyao_f57c0c6"></script>
+<script type="text/javascript">  
+     $('form').eq(0).submit(function(){          
+        var us = document.getElementById('us').value.trim();    
+        if(us.length==0){  
+            reg=/^[a-zA-Z0-9_-]{4,16}$/;
+            if (!reg.test(us)){
+               layer.msg('用户名请以6~16位的字符设定', {icon: 5});  
+               return false;
+            }
+        }    
+      
+        
+        var str = document.getElementById('em').value.trim();    
+        if(str.length!=0){    
+        reg=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;    
+        if(!reg.test(str)){    
+            layer.msg('请输入正确的邮箱格式', {icon: 5}); 
+            return false;
+           }    
+        } 
+     })
+     
+
+
+
+
+</script>
 <script>
     validateUserName();
     LT.registNew();
@@ -272,13 +314,27 @@
         </div>
     </div>
 </div>
-                           @if(session('chenggong'))
-                            <script>
-                                 layer.alert('注册成功请填写基本信息', {icon: 1});
-                            </script>
-                            @endif
-   
+ @if(session('chenggong'))
+            <script>
+                    layer.msg('注册成功请填写基本信息', {icon: 1});
+            </script>
+ @endif
+ @if(session('nichengs'))
+ <script>
+
+            layer.msg('请填写昵称', {icon: 5});
+
+ </script> 
+ @endif 
+ @if(session('emails'))
+ <script>
     
+            layer.msg('请填写邮箱', {icon: 5});
+
+ </script> 
+ @endif                    
+
+
 <script src="/h/pc/common/js/common.js?v=biyao_c83c46d" type="text/javascript"></script>
 <script type="text/javascript"  src="/h/pc/www/js/common.js?v=biyao_bd8bd36"></script>
 </body>

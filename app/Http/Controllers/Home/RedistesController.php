@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreBlogPostRequest;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\user;
 use Hash;
 use DB;
 use Mail;
@@ -27,40 +28,17 @@ class RedistesController extends Controller
      */
     public function emails(Request $request)
     {
-
-         if($request->input('password')!=$request->input('password_confirmation')){
- 
-               return back()->with('error','密码失败');
-
-         }
-         $arr['email'] = $request->input('email');
-         $arr['password'] = Hash::make($request->input('password'));
-         $arr['token'] = str_random(50);
-         $id = DB::table('s_users')->insertGetId($arr);
-     
-         if($id){
-          $token = $arr['token'];
-          $email = $arr['email'];
-               
-             self::sendmail($email,$id,$token);
-                echo "cheng";
-          }else{
-             
-                echo "bai";
-
-          }
+       
 
     }
       
       //发送邮件
       
       static public function sendmail($email,$id,$token)
-      {
+      {     
+            
             Mail::send('home.user.email', [], function ($m) use ($email) {
-            //$m->from('hello@app.com', 'Your Application');
-
-             $m->to($email)->subject('BiYao 注册邮件，点击激活');
-
+             $m->to($email)->subject('BiYao 注册邮件，欢迎加入必要');
             });
 
       }
@@ -88,17 +66,21 @@ class RedistesController extends Controller
 
     /**
      * Display the specified resource.
-     *
+     *注册执行
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function storephone(Request $request)
     {        
                 $pho = $request->input('phone');
-  
+                if (session('phonecode') != $request->input('phonecode')) {
+               
+                 return back()->with(['error'=>'验证码不匹配','pho'=>$pho]);
+                 
+           }else{
 
                 if ($request->input('password')!=$request->input('password_confirmation')) {
-                       return back()->with(['pass'=>'密码不匹配','pho'=>$pho]);
+                       return back()->with(['pass'=>'密码不相等','pho'=>$pho]);
                  }else{
                         
                        $passs = $request->input('password');
@@ -110,6 +92,19 @@ class RedistesController extends Controller
 
                  }
            
+          }
+    }
+
+  public function letheupdate(Request $request){
+
+              $phone = $request->input('phone');        
+              session(['phe'=>$phone]);  
+              $phonecode = $request->input('phonecode');
+               if (session('phonecode') != $request->input('phonecode')) {
+                    return back()->with(['yanerror'=>'验证码不匹配','phone'=>$phone]);
+               }else{
+                    return view('home.user.passset');
+               }
 
     }
 
@@ -119,9 +114,26 @@ class RedistesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function client(Request $request)
     {
-        //
+            
+        $users = $request->except(['_token','password']);
+         
+
+         $password = $request->input('password');
+         $users['password'] = Hash::make( $password);
+         $users = user::create($users);
+         if($users){
+              
+              session(['users'=>$users]);
+              return redirect('/')->with('logincheng','登录成功');
+
+         }else{
+
+              return back()->with('shibai','填写有误请重新填写');
+
+         }
+
     }
 
     /**
@@ -131,9 +143,21 @@ class RedistesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function passset(Request $request)
     {
-        //
+               $news = $request->input('newpassword');
+               $newpassword = Hash::make($news);
+               $phes =session('phe');
+               $data = user::where('phone',$phes)->first();
+               $data['password']=$newpassword;
+               $data->save();
+               if($data){
+
+                     return redirect('/login')->with('loginss','设置成功请重新登录');
+               }else{
+
+                     return bakc()->with();
+               }
     }
 
     /**

@@ -54,7 +54,7 @@
 
                         <a href="/address"><span>管理收货地址</span></a>
 
-                        <a class="bd_r_none" href="Profile.html" id="forgetPasswordID"><span>修改密码</span></a>
+                        <a class="bd_r_none" href="/passupdate" id="forgetPasswordID"><span>修改密码</span></a>
                     </h3>
                 </div>
  

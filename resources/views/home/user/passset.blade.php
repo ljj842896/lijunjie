@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +11,14 @@
           type="image/x-icon" />
     <link href="/h/pc/favicon.ico" rel="icon"
           type="image/x-icon" />
+          <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+            <script type="text/javascript" src="/layui/layui.all.js"></script>
+            <script>
+                ;!function(){
+                      var layer = layui.layer
+                      ,form = layui.form;
+                }();
+            </script>
     <script type="text/javascript">
         window.ApiSite = "http://api.biyao.com";
         window.ControllerSite="";
@@ -26,19 +35,10 @@
     </script>
     <link href="/h/pc/common/css/common.css?v=biyao_1227846" rel="stylesheet" />
     <link href="/h/pc/www/css/cm_www.css?v=biyao_3f1d92e" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
-    <script type="text/javascript" src="/layui/layui.all.js"></script>
-    <script>
-        ;!function(){
-              var layer = layui.layer
-              ,form = layui.form;
-        }();
-    </script>
-    <script type="text/javascript"	src="/h/pc/common/js/jquery-1.8.3.js?v=biyao_7d074dc"></script>
-    <script type="text/javascript"	src="/h/pc/common/js/jquery.extention.js?v=biyao_98daa33"></script>
+    <script type="text/javascript"  src="/h/pc/common/js/jquery-1.8.3.js?v=biyao_7d074dc"></script>
+    <script type="text/javascript"  src="/h/pc/common/js/jquery.extention.js?v=biyao_98daa33"></script>
     <script type="text/javascript" src="/h/pc/common/js/lazyload.js?v=biyao_80d4f78"></script>
     <script type="text/javascript" src="/h/pc/minisite/byshoes/js/jquery.cookie.js?v=biyao_a5283b2"></script>
-
     <script type="text/javascript">
         function GetRequest() {
             var url = location.search; //获取url中"?"符后的字串
@@ -73,11 +73,11 @@
 </script>
 <div class="bd_bottom_ea">
     <div class="wrap pub_logo_box clearfix">
-        <div class="pub_logo f_l"><a href="/h//home/index.html"><img alt="" src="/h/pc/www/img/logo.png?v=biyao_4637d54"></a></div>
+        <div class="pub_logo f_l"><a href="/home/index.html"><img alt="" src="/h/pc/www/img/logo.png?v=biyao_4637d54"></a></div>
         <div class="f_r">
             <ul class="sizeZero merchant_info_box">
                 <li class="inline mg_l40 mg_t40">
-                    <span class="inline col_8c8">欢迎来到必要，请 </span><span class="col_8c8 inline mg_l5">登录 </span><span class="col_8c8 mg_l5 mg_r5 inline">|</span><a class="col_8c8 inline" href="/h/register.html?returnUrl=index.html">注册</a>
+                    <span class="inline col_8c8">欢迎来到必要，请 </span><span class="col_8c8 inline mg_l5">登录 </span><span class="col_8c8 mg_l5 mg_r5 inline">|</span><a class="col_8c8 inline" href="register.html?returnUrl=index.html">注册</a>
                 </li>
             </ul>
         </div>
@@ -85,50 +85,39 @@
 </div>
 <div class="wrap h580">
     <div class="loginItem auto ">
-        <form action="/entry" class="loginBox" method="post" id="J_login">
-        	{{csrf_field()}}
-            <div class="inline loginTitBox"><i class="inline loginListBg spIcon mg_r10"></i><span class="inline">用户登录</span></div>
+        <form class="loginBox" method="post" id="lethes" action="/passset">
+          {{csrf_field()}}
+                <input type="hidden" name="_token" value="vs7LI2llsEPc5v8eHtJS7MP8LiaKMsE6Ndi5uAR4">
+            <div class="inline loginTitBox"><i class="inline loginListBg spIcon mg_r10"></i><span class="inline">新密码设置</span></div>
             <dl class="mg_t20 ">
-                <!-- <dt class="inline">手机号：</dt> -->
-                <dd class="inline mg_r5"><input value="请输入用户名" type="text" id="username" name="username" class=" loginTxt  w360 col_999"/></dd>
-                <dd class="J_validate inline col_f90 "><span id="users"></span></dd>
-            </dl>
-         
-            <dl class=" mg_t20 ">
-                <dd class="inline mg_r5">
-                    <input id="passwd1"  type="password" name="password"  onblur="blankTest();" class=" loginTxt w360 col_999 none"  />
-                    <input id="passwd_show" type="text" value="请输入您的密码"  id="password" class=" loginTxt w360 col_999"/>
-
-                </dd>
-                <dd class="J_validate inline col_f90" >  	
-                 @if (session('error'))
-                        {{ session('error') }} 
-                 @endif
-                </dd>
+             
+                <dd class="inline mg_r5"><input  value="请输入新密码"  type="password" name="newpassword" id="phone" class=" loginTxt  w360 col_999" style="width: 205px" /></dd>
+                <dd class="J_validate inline col_f90 "></dd>
             </dl>
 
-            <dl class="mg_t20 w400 relative">
-                <!-- <dt class="inline">&nbsp</dt> -->
-                <dd class="inline">
-                    <span class="inline mg_r10 "><i class="openIcon inline mg_r10" name="checkRememberMe"></i><span class="inline col_8a8a8a">下次自动登录</span></span>
-                    <a href="/lethe" class="inline col_link boxR">忘记密码</a>
-                </dd>
+             <dl class="mg_t20 ">
+             
+                <dd class="inline mg_r5"><input  value="重复密码"  type="password" name="rpassword" id="phone" class=" loginTxt  w360 col_999" style="width: 205px" /></dd>
+                <dd class="J_validate inline col_f90 "></dd>
             </dl>
+
             <dl class="mg_t10">
                 <dd class="J_loginTips inline "><span class="col_f90"></span></dd>
             </dl>
-            <input type="hidden"  id="returnUrlId" name="returnUrl" value="index.html"/>
-            <input type="submit"  class="J_login_btn loginBtn w400  inline t_c mg_t10" value="登录"/> <br/>
+            </dl>
+         
+            <input type="submit"  style="width: 250px" class="J_login_btn loginBtn w400  inline t_c mg_t10" value="提交"/> <br/>
+            
 
         </form>
     </div>
 </div>
-<!-- <script type="text/javascript" src="/h/http://qzonestyle.gtimg.cn/qzone/openapi/qc.js#appId=101235242" charset="utf-8" ></script>   -->
+<!-- <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc.js#appId=101235242" charset="utf-8" ></script>   -->
 <script>
     function qqLogin(){
         var returnUrl = $("#returnUrlId").val();
         var url = "list.html#account/qqlogin.html?returnUrl="+returnUrl;
-        window.location.href=u/h/rl;
+        window.location.href=url;
     }
 </script>
 <div data-selector="J_im" id="webIM_showDiv"></div>
@@ -138,29 +127,29 @@
         <div class="footer_nav_box inline">
             <ul class="footer_nav_list clearfix">
                 <li>
-                    <a target="_blank" href="/h/list.html#minisite/ljby">关于必要</a>
+                    <a target="_blank" href="list.html#minisite/ljby">关于必要</a>
                     <span class="bg_line"></span>
                 </li>
                 <li>
-                    <a target="_blank" href="/h/list.html#help/8.html">加入必要</a>
+                    <a target="_blank" href="list.html#help/8.html">加入必要</a>
                     <span class="bg_line"></span>
                 </li>
                 <li>
-                    <a target="_blank" href="/h/tel.html">联系我们</a>
+                    <a target="_blank" href="tel.html">联系我们</a>
                     <span class="bg_line"></span>
                 </li>
                 <li class="none">
-                    <a target="_blank" href="/h/list.html#list/39/list-1.html">网站地图</a>
+                    <a target="_blank" href="list.html#list/39/list-1.html">网站地图</a>
                 </li>
                 <li>
-                    <a target="_blank" href="/h/tel.html">官方微博</a>
+                    <a target="_blank" href="tel.html">官方微博</a>
                     <span class="bg_line"></span>
                 </li>
 
             </ul>
             <p class="col_999 lineH18 mg_t10">◎BIYAO.COM 2015 版权所有
             </p>
-            <p class="col_999 lineH18 mg_t10"><i class="gwab_icon inline"></i><a class="col_999 inline mg_r5" href="/h/http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44049102496139" target="_blank">粤公网安备44049102496139号</a> <a class="col_999 inline" href="/h/http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action" target="_blank">粤ICP备13088531号</a>
+            <p class="col_999 lineH18 mg_t10"><i class="gwab_icon inline"></i><a class="col_999 inline mg_r5" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44049102496139" target="_blank">粤公网安备44049102496139号</a> <a class="col_999 inline" href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action" target="_blank">粤ICP备13088531号</a>
             </p>
         </div>
         <div class="footer_evm sizeZero inline">
@@ -182,12 +171,7 @@
     </div>
 </div>
 <script src="/h/pc/common/js/common.js?v=biyao_c83c46d" type="text/javascript"></script>
-<script type="text/javascript"	src="/h/pc/www/js/common.js?v=biyao_bd8bd36"></script>
- @if(session('loginss'))
-      <script type="text/javascript">
-         layer.msg('设置成功请重新登录', {icon: 5});
-     </script>
- @endif
+<script type="text/javascript"  src="/h/pc/www/js/common.js?v=biyao_bd8bd36"></script>
 <script type="text/javascript">
     $(function(){
 
@@ -216,6 +200,36 @@
     });
 
 </script>
+   <script type="text/javascript">
+      var lethes = document.getElementById('lethes');
+         lethes.newpassword.onblur = function(){
+         var ps = lethes.newpassword.value;
+           
+                  if(ps.length!=0){  
+                          reg=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
+                          if (!reg.test(ps)){
+                          layer.msg('请设置密码6-16位密码加数字', {icon: 5});            
+                          return false;
+                        }
+                     }
+
+        }
+   </script>
+
+       <script type="text/javascript">
+         $('form').eq(0).submit(function(){    
+                var pwd = $("input[name='newpassword']").val();
+
+                var cpwd = $("input[name='rpassword']").val();
+                if(pwd != cpwd){
+                    layer.msg('密码不一致请请重新输入', {icon: 5});
+                $("input[name='newpassword']").val("");
+                $("input[name='rpassword']").val("");
+                return false;
+                }
+    
+               });
+       </script>
 <script src="/h/pc/common/js/ui/validate.js?v=biyao_8c8263d"></script>
 <script type="text/javascript">
     $(function(){
@@ -242,10 +256,10 @@
 
     })
     function register(){
-        parent.window.open('register.html?returnUrl='+parent.window.location.href);/h/
+        parent.window.open('register.html?returnUrl='+parent.window.location.href);
     }
     function findpwd(){
-        parent.window.open('index?returnUrl='+parent.window.location.href);/h/
+        parent.window.open('index?returnUrl='+parent.window.location.href);
     }
 
     //判断是否显示验证码登录
@@ -259,39 +273,14 @@
     }
 
 
-</script>
- <script type="text/javascript">
- 	     var login = document.getElementById('J_login');
- 	     var userss = false;
-         login.username.onblur = function(){
-         var username = login.username.value;
-            $.get('/exect',{'username':username},function(msg){
-			    
-			       if (msg=='3') {
-                       
-                      $('#users').html('用户名不可以为空');
-			       }
-                   if(msg=='1'){
-                      userss = true;
-                      $('#users').html('');
-                   }
-                   if(msg=='2'){
-                 
-                     $('#users').html('请输入正确的用户名');
-                   }
 
-		    });
-         }
-           
-           var password = login.password.value;
-           login.onsubmit = function(){
-			if(userss && empty(password)){
-				return true;
-			}
-			 
-			return false;
-		  }
- </script>
+</script>
+<script type="text/javascript">
+  
+
+
+
+</script>
 </body>
 <script type="text/javascript" src="/h/pc/common/js/bytrack.js?v=biyao_8b3cc7e"></script>
 

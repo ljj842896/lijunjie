@@ -52,7 +52,13 @@
  
 </head>
 <body id="pagebody">
+    @if(session('logincheng'))
+<script>
 
+    layer.msg('登录成功', {icon: 1});
+                           
+</script>
+    @endif
 <div class="pub_nav topBanner slideUp" style="height: 30px">
     
 

@@ -67,6 +67,7 @@
                                         </label>
                                         <input type="email" name="email" id="email" placeholder="请输入邮箱账号">
                                     </div>
+                                  
                                     <div class="user-pass">
                                         <label for="password">
                                             <i class="am-icon-lock">
@@ -118,14 +119,14 @@
                                             <i class="am-icon-lock">
                                             </i>
                                         </label>
-                                        <input type="password" name="password" id="passwords" placeholder="设置密码">
+                                        <input type="password" name="password" id="passwordss" placeholder="设置密码">
                                     </div>
                                     <div class="user-pass">
                                         <label for="passwordRepeat">
                                             <i class="am-icon-lock">
                                             </i>
                                         </label>
-                                        <input type="password" name="password_confirmation" id="passwordRepeat" placeholder="确认密码">
+                                        <input type="password" name="password_confirmation" id="passwordRepeats" placeholder="确认密码">
                                     </div>
 	                                <div class="am-cf">
 	                                    <input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
@@ -139,54 +140,24 @@
                                 </div>
                                 <hr>
                             </div>
+
+                             <script type="text/javascript">
+                             //	function sendCodes(){
+                                   //alert($('#emails').val()); 
+                              //   $.get('/emails',{'email': $('#emails').val()},//function(msg){
+                                       
+                                //           alert(msg);
+
+                                 //    },'html');
+
+
+                             	//}
+
+
+
+                             </script>
                        
-                            <div class="am-tab-panel">
-                                <form method="post"  action="/Home/phoneinsert">
-                                	{{ csrf_field() }}
-                                    <div class="user-phone">
-                                        <label for="phone">
-                                            <i class="am-icon-mobile-phone am-icon-md">
-                                            </i>
-                                        </label>
-                                        <input type="tel" name="phone" id="phone" placeholder="请输入手机号" @if(session('pho'))value="{{session('pho')}}"@else @endif>
-                                    </div>
-                                    <div class="verification">
-                                        <label for="code">
-                                            <i class="am-icon-code-fork">
-                                            </i>
-                                        </label>
-                                        <input type="tel" name="phonecode" id="code" placeholder="请输入验证码">
-                                        <a class="btn" href="javascript:void(0);" onClick="sendCode();"
-                                        id="sendMobileCode">
-                                            <input type="button" value="获取" id="dyMobileButton" style="font-size: 10px;width: 80px">
-                                        </a>
-                                    </div>
-                                    <div class="user-pass">
-                                        <label for="password">
-                                            <i class="am-icon-lock">
-                                            </i>
-                                        </label>
-                                        <input type="password" name="password" id="passwords" placeholder="设置密码">
-                                    </div>
-                                    <div class="user-pass">
-                                        <label for="passwordRepeat">
-                                            <i class="am-icon-lock">
-                                            </i>
-                                        </label>
-                                        <input type="password" name="password_confirmation" id="passwordRepeat" placeholder="确认密码">
-                                    </div>
-	                                <div class="am-cf">
-	                                    <input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
-	                                </div>
-                                </form>
-                                <div class="login-links">
-                                    <label for="reader-me">
-                                        <input id="reader-me" type="checkbox">
-                                        点击表示您同意商城《服务协议》
-                                    </label>
-                                </div>
-                                <hr>
-                            </div>
+                           
                          
                               <script type="text/javascript" charset="utf-8">
                                    function sendCode(){
@@ -197,20 +168,20 @@
                                       $.get('/Home/Zhuce/sendcode',{'phone': $('#phone').val()},function(msg){
 
                                       	   if(msg == 2){
-                                      	     	alert('成功');
+                                      	     	alert('发送成功请稍等');
                                       	     }else{
-                                      	     	alert('失败');
+                                      	     	alert('网络异常');
                                       	     }
                                       	    
                                       },'html');
                                    }
-                                  var countdown = 60;
+                                  var countdown = 30;
 
                                   function settime(obj){
                                   	  if(countdown == 0){
                                   	 	 obj.attr('disabled',false);
                                   	 	 obj.val('获取验证码');
-                                         countdown =60;
+                                         countdown =30;
                                          return;
                                   	 }else{
 
