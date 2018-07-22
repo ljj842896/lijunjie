@@ -63,9 +63,14 @@
 </head>
  
 
-<body id="pagebody">
+<body id="pagebody" style="height: 800px">
+    @if(session('logincheng'))
+        <script>
 
-
+            layer.msg('登录成功', {icon: 1});
+                                   
+        </script>
+    @endif
  
 <div class="pub_nav topBanner slideUp" style="height: 30px">
 
@@ -115,7 +120,7 @@
                 <li class="inline last pd_r0 shopping_cart vTop">
                     <a class="inline sizeZero" href="/cart">
                         <i class="inline"></i>
-                        <span id="shopcarNumID" class="inline">购物车 0</span>
+                        <span id="shopcarNumID" class="inline">购物车 {{$cart_count}}</span>
                     </a>
                 </li>
             </ul>
@@ -126,7 +131,7 @@
         <div class="f_r">
             <ul class="pub_nav_list sizeZero">
                 <li class="inline" id="welcomID"><span class="col_aaa mg_r10">欢迎来到必要，请</span><a href="/login">登录</a><span class="bg"></span></li>
-                <li class="inline" id="messageID"><a>注册</a><span class="bg"></span></li>
+                <li class="inline" id="messageID"><a href="/register">注册</a><span class="bg"></span></li>
                 
             </ul>
         </div>
@@ -139,7 +144,7 @@
  
 
 <ul class="rightBar" style="margin-left: 550px; display: block;">
-    <li class="rightBar-top" style="display: none;"></li>
+    <li class="rightBar-top" style="display: none;margin-top: 50px"></li>
 </ul>
 
 

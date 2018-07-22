@@ -194,7 +194,7 @@
 
             <div class="panel-bottom">
             
-                <p id="buyNow" class="panel-buyNow" style="width: 180px">立即购买</p>
+                <a href="#"><p id="buyNow" class="panel-buyNow" style="width: 180px">立即购买</p></a>
                 <p id="addShopCar"  style="width: 180px">加入购物车</p>
                 <p class="shopCar-not">原材料库存不足</p>
             
@@ -207,9 +207,9 @@
 
 <!-- 登录弹出框start -->
     <div class="J_pop pop" id="1532048350284" data-dialog="1532048350284" style="z-index: 10000; width: 430px; top: 63px; left: 439.5px; position: absolute; display: none;">
-        <div class="pop_hd">
-            <span class="pop_close"></span>
-            <span class="pop_title f18">登录</span>
+        <div class="pop_hd" style="width: 450px;position: absolute;left: 0px;top:-10px">
+            <span class="pop_close" style="margin-right: 15px"></span>
+            <span class="pop_title f18" style="margin-left: 230px">登录</span>
         </div>
         <div class="pop_bd" style="height: 480px;">
             <iframe src="http://www.biyao.com/account/dialogLogin.html" width="450px" height="100%" frameborder="0" scrolling="no">
@@ -449,7 +449,7 @@
             }else{
                 // window.location = '/login'
                 $('#1532048350284').css('display','block')
-                $('#back').css('display','block')
+                $('.layer').css('display','block')
             }
         })
  

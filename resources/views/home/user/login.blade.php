@@ -26,10 +26,19 @@
     </script>
     <link href="/h/pc/common/css/common.css?v=biyao_1227846" rel="stylesheet" />
     <link href="/h/pc/www/css/cm_www.css?v=biyao_3f1d92e" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <script type="text/javascript" src="/layui/layui.all.js"></script>
+    <script>
+        ;!function(){
+              var layer = layui.layer
+              ,form = layui.form;
+        }();
+    </script>
     <script type="text/javascript"	src="/h/pc/common/js/jquery-1.8.3.js?v=biyao_7d074dc"></script>
     <script type="text/javascript"	src="/h/pc/common/js/jquery.extention.js?v=biyao_98daa33"></script>
     <script type="text/javascript" src="/h/pc/common/js/lazyload.js?v=biyao_80d4f78"></script>
     <script type="text/javascript" src="/h/pc/minisite/byshoes/js/jquery.cookie.js?v=biyao_a5283b2"></script>
+
     <script type="text/javascript">
         function GetRequest() {
             var url = location.search; //获取url中"?"符后的字串
@@ -102,7 +111,7 @@
                 <!-- <dt class="inline">&nbsp</dt> -->
                 <dd class="inline">
                     <span class="inline mg_r10 "><i class="openIcon inline mg_r10" name="checkRememberMe"></i><span class="inline col_8a8a8a">下次自动登录</span></span>
-                    <a href="/h/list.html#findpwd/index?returnUrl=index.html" class="inline col_link boxR">忘记密码</a>
+                    <a href="/lethe" class="inline col_link boxR">忘记密码</a>
                 </dd>
             </dl>
             <dl class="mg_t10">
@@ -174,6 +183,11 @@
 </div>
 <script src="/h/pc/common/js/common.js?v=biyao_c83c46d" type="text/javascript"></script>
 <script type="text/javascript"	src="/h/pc/www/js/common.js?v=biyao_bd8bd36"></script>
+ @if(session('loginss'))
+      <script type="text/javascript">
+         layer.msg('设置成功请重新登录', {icon: 5});
+     </script>
+ @endif
 <script type="text/javascript">
     $(function(){
 

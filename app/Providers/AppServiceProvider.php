@@ -4,6 +4,7 @@ namespace App\Providers;
 use App\Models\Cates;
 use App\Models\Address;
 use App\Models\Goods;
+use App\Models\Carts;
 use Cache;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,8 +26,12 @@ class AppServiceProvider extends ServiceProvider
             return Goods::where('goods_top','=','y') -> get();
         });
 
+        $cart_count = Carts::count();
 
-        view() -> share(['cates' => $cates,'address' => $address,'com_goods' => $goods]);
+        // dd($cart_count);
+        
+       
+        view() -> share(['cates' => $cates,'address' => $address,'com_goods' => $goods, 'cart_count' => $cart_count]);
 
 
     }

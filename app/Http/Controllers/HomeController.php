@@ -9,6 +9,7 @@ use App\Models\Cates;
 use App\Models\Goods;
 use App\Models\Links;
 use App\Models\Ads;
+use App\Models\Carts;
 use Cache;
 
 use App\Http\Controllers\Controller;
@@ -48,7 +49,21 @@ class HomeController extends Controller
         }
 
 
-        return view('home.index',['ads' => $ads, 'links' => $links, 'cat_key' => $cat_key, 'cate' => $cate,'cate_goods' => $cate_goods]);
+
+        // dd($cart_count);
+        //购物车中的数量
+        if (session('users')) {
+            # code...
+            $cart_count = Carts::where('user_id',session('users') -> user_id) -> count();
+
+
+            return view('home.index',['ads' => $ads, 'links' => $links, 'cat_key' => $cat_key, 'cate' => $cate, 'cate_goods' => $cate_goods, 'cart_count' => $cart_count]);
+
+        }else{
+
+            return view('home.index',['ads' => $ads, 'links' => $links, 'cat_key' => $cat_key, 'cate' => $cate, 'cate_goods' => $cate_goods]);
+        
+        }
     }
 
     /**
@@ -77,10 +92,8 @@ class HomeController extends Controller
         // dd($id);
         $cate = Cates::find($id);
         // dd($cate);
-        $goods = Cache::remember('goods',120,function(){
-            return Goods::where('cat_id',$id) -> where('goods_top','=','y') -> get();
-        });
-        // dd(empty($goods[0]));
+        $goods = Goods::where('cat_id',$id) -> where('goods_top','=','y') -> get();
+
         return view('home/cate_index',['cat' => $cate,'goods' => $goods]);
     }
 

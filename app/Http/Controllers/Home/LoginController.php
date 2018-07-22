@@ -142,14 +142,73 @@ class LoginController extends Controller
          }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+   
+
+    public function userupdate(Request $request){
+                
+               $id = (session('users')->user_id);
+               $users = user::find($id);
+               $passs = $users['password'];//数据库密码
+               $password =$request->input('password'); 
+               $rpassword =$request->input('rpassword'); 
+
+               if($password == $rpassword){
+
+                   return back()->with('passerror','新密码不能与原密码重复');
+               }else{
+                     
+                     $users['password'] = Hash::make($rpassword);
+                     $res = $users->save();
+                     if ($res) {
+                          return back()->with('passup','修改成功');
+                       }else{
+                          return back()->with('passups','修改失败');
+                       }  
+               }
+              
     }
+
+
+
+
+    public function passupdate(){
+
+
+          return view('home.user.passupdate');
+
+
+
+    }
+
+    public function ajaxpass(Request $request){
+           $id = (session('users')->user_id);
+           $users = user::find($id);
+           $passs= $users['password'];
+           $homepass = $request->input('pass');
+           if(Hash::check($homepass,$passs)){
+                  echo '1';
+           }else{
+                  echo '2';
+           }
+          
+    }
+
+    public function lethe(){
+
+           return view('home.user.lethe');
+    }
+
+    public function phones(Request $request){
+       
+            $phone = $request->input('phone');
+            $data = user::where('phone',$phone)->first();
+
+            if ($data) {
+              echo '1';
+            }else{
+               echo '2';
+            }
+    }
+    
+    
 }
