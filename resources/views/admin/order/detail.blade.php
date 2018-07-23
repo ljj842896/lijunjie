@@ -8,13 +8,13 @@
 	<table class="mws-table">
 		<thead>
 			<tr>
+				<th>商品图片</th>
+				<th>商品名称</th>
 				<th>订单号</th>
 				<th>订单时间</th>
-				<th>商品名称</th>
 				<th>本店售价</th>
 				<th>商品颜色</th>
 				<th>商品规格</th>
-				<th>商品图片</th>
 				<th>商品数量</th>
 				<th>订单金额</th>
 				<th>订单状态</th>
@@ -25,31 +25,18 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>{{ $orders -> order_sn }}</td>
-				<td>{{ $orders -> order_time }}</td>
-				<td>{{ $orders -> goods_name }}</td>
-				<td>{{ $orders -> shop_price }}</td>
-				<td>
-					@if($orders -> goods_attr_color == 1)
-						红色
-					@elseif($orders -> goods_attr_color == 2)
-						橙色
-					@elseif($orders -> goods_attr_color == 3)
-						黄色
-					@elseif($orders -> goods_attr_color == 4)
-						绿色
-					@elseif($orders -> goods_attr_color == 5)
-						天蓝色
-					@elseif($orders -> goods_attr_color == 6)
-						海蓝色
-					@elseif($orders -> goods_attr_color == 7)
-						紫色
-					@endif
-				</td>
-				<td>{{ $orders -> goods_attr_rule }}</td>
 				<td>
 					<img src="/uploads/orders/{{ $orders -> goods_img }}" style="height:50px;width:70px">
 				</td>
+				<td>{{ $orders -> goods_name }}</td>
+				<td>{{ $orders -> order_sn }}</td>
+				<td>{{ $orders -> order_time }}</td>
+				<td>{{ $orders -> shop_price }}</td>
+				<td>
+					{{$orders -> goods_attr_color}}
+				 
+				</td>
+				<td>{{ $orders -> goods_attr_rule }}</td>
 				<td>{{ $orders -> order_count }}</td>
 				<td>{{ $orders -> order_amount }}</td>
 				<td>
@@ -64,7 +51,7 @@
                          @endif
                 </td>
 				<td>{{ $orders -> rece_user_tel }}</td>
-				<td>{{ $orders -> user_order -> user_name }}</td>
+				<td></td>
 				<td>{{ $orders -> rece_user_address }}</td>
 			</tr>
 		</tbody>

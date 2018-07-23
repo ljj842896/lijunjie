@@ -92,6 +92,7 @@
                         </div>
                     </div>
                 </li>
+
             </ul>
         </div>
  
@@ -131,7 +132,14 @@
         <div class="f_r">
             <ul class="pub_nav_list sizeZero">
                 <li class="inline" id="welcomID"><span class="col_aaa mg_r10">欢迎来到必要，请</span><a href="/login">登录</a><span class="bg"></span></li>
-                <li class="inline" id="messageID"><a href="/register">注册</a><span class="bg"></span></li>
+                <li class="inline" id="messageID"><a href="/register">注册</a><span class="bg"></span>
+                </li>
+                <li class="inline last pd_r0 shopping_cart vTop">
+                    <a class="inline sizeZero" href="/cart">
+                        <i class="inline"></i>
+                        <span id="shopcarNumID" class="inline">购物车</span>
+                    </a>
+                </li>
                 
             </ul>
         </div>

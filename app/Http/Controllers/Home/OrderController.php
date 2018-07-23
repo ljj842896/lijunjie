@@ -7,8 +7,24 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Orders;
+use App\Models\Carts;
+use Cache;
 class OrderController extends Controller
 {
+
+     public function __construct()
+    {
+       $this -> middleware('sys');
+    }
+
+
+    public function pay()
+    {
+        echo 'qqq';
+        return view('home.order.pay');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -41,22 +57,12 @@ class OrderController extends Controller
     public function create()
     {
         //
-        //接收商品详情页的商品信息
-        //商品数量
-        // $good_number = isset($_GET['good_number']) ? $_GET['good_number'] : null;
-        // //商品颜色
-        // $good_color = isset($_GET['good_color']) ? $_GET['good_color'] : null;
-        // //商品尺寸
-        // $good_rule = isset($_GET['good_rule']) ? $_GET['good_rule'] : null;
-        if (isset($_GET['good_attr'])) {
-            echo 1;
-        }
-            // return redirect('')
+        $data = Cache::get('cart_data',null);
             
 
         //订单页模板
-
-            return view('home.order.create');
+        // dd($data);
+        return view('home.order.create',['data' => $data]);
 
     }
 
@@ -80,6 +86,25 @@ class OrderController extends Controller
     public function show($id)
     {
         //
+         //接收要购买的购物车的商品信息
+        if (!empty($_GET['ids'])) {
+            $ids = explode(',', $_GET['ids']);
+                $data = [];
+            foreach ($ids as $key => $id) {
+                //取出购物车数据
+                $data[] = Carts::find($id);
+                Carts::find($id) -> delete();
+            }
+            //把取出的数据存入缓存
+            $res = Cache::put('cart_data',$data,1);
+            // dd($res);
+   
+            echo 1;
+         
+        }else{
+            echo 0;
+        }
+
     }
 
     /**

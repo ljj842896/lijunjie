@@ -16,6 +16,12 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
+
+
+     public function __construct()
+    {
+       $this -> middleware('sys');
+    }
     /**
      * Display a listing of the resource.
      *  首页控制器
@@ -123,7 +129,7 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
         //
     }

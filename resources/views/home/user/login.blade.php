@@ -82,14 +82,15 @@
             </ul>
         </div>
     </div>
-</div>
+</div> 
 <div class="wrap h580">
     <div class="loginItem auto ">
         <form action="/entry" class="loginBox" method="post" id="J_login">
-        	{{csrf_field()}}
+            {{csrf_field()}}   
+            <input type="hidden" name="status" value="{{session('jihuo')}}">
             <div class="inline loginTitBox"><i class="inline loginListBg spIcon mg_r10"></i><span class="inline">用户登录</span></div>
             <dl class="mg_t20 ">
-                <!-- <dt class="inline">手机号：</dt> -->
+        
                 <dd class="inline mg_r5"><input value="请输入用户名" type="text" id="username" name="username" class=" loginTxt  w360 col_999"/></dd>
                 <dd class="J_validate inline col_f90 "><span id="users"></span></dd>
             </dl>
@@ -100,7 +101,7 @@
                     <input id="passwd_show" type="text" value="请输入您的密码"  id="password" class=" loginTxt w360 col_999"/>
 
                 </dd>
-                <dd class="J_validate inline col_f90" >  	
+                <dd class="J_validate inline col_f90" >     
                  @if (session('error'))
                         {{ session('error') }} 
                  @endif
@@ -121,6 +122,7 @@
             <input type="submit"  class="J_login_btn loginBtn w400  inline t_c mg_t10" value="登录"/> <br/>
 
         </form>
+            
     </div>
 </div>
 <!-- <script type="text/javascript" src="/h/http://qzonestyle.gtimg.cn/qzone/openapi/qc.js#appId=101235242" charset="utf-8" ></script>   -->
@@ -186,6 +188,16 @@
  @if(session('loginss'))
       <script type="text/javascript">
          layer.msg('设置成功请重新登录', {icon: 5});
+     </script>
+ @endif
+ @if(session('emailjihuo'))
+      <script type="text/javascript">
+         layer.msg('请在邮箱里激活后再登录', {icon: 5});
+     </script>
+ @endif
+ @if(session('loginerror'))
+      <script type="text/javascript">
+         layer.msg('请激活', {icon: 5});
      </script>
  @endif
 <script type="text/javascript">

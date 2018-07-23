@@ -26,14 +26,14 @@
                     			<div class="mws-form-row">
                     				<label class="mws-form-label">密码:</label>
                     				<div class="mws-form-item">
-                    					<input type="text" class="small" name="password">
+                    					<input type="password" class="small" name="password">
                     				</div>
                     			</div>
                     			 
                     			 <div class="mws-form-row">
                     				<label class="mws-form-label">重复密码:</label>
                     				<div class="mws-form-item">
-                    					<input type="text" class="small" name="password_confirmation">
+                    					<input type="password" class="small" name="password_confirmation">
                     				</div>
                     			</div>
 
@@ -55,14 +55,14 @@
                     			</div>
                                 
                                 <div class="mws-form-row">
-                    				<label class="mws-form-label">地址:</label>
-                    				<div class="mws-form-item">
-                    					<input type="text" class="small" name="user_address" value="{{old('user_address')}}">
-                    				</div>
-                    			</div>
+                                    <label class="mws-form-label">地址 <span class="required">*</span></label>
+                                    <div class="mws-form-item">
+                                        <textarea name="user_address" rows="" cols="" class="required large"></textarea>
+                                    </div>
+                                </div>
                                 
                                 <div class="mws-form-row" >
-                    				<label class="mws-form-label">图片:</label>
+                    				<label class="mws-form-label">头像:</label>
                     				<div class="mws-form-item" style="width: 200px">
                     		    <input type="file" class="small" name="user_pic" value="{{old('user_pic')}}">
                     				</div>

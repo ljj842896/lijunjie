@@ -6,10 +6,10 @@
         <div class="per_leftbox  pd_t14">
             <ul class="per_leftul">
                 <li class="t_c">
-                    <a href="Profile.html">
+                    <a href="">
 
                         <label for="informa">
-                        <img id="pro" src="/uploads/{{session('users')->user_pic}}" alt="" onerror="javascript:this.src='/h/pc/www/img/avatar/head_150.png'" style="width: 150px; height: 150px">    
+                        <img id="pro" src="/uploads/{{$pic}}" alt="" onerror="javascript:this.src='/h/pc/www/img/avatar/head_150.png'" style="width: 150px; height: 150px">    
                         </label>
 
                     </a>
@@ -52,7 +52,7 @@
                             <tbody>
                             <tr>
                                 <th>账户名 : </th>
-                                <td id=""><h5>&nbsp;{{session('users')->user_name}}</h5></td>
+                                <td id=""><h5>&nbsp;{{$user_name}}</h5></td>
                             </tr>
                              
                              <tr>
@@ -127,11 +127,13 @@
          $('form').eq(0).submit(function(){
                     var us = forms.rpassword.value;     
                      if(us.length!=0){  
-                          reg=/^[a-zA-Z]\w{5,17}$/;
+                          reg=/^[A-Za-z]+[0-9]+[A-Za-z0-9]*|[0-9]+[A-Za-z]+[A-Za-z0-9]*$/g;
                           if (!reg.test(us)){
-                          layer.msg('用户名请6-18之间，只能包含字符、数字和下划线', {icon: 5});            
+                          layer.msg('密码必须由6-16个英文字母和数字的字符串组成！', {icon: 5});            
                           return false;
-                        }
+                         }else{
+                            return true;
+                         }
                      }
                });
        </script>
