@@ -96,6 +96,9 @@ Route::get('Admin/repass','Admin\LoginController@repass');//修改密码頁面
 Route::post('Admin/reset','Admin\LoginController@reset');//執行修改密码
 Route::get('Admin/deletes','Admin\UserController@destroys');//多删
 Route::get('Admin/serach','Admin\UserController@index');
+Route::get('Admin/article','Admin\ArticleController@index');
+Route::post('Admin/artcreate','Admin\ArticleController@create');
+
 //前台登录页面
 Route::get('login','Home\LoginController@login');//前台登录页面
 Route::get('exect','Home\LoginController@exect');//前台登录页面验证
@@ -107,7 +110,7 @@ Route::post('inforupdete','Home\LoginController@inforupdete');//个人信息修�
 Route::get('register','Home\RedistesController@register');//用户注册页面
 Route::post('emails','Home\RedistesController@emails');//邮箱注册
 Route::post('Home/phoneinsert','Home\RedistesController@storephone');//手机注册
-Route::get('/Home/Zhuce/sendcode','Home\RedistesController@getSendcode');//验证码手机提交/passupdate
+Route::get('/Home/Zhuce/sendcode','Home\RedistesController@getSendcode');//验证码手机提交
 Route::get('/Zhuce/infor','Home\RedistesController@zhuinfor');//注册個人基本信息
 Route::post('/Zhuce/client','Home\RedistesController@client');//添加個人基本信息
 Route::get('passupdate','Home\LoginController@passupdate');//跳闸修改密码页面
