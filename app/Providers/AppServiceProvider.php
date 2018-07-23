@@ -3,6 +3,7 @@
 namespace App\Providers;
 use App\Models\Cates;
 use App\Models\Address;
+use App\Models\Goods;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -20,8 +21,9 @@ class AppServiceProvider extends ServiceProvider
 
         $address = Address::all();
 
+        $goods = Goods::where('goods_top','=','y') -> get();
+        view() -> share(['cates' => $cates,'address' => $address,'com_goods' => $goods]);
 
-        view() -> share(['cates' => $cates,'address' => $address]);
 
     }
 

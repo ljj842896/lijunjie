@@ -324,15 +324,13 @@
         </div>
                        
             <!-- Footer -->
-            <div id="mws-footer">
-            	Copyright Your Website 2012. All Rights Reserved.
-            </div>
             
         </div>
         <!-- Main Container End -->
         
     </div>
 
+            
 
     <div id="mws-themer">
         <div id="mws-themer-content" style="right: 0px;">
@@ -365,7 +363,7 @@
         </div>
         
     </div>
-
+    
     <!-- JavaScript Plugins -->
     <script src="/a/js/libs/jquery-1.8.3.min.js"></script>
     <script src="/a/js/libs/jquery.mousewheel.min.js"></script>
