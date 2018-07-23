@@ -726,7 +726,26 @@
         //判断是否登录
         if ($('.userinfo').text()) {
             // alert('登录啦')
+            //将数据被选中的购物车从数据库取出并清除，发送给订单方法
 
+            //获取所有要结算的购物车数据id
+            var ids = []
+            $('#tr .checked').parent().parent().each(function(){
+                ids.push($(this).find('#n').attr('cid'))
+            })
+
+            var idss = ids.join()
+
+            //发送ajax
+            $.get('/order/0',{'ids':idss},function(msg){
+                    if (msg == 1) {
+                        window.location = '/order/create'
+                    }else{
+                        layer.msg('貌似出了点小问题~')
+                    }
+
+
+            })
         }else{
             
             $('#1532048350284').css('display','block')

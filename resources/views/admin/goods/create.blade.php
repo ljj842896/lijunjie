@@ -48,12 +48,21 @@
                                             <option value="胭脂红">胭脂红</option>
                                             <option value="珍珠黑">珍珠黑</option>
                                             <option value="天青蓝">天青蓝</option>
+                                            <option value="深绿色">深绿色</option>
+                                            <option value="紫红色">紫红色</option>
+                                            <option value="柠檬黄">柠檬黄</option>
+                                            <option value="绿松色">绿松色</option>
+                                            <option value="紫红">紫红</option>
+                                            <option value="鲜绿">鲜绿</option>
+                                            <option value="鲜红色">鲜红色</option>
+                                            <option value="浅黄色">浅黄色</option>
+                                            <option value="天蓝色">天蓝色</option>
                                             
                                         </select><br><br>
                                       </div>
 
                                                                                             
-                                         
+                                                
                               尺 &nbsp; &nbsp;&nbsp; 寸 : <input name="goods_attr_rule" type="text" class="small" value="{{old('goods_attr_rule')}}"><br><br>
                               关键字:　<input name="keywords" type="text" name="keywords" class="small" value="{{old('keywords')}}"><br><br>
                               库　存:　<input name="goods_number" type="text" class="small" value="{{old('goods_number')}}"><br><br>

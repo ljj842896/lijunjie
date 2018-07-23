@@ -39,14 +39,22 @@
                                         <select  name="goods_attr_color" multiple>
                                             <option value="">--请选择--</option>
                                             
-                                            <option value="1" {{$good -> goods_attr_color == '1' ? 'selected' : ''}}>玉米黄</option>
-                                            <option value="2" {{$good -> goods_attr_color == '2' ? 'selected' : ''}}>象牙白</option>
-                                            <option value="3" {{$good -> goods_attr_color == '3' ? 'selected' : ''}}>橘红</option>
-                                            <option value="4" {{$good -> goods_attr_color == '4' ? 'selected' : ''}}>火焰红</option>
-                                            <option value="5" {{$good -> goods_attr_color == '5' ? 'selected' : ''}}>胭脂红</option>
-                                            <option value="6" {{$good -> goods_attr_color == '6' ? 'selected' : ''}}>珍珠黑</option>
-                                            <option value="7" {{$good -> goods_attr_color == '7' ? 'selected' : ''}}>天青蓝</option>
-                                            
+                                        <option value="玉米黄">玉米黄</option>
+                                            <option value="象牙白">象牙白</option>
+                                            <option value="橘红">橘红</option>
+                                            <option value="火焰红">火焰红</option>
+                                            <option value="胭脂红">胭脂红</option>
+                                            <option value="珍珠黑">珍珠黑</option>
+                                            <option value="天青蓝">天青蓝</option>
+                                            <option value="深绿色">深绿色</option>
+                                            <option value="紫红色">紫红色</option>
+                                            <option value="柠檬黄">柠檬黄</option>
+                                            <option value="绿松色">绿松色</option>
+                                            <option value="紫红">紫红</option>
+                                            <option value="鲜绿">鲜绿</option>
+                                            <option value="鲜红色">鲜红色</option>
+                                            <option value="浅黄色">浅黄色</option>
+                                            <option value="天蓝色">天蓝色</option>
                                         </select><br><br>
                                       </div>
 

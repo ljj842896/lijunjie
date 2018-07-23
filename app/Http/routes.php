@@ -24,6 +24,7 @@ Route::get('/', function () {
 
 
 
+
 //===============公共区域end=================
 
 
@@ -64,8 +65,13 @@ Route::get('Admin/rec/remove/{id}','Admin\RecycleController@create');
 Route::get('Admin/rec/store/{id}','Admin\RecycleController@store');
 
 
+
 // ============前台路由============
 
+//关闭网站跳转网页
+Route::get('/sys/close',function(){
+	return view('home/error');
+});
 //前台首页路由
 Route::resource('/','HomeController');
 //前台分类商品页
@@ -75,6 +81,8 @@ Route::get('good/{id}','HomeController@show');
 //前台购物车
 Route::resource('/cart','Home\CartsController');
 
+//订单支付页面
+Route::get('/pay','Home\OrderController@pay');
 //李俊杰区域-----------------end----------------------------
 
 //叶贵丰区域-----------------start---------------------------------

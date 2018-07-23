@@ -11,6 +11,11 @@ use DB;
 use App\Http\Requests\AddressRequest;
 class AddressController extends Controller
 {
+
+     public function __construct()
+    {
+       $this -> middleware('sys');
+    }
     /**
      * Display a listing of the resource.
      *

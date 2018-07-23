@@ -26,7 +26,7 @@ class UserController extends Controller
     public function index()
     {
           $users = user::all();
-           
+          
           return view('admin.user.index',['users'=>$users]);
           
     }

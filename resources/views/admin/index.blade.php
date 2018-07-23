@@ -61,10 +61,15 @@
     </div>
 
     <div class="mws-panel grid_5">
-                    <div class="mws-panel-header">
-                        <span></span>
-                    </div>
-                    <div class="mws-panel-body">
+      <div class="mws-panel-header" style="height:46px">
+        <span>
+          <font style="vertical-align: inherit;">
+          <font style="vertical-align: inherit;"> 捉鳖小队简言</font>
+          
+          </font>
+        </span>
+      </div>
+                    <div class="mws-panel-body" style="height: 150px">
                         <div height="50px">
                             
                         </div>
@@ -74,54 +79,31 @@
                                上九天揽月，下五洋捉你！
                                 别瞅了，就是你！ 
                             </h4>
-                            <footer><cite title="Source Title">捉鳖小队</cite></footer>
+                            <footer class="text-right"><cite title="Source Title">捉鳖小队</cite></footer>
 
                         </blockquote>
                     </div>
     </div>
 
     <div class="mws-panel grid_3">
-                    <div class="mws-panel-header">
-                        <span> </span>
-                    </div>
+      <div class="mws-panel-header" style="height:46px">
+        <span>
+          <font style="vertical-align: inherit;">
+          <font style="vertical-align: inherit;"> 捉鳖小队开发人员</font>
+          
+          </font>
+        </span>
+      </div>
                     <div class="mws-panel-body no-padding">
                         <ul class="mws-summary clearfix">
+                            @foreach($users as $v)
                             <li>
-                                <span class="key"><i class="icon-support"></i> Support Tickets</span>
-                                <span class="val">
-                                    <span class="text-nowrap">332</span>
+                                <span class="key" style="width: 50%"><img width="50px" height="50px" src="/uploads/{{$v['user_pic']}}"></span>
+                                <span class="val"">
+                                    <span class="text-nowrap">{{$v['user_name']}}</span>
                                 </span>
                             </li>
-                            <li>
-                                <span class="key"><i class="icon-certificate"></i> Commision</span>
-                                <span class="val">
-                                    <span class="text-nowrap">71% <i class="up icon-arrow-up"></i></span>
-                                </span>
-                            </li>
-                            <li>
-                                <span class="key"><i class="icon-shopping-cart"></i> This Week Sales</span>
-                                <span class="val">
-                                    <span class="text-nowrap">144 <i class="down icon-arrow-down"></i></span>
-                                </span>
-                            </li>
-                            <li>
-                                <span class="key"><i class="icon-install"></i> Cash Deposit</span>
-                                <span class="val">
-                                    <span class="text-nowrap">$6,421</span>
-                                </span>
-                            </li>
-                            <li>
-                                <span class="key"><i class="icon-key"></i> Last Sign In</span>
-                                <span class="val">
-                                    <span class="text-nowrap">September 21, 2012</span>
-                                </span>
-                            </li>
-                            <li>
-                                <span class="key"><i class="icon-windows"></i> Operating System</span>
-                                <span class="val">
-                                    <span class="text-nowrap">Debian Linux</span>
-                                </span>
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
     </div>
@@ -131,4 +113,7 @@
         // alert($);
     </script>
 
+    <div id="mws-footer" style="margin-left: -200px;margin-bottom: -195px">
+                Copyright Your Website 2012.@<span>{{$sys['sys_file']}}</span> All Rights Reserved.
+    </div>
 @endsection

@@ -12,6 +12,11 @@ use DB;
 use Cache;
 class CartsController extends Controller
 {
+
+     public function __construct()
+    {
+       $this -> middleware('sys');
+    }
     /**
      * Display a listing of the resource.
      *

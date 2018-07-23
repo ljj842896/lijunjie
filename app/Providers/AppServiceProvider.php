@@ -5,6 +5,7 @@ use App\Models\Cates;
 use App\Models\Address;
 use App\Models\Goods;
 use App\Models\Carts;
+use App\Models\Config;
 use Cache;
 use Illuminate\Support\ServiceProvider;
 
@@ -28,10 +29,10 @@ class AppServiceProvider extends ServiceProvider
 
         $cart_count = Carts::count();
 
-        // dd($cart_count);
-        
+        //网站配置
+        $sys = Config::find(1);
        
-        view() -> share(['cates' => $cates,'address' => $address,'com_goods' => $goods, 'cart_count' => $cart_count]);
+        view() -> share(['cates' => $cates,'address' => $address,'com_goods' => $goods, 'cart_count' => $cart_count, 'sys' => $sys]);
 
 
     }

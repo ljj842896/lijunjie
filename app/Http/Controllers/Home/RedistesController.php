@@ -12,6 +12,11 @@ use DB;
 use Mail;
 class RedistesController extends Controller
 {
+
+     public function __construct()
+    {
+       $this -> middleware('sys');
+    }
     /**
      * Display a listing of the resource.
      *

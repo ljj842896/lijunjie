@@ -14,7 +14,7 @@
 
                     </a>
                 </li>
-                <li class="f14 col_fff mg_t10 t_c">by_3444810</li>
+                <li class="f14 col_fff mg_t10 t_c">{{ session('users') -> user_name }}</li>
             </ul>
         </div>
 
@@ -45,6 +45,8 @@
  
 
     <div class="per_right_out backg_fff">
+
+      @section('info')
         <div class="per_right ">
             <div class="">
                 <div class="relative">
@@ -101,6 +103,7 @@
               </div>
             </div>
         </div>
+      @show  
     </div>
     <div>
     </div>

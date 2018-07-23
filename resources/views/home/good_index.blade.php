@@ -431,15 +431,9 @@
 
 
                     //跳转到订单页
-                    $.get('/order/create',{'good_attr':good_attr},function(msg){
-
-                        if (msg) {
-                            // console.log(msg)                        
-                            window.location = '/order/create'
-                        }
-                    })
-
-                    // console.log($.cookie('good_attr').good_color)
+                                      
+                        window.location = '/order/create'
+               
                 }else{
                     layer.msg('请选择商品参数！')
                     // alert('请选择商品参数！')
