@@ -38,11 +38,13 @@
 <link rel="stylesheet" type="text/css" href="/a/css/mws-theme.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/a/css/themer.css" media="screen">
 
-<title>MWS Admin - Dashboard</title>
+<title>{{$sys['sys_title']}}</title>
     
 </head>
 
 <body>
+    
+    
 
 	<!-- Themer (Remove if not needed) -->  
 	<div id="mws-themer">
@@ -67,7 +69,12 @@
         
         	<!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
         	<div id="mws-logo-wrap">
+                @if($sys['sys_log'])
+                <img src="/uploads/sys/{{$sys['sys_log']}}" alt="mws admin">
+                @else
             	<img src="/a/images/logo.png" alt="mws admin">
+
+                @endif
 			</div>
         </div>
         
@@ -331,6 +338,10 @@
     </div>
 
             
+ 
+    <div id="mws-footer">
+                Copyright Your Website 2012.@<span>{{$sys['sys_file']}}</span> All Rights Reserved.
+    </div>
 
     <div id="mws-themer">
         <div id="mws-themer-content" style="right: 0px;">
@@ -362,8 +373,8 @@
             </div>
         </div>
         
-    </div>
     
+ 
     <!-- JavaScript Plugins -->
     <script src="/a/js/libs/jquery-1.8.3.min.js"></script>
     <script src="/a/js/libs/jquery.mousewheel.min.js"></script>
@@ -401,3 +412,4 @@
 
 </body>
 </html>
+

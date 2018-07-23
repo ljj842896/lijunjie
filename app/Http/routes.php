@@ -24,6 +24,7 @@ Route::get('/', function () {
 
 
 
+
 //===============公共区域end=================
 
 
@@ -64,8 +65,13 @@ Route::get('Admin/rec/remove/{id}','Admin\RecycleController@create');
 Route::get('Admin/rec/store/{id}','Admin\RecycleController@store');
 
 
+
 // ============前台路由============
 
+//关闭网站跳转网页
+Route::get('/sys/close',function(){
+	return view('home/error');
+});
 //前台首页路由
 Route::resource('/','HomeController');
 //前台分类商品页
@@ -94,6 +100,20 @@ Route::get('loginout','Home\LoginController@loginout');//前台执行
 Route::get('Informa','Home\LoginController@Informa');//个人设置
 Route::post('infor/uploads','Home\LoginController@upload');//文件上传uploads
 Route::post('inforupdete','Home\LoginController@inforupdete');//个人信息修改
+Route::get('register','Home\RedistesController@register');//用户注册页面
+Route::post('emails','Home\RedistesController@emails');//邮箱注册
+Route::post('Home/phoneinsert','Home\RedistesController@storephone');//手机注册
+Route::get('/Home/Zhuce/sendcode','Home\RedistesController@getSendcode');//验证码手机提交/passupdate
+Route::get('/Zhuce/infor','Home\RedistesController@zhuinfor');//注册個人基本信息
+Route::post('/Zhuce/client','Home\RedistesController@client');//添加個人基本信息
+Route::get('passupdate','Home\LoginController@passupdate');//跳闸修改密码页面
+Route::post('userupdate','Home\LoginController@userupdate');//修改密码
+Route::get('ajaxpass','Home\LoginController@ajaxpass');//ajax验证密码
+Route::get('lethe','Home\LoginController@lethe');
+Route::get('/phones','Home\LoginController@phones');
+Route::post('/letheupdate','Home\RedistesController@letheupdate');
+Route::post('passset','Home\RedistesController@passset');
+
 
 
 
@@ -133,6 +153,8 @@ Route::get('/orderdetails','Home\OrderController@details');//订单详情
 //前台地址
 Route::resource('/address','Home\AddressController');//前台地址管理
 
+//订单生成方法路由
+Route::get('/store/{id}','Home\OrderController@store');
 
 
 

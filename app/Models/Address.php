@@ -9,4 +9,5 @@ class Address extends Model
     //
     public $table = 'address';
     public $primaryKey = 'id';
+ 
 }

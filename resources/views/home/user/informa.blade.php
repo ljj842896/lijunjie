@@ -14,7 +14,7 @@
 
                     </a>
                 </li>
-                <li class="f14 col_fff mg_t10 t_c">by_3444810</li>
+                <li class="f14 col_fff mg_t10 t_c">{{ session('users') -> user_name }}</li>
             </ul>
         </div>
 
@@ -45,6 +45,8 @@
  
 
     <div class="per_right_out backg_fff">
+
+      @section('info')
         <div class="per_right ">
             <div class="">
                 <div class="relative">
@@ -54,7 +56,7 @@
 
                         <a href="/address"><span>管理收货地址</span></a>
 
-                        <a class="bd_r_none" href="Profile.html" id="forgetPasswordID"><span>修改密码</span></a>
+                        <a class="bd_r_none" href="/passupdate" id="forgetPasswordID"><span>修改密码</span></a>
                     </h3>
                 </div>
  
@@ -101,6 +103,7 @@
               </div>
             </div>
         </div>
+      @show  
     </div>
     <div>
     </div>

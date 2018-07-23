@@ -168,5 +168,7 @@
 
         }
     </script>
-
+<div style="position:absolute;left:50%;top:80%">
+    {!! $user_orders -> render() !!}
+</div>
 @endsection

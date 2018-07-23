@@ -73,7 +73,6 @@
             </div>
         </div>
     </div>
-
     <!-- JavaScript Plugins -->
     <script src="/a/js/libs/jquery-1.8.3.min.js"></script>
     <script src="/a/js/libs/jquery.placeholder.min.js"></script>

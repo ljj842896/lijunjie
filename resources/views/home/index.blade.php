@@ -233,18 +233,7 @@
                                         <img src="http://bfs.biyao.com/group1/M00/44/54/rBACW1tNttmAQnwwAAEqPOymsFw540.jpg" alt="">
                                     </a>
                                 </li>
-                                <li class="press" style="padding-left: 10px; left: 896px;">
-                                    <a target="_blank" href="http://www.biyao.com/classify/supplier.html?supplierId=130094">
-                                        <i></i>
-                                        <img src="http://bfs.biyao.com/group1/M00/44/54/rBACW1tNtvOAZKO4AAB9L_6oq9M719.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li class="press" style="padding-left: 10px; left: 988px;">
-                                    <a target="_blank" href="http://www.biyao.com/classify/supplier.html?supplierId=130051">
-                                        <i></i>
-                                        <img src="http://bfs.biyao.com/group1/M00/44/54/rBACW1tNtwaACQzOAACGxAN2JjE411.jpg" alt="">
-                                    </a>
-                                </li>
+                           
                     </ul>
 </div>
 

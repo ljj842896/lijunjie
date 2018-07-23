@@ -1,43 +1,8 @@
-@extends('home_index')
-@section('content')
-@if(session('success'))
-<script type="text/javascript">
-    layer.msg('{{ session("success") }}');
-</script>
-@endif
-@if(session('error'))
-<script type="text/javascript">
-    layer.msg('{{ session("error") }}');
-</script>
-@endif
-<div class="wrap  posR mg_t20 mH810 pd_b40">
-    <div class="per_left">
-        <div class="per_leftbox  pd_t14">
-            <ul class="per_leftul">
-                <li class="t_c">
-                    <a href="Profile.html">
-                        <img src="/uploads/{{ session('users') -> user_pic }}" alt="" onerror="javascript:this.src='pc/www/img/avatar/head_150.png'" style="width: 150px; height: 150px"/>
-                    </a>
-                </li>
-                <li class="f14 col_fff mg_t10 t_c">{{ session('users') -> user_name }}</li>
-            </ul>
-        </div>
-        <div class="per_leftbox">
-            <div class="perleft_menu pdtb_20">
-                <ul>
-                    <li class=" "><a href="/order" ><i class="f_r mcMIcon3 inline"></i>我的订单</a> </li>
-                    <li class=" "><a href="MyRefunds.html" ><i class="f_r mcMIcon4 inline"></i>退款管理</a></li>
-                    <!--<li class=" "><a href="/MyCenter/MyIncomeRules.html" ><i class="f_r mcMIcon5 inline"></i>我的收益</a></li>-->
-                    <li class="a_check "><a href="Profile.html" ><i class="f_r mcMIcon8 inline"></i>个人设置</a></li>
-                    <!-- <div class="div_line"></div> -->
-                    <!-- <a href="#"><i class="f_r mcMIcon9 inline"></i>设计师主页</a> <a
-                        href="#"><i class="f_r mcMIcon10 inline"></i>设计师提现</a> -->
-                </ul>
-            </div>
-        </div>
-    </div>
-<div class="per_right_out backg_fff">
-        <div class="per_right ">
+@extends('home.user.informa')
+@section('info') 
+
+
+<div class="per_right ">
             <div class="">
                 <div class="relative">
                     <h4  class="nTitle">个人设置</h4>
@@ -46,7 +11,7 @@
 
                         <a class="a_checked" href="/address"><span>管理收货地址</span></a>
 
-                        <a class="bd_r_none" href="Profile.html" id="forgetPasswordID"><span>修改密码</span></a>
+                        <a class="bd_r_none" href="/passupdate" id="forgetPasswordID"><span>修改密码</span></a>
                     </h3>
                 </div>
                 <form method="post" id="formAddress" action="/address">
@@ -132,5 +97,6 @@
                 </div>
             </div>
         </div>
-    </div>
+
+
 @endsection

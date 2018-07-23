@@ -1,4 +1,4 @@
-﻿@extends('home_index')
+@extends('home_index')
 @section('content')
     <link rel="stylesheet" type="text/css" href="/h/css/new.order.css"/>
     <div class="pd_b40">
@@ -11,16 +11,12 @@
                            value="0">
                     <input
                             id="i_area_id" type="hidden" value="">
-                    <li>
-                        <a class="add_address_box" onclick="s_new_address();">
-                            <i class="inline spIcon add_address_bg mg_t40"></i><br>
-                            <span class="inline f18 col_999 mg_t15">使用新地址<em class="upfile_btn"></em>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="address_box checked" name="ul_address_n" onclick="i_address_n_click(this);"
+
+                    @foreach($user_addr as $v)
+                    <li class="address_box" name="ul_address_n" onclick="i_address_n_click(this);"
                         address_id="2176926" area_id="110228">
-                        <div class="contact_box"><span class=" inline col_666 f14">小嗨</span>&nbsp;&nbsp;<span
+                        <input type="hidden" id="addressId" value="{{$v['id']}}">
+                        <div class="contact_box"><span class=" inline col_666 f14">{{ $v['uname'] }}</span>&nbsp;&nbsp;<span
                                     class=" inline col_666 f14">15115624521</span></div>
                         <div class="detailed_address_box"><p title="北京市县密云县" class=" f14 col_666 mg_t15 w250 escp">北京市&nbsp;&nbsp;密云县</p>
                             <p class=" f12 col_666 lineH20">六里屯</p></div>
@@ -29,7 +25,9 @@
                                     class="inline col_link f14" href="javascript:;"
                                     onclick="delAddress('2176926')">删除</a></div>
                         <span class="inline default_addres "><i class="inline spIcon"></i><span
-                                    class="inline col_666 f14">默认地址</span></span></li>
+                                    class="inline col_666 f14">默认地址</span></span>
+                    </li>
+                        @endforeach
                 </ul>
             </div>
             <div class="mg_t40 none" id="couponListView">
@@ -49,6 +47,9 @@
                     </div>
                 </div>
             </div>
+
+
+            <!-- 订单商品遍历区start -->
             <div class="mg_t20">
                 <h4 class="nTitle">确认订单</h4>
                 <input type="hidden" id="fromId" value="shopcar"> <input type="hidden" id="design_ids"
@@ -64,15 +65,16 @@
                                     <a>
                                         <span class="inline">商家：</span>
 									 	<span id="J_product_name " class="inline col_666">
-									 		HEIGEER黑格尔服饰
+									 		必要商城
 									 	</span>
                                     </a>
                                 </th>
                                 <th width="10%" align="center" class="none">可获积分</th>
-                                <th width="12%" align="center" class="col_999">单价</th>
-                                <th width="12%" align="center" class="col_999">数量</th>
-                                <th width="12%" align="center" class="col_999 none">包装</th>
-                                <th width="12%" align="right" class="col_999"><span class="mg_r20">小计</span></th>
+                                <th width="38%" align="center" class="col_999">商品信息</th>
+                                <th width="18%" align="center" class="col_999">单价</th>
+                                <th width="20%" align="center" class="col_999">数量</th>
+                                <th width="18%" align="center" class="col_999 none">包装</th>
+                                <th width="4%" align="right" class="col_999"><span class="mg_r20">小计</span></th>
                             </tr>
                             </tbody>
                         </table>
@@ -82,26 +84,30 @@
                     <div class="bg_fff">
                         <table cellspacing="0" cellpadding="0" class="sop_table1 tablecount">
                             <tbody>
+							
 
+							<!-- 遍历区 -->
+							@if($data)
+							@foreach($data as $v)
                             <tr>
                                 <td width="23%" align="center"><a target="_blank"
-                                                                  href="http://www.biyao.com/products/1301775165060100001-0.html">
+                                                                  href="/good/{{$v['goods_id']}}">
                                         <img class="border" width="100" height="100" alt=""
-                                             src="http://bfs.biyao.com/group1/M00/2E/51/rBACYVqTbjKAGJTfAAFSYWnScxE879_400x400.jpg">
+                                             src="/goods_img/{{$v['goods_img']}}">
                                     </a></td>
                                 <td width="41%" align="left">
                                     <div>
                                         <a target="_blank"
                                            href="http://www.biyao.com/products/1301775165060100001-0.html">
-                                            <span class="col_333">中长款无痕贴合工艺速干修身吊带打底裙WC86034G(两件）</span>
+                                            <span class="col_333">{{$v['goods_name']}}</span>
                                         </a>
 
                                     </div>
-                                    <input type="hidden" class="sizeno" value="颜色:黑色+米色" 尺寸:均码="">
+                                    <input type="hidden" class="cart_id" value="{{$v['cart_id']}}" 尺寸:均码="{{$v['goods_attr_rule']}}">
 
 
                                     <div class="col_999 mg_t5 w300 escp">
-                                        颜色:黑色+米色<br>尺寸:均码
+                                        颜色:{{$v['goods_attr_color']}}<br>尺寸:{{$v['goods_attr_rule']}}
                                     </div>
                                     <!-- 无模型商品和低模普通商品签字 -->
 
@@ -113,16 +119,58 @@
 
                                 </td>
                                 <td width="10%" align="center" class="none"><span class="col_333">0积分</span></td>
-                                <td width="12%" align="center" class="col_333"><span class="col_666">￥199</span></td>
-                                <td width="12%" align="center" class="col_333 td_buy_num relative" data-weight="0.0"
+                                <td width="13%" align="center" class="col_333"><span class="col_666">￥{{$v['shop_price']}}</span></td>
+                                <td width="10%" align="center" class="col_333 td_buy_num relative" data-weight="0.0"
                                     data-id="4643578" data-pt="0" data-pd="0" data-pc="0"
-                                    designid="1301775165060100001"><span class="col_333">1</span></td>
+                                    designid="1301775165060100001"><span class="col_333" id="cart_counts">{{$v['cart_count']}}</span></td>
                                 <td width="12%" align="center" class="col_333 none"><span class="col_333">普通包装</span>
                                     <span class="col_333">(免费)</span></td>
-                                <td width="12%" align="right"><strong class="  mg_r20">￥199</strong></td>
+                                <td width="22%" align="right"><strong>￥<span class="cart_xjs">{{$v['shop_price']*$v['cart_count']}}</span></strong></td>
                             </tr>
+							@endforeach
+							@else
+							<tr id="good_tr">
+                                <td width="10%" align="center"><a id="goods_id" target="_blank"
+                                                                  href="/good/{{$v['goods_id']}}">
+                                        <img class="border" id="goods_img" width="100" height="100" alt=""
+                                             src="{{$v['goods_img']}}">
+                                    </a></td>
+                                <td width="8%" align="left">
+                                    <div>
+                                        <a target="_blank"
+                                           href="http://www.biyao.com/products/1301775165060100001-0.html">
+                                            <span class="col_333" id="goods_name">{{$v['goods_name']}}</span>
+                                        </a>
 
+                                    </div>
+                                    <input type="hidden" class="sizeno" id="goods_attr_color" value="颜色:{{$v['goods_attr_color']}}" 尺寸:均码="{{$v['goods_attr_rule']}}">
+
+
+                                    <div class="col_999 mg_t5 w300 escp">
+                                        颜色:<span id="goods_attr_color">{{$v['goods_attr_color']}}</span><br>
+                                        尺寸:<span id="goods_attr_rule">{{$v['goods_attr_rule']}}</span>
+                                    </div>
+                                    <!-- 无模型商品和低模普通商品签字 -->
+
+                                    <!-- 普通高模商品签字 -->
+
+
+                                    <div class="refund_tips"></div>
+
+
+                                </td>
+                                <td width="10%" align="center" class="none"><span class="col_333">0积分</span></td>
+                                <td width="10%" align="center" class="col_333"><span class="col_666" id="shop_price">￥{{$v['shop_price']}}</span></td>
+                                <td width="8%" align="center" class="col_333 td_buy_num relative" data-weight="0.0"
+                                    data-id="4643578" data-pt="0" data-pd="0" data-pc="0"
+                                    designid="1301775165060100001"><span class="col_333" id="cart_count">{{$v['cart_count']}}</span></td>
+                                <td width="2%" align="center" class="col_333 none"><span class="col_333">普通包装</span>
+                                    <span class="col_333">(免费)</span></td>
+                                <td width="9%" align="right"><strong class="  mg_r20">￥<span id="zj">{{$v['shop_price']*$v['cart_count']}}</span></strong></td>
+                            </tr>
+							@endif
                             </tbody>
+							
                         </table>
                         <input type="hidden" send_type_value="0" id="supplier_IDForDiscountCode" value="1"
                                name="order_design_num" expresstype_id="0" supplier_id="130177">
@@ -150,7 +198,7 @@
                                         </td>
                                         <td align="right" class="none">
                                             <span class="col_f60 mg_r20" name="order_express_price"
-                                                  supplier_id="130177">￥0</span>
+                                                  supplier_id="130177">￥<span></span></span>
                                             <span class="col_ee5b47"></span> <span class="col_ee5b47"
                                                                                    name="order_express_price_add"
                                                                                    supplier_id="130177"></span>
@@ -184,15 +232,13 @@
                         </div>
                     </div>
                     <div class="paybill_title f14">
-                        <div class="paybilltitleIn">
-                            <input type="hidden" value="199.0" name="order_design_price" supplier_id="130177">
-                            店铺合计：<span class="col_f60 f14 mg_r20"><span name="order_price"
-                                                                        supplier_id="130177">￥199</span></span>
-                        </div>
+ 
                     </div>
                 </div>
 
             </div>
+			
+           	<!-- 订单商品遍历区end -->
             <input type="hidden" id="shop_car_id" value="4643578|1">
             <input type="hidden" id="hid_designids" value="1301775165060100001">
             <input type="hidden" id="hid_designnum" value="1">
@@ -239,7 +285,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg_fff border mg_t30  relative">
+            <div class="bg_fff border mg_t30  relative" style="margin-top: 0px">
                 <div class="experience_entrance none">
                     <div id="experienceBtn" class="experience_btn">
                         <span class="inline f16 col_724">使用体验码</span> <span class="inline tyq_bg tb3"></span>
@@ -264,14 +310,7 @@
                             可获积分：<span class="w80 inline fb t_r col_f60 pd_r5">0</span>
                         </div>
                     </div>
-                    <div class="lineH30  pd_l10 pd_r20 clearfix " style="background: white;">
-                        <div class="f_r col_666 f14">
-                            商品总价：<span class="w80 inline t_r col_f60 pd_r5 f14"
-                                       id="total_order_design_price">￥199</span>
-                        </div>
-					<span class="inline f_r mg_r30  col_666">商品总数 <em id="productNum" class="col_f60 fb f14">1</em> 件
-					</span>
-                    </div>
+
                     <div class="lineH30  pd_l10 pd_r20 none">
                         <div class="f_r col_666 f14">
                             运费：<span class="w80 inline t_r col_f60 pd_r5 f14" id="total_order_express_price"></span>
@@ -282,21 +321,18 @@
                             优惠：<span class="w80 inline t_r col_f60 pd_r5 f14" id="couponPrice">￥0</span>
                         </div>
                     </div>
-                    <div class="lineH30  pd_l10 pd_r20 clearfix ">
-                        <div id="discount_price" class="f_r col_666 f14 "></div>
+     					
+
+     				<div class="clearfix " style="background: white;border-bottom: 1px solid red">
+                        <div class="f_r col_666 f14">
+                            商品总价：<span class="w80 inline t_r col_f60 pd_r5 f14"
+                                       id="total_order_design_price">￥<span class="zjj">199</span></span>
+                        </div>
+					<span class="inline f_r mg_r30  col_666">商品总数 <em id="productNum" class="col_f60 fb f14">1</em> 件
+					</span>
                     </div>
-                    <div class="clearfix">
-                        <ul class="firm_ul f_r mg10">
-                            <li class="col_666 none">虚拟账户：<span align="center"
-                                                                class="col_ee5b47 inline w10 f14">-</span> <span
-                                        class="col_f60 w70 inline fb escp" id="lose_point_price_id">￥0</span></li>
-                            <li class="f14 col_666">实际支付金额：<strong class="col_f60 ">
-                                    <em class="f18 fb inline w80" id="total_order_price"></em>
-                                </strong></li>
-                            <input type="hidden" value="199.0" id="total_order_design_price_h">
-                            <input type="hidden" value="0" id="h_my_point">
-                        </ul>
-                    </div>
+
+
                     <div style="display: none;" id="confirmorder_recv_info" class="clearfix t_r ">
                         <span id="area" class="f14  col_666 mg_r5"></span><br> <span id="address"
                                                                                      class="f14  col_666 mg_r5"></span><br>
@@ -306,7 +342,7 @@
                 </div>
                 <div class="pd_t10 t_r pd_r20 mg_b20">
                     <a href="/shopcars/index.html" class=" col_999 back_pay_btn inline f16 mg_r20">返回购物车</a> <a
-                            id="submitorder" href="javascript:;" class="inline f16 order_qr_btn t_c ">提交订单</a>
+                            id="submitorder" href="/order/buy" class="inline f16 order_qr_btn t_c ">提交订单</a>
                 </div>
             </div>
         </div>
@@ -324,23 +360,111 @@
         </div>
     </div>
 
-
     <!-- 继承页面后不用再引入，用来获取cookie值 -->
-    <script type="text/javascript" src="/h/js/jquery-1.8.3.js"></script>
-    <script type="text/javascript" src="/h/js/jquery.cookie.js"></script>
-    <script type="text/javascript">
+	<script type="text/javascript">
 
-        function s_new_address(){
-            $('.J_pop').show();
-        }
-        function closeAdd(){
-            $('.J_pop').hide();
-        }
-        console.log($.cookie('order_good_color'))//商品颜色
-        console.log($.cookie('order_good_rule'))//商品尺寸
-        console.log($.cookie('order_good_number'))//商品数量
-        console.log($.cookie('order_good_id'))//商品id
-        console.log($.cookie('order_good_price'))//商品价格
-        console.log($.cookie('order_good_name'))//商品名称
-    </script>
+
+
+		$('#goods_id').attr('href',$.cookie('order_good_id'))
+		$('#goods_img').attr('src',$.cookie('goods_img'))
+		$('#goods_name').text($.cookie('order_good_name'))
+		$('#goods_attr_color').text($.cookie('order_good_color'))
+		$('#goods_attr_rule').text($.cookie('order_good_rule'))
+		$('#shop_price').text($.cookie('order_good_price'))
+		$('#cart_count').text($.cookie('order_good_number'))
+		$('#productNum').text($.cookie('order_good_number'))
+			var zj = $.cookie('order_good_number')*$.cookie('order_good_price')
+			if ($('.cart_xjs').text()) {
+					var i = 0
+					var j = 0
+				$('.cart_xjs').each(function(){
+					i += parseInt($(this).text())
+					j += parseInt($(this).parent().parent().prev().prev().text())
+				})
+				$('#productNum').text(j)
+				$('.zjj').text(i)
+				// alert(i)
+			}else{
+					// alert('qq')
+
+				$('#zj').text(zj)
+				$('.zjj').text(zj)
+			}
+
+
+
+			// 选择收货地址
+			function i_address_n_click(obj){
+				// alert('www')
+				$(obj).siblings().removeClass('checked',false)
+				
+				$(obj).toggleClass('checked',true)
+				
+			}
+				
+				 
+				
+
+
+			//提交订单
+			$('#submitorder').click(function(){
+				var addressId = $('.checked').find('#addressId').val()
+				//判断是否是购物车的数据
+				var data = $('.cart_id')
+				if (data.val()) {
+						var ids = []
+					data.each(function(){
+						ids.push($(this).val())
+					})
+						var idss = ids.join()
+						// console.log(idss)
+						// alert('购物车数据')
+						$.get('/store/'+addressId,{'idss':idss},function(msg){
+							alert(msg)
+							if (msg == 1) {
+								alert('支付成功!')
+								// window.location = '/'
+							}else{
+								alert('支付失败!')
+							}
+						})
+
+				}else{
+					goods_id = 	$.cookie('order_good_id') 
+					goods_img = $.cookie('goods_img')	 
+					goods_name = $.cookie('order_good_name') 
+					goods_attr_color = $.cookie('order_good_color')		 
+					goods_attr_rule = $.cookie('order_good_rule')		 
+					shop_price = $.cookie('order_good_price')		 
+					cart_count = $.cookie('order_good_number')	 
+
+					// alert('立即购买数据')
+					$.get('/store/'+addressId,{'goods_id':goods_id, 'goods_img':goods_img, 'goods_name':goods_name, 'goods_attr_color':goods_attr_color, 'goods_attr_rule':goods_attr_rule, 'shop_price':shop_price, 'cart_count':cart_count},function(msg){
+                            if (msg == 1) {
+                                alert('购买成功!')
+                            }else{
+                                alert('购买失败!')
+                            }
+							
+						})
+					
+				}
+
+
+			})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			</script>
 @endsection

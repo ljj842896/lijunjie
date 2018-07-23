@@ -35,6 +35,7 @@ class LoginController extends Controller
      */
     public function exect(LoginPostRequest $request)
     {
+        
         //获取对应的密码
         $uname = $request->input('user_name');   
         $passwords = $request->input('password');

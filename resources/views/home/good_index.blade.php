@@ -98,7 +98,7 @@
         <div class="editor-main">
             <p><img src="/goods_img/{{$good['goods_img']}}" alt=""/></p>
             <ul>
-                <li bigImg="http://img.biyao.com/files/temp/f9/f91a43f5ea026261.jpg" class="click"><img src="http://img.biyao.com/files/temp/f9/f91a43f5ea026261.jpg" alt="" width="100"/><span></span></li>
+                 
                 <li bigImg="/goods_img/{{$good['goods_img']}}" class="click"><img src="/goods_img/{{$good['goods_img']}}" alt="" width="100"/><span></span></li>
                
             </ul>
@@ -194,7 +194,7 @@
 
             <div class="panel-bottom">
             
-                <p id="buyNow" class="panel-buyNow" style="width: 180px">立即购买</p>
+                <a href="#"><p id="buyNow" class="panel-buyNow" style="width: 180px">立即购买</p></a>
                 <p id="addShopCar"  style="width: 180px">加入购物车</p>
                 <p class="shopCar-not">原材料库存不足</p>
             
@@ -207,9 +207,9 @@
 
 <!-- 登录弹出框start -->
     <div class="J_pop pop" id="1532048350284" data-dialog="1532048350284" style="z-index: 10000; width: 430px; top: 63px; left: 439.5px; position: absolute; display: none;">
-        <div class="pop_hd">
-            <span class="pop_close"></span>
-            <span class="pop_title f18">登录</span>
+        <div class="pop_hd" style="width: 450px;position: absolute;left: 0px;top:-10px">
+            <span class="pop_close" style="margin-right: 15px"></span>
+            <span class="pop_title f18" style="margin-left: 230px">登录</span>
         </div>
         <div class="pop_bd" style="height: 480px;">
             <iframe src="http://www.biyao.com/account/dialogLogin.html" width="450px" height="100%" frameborder="0" scrolling="no">
@@ -410,10 +410,14 @@
             //获取商品名称
             var good_name = $('.panel-top h1').text()
 
-            var good_attr = true
+            //获取商品图片src
+            var good_img = $('.editor-main').find('p img').attr('src')
+ 
             // alert($('.userinfo').text())  
             //判断是否登录，未登录则弹出登录层，登录则执行cookie存值和跳转
             if ($('.userinfo').text()) {
+                // console.log(good_img)
+
 
                 //判断是否选择商品参数
                 if (good_color && good_rule && good_number) {
@@ -428,18 +432,13 @@
                     $.cookie('order_good_id',good_id,{path:'/'}) 
                     $.cookie('order_good_price',good_price,{path:'/'}) 
                     $.cookie('order_good_name',good_name,{path:'/'}) 
+                    $.cookie('goods_img',good_img,{path:'/'}) 
 
 
                     //跳转到订单页
-                    $.get('/order/create',{'good_attr':good_attr},function(msg){
-
-                        if (msg) {
-                            // console.log(msg)                        
-                            window.location = '/order/create'
-                        }
-                    })
-
-                    // console.log($.cookie('good_attr').good_color)
+                                      
+                        window.location = '/order/create'
+               
                 }else{
                     layer.msg('请选择商品参数！')
                     // alert('请选择商品参数！')
@@ -449,7 +448,7 @@
             }else{
                 // window.location = '/login'
                 $('#1532048350284').css('display','block')
-                $('#back').css('display','block')
+                $('.layer').css('display','block')
             }
         })
  
@@ -460,31 +459,52 @@
 
         // 加入购物车业务处理
         $('#addShopCar').click(function(){
-                    var good_color = $('#good_color .lowModel-specs-active').text()
+            //获取商品颜色
+            var good_color = $('#good_color .lowModel-specs-active').text()
 
-                    var good_rule = $('#good_rule .lowModel-specs-active').text()
+            //获取商品尺寸
+            var good_rule = $('#good_rule .lowModel-specs-active').text()
 
-                    var good_number = $('.panel-number').text()
+            //获取商品数量
+            var good_number = $('.panel-number').text()
+            
+            //获取商品id
+            var good_id = $('.good_id').val()
 
-                    var good_attr = true
+            //获取商品单价
+            var good_price = $('#shop_price').text()
+
+            //获取商品名称
+            var good_name = $('.panel-top h1').text()
+
+            var good_attr = true
 
                     if (good_color && good_rule && good_number) {
                         //将数据发送给购物车页
                         layer.msg('添加购物车成功！')
-                        $.cookie('cart_good_color',good_color,{path:'/'}) 
-                        $.cookie('cart_good_rule',good_rule,{path:'/'}) 
-                        $.cookie('cart_good_number',good_number,{path:'/'}) 
+                         //将数据存到cookie中
+                        $.cookie('order_good_color',good_color,{path:'/'}) 
+                        $.cookie('order_good_rule',good_rule,{path:'/'}) 
+                        $.cookie('order_good_number',good_number,{path:'/'}) 
+                        $.cookie('order_good_id',good_id,{path:'/'}) 
+                        $.cookie('order_good_price',good_price,{path:'/'}) 
+                        $.cookie('order_good_name',good_name,{path:'/'}) 
 
-                      //跳转到购物车页
-                        $.get('/cart/create',{'good_attr':good_attr,'good_color':good_color,'good_rule':good_rule,'good_number':good_number},function(msg){
 
-                            if (msg) {
-                                // alert(msg)   
 
-                                window.location = '/cart/create'
+                    //将数据发送至购物车添加执行方法中
+               
+
+                        $.get('/cart/create',{'good_attr':good_attr,'good_color':good_color,'good_rule':good_rule,'good_number':good_number,'good_id':good_id,'good_price':good_price,'good_name':good_name,},function(msg){
+
+                            if (msg == 1) {
+                                // console.log(msg)   
+
+                                //跳转到购物车页
+                                window.location = '/cart'
                             }
                         })
-
+                   
 
 
 

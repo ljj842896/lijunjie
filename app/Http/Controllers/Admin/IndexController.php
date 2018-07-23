@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Models\user;
 use App\Http\Controllers\Controller;
 
 class IndexController extends Controller
@@ -25,8 +26,9 @@ class IndexController extends Controller
      
         //
         // echo "string";
+        $users = user::where('qx','=',1) -> get();
         
-        return view('admin.index');
+        return view('admin.index',['users' => $users]);
     }
 
     /**

@@ -8,8 +8,17 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Orders;
 use App\Models\Address;
+use App\Models\Carts;
+use App\Models\user;
+use App\Models\Goods;
+use Cache;
 class OrderController extends Controller
 {
+
+     public function __construct()
+    {
+       $this -> middleware('sys');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +38,7 @@ class OrderController extends Controller
     {
         $user_data = session('users');
         $user_id = $user_data['user_id'];
-        $data = Orders::where('user_id',$user_id) -> get();
+        $data = Orders::where('user_id',$user_id) -> paginate(5);
         // dd(session('users'));
         return view('home.order.index',['user_orders' => $data]);
     }
@@ -42,26 +51,17 @@ class OrderController extends Controller
     public function create()
     {
         //
-        //接收商品详情页的商品信息
-        //商品数量
-        $good_number = isset($_GET['good_number']) ? $_GET['good_number'] : null;
-        // 商品颜色
-        $good_color = isset($_GET['good_color']) ? $_GET['good_color'] : null;
-        //商品尺寸
-        $good_rule = isset($_GET['good_rule']) ? $_GET['good_rule'] : null;
-        if (isset($_GET['good_attr'])) {
-            echo 1;
-        }
-        //查询收货地址
-        $user_data = session('user_name');
-
-        $orderD = Address::find($user_data['user_id']);
-            // return redirect('')
-            
+        $data = Cache::pull('cart_data',null);
+        $user_detail = session('users');
+        $user_id = $user_detail['user_id'];
+        $user_address = Address::where('user_id',$user_id) -> get();
+        // dd($user_address);
+        // dd($user_id);
+        // dd($user_detail);
 
         //订单页模板
-
-            return view('home.order.create');
+        // dd($data);
+        return view('home.order.create',['data' => $data,'user_addr' => $user_address]);
 
     }
 
@@ -71,9 +71,98 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
         //
+        // echo $id;
+        //接受收货地址id
+
+        //判断是否为购物车数据
+        if (isset($_GET['idss'])) {
+            // echo 1;
+            //是购物车清单则取出并删除购物车数据
+            $idss = explode(',', $_GET['idss']);
+            // echo $_GET['idss'];
+            // dd($idss);
+            foreach ($idss as $key => $id) {
+                $cart = Carts::find($id);
+                $address = Address::find($id);
+                
+                $order = new Orders;
+                $order -> goods_id = $cart['goods_id'];
+                $order -> goods_attr_color = $cart['goods_attr_color'];
+                $order -> goods_attr_rule = $cart['goods_attr_rule'];
+                if (session('users') -> user_id) {
+                    
+                    $order -> user_id = session('users') -> user_id;
+                }else{
+                    return redirect('/login') -> with('error','请登录!');
+                }
+
+                $order -> order_sn = Goods::find($cart['goods_id']) -> goods_sn;
+                
+                $order -> order_time = date('Y-m-d H:i:s',time());
+
+                $order -> goods_name = $cart['goods_name'];
+                $order -> shop_price = $cart['shop_price'];
+                $order -> goods_img = $cart['goods_img'];
+                $order -> order_count = $cart['cart_count'];
+                $order -> order_amount = $cart['shop_price']*$cart['cart_count'];
+                $order -> order_status = 1;
+
+                $order -> rece_user_tel = $address['tel'];
+                $order -> rece_user_name = $address['uname'];
+                $order -> rece_user_address = $address['address'];
+                $order -> save();
+
+                Carts::find($id) -> delete();
+                
+            }
+                echo 1;
+            
+        }else{
+                //是立即购买的数据的话,直接保存
+                $goods_id = $_GET['goods_id'];          
+                $goods_img = $_GET['goods_img'];          
+                $goods_name = $_GET['goods_name'];          
+                $goods_attr_color = $_GET['goods_attr_color'];          
+                $goods_attr_rule = $_GET['goods_attr_rule'];          
+                $shop_price = $_GET['shop_price'];          
+                $cart_count = $_GET['cart_count'];          
+
+                $cart = Carts::find($id);
+                $address = Address::find($id);
+                $order = new Orders;
+                $order -> goods_id = $goods_id;
+                $order -> goods_attr_color = $goods_attr_color;
+                $order -> goods_attr_rule = $goods_attr_rule;
+                if (session('users') -> user_id) {
+                    
+                    $order -> user_id = session('users') -> user_id;
+                }else{
+                    return redirect('/login') -> with('error','请登录!');
+                }
+
+                $order -> order_sn = Goods::find($goods_id) -> goods_sn;
+                
+                $order -> order_time = date('Y-m-d H:i:s',time());
+
+                $order -> goods_name = $goods_name;
+                $order -> shop_price = $shop_price;
+                $order -> goods_img = $goods_img;
+                $order -> order_count = $cart_count;
+                $order -> order_amount = $shop_price*$cart_count;
+                $order -> order_status = 1;
+
+                $order -> rece_user_tel = $address['tel'];
+                $order -> rece_user_name = $address['uname'];
+                $order -> rece_user_address = $address['address'];
+                $order -> save();
+
+                echo 1;
+        }
+
+
     }
 
     /**
@@ -85,6 +174,29 @@ class OrderController extends Controller
     public function show($id)
     {
         //
+         //接收要购买的购物车的商品信息
+        if (!empty($_GET['ids'])) {
+            $ids = explode(',', $_GET['ids']);
+                $data = [];
+            foreach ($ids as $key => $id) {
+                //取出购物车数据
+                $data[] = Carts::find($id);
+            }
+            //把取出的数据存入缓存
+            $res = Cache::forever('cart_data',$data);
+            // dd($res);
+   
+            echo 1;
+         
+        }else{
+            echo 0;
+        }
+
+    }
+
+    public function buy()
+    {
+        return view('home.order.buy');
     }
 
     /**
@@ -120,80 +232,4 @@ class OrderController extends Controller
     {
         //
     }
-
-    /**
-     * 立即购买
-     */
-    public function buyNow(){
-        //todo 接收数据存储到购物车
-        //商品数量
-        // $good_number = isset($_GET['good_number']) ? $_GET['good_number'] : null;
-        // //商品颜色
-        // $good_color = isset($_GET['good_color']) ? $_GET['good_color'] : null;
-        // //商品尺寸
-        // $good_rule = isset($_GET['good_rule']) ? $_GET['good_rule'] : null;
-
-        $result = sql();
-
-        //todo 添加成功后跳转到订单页面
-        if($result){
-//            跳转confirmOrder方法(确认订单方法)
-            //todo 跳转到create 订单界面
-        }
-    }
-
-    /**
-     * 加入购物车
-     */
-    public function addCart(){
-        //todo 接收数据存储到session
-
-
-        //todo 显示session里面的购物车数据
-        return view();
-    }
-
-    /**
-     * 确认订单信息
-     */
-    public function confirmOrder(){
-        //todo 查询收货地址信息
-        $siteResult = "";
-        //todo 判断是否有收货地址信息
-            if($siteResult){
-            //todo 有收货地址的话就赋值给一个数组($siteArray),是否有收货地址的状态(is_site = 1)
-            $siteArray = $siteResult;
-            $status = 1;
-        }else{
-            //todo 没有的话就给一个状态(前端页面不显示 "输入新地址")
-            $status = 2;
-        }
-
-        //todo 根据用户ID去查询购物车信息
-
-        return view();
-    }
-
-
-    /*
-     * 寄到该地址
-     */
-    public function addAddress(){
-
-        //todo 添加到收货地址
-
-        //跳转到 confirmOrder方法
-    }
-
-    /**
-     * 提交订单
-     */
-    public function addOrder()
-    {
-        //todo 处理订单信息(存储到数据库)
-
-        //todo 判断是否成功并且跳转到支付界面
-
-    }
-
 }
