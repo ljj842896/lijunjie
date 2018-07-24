@@ -97,7 +97,7 @@
                                     <a href="/orderdetails" class="col_link ">订单详情</a>
                                 </td>
                                 <td  align="center" class="bd_l vTop  pd_l20 pd_r20 pd_t5" width="18%">
-                                    <a href="#" class="publicBtn publicBtn_h25 publicBtn_f60 inline mg_t10">立即付款</a><br>
+                                    <a id="buynow" class="publicBtn publicBtn_h25 publicBtn_f60 inline mg_t10">立即付款</a><br>
                                     <a href="javascript:void(0)" class=" cancelOrder  mg_t10 inline" orderid="122007043946180978">取消订单</a>
                                     <br>
                                 </td>
@@ -167,6 +167,22 @@
             );
 
         }
+        
+    </script>
+    <script type="text/javascript">
+
+    $('#buynow').click(function () {
+        //页面层-自定义
+        layer.open({
+          type: 1,
+          title: false,
+          closeBtn: 0,
+          area: '400px',
+          skin: 'layui-layer-nobg', //没有背景色
+          shadeClose: true,
+          content: '<img src="/h/erweima.png" alt="" style="height:400px;width:400px" />'
+        });
+    })
     </script>
 <div style="position:absolute;left:50%;top:80%">
     {!! $user_orders -> render() !!}

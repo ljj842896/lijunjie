@@ -48,7 +48,7 @@
 				</td>
 				<td>{{ $orders -> goods_attr_rule }}</td>
 				<td>
-					<img src="/uploads/orders/{{ $orders -> goods_img }}" style="height:50px;width:70px">
+					<img src="/goods_img/{{ $orders -> goods_img }}" style="height:50px;width:70px">
 				</td>
 				<td>{{ $orders -> order_count }}</td>
 				<td>{{ $orders -> order_amount }}</td>
@@ -69,9 +69,6 @@
 			</tr>
 		</tbody>
 	</table>
-	<h1>
-		大图:
-	</h1>
-	<img src="/uploads/orders/{{ $orders -> goods_img }}" alt="" style="height:800px;width:600px">
+	
 	</div>
 @endsection

@@ -99,5 +99,8 @@
             @endforeach
         </table>
     </div>
+    <div style="position:absolute;left:50%;top:100%">
+        {!! $user_orders -> render() !!}
+    </div>
 </div>
 @endsection

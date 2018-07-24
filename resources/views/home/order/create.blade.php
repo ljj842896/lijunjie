@@ -420,7 +420,6 @@
 						// console.log(idss)
 						// alert('购物车数据')
 						$.get('/store/'+addressId,{'idss':idss},function(msg){
-							alert(msg)
 							if (msg == 1) {
 								alert('支付成功!')
 								// window.location = '/'

@@ -1,14 +1,22 @@
 @extends('home_index')
 @section('content')
+<div class="bd_bottom_ea">
+  		<div class="wrap pub_logo_box clearfix">
+		<div class="pub_logo">
+			<a href="http://www.biyao.com/home/index.html"><img src="http://static.biyao.com/pc/www/img/logo.png?v=biyao_e06b35d"></a>
+  		</div>
+  	</div>
+</div>
+
 <div class="wrap  ie78 mg_t20 bg_fff mg_b40 online_info_box">
 	<div class="shoppingBox  t_c">
 		<div class="suc_bg inline"></div>
 		<div class="sop_tip inline">
 			<p class="f18 col_523 t_l" id="hintID">订单提交成功，马上付款~</p>
-			<p class="col_666 t_l f16 lineH24">请在 <span class="col_b76 f16" id="left_time_id">1小时59分19秒</span> 内完成支付</p>
+			<p class="col_666 t_l f16 lineH24">请在 <span class="col_b76 f16" id="left_time_id">1小时59分31秒</span> 内完成支付</p>
 			<p class=" t_l lineH24 mg_t20">
 				<span class="f12 inline col_666">应付金额：</span>
-				<span class="f12 col_f60 inline fb">169</span>
+				<span class="f12 col_f60 inline fb">1665</span>
 				<span class="f12 inline  col_666">元</span>
 			</p>
 			
@@ -23,11 +31,11 @@
 				<!-- <a href="#" class="get_paid_btn inline" onclick="getPaid();">找人代付</a> -->
 		</h4>
 		<form id="form33" action="/order/pay" method="post" target="_blank"> 
-			<input type="hidden" name="order_id_list" value="MTIyMDEzMjM3NjM2OTAxMDgx">
+			<input type="hidden" name="order_id_list" value="MTIyMDEzMjQyNDM3MDQ2NTYxLDEyMjAxMzI0MjQzNzA0NjY0NCwxMjIwMTMyNDI0MzcwNDY2NzQ=">
 
 			<input type="hidden" id="pay_type" name="pay_type" value="1">
 			<input type="hidden" id="bank_type" name="bank_type" value="DEFAULT">
-			<input type="hidden" name="totalprice" value="169">
+			<input type="hidden" name="totalprice" value="1665">
 		</form>
 		<div class="payment_list">
 			<ul class="paymentTab mg_t15">
