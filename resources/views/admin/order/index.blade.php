@@ -39,12 +39,12 @@
                     </td>
                     <td>{{ $v -> order_amount }}</td>
                     <td>
-						<a href="/Admin/order/details/{{ $v -> order_id }}" class="btn btn-info" style="display:inline;">查看</a>&nbsp;
-						<a href="/Admin/order/{{ $v -> order_id }}/edit" class="btn btn-warning" style="display:inline;">修改</a>&nbsp; &nbsp; &nbsp; &nbsp;    
+						<a href="/Admin/order/details/{{ $v -> order_id }}" class="btn btn-info" style="display:inline;">查看</a>
+						<a href="/Admin/order/{{ $v -> order_id }}/edit" class="btn btn-warning" style="display:inline;">修改</a>    
 						<form action="/Admin/order/{{ $v -> order_id }}" method="post" style="display:inline;">
 						{{ csrf_field() }}
 						{{ method_field('DELETE') }}
-							<button type="submit" class="btn btn-danger" onclick="return confirm('删除后无法找回,是否删除?')">删除</button>
+							<button type="submit" class="btn-danger" onclick="return confirm('是否确认要删除?')">删除</button>
 						</form>
                     </td>
                 </tr>

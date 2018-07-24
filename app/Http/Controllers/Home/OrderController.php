@@ -40,7 +40,7 @@ class OrderController extends Controller
     {
         $user_data = session('users');
         $user_id = $user_data['user_id'];
-        $data = Orders::where('user_id',$user_id) -> get();
+        $data = Orders::where('user_id',$user_id) -> paginate(4);
         // $orders = Orders::find(3);
         // dd($data);
         return view('home.order.detail',['user_orders' => $data]);
@@ -209,7 +209,12 @@ class OrderController extends Controller
         }
 
     }
-
+ 
+    public function buy()
+    {
+        return view('home.order.erweima');
+    }
+ 
     /**
      * Show the form for editing the specified resource.
      *

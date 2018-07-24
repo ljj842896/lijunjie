@@ -10,7 +10,7 @@
                     <input id="i_address_id"
                            type="hidden"
                            value="0">
-                    <input
+                    <input 
                             id="i_area_id" type="hidden" value="">
 
                     @foreach($user_addr as $v)
@@ -18,9 +18,9 @@
                         address_id="2176926" area_id="110228">
                         <input type="hidden" id="addressId" value="{{$v['id']}}">
                         <div class="contact_box"><span class=" inline col_666 f14">{{ $v['uname'] }}</span>&nbsp;&nbsp;<span
-                                    class=" inline col_666 f14">{{$v['tel']}}</span></div>
-                        <div class="detailed_address_box"><p title="北京市县密云县" class=" f14 col_666 mg_t15 w250 escp">北京市&nbsp;&nbsp;密云县</p>
-                            <p class=" f12 col_666 lineH20">六里屯</p></div>
+                                    class=" inline col_666 f14"></span></div>
+                        <div class="detailed_address_box"><p title="北京市县密云县" class=" f14 col_666 mg_t15 w250 escp">{{$v['tel']}}</p>
+                            <p class=" f12 col_666 lineH20">{{$v['address']}}</p></div>
                         <div class="edit_btn_box "><a class="inline col_link f14 mg_r15" href="javascript:;"
                                                       onclick="s_update_address('2176926','15115624521','北京市','县','密云县','110228','1','110000','110200','',this);">修改</a><a
                                     class="inline col_link f14" href="javascript:;"
@@ -424,7 +424,7 @@
 						// console.log(idss)
 						// alert('购物车数据')
 						$.get('/store/'+addressId,{'idss':idss},function(msg){
-							// alert(msg)
+ 
 							if (msg == 1) {
                                 var order_zongji = $('.zjj').text()
                                 $.cookie('order_zongji',order_zongji,{path:'/'}) 

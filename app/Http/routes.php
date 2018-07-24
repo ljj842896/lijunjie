@@ -169,7 +169,8 @@ Route::resource('/address','Home\AddressController');//前台地址管理
 //订单生成方法路由
 Route::get('/store/{id}','Home\OrderController@store');
 
-
+//购买页面
+Route::get('/order/buy','Home\OrderController@buy');
 
 
 
