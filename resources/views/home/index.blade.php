@@ -185,14 +185,14 @@
 
 <!-- 文章start -->
 <div class="article">    
-         @foreach($article as $k=>$y)  
+          
         <a target="_blank" href="/article/{{$y['id']}}">
             <img src="http://bfs.biyao.com/group1/M00/25/01/rBACW1owSW6ABrNqAAAWQIF__tQ201.png" alt="">
-            <span>{{$y['article']}}</span>
-            <i>{{$y['time']}}</i>
+            <span></span>
+            <i></i>
             <i>必要</i>
         </a>
-        @endforeach
+        
 </div>
 <!-- 文章end -->
 
