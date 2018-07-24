@@ -21,11 +21,9 @@
             layui.use(['layer', 'form'], function(){
               var layer = layui.layer
               ,form = layui.form;
-              
-       
+             
             });
         </script> 
-
 
 
 <link rel="stylesheet" type="text/css" href="/h/css/new.category.css" />
@@ -92,7 +90,9 @@
                 <li class="inline last pd_r0 shopping_cart vTop">
                     <a class="inline sizeZero" href="/cart">
                         <i class="inline"></i>
+ 
                         <span id="shopcarNumID" class="inline">购物车 {{$cart_count}}</span>
+ 
                     </a>
                 </li>
             </ul>

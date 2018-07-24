@@ -121,7 +121,11 @@
                 <li class="inline last pd_r0 shopping_cart vTop">
                     <a class="inline sizeZero" href="/cart">
                         <i class="inline"></i>
+<<<<<<< HEAD
                         <span id="shopcarNumID" class="inline">购物车 {{$cart_count}}</span>
+=======
+                        <span id="shopcarNumID" class="inline">购物车</span>
+>>>>>>> origin/liudahai
                     </a>
                 </li>
             </ul>

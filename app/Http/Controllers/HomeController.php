@@ -10,6 +10,7 @@ use App\Models\Goods;
 use App\Models\Links;
 use App\Models\Ads;
 use App\Models\Carts;
+use App\Models\Collect;
 use Cache;
 
 use App\Http\Controllers\Controller;
@@ -125,13 +126,39 @@ class HomeController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
+     *  用户收藏
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit()
     {
-        //
+        if (isset($_GET['goods_id'])) {
+            # code...
+            $data = Collect::where('goods_id',$_GET['goods_id']) -> where('user_id',session('users') -> user_id) -> first();
+
+            if (empty($data)) {
+                
+                $collect = new Collect;
+                $collect -> user_id = session('users') -> user_id;
+                $collect -> goods_id = $_GET['goods_id'];
+                $res = $collect -> save();
+                if ($res) {
+                    echo 1;
+                    exit;    
+                }else{
+                    echo 2;
+                    exit;    
+                }
+
+            }else{
+                echo 3;
+                exit;
+            }
+            
+        }
+       
+
+        return view('home/user/collect');
     }
 
     /**

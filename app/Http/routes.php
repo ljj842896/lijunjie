@@ -64,6 +64,9 @@ Route::get('Admin/rec/remove/{id}','Admin\RecycleController@create');
 //商品上架路由
 Route::get('Admin/rec/store/{id}','Admin\RecycleController@store');
 
+//我的收藏
+Route::get('/collect','HomeController@edit');
+
 
 
 // ============前台路由============
@@ -155,6 +158,8 @@ Route::get('/orderdetails','Home\OrderController@details');//订单详情
 //前台地址
 Route::resource('/address','Home\AddressController');//前台地址管理
 
+//订单生成方法路由
+Route::get('/store/{id}','Home\OrderController@store');
 
 
 
