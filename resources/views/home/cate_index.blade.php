@@ -80,7 +80,7 @@
                         <span class="inline upArre"></span>
                         <div class="bg_fff down_list_box">
                             <a class="inline" href="/order">我的订单</a>
-                            <a class="inline" href="/collect">我的收藏</a>
+                            <a class="inline" href="/collects">我的收藏</a>
 
                             <a href="/Informa" class="inline">个人设置</a>
 

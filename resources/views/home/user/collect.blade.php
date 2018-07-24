@@ -22,7 +22,7 @@
             <div class="perleft_menu pdtb_20">
                 <ul>
                     <li class=" "><a href="/order" ><i class="f_r mcMIcon3 inline"></i>我的订单</a> </li>
-                    <li class="a_check"><a href="/collect" ><i class="f_r mcMIcon4 inline"></i>我的收藏</a></li>
+                    <li class="a_check"><a href="/collects" ><i class="f_r mcMIcon4 inline"></i>我的收藏</a></li>
                     <!--<li class=" "><a href="/MyCenter/MyIncomeRules.html" ><i class="f_r mcMIcon5 inline"></i>我的收益</a></li>-->
                     <li class=" "><a href="/Informa" ><i class="f_r mcMIcon8 inline"></i>个人设置</a></li>
                     <!-- <div class="div_line"></div> -->
@@ -40,27 +40,51 @@
             <div class="">
                 <div class="relative">
                     <h4 class="nTitle">我的收藏</h4>
-                    <table cellspacing="0" cellpadding="0" class="w100w t_c  perTabTitn ">
-                        <tbody>
-                            <tr>
-                                <td width="32%"><span class="inline">商品</span></td>
-                                <td width="14%"><span class="inline">售后</span></td>
-                                <td width="18%"><span class="inline">合计</span></td>
-                                <td width="18%"><span class="inline">状态</span></td>
-                                <td width="18%"><span class="inline">操作</span></td>
-                            </tr>
+                     <table cellspacing="0" cellpadding="0" class="w100w t_c  perTabTitn ">
+                    <tbody>
+                    <tr>
+                        <td width="16%"><span class="inline">商品</span></td>
+                        <td width="16%"><span class="inline">订单日期</span></td>
+                        <td width="14%"><span class="inline">订单编号</span></td>
+                        <td width="18%"><span class="inline">合计</span></td>
+                        <td width="18%"><span class="inline">状态</span></td>
+                        <td width="18%"><span class="inline">操作</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!-- <div class="historyOrderTit f14">由于系统升级,2016年01月18日之前的订单
+                    <a href="/MyCenter/MyOrder.html" class="publicBtn publicBtn_h27 publicBtn_e7 inline mg_l5 mg_tf3">点此查看</a>
+                    <span class="historyOrderTitdel f12">X&nbsp;关闭</span>
+                </div> -->
+                <!--暂时关闭IM入口，勿删-->
 
-                            <!-- 收藏的商品遍历start -->
-                             <tr>
-                                <td width="32%"> qq</td>
-                                <td width="14%"> ww</td>
-                                <td width="18%"> ee</td>
-                                <td width="18%"> rr</td>
-                                <td width="18%"> tt</td>
+                <div class="DZPager mg_b20">
+                    <table cellspacing="0" cellpadding="0" class="sop_table4 border ">
+                    @foreach($goods as $v)
+                            <tr data-unfacceptance="0" data-supplierid="130091" data-orderid="122007043946180978">
+                                <td width="16%"  align="center" class="bd_l vTop pd_t15 lineH20"> 
+                                    {{ $v -> goods_name }}
+                                </td>
+                                <td width="16%"  align="center" class="bd_l vTop pd_t15 lineH20">
+                                    {{ $v -> order_time }}
+                                </td>
+                                <td width="14%"  align="center" class="bd_l vTop pd_t15 lineH20">
+                                    {{ $v -> order_sn }}
+                                </td>
+                                <td  align="center" class="bd_l vTop pd_t15 lineH20" width="18%"><strong class="col_f60 f14">{{ $v -> order_amount }}￥</strong>
+                                </td>
+                                <td  align="center" class="bd_l vTop pd_t15 lineH20" width="18%">
+                                    <a href="/orderdetails" class="col_link ">订单详情</a>
+                                </td>
+                                <td  align="center" class="bd_l vTop  pd_l20 pd_r20 pd_t5" width="18%">
+                                    <a href="#" class="publicBtn publicBtn_h25 publicBtn_f60 inline mg_t10">立即付款</a><br>
+                                    <a href="javascript:void(0)" class=" cancelOrder  mg_t10 inline" orderid="122007043946180978">取消订单</a>
+                                    <br>
+                                </td>
                             </tr>
-                            <!-- 收藏的商品遍历end -->
-                        </tbody>
-                    </table>
+                        @endforeach
+                        </table>
+                </div>
                 </div>
  
                    <div class="pd10 bd_b_eee">

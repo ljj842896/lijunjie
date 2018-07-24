@@ -43,6 +43,9 @@ Route::resource('Admin/goods','Admin\GoodsController');
 //商品分类路由
 Route::resource('Admin/cate','Admin\CateController');
 
+//商品分类ajax查询专用路由
+Route::get('/catajax','Admin\CateController@ajaxCates');
+
 //商品管理查询ajax专用路由
 Route::get('/ajax','Admin\GoodsController@ajaxGoods');
 
@@ -66,6 +69,7 @@ Route::get('Admin/rec/store/{id}','Admin\RecycleController@store');
 
 //我的收藏
 Route::get('/collect','HomeController@edit');
+Route::get('/collects','HomeController@destroy');
 
 
 

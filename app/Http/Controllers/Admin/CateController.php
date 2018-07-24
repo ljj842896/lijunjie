@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use DB;
 use App\Models\Cates;
+use App\Models\Goods;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -13,7 +14,7 @@ class CateController extends Controller
 {
      public function __construct()
     {
-       $this -> middleware('login');
+       // $this -> middleware('login');
     }
 
 
@@ -225,20 +226,27 @@ class CateController extends Controller
         // echo $id;
         $cates = Cates::where('cat_pid',$id) -> first();
         // dd($cates);
-        if (empty($cates)) {
+        $goods = Goods::where('cat_id',$id) -> first();
+        if (empty($goods)) {
+                    # code...
+                if (empty($cates)) {
 
-            $res = Cates::find($id) -> delete();
-            if ($res) {
-                return back() -> with('success','删除成功！');
-            }else{
+                    $res = Cates::find($id) -> delete();
+                    if ($res) {
+                        return back() -> with('success','删除成功！');
+                    }else{
 
-                return back() -> with('error','删除失败！');
-            }
+                        return back() -> with('error','删除失败！');
+                    }
+                }else{
+                   
+                    return back() -> with('error','警告：该分类下有子分类，不允许删除！');
+                }
         }else{
-           
-            return back() -> with('error','警告：该分类下有子分类，不允许删除！');
+            
+                return back() -> with('error','警告：该分类下有商品，不允许删除！');
         }
 
-        
+                
     }
 }

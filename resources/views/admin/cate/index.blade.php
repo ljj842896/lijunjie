@@ -68,7 +68,7 @@
 		    </tbody>
 
 		</table>
-	 <div style="position: absolute;left: 400px;top: 380px">
+	 <div style="position: absolute;left: 200px;top: 380px">
 	 	
 		{!! $data->render() !!}
 	 </div>
@@ -89,7 +89,7 @@
     }
 
     $.get('/catajax','id='+cat_id,function(msg){
-  			// console.log(msg[0].cat_name);
+  			console.log(msg[0].cat_name);
             $('tbody').first().empty();
             for (var i = 0; i < msg.length; i++) {
 

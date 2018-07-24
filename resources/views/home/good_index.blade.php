@@ -99,9 +99,11 @@
         <div class="editor-main">
             <p><img src="/goods_img/{{$good['goods_img']}}" alt=""/></p>
             <ul>
-                 
-                <li bigImg="/goods_img/{{$good['goods_img']}}" class="click"><img src="/goods_img/{{$good['goods_img']}}" alt="" width="100"/><span></span></li>
-               
+                <!-- 商品相册遍历 -->
+                @foreach($good -> goods_images as $v)
+                <li bigImg="/goods_img/{{$v -> img_url}}" class="click"><img src="/goods_img/{{$v -> img_url}}" alt="" width="100"/><span></span></li>
+                @endforeach
+                <!-- 商品相册遍历 -->
             </ul>
         </div>
         <div class="editor-panel">
