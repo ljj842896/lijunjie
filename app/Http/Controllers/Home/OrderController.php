@@ -21,10 +21,13 @@ class OrderController extends Controller
        $this -> middleware('sys');
     }
 
-    public function pay()
+    public function pay($id)
     {
-        echo 'qqq';
-        return view('home.order.pay');
+
+        // dd($id);
+
+        $address = Address::find($id);
+        return view('home.order.pay',['addres' => $address]);
     }
 
 
@@ -204,12 +207,6 @@ class OrderController extends Controller
         }else{
             echo 0;
         }
-
-    }
-
-    public function buy()
-    {
-        return view('home.order.buy');
 
     }
 

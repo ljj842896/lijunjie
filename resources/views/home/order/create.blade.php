@@ -91,12 +91,12 @@
 							@if($data)
 							@foreach($data as $v)
                             <tr>
-                                <td width="23%" align="center"><a target="_blank"
+                                <td width="10%" align="center"><a target="_blank"
                                                                   href="/good/{{$v['goods_id']}}">
                                         <img class="border" width="100" height="100" alt=""
                                              src="/goods_img/{{$v['goods_img']}}">
                                     </a></td>
-                                <td width="41%" align="left">
+                                <td width="8%" align="left">
                                     <div>
                                         <a target="_blank"
                                            href="http://www.biyao.com/products/1301775165060100001-0.html">
@@ -121,13 +121,13 @@
 
                                 </td>
                                 <td width="10%" align="center" class="none"><span class="col_333">0积分</span></td>
-                                <td width="13%" align="center" class="col_333"><span class="col_666">￥{{$v['shop_price']}}</span></td>
+                                <td width="8%" align="center" class="col_333"><span class="col_666">￥{{$v['shop_price']}}</span></td>
                                 <td width="10%" align="center" class="col_333 td_buy_num relative" data-weight="0.0"
                                     data-id="4643578" data-pt="0" data-pd="0" data-pc="0"
                                     designid="1301775165060100001"><span class="col_333" id="cart_counts">{{$v['cart_count']}}</span></td>
-                                <td width="12%" align="center" class="col_333 none"><span class="col_333">普通包装</span>
+                                <td width="2%" align="center" class="col_333 none"><span class="col_333">普通包装</span>
                                     <span class="col_333">(免费)</span></td>
-                                <td width="22%" align="right"><strong>￥<span class="cart_xjs">{{$v['shop_price']*$v['cart_count']}}</span></strong></td>
+                                <td width="9%" align="right"><strong>￥<span class="cart_xjs">{{$v['shop_price']*$v['cart_count']}}</span></strong></td>
                             </tr>
 							@endforeach
 							@else
@@ -344,7 +344,7 @@
                 </div>
                 <div class="pd_t10 t_r pd_r20 mg_b20">
                     <a href="/cart" class=" col_999 back_pay_btn inline f16 mg_r20">返回购物车</a> <a
-                            id="submitorder" href="/order/buy" class="inline f16 order_qr_btn t_c ">提交订单</a>
+                            id="submitorder" class="inline f16 order_qr_btn t_c ">提交订单</a>
                 </div>
             </div>
         </div>
@@ -376,6 +376,8 @@
 		$('#cart_count').text($.cookie('order_good_number'))
 		$('#productNum').text($.cookie('order_good_number'))
 			var zj = $.cookie('order_good_number')*$.cookie('order_good_price')
+
+            //判断
 			if ($('.cart_xjs').text()) {
 					var i = 0
 					var j = 0
@@ -424,8 +426,10 @@
 						$.get('/store/'+addressId,{'idss':idss},function(msg){
 							// alert(msg)
 							if (msg == 1) {
-								alert('支付成功!')
-								// window.location = '/'
+                                var order_zongji = $('.zjj').text()
+                                $.cookie('order_zongji',order_zongji,{path:'/'}) 
+								layer.msg('支付成功!')
+								window.location = '/pay/'+addressId
 							}else{
 								alert('支付失败!')
 							}
@@ -443,15 +447,12 @@
 					// alert('立即购买数据')
 					$.get('/store/'+addressId,{'goods_id':goods_id, 'goods_img':goods_img, 'goods_name':goods_name, 'goods_attr_color':goods_attr_color, 'goods_attr_rule':goods_attr_rule, 'shop_price':shop_price, 'cart_count':cart_count},function(msg){
                             if (msg == 1) {
-                                alert('购买成功!')
-
-                                // $.cookie('order_good_id',null) 
-                                // $.cookie('goods_img',null)    
-                                // $.cookie('order_good_name',null) 
-                                // $.cookie('order_good_color',null)      
-                                // $.cookie('order_good_rule',null)        
-                                // $.cookie('order_good_price',null)        
-                                // $.cookie('order_good_number',null)  
+                                // console.log(msg)
+                                var order_zongji = $('.zjj').text()
+                                $.cookie('order_zongji',order_zongji,{path:'/'}) 
+                                layer.msg('购买成功!')
+                                window.location = '/pay/'+addressId
+                 
 
                             }else{
                                 alert('购买失败!')

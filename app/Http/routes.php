@@ -69,6 +69,7 @@ Route::get('/collect','HomeController@edit');
 
 
 
+
 // ============前台路由============
 
 //关闭网站跳转网页
@@ -85,7 +86,10 @@ Route::get('good/{id}','HomeController@show');
 Route::resource('/cart','Home\CartsController');
 
 //订单支付页面
-Route::get('/pay','Home\OrderController@pay');
+Route::get('/pay/{id}','Home\OrderController@pay');
+Route::get('/payok',function(){
+	return view('home/order/payok');
+});
 //李俊杰区域-----------------end----------------------------
 
 //叶贵丰区域-----------------start---------------------------------

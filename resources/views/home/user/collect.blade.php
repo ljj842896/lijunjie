@@ -40,7 +40,27 @@
             <div class="">
                 <div class="relative">
                     <h4 class="nTitle">我的收藏</h4>
-                
+                    <table cellspacing="0" cellpadding="0" class="w100w t_c  perTabTitn ">
+                        <tbody>
+                            <tr>
+                                <td width="32%"><span class="inline">商品</span></td>
+                                <td width="14%"><span class="inline">售后</span></td>
+                                <td width="18%"><span class="inline">合计</span></td>
+                                <td width="18%"><span class="inline">状态</span></td>
+                                <td width="18%"><span class="inline">操作</span></td>
+                            </tr>
+
+                            <!-- 收藏的商品遍历start -->
+                             <tr>
+                                <td width="32%"> qq</td>
+                                <td width="14%"> ww</td>
+                                <td width="18%"> ee</td>
+                                <td width="18%"> rr</td>
+                                <td width="18%"> tt</td>
+                            </tr>
+                            <!-- 收藏的商品遍历end -->
+                        </tbody>
+                    </table>
                 </div>
  
                    <div class="pd10 bd_b_eee">

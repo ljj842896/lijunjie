@@ -43,13 +43,7 @@
 </head>
 
 <body>
-    
-    
-<<<<<<< HEAD
-    <div class="container" style="margin: 0px; width: 1350px;height: 650px">
-=======
-
->>>>>>> origin/liudahai
+ 
 	<!-- Themer (Remove if not needed) -->  
 	<div id="mws-themer">
          
@@ -340,16 +334,7 @@
         <!-- Main Container End -->
         
     </div>
-
-            
  
-<<<<<<< HEAD
-=======
-    <div id="mws-footer">
-                Copyright Your Website 2012.@<span>{{$sys['sys_file']}}</span> All Rights Reserved.
-    </div>
->>>>>>> origin/liudahai
-
 </div>
     <div id="mws-themer">
         <div id="mws-themer-content" style="right: 0px;">

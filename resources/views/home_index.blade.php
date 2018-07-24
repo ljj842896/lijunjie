@@ -111,7 +111,7 @@
                         <span class="inline upArre"></span>
                         <div class="bg_fff down_list_box">
                             <a class="inline" href="/order">我的订单</a>
-                            <a class="inline" href="/address">地址管理</a>
+                            <a class="inline" href="/collect">我的收藏</a>
 
                             <a href="/Informa" class="inline">个人设置</a>
 
@@ -121,11 +121,9 @@
                 <li class="inline last pd_r0 shopping_cart vTop">
                     <a class="inline sizeZero" href="/cart">
                         <i class="inline"></i>
-<<<<<<< HEAD
+ 
                         <span id="shopcarNumID" class="inline">购物车 {{$cart_count}}</span>
-=======
-                        <span id="shopcarNumID" class="inline">购物车</span>
->>>>>>> origin/liudahai
+ 
                     </a>
                 </li>
             </ul>
@@ -209,7 +207,7 @@
                 </li>
 
             </ul>
-            <p class="col_999 lineH18 mg_t10">◎BIYAO.COM 2015 版权所有
+            <p class="col_999 lineH18 mg_t10">◎{{$sys['sys_file']}} 版权所有
             </p>
             <p class="col_999 lineH18 mg_t10"><i class="gwab_icon inline"></i><a class="col_999 inline mg_r5" href=".beian.gov.cn/portal/registerSystemInfo?recordcode=44049102496139" target="_blank">粤公网安备44049102496139号</a> <a class="col_999 inline" href=".miitbeian.gov.cn/state/outPortal/loginPortal.action" target="_blank">粤ICP备15017094号</a>
             </p>
