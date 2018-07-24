@@ -15,13 +15,13 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-
-         $articles = DB::table('s_article')->get();
          
-         return view('home.index',['article' => $article]);
-    
+           $article = DB::table('s_article')->where('id','=',$id)->first();
+           
+
+           return view('home.article.article',['article'=>$article]);
     }
 
  

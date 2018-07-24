@@ -33,12 +33,11 @@
                                         <script id="container" class="small" name="content" style="width: 80%;height: 150px" type="text/plain">
                                           请填写文章的内容
                                         </script>
-
                                         <!-- 实例化编辑器 -->
                                         <script type="text/javascript">
                                             var ue = UE.getEditor('container',{
                                               toolbars: [
-                                                            ['fullscreen', 'snapscreen','italic','underline','blockquote','selectall','date','time','fontfamily','fontsize','simpleupload','insertimage','emotion','spechars','searchreplace','map','forecolor','backcolor','wordimage','touppercase','music','inserttable','customstyle','indent', 'source', 'undo', 'redo', 'bold']
+                                                            ['fullscreen', 'snapscreen','italic','underline','blockquote','selectall','sdate','time','fontfamily','fontsize','simpleupload','insertimage','emotion','spechars','searchreplace','map','forecolor','backcolor','wordimage','touppercase','music','inserttable','customstyle','indent', 'source', 'undo', 'redo', 'bold']
                                                   ]
                                             });
                                         </script>

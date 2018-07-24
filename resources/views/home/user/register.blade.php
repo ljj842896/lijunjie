@@ -94,14 +94,14 @@
                                 </div>
                             </div> -->
                              <div class="am-tab-panel">
-                                <form method="post"  action="/Home/phoneinsert">
+                                <form method="post"  id="submitFor" action="/Home/phoneinsert">
                                 	{{ csrf_field() }}
                                     <div class="user-phone">
                                         <label for="phone">
                                             <i class="am-icon-mobile-phone am-icon-md">
                                             </i>
                                         </label>
-                                        <input type="tel" name="phone" id="phone" placeholder="请输入手机号" @if(session('pho'))value="{{session('pho')}}"@else @endif>
+                                        <input type="tel" name="phone" id="pho" placeholder="请输入手机号" @if(session('pho'))value="{{session('pho')}}"@else @endif>
                                     </div>
                                     <div class="verification">
                                         <label for="code">
@@ -150,7 +150,6 @@
                                       var obj = $("#dyMobileButton");
                                       settime(obj);
                                       $.get('/Home/Zhuce/sendcode',{'phone': $('#phone').val()},function(msg){
-
                                       	   if(msg == 2){
                                       	     	layer.msg('发送成功请稍后', {icon: 1});
                                       	     }else{
@@ -195,6 +194,36 @@
 						         layer.msg('密码不匹配请重新输入', {icon: 5});
                             </script>
                             @endif  
+
+                             <script type="text/javascript">
+                                   
+ 
+                                 $('form').eq(0).submit(function(){
+ 
+                                         var pho = document.getElementById('pho').value.trim();
+                                         var pass = document.getElementById('passwordss').value.trim();
+                               
+                                         if(pho.length==0||pho.length!=0){  
+                                                reg=/^[1][3,4,5,7,8][0-9]{9}$/;
+                                                if (!reg.test(pho)){
+                                                   layer.msg('请输入正确的手机号', {icon: 5});  
+                                                   return false;
+                                                }
+
+                                           }
+                  
+                                          if(pass.length==0||pass.length!=0){  
+                                                re=/^[A-Za-z]+[0-9]+[A-Za-z0-9]*|[0-9]+[A-Za-z]+[A-Za-z0-9]*$/g;
+                                                if (!re.test(pass)){
+                                                   layer.msg('密码必须由6-16个英文字母和数字的字符串组成！', {icon: 5});  
+                                                   return false;
+                                                }
+         
+                                          }
+
+                                       });
+
+                               </script>
                            
                         </div>
                     </div>

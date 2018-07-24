@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-
+use App\Models\Article;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
@@ -26,13 +26,14 @@ class ArticleController extends Controller
      */
     public function create(Request $request)
     {
-           $arr['article'] = $request->input('article');
-           $arr['content'] = $request->input('content');
+           
+              $data = $request->except('_token');
+              $res = Article::create($data);
+  
+        if($res){
 
-           $article = DB::table('s_article')->insert($arr);
-       
-           if($article){
               return redirect('/Admin/article')->with('success','添加成功');
+
            }else{
 
               return back()->with('error','添加失败请重新添加');

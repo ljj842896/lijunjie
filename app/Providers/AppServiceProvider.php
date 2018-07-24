@@ -33,8 +33,6 @@ class AppServiceProvider extends ServiceProvider
         $sys = Config::find(1);
        
         view() -> share(['cates' => $cates,'address' => $address,'com_goods' => $goods, 'cart_count' => $cart_count, 'sys' => $sys]);
-
-
     }
 
     /**

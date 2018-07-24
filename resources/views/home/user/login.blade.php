@@ -77,7 +77,7 @@
         <div class="f_r">
             <ul class="sizeZero merchant_info_box">
                 <li class="inline mg_l40 mg_t40">
-                    <span class="inline col_8c8">欢迎来到必要，请 </span><span class="col_8c8 inline mg_l5">登录 </span><span class="col_8c8 mg_l5 mg_r5 inline">|</span><a class="col_8c8 inline" href="/h/register.html?returnUrl=index.html">注册</a>
+                    <span class="inline col_8c8">欢迎来到必要，请 </span><span class="col_8c8 inline mg_l5">登录 </span><span class="col_8c8 mg_l5 mg_r5 inline">|</span><a class="col_8c8 inline" href="/register">注册</a>
                 </li>
             </ul>
         </div>

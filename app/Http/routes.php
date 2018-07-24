@@ -122,6 +122,7 @@ Route::post('/letheupdate','Home\RedistesController@letheupdate');
 Route::post('passset','Home\RedistesController@passset');
 Route::get('/getJihuo/Jihuo/{id}/{token}','Home\RedistesController@getJihuo');
 Route::post('/email/zhuce','Home\RedistesController@emailzhuce');//添加基本信息
+Route::get('article/{id}','Home\ArticleController@index');//添加基本信息
 
 
 

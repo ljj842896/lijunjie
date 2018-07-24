@@ -95,7 +95,7 @@
 
       @if(session('passup'))
       <script type="text/javascript">
-         layer.msg('修改成功', {icon: 1});
+         layer.msg('修改成功下次的登录请使用新密码', {icon: 1});
      </script>
      @endif
       @if(session('passups'))

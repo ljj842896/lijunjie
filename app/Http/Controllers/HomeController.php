@@ -11,6 +11,7 @@ use App\Models\Links;
 use App\Models\Ads;
 use App\Models\Carts;
 use Cache;
+use DB;
 
 use App\Http\Controllers\Controller;
 
@@ -29,6 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         //取数据
         //轮播图数据调取
         $ads = Ads::get();
@@ -54,7 +56,8 @@ class HomeController extends Controller
             }
         }
 
-
+        $article = DB::table('s_article')->get();
+        //dd($article);
 
         // dd($cart_count);
         //购物车中的数量
@@ -63,11 +66,11 @@ class HomeController extends Controller
             $cart_count = Carts::where('user_id',session('users') -> user_id) -> count();
 
 
-            return view('home.index',['ads' => $ads, 'links' => $links, 'cat_key' => $cat_key, 'cate' => $cate, 'cate_goods' => $cate_goods, 'cart_count' => $cart_count]);
+            return view('home.index',['ads' => $ads, 'links' => $links, 'cat_key' => $cat_key, 'cate' => $cate, 'cate_goods' => $cate_goods, 'cart_count' => $cart_count,'article'=>$article]);
 
         }else{
 
-            return view('home.index',['ads' => $ads, 'links' => $links, 'cat_key' => $cat_key, 'cate' => $cate, 'cate_goods' => $cate_goods]);
+            return view('home.index',['ads' => $ads, 'links' => $links, 'cat_key' => $cat_key, 'cate' => $cate, 'cate_goods' => $cate_goods,'article'=>$article]);
         
         }
     }
