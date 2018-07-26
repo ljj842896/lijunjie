@@ -43,23 +43,67 @@ class LoginController extends Controller
           if($data){   
                  echo '1';
                  return;
-          }else{
-                 echo '2';
+          }
+          $phone = user::where('phone','=',$user)->first();
+          if ($phone) {
+                 echo '1';
                  return;
           }
-     
+
+          $email = user::where('email','=',$user)->first();
+          if($email){
+              echo '1';
+                 return;
+          }else{
+
+              echo '2';
+                return;
+          }
     }
      public function entry(Request $request)
-     {
+     {       
+             $jihuo=$request->input('status');
+             if($jihuo == 1){
+                 return back()->with(['emailjihuo'=>'请输入正确的密码','jihuo'=>$jihuo]);
+             }else{
             $user=$request->input('username');
-            $pass=$request->input('password');//前台密码
             $users=user::where('user_name','=',$user)->first();
-            if(Hash::check($pass,$users['password'])){
-                     session(['users'=>$users]);
-                     return redirect('/');
-                }else{
-                     return back()->with(['error'=>'请输入正确的密码','userss'=>$user]);           
+            $email=user::where('email','=',$user)->first();
+            $phone=user::where('phone','=',$user)->first();
+    
+            if($users){
+                $pass=$request->input('password');//前台密码
+                if(Hash::check($pass,$users['password'])){
+                         session(['users'=>$users]);
+                         return redirect('/');
+                    }else{
+                         return back()->with(['error'=>'请输入正确的密码','userss'=>$user]);           
+                  }
+ 
+              }elseif($email){
+                $pass=$request->input('password');//前台密码
+                if(Hash::check($pass,$email['password'])){
+                         session(['users'=>$email]);
+                         return redirect('/');
+                    }else{
+                         return back()->with(['error'=>'请输入正确的密码','userss'=>$user]);           
+                  }
+
+            
+              }elseif($phone){
+                $pass=$request->input('password');//前台密码
+                if(Hash::check($pass,$phone['password'])){
+                         session(['users'=>$phone]);
+                         return redirect('/');
+                    }else{
+                         return back()->with(['error'=>'请输入正确的密码','userss'=>$user]);           
+                  }
+
+              }else{
+
+                    return back()->with();
               }
+            }
      }   
 
     /**
@@ -84,8 +128,12 @@ class LoginController extends Controller
     public function Informa()
     {
 
-        // echo "string";
-         return view('home.user.informa');
+             $id = session('users')->user_id;
+             $a  = user::where('user_id',$id)->first();
+             $pic=$a['user_pic'];
+             $user_name=$a['user_name'];
+             $sex=$a['sex'];
+             return view('home.user.informa',['pic'=>$pic,'user_name'=>$user_name,'sex'=>$sex]);
     }
 
      public function upload(Request $request)
@@ -178,8 +226,12 @@ class LoginController extends Controller
 
     public function passupdate(){
 
-
-          return view('home.user.passupdate');
+          
+             $id = session('users')->user_id;
+             $a  = user::where('user_id',$id)->first();
+             $pic=$a['user_pic'];
+             $user_name=$a['user_name'];
+             return view('home.user.passupdate',['pic'=>$pic,'user_name'=>$user_name]);
 
 
 

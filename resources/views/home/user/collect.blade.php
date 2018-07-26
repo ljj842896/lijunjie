@@ -43,11 +43,9 @@
                      <table cellspacing="0" cellpadding="0" class="w100w t_c  perTabTitn ">
                     <tbody>
                     <tr>
-                        <td width="16%"><span class="inline">商品</span></td>
-                        <td width="16%"><span class="inline">订单日期</span></td>
-                        <td width="14%"><span class="inline">订单编号</span></td>
-                        <td width="18%"><span class="inline">合计</span></td>
-                        <td width="18%"><span class="inline">状态</span></td>
+                        <td width="8%"><span class="inline"></span></td>
+                        <td width="36%"><span class="inline">商品信息</span></td>
+                        <td width="18%"><span class="inline">价格</span></td>
                         <td width="18%"><span class="inline">操作</span></td>
                     </tr>
                     </tbody>
@@ -60,26 +58,22 @@
 
                 <div class="DZPager mg_b20">
                     <table cellspacing="0" cellpadding="0" class="sop_table4 border ">
-                    @foreach($goods as $v)
+                    @foreach($user -> user_collect as $v)
                             <tr data-unfacceptance="0" data-supplierid="130091" data-orderid="122007043946180978">
-                                <td width="16%"  align="center" class="bd_l vTop pd_t15 lineH20"> 
-                                    {{ $v -> goods_name }}
+                                <td width="8%"  align="center" class="bd_l vTop pd_t15 lineH20"> 
+                                    <img width="50px" height="50px" src="/goods_img/{{ $v -> goods_img }}">
                                 </td>
-                                <td width="16%"  align="center" class="bd_l vTop pd_t15 lineH20">
-                                    {{ $v -> order_time }}
+                                <td width="36%"  align="center" class="bd_l vTop pd_t15 lineH20">
+                                    <span style="line-height: 50px;"><a href="/good/{{$v -> goods_id}}">{{ $v -> goods_name }}</a></span>
                                 </td>
-                                <td width="14%"  align="center" class="bd_l vTop pd_t15 lineH20">
-                                    {{ $v -> order_sn }}
-                                </td>
-                                <td  align="center" class="bd_l vTop pd_t15 lineH20" width="18%"><strong class="col_f60 f14">{{ $v -> order_amount }}￥</strong>
-                                </td>
+                               
+                               
                                 <td  align="center" class="bd_l vTop pd_t15 lineH20" width="18%">
-                                    <a href="/orderdetails" class="col_link ">订单详情</a>
+                                    <a href="/orderdetails" class="col_link "  style="line-height: 50px;">￥{{$v -> shop_price}}</a>
                                 </td>
                                 <td  align="center" class="bd_l vTop  pd_l20 pd_r20 pd_t5" width="18%">
-                                    <a href="#" class="publicBtn publicBtn_h25 publicBtn_f60 inline mg_t10">立即付款</a><br>
-                                    <a href="javascript:void(0)" class=" cancelOrder  mg_t10 inline" orderid="122007043946180978">取消订单</a>
-                                    <br>
+                                    
+                                    <button  class="layui-btn layui-btn-sm" good_id="{{$v -> goods_id}}" style="width: 80px;margin-top: 20px" onclick="collect(this)"><i class="layui-icon"></i>取消收藏</button>
                                 </td>
                             </tr>
                         @endforeach
@@ -100,7 +94,24 @@
      
     </div>
 </div>
- 
+ <script type="text/javascript">
+    function collect(obj)
+    {
+        var goods_id = $(obj).attr('good_id');
+
+        $.get('/outcollect',{'goods_id':goods_id},function(msg){
+
+            // alert(msg)
+            if (msg == 1) {
+
+                $(obj).parent().parent().remove()
+                layer.msg('取消成功！')
+            }
+
+        })
+
+    }
+ </script>
  
 @endsection
 

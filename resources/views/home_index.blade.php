@@ -46,10 +46,8 @@
 
     <script type="text/javascript" src="/bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/h/pc/common/js/jquery-1.8.3.js"></script>
     <script type="text/javascript" src="/h/pc/common/js/jquery.extention.js"></script>
     <script type="text/javascript" src="/h/pc/common/js/lazyload.js"></script>
-    <script type="text/javascript" src="/h/pc/minisite/byshoes/js/jquery.cookie.js"></script>
  
     <script type="text/javascript"  src="/h/js/jquery-1.8.3.js"></script>
     <script type="text/javascript"  src="/h/js/jquery.cookie.js"></script>
@@ -231,18 +229,19 @@
     </div>
 
 </div>
-<script src="/h/pc/common/js/common.js?v=biyao_c83c46d" type="text/javascript"></script>
-<script type="text/javascript"  src="/h/pc/www/js/common.js?v=biyao_bd8bd36"></script>
-<script type="text/javascript" src="/h/pc/common/js/ui/dialog.js?v=biyao_130c013"></script>
-<script type="text/javascript" src="/h/pc/common/js/ui/select.js?v=biyao_1dcaa7c"></script>
-<script type="text/javascript" src="/h/pc/common/js/ui/jquery.pagination.js?v=biyao_1a0a135"></script>
-<script type="text/javascript" src="/h/pc/common/js/ui/pages.js?v=biyao_5fd7a00"></script>
-<script type="text/javascript" src="/h/pc/www/js/product/fcode.js?v=biyao_1810c31"></script>
-<script type="text/javascript" src="/h/pc/www/js/home/checkbook.js?v=biyao_8351fee"></script>
-<script type="text/javascript" src="/h/pc/common/js/jquery.lazyload.min.js?v=biyao_75578ef"></script>
-<script type="text/javascript" src="/h/pc/www/js/home/newhome.js?v=biyao_3ea3ba3" ></script>
+<script src="/h/pc/common/js/common.js" type="text/javascript"></script>
+<script type="text/javascript"  src="/h/pc/www/js/common.js"></script>
+<script type="text/javascript" src="/h/pc/common/js/ui/dialog.js"></script>
+<script type="text/javascript" src="/h/pc/common/js/ui/select.js"></script>
+<script type="text/javascript" src="/h/pc/common/js/ui/jquery.pagination.js"></script>
+<script type="text/javascript" src="/h/pc/common/js/ui/pages.js"></script>
+<script type="text/javascript" src="/h/pc/www/js/product/fcode.js"></script>
+<script type="text/javascript" src="/h/pc/www/js/home/checkbook.js"></script>
+<script type="text/javascript" src="/h/pc/common/js/jquery.lazyload.min.js"></script>
+<script type="text/javascript" src="/h/pc/www/js/home/newhome.js" ></script>
 </body>
 
 <script type="text/javascript" src="/h/pc/common/js/bytrack.js?v=biyao_8b3cc7e"></script>
+
 
 </html>

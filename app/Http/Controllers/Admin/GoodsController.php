@@ -44,7 +44,7 @@ class GoodsController extends Controller
             $data[$key]['cat_id'] = Cates::find($value['cat_id']) -> cat_name;
 
         }
-        // dd($data[1]['cat_id']);
+        dd($data[1]['cat_id']);
         echo json_encode($data);
     }
 

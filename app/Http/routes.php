@@ -67,9 +67,19 @@ Route::get('Admin/rec/remove/{id}','Admin\RecycleController@create');
 //商品上架路由
 Route::get('Admin/rec/store/{id}','Admin\RecycleController@store');
 
-//我的收藏
+//添加我的收藏
 Route::get('/collect','HomeController@edit');
+
+//我的收藏列表
 Route::get('/collects','HomeController@destroy');
+
+//取消收藏
+Route::get('/outcollect','HomeController@update');
+
+//全局搜索
+Route::get('/search','HomeController@search');	
+ 
+
 
 
 
@@ -90,10 +100,12 @@ Route::get('good/{id}','HomeController@show');
 Route::resource('/cart','Home\CartsController');
 
 //订单支付页面
+ 
 Route::get('/pay/{id}','Home\OrderController@pay');
 Route::get('/payok',function(){
 	return view('home/order/payok');
 });
+ 
 //李俊杰区域-----------------end----------------------------
 
 //叶贵丰区域-----------------start---------------------------------
@@ -105,6 +117,11 @@ Route::get('Admin/infor','Admin\LoginController@infor');//跳转个人信息页�
 Route::post('Admin/revise','Admin\LoginController@revise');//修改个人信息
 Route::get('Admin/repass','Admin\LoginController@repass');//修改密码頁面
 Route::post('Admin/reset','Admin\LoginController@reset');//執行修改密码
+Route::get('Admin/deletes','Admin\UserController@destroys');//多删
+Route::get('Admin/serach','Admin\UserController@index');
+Route::get('Admin/article','Admin\ArticleController@index');
+Route::post('Admin/artcreate','Admin\ArticleController@create');
+
 //前台登录页面
 Route::get('login','Home\LoginController@login');//前台登录页面
 Route::get('exect','Home\LoginController@exect');//前台登录页面验证
@@ -116,7 +133,7 @@ Route::post('inforupdete','Home\LoginController@inforupdete');//个人信息修�
 Route::get('register','Home\RedistesController@register');//用户注册页面
 Route::post('emails','Home\RedistesController@emails');//邮箱注册
 Route::post('Home/phoneinsert','Home\RedistesController@storephone');//手机注册
-Route::get('/Home/Zhuce/sendcode','Home\RedistesController@getSendcode');//验证码手机提交/passupdate
+Route::get('/Home/Zhuce/sendcode','Home\RedistesController@getSendcode');//验证码手机提交
 Route::get('/Zhuce/infor','Home\RedistesController@zhuinfor');//注册個人基本信息
 Route::post('/Zhuce/client','Home\RedistesController@client');//添加個人基本信息
 Route::get('passupdate','Home\LoginController@passupdate');//跳闸修改密码页面
@@ -126,9 +143,9 @@ Route::get('lethe','Home\LoginController@lethe');
 Route::get('/phones','Home\LoginController@phones');
 Route::post('/letheupdate','Home\RedistesController@letheupdate');
 Route::post('passset','Home\RedistesController@passset');
-
-
-
+Route::get('/getJihuo/Jihuo/{id}/{token}','Home\RedistesController@getJihuo');
+Route::post('/email/zhuce','Home\RedistesController@emailzhuce');//添加基本信息
+Route::get('article/{id}','Home\ArticleController@index');//添加基本信息
 
 
 

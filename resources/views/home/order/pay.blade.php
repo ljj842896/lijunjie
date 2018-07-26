@@ -29,6 +29,7 @@
 		<div class="suc_bg inline"></div>
 		<div class="sop_tip inline">
 			<p class="f18 col_523 t_l" id="hintID">订单提交成功，马上付款~</p>
+ 
 			<p class="col_666 t_l f16 lineH24">请在 <span class="col_b76 f16" id="left_time_id">半小时</span> 内完成支付</p>
 
 			<p class=" t_l lineH24 mg_t20">
@@ -39,6 +40,7 @@
 			
 		 
 			<p class=" t_l lineH24"><span class="inline f12 col_666">收货人：{{$addres['uname']}}   {{$addres['tel']}} </span><span class="inline f12 col_666 mg_l40">收货地址：{{$addres['address']}}</span></p>
+
 			
 		</div>
 	</div>
@@ -61,6 +63,7 @@
 			<ul class="clearfix payIconBox pd20">
 				<!-- 微信扫码支付平台 -->
 				<li>
+ 
 					<label class="radioLable checked" data-comm="DEFAULT" data-paytype="4" data-value="DEFAULT" data-cartype="{&quot;credit&quot;:false,&quot;debit&quot;:false}" data-credit="{&quot;common&quot;:false,&quot;quick&quot;:false}" data-debit="{&quot;common&quot;:false,&quot;quick&quot;:false}" data-show="false"><i class="radioIcon inline mg_l15"></i><div style="margin-top: -5px;width: 70px;height: 25px;text-align: center;float: right;margin-left: 15px;font-size: 18px;line-height: 25px;border: 2px solid #ccc; background-color: orange;">支付宝</div> </label>
 				</li>
 				<!-- 支付宝平台-->
@@ -69,6 +72,7 @@
 				
 				<li>
 					<label class="radioLable" data-comm="DEFAULT" data-paytype="3" data-value="DEFAULT" data-cartype="{&quot;credit&quot;:false,&quot;debit&quot;:false}" data-credit="{&quot;common&quot;:false,&quot;quick&quot;:false}" data-debit="{&quot;common&quot;:false,&quot;quick&quot;:false}" data-show="false"><i class="radioIcon inline mg_l15"></i><div style="margin-top: -5px;width: 70px;height: 25px;text-align: center;float: right;margin-left: 15px;font-size: 18px;line-height: 25px;border: 2px solid #ccc; background-color: orange;">微信</div></label>
+ 
 				</li>
 				
 			</ul>
@@ -76,13 +80,15 @@
  
 
 		<div class="t_c pd20  bd_top_e8 relative">
+ 
  			 
 			<div style="margin-left: 40%;width: 150px;height: 40px;border: 1px solid red;line-height: 40px;background-color: orange"><a href="#" id="pay" onclick="pay(this)" class=" f18">确认支付</a></div>
+ 
 		</div>
 	</div>
 	<div id="paymaodian"></div>
 </div>
-
+ 
 <script type="text/javascript">
 	$('#order_zongji').text($.cookie('order_zongji'))
 
@@ -102,5 +108,5 @@
 		});
 	}
 </script>
-
+ 
 @endsection

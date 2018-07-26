@@ -1,16 +1,18 @@
 @extends('home_index')
 @section('content')
  
-        <div class="wrap  posR mg_t20 mH810 pd_b40">
-            <div class="per_left">
-                <div class="per_leftbox  pd_t14">
-                    <ul class="per_leftul">
-                        <li class="t_c">
-                            <a href="Profile.html">
 
-                                <label for="informa">
-                                <img id="pro" src="/uploads/{{session('users')->user_pic}}" alt="" onerror="javascript:this.src='/h/pc/www/img/avatar/head_150.png'" style="width: 150px; height: 150px">    
-                                </label>
+<div class="wrap  posR mg_t20 mH810 pd_b40">
+    <div class="per_left">
+        <div class="per_leftbox  pd_t14">
+            <ul class="per_leftul">
+                <li class="t_c">
+                    <a href="">
+
+                        <label for="informa">
+                        <img id="pro" src="/uploads/{{$pic}}" alt="" onerror="javascript:this.src='/h/pc/www/img/avatar/head_150.png'" style="width: 150px; height: 150px">    
+                        </label>
+ 
 
                             </a>
                         </li>
@@ -39,25 +41,26 @@
                           <a class="" href="/Informa"><span>个人信息</span></a>
 
                           <a href="/address"><span>管理收货地址</span></a>
-
-                          <a class="a_checked" href="javascript:void(0)" id="forgetPasswordID"><span>修改密码</span></a>
-                      </h3>
-                  </div>
-   
-                  <div class="pd10 bd_b_eee">
-                      <h1 class="f14 col_666 mg_t20">密码修改</h1>
-                      <form method="post" id="submitForm" action="/userupdate">
-                           {{ csrf_field() }}
-                          <table cellspacing="0" cellpadding="0" border="0" class="per_table th80">
-                              <tbody>
-                              <tr>
-                                  <th>账户名 : </th>
-                                  <td id=""><h5>&nbsp;{{session('users')->user_name}}</h5></td>
-                              </tr>
-                               
-                               <tr>
-                                  <th>旧密码：</th>
-                                  <td><input type="password" onkeyup="$(this).css('color','#000')" value="" class="inpCom w200" maxlength="16" name="password" id="txtNickname" style="color: rgb(0, 0, 0);"> <span class="col_b76 inline" id="nicknameHint"></span></td>
+ 
+                        <a class="bd_r_none" href="javascript:void(0)" id="forgetPasswordID"><span>修改密码</span></a>
+                    </h3>
+                </div>
+ 
+                   <div class="pd10 bd_b_eee">
+                    <h1 class="f14 col_666 mg_t20">密码修改</h1>
+                    <form method="post" id="submitForm" action="/userupdate">
+                         {{ csrf_field() }}
+                        <table cellspacing="0" cellpadding="0" border="0" class="per_table th80">
+                            <tbody>
+                            <tr>
+                                <th>账户名 : </th>
+                                <td id=""><h5>&nbsp;{{$user_name}}</h5></td>
+                            </tr>
+                             
+                             <tr>
+                                <th>旧密码：</th>
+                                <td><input type="password" onkeyup="$(this).css('color','#000')" value="" class="inpCom w200" maxlength="16" name="password" id="txtNickname" style="color: rgb(0, 0, 0);"> <span class="col_b76 inline" id="nicknameHint"></span></td>
+ 
 
                               </tr>
                                <tr>
@@ -95,7 +98,7 @@
 
       @if(session('passup'))
       <script type="text/javascript">
-         layer.msg('修改成功', {icon: 1});
+         layer.msg('修改成功下次的登录请使用新密码', {icon: 1});
      </script>
      @endif
       @if(session('passups'))
@@ -127,11 +130,13 @@
          $('form').eq(0).submit(function(){
                     var us = forms.rpassword.value;     
                      if(us.length!=0){  
-                          reg=/^[a-zA-Z]\w{5,17}$/;
+                          reg=/^[A-Za-z]+[0-9]+[A-Za-z0-9]*|[0-9]+[A-Za-z]+[A-Za-z0-9]*$/g;
                           if (!reg.test(us)){
-                          layer.msg('用户名请6-18之间，只能包含字符、数字和下划线', {icon: 5});            
+                          layer.msg('密码必须由6-16个英文字母和数字的字符串组成！', {icon: 5});            
                           return false;
-                        }
+                         }else{
+                            return true;
+                         }
                      }
                });
        </script>

@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Orders;
+ 
 use App\Models\Address;
 use App\Models\Carts;
 use App\Models\user;
 use App\Models\Goods;
-
+ 
 use Cache;
 class OrderController extends Controller
 {
@@ -20,7 +21,7 @@ class OrderController extends Controller
     {
        $this -> middleware('sys');
     }
-
+ 
     public function pay($id)
     {
 
@@ -28,6 +29,7 @@ class OrderController extends Controller
 
         $address = Address::find($id);
         return view('home.order.pay',['addres' => $address]);
+ 
     }
 
 
@@ -63,6 +65,7 @@ class OrderController extends Controller
     public function create()
     {
         //
+ 
 
         $data = Cache::pull('cart_data',null);
         $user_detail = session('users');
@@ -75,7 +78,7 @@ class OrderController extends Controller
         //订单页模板
         // dd($data);
         return view('home.order.create',['data' => $data,'user_addr' => $user_address]);
-
+ 
 
     }
 
@@ -195,10 +198,12 @@ class OrderController extends Controller
             foreach ($ids as $key => $id) {
                 //取出购物车数据
                 $data[] = Carts::find($id);
+ 
 
             }
             //把取出的数据存入缓存
             $res = Cache::forever('cart_data',$data);
+ 
 
             // dd($res);
    

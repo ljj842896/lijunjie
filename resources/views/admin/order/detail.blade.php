@@ -25,8 +25,10 @@
 		</thead>
 		<tbody>
 			<tr>
+ 
 	 			<td>
 					<img src="/goods_img/{{ $orders -> goods_img }}" style="height:50px;width:70px">
+ 
 				</td>
 				<td>{{ $orders -> goods_name }}</td>
 				<td>{{ $orders -> order_sn }}</td>
@@ -37,9 +39,6 @@
 				 
 				</td>
 				<td>{{ $orders -> goods_attr_rule }}</td>
- 
-		
- 
 				<td>{{ $orders -> order_count }}</td>
 				<td>{{ $orders -> order_amount }}</td>
 				<td>

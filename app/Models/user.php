@@ -15,4 +15,11 @@ class user extends Model
     {
     	return $this -> hasMany('\App\Models\Address','user_id');
     }
+
+    //用户与收藏的商品的多对多
+
+    public function user_collect(){
+    	
+    	return $this -> belongsToMany('\App\Models\Goods','s_collect_goods','user_id','goods_id');
+    }
 }

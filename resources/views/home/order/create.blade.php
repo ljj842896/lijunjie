@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 @extends('home_index')
 @section('content')
@@ -105,6 +106,7 @@
 
                                     </div>
                                     <input type="hidden" class="cart_id" value="{{$v['cart_id']}}" 尺寸:均码="{{$v['goods_attr_rule']}}">
+ 
 
 
 
