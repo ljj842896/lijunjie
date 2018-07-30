@@ -159,6 +159,12 @@ Route::get('/store/{id}','Home\OrderController@store');
 //购买页面
 Route::get('/order/buy','Home\OrderController@buy');
 
+//必要说
+Route::resource('/article','Home\ArticleController');
+Route::get('/article/detail/{id}','Home\ArticleController@detail');//文章详情页
+Route::get('/Admin/article/delindex','Home\ArticleController@huishou');//文章回收站
+Route::get('/Admin/article/huifu/{id}','Home\ArticleController@huifu');//文章恢复
+Route::get('/Admin/article/cdsc/{id}','Home\ArticleController@cdsc');//文章恢复
 
 
 

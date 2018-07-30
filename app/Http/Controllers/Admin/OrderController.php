@@ -148,7 +148,11 @@ class OrderController extends Controller
     {
         //
         $orders = Orders::find($id);
-        $orders -> delete();
-        return redirect('/Admin/order') -> with('success','删除成功!');
+        $res = $orders -> delete();
+        if($res){
+            return redirect('/Admin/order') -> with('success','删除成功!');
+        }else{
+            return back() -> with('error','删除失败!');
+        }
     }
 }

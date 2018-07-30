@@ -38,8 +38,9 @@ class OrderController extends Controller
     {
         $user_data = session('users');
         $user_id = $user_data['user_id'];
-        $data = Orders::where('user_id',$user_id) -> paginate(5);
+        $data = Orders::where('user_id',$user_id) -> paginate(4);
         // dd(session('users'));
+        // dd($data);
         return view('home.order.index',['user_orders' => $data]);
     }
 
@@ -231,5 +232,16 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
+        $del_date = Orders::find($id);
+        if ($del_date) {
+            $res = $del_date -> delete();
+            if ($res) {
+                return redirect('/order') -> with('success','订单取消成功!');
+            }else{
+                return back() -> with('error','订单取消失败!');
+            }
+        }else{
+            return back() -> with('error','订单取消失败!');
+        }
     }
 }

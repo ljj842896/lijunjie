@@ -273,7 +273,14 @@
                             
                         </ul>
                     </li>
+                    <li>
+                        <a href="/article"><i class="icon-television"></i> 文章管理</a>
+                        <ul class="closed">
+                            <li><a href="/article/create"><i class="icon-indent-left"></i> 添加文章</a></li>
+                            <li><a href="/article"><i class="icon-list"></i> 管理文章</a></li>
 
+                        </ul>
+                    </li>
 
                     
                 
