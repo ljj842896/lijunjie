@@ -34,6 +34,7 @@ class LoginController extends Controller
     public function exect(Request $request)
     {
           //浏览器用户名获取
+          
           $user = $request->input('username');
           if(empty($user)){
                echo '3';
@@ -267,5 +268,26 @@ class LoginController extends Controller
             }
     }
     
+
+
+
+         public function ajaxemail(Request $request){
+                
+               $username = $request->input('username');
+                
+                if (empty($username)) {
+                  echo '3';
+                }
+               $res = user::where('user_name',$username)->first();
+              
+               if($res){
+                    echo '1';
+                }else{
+
+                     echo '2';
+                }
+
+                 
+          }
     
 }

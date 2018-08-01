@@ -59,18 +59,21 @@ class HomeController extends Controller
         
         $cat_key = array_rand($cate_goods,10);
 
+       // $article = DB::table('s_article')->get();
+        //dd($article);
 
+        // dd($cart_count);
         //购物车中的数量
         if (session('users')) {
             # code...
             $cart_count = Carts::where('user_id',session('users') -> user_id) -> count();
 
 
-            return view('home.index',['ads' => $ads, 'links' => $links, 'cat_key' => $cat_key, 'cate_goods' => $cate_goods, 'cart_count' => $cart_count ]);
+            return view('home.index',['ads' => $ads, 'links' => $links, 'cat_key' => $cat_key, 'cate' => $cate, 'cate_goods' => $cate_goods, 'cart_count' => $cart_count]);
 
         }else{
 
-            return view('home.index',['ads' => $ads, 'links' => $links, 'cat_key' => $cat_key, 'cate_goods' => $cate_goods ]);
+            return view('home.index',['ads' => $ads, 'links' => $links, 'cat_key' => $cat_key, 'cate' => $cate, 'cate_goods' => $cate_goods]);
         
         }
     }

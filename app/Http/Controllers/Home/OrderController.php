@@ -22,11 +22,11 @@ class OrderController extends Controller
        $this -> middleware('sys');
     }
  
-    public function pay($id)
+    public function pay(Request $request,$id)
     {
-
+           
+        
         // dd($id);
-
         $address = Address::find($id);
         return view('home.order.pay',['addres' => $address]);
  
@@ -131,9 +131,8 @@ class OrderController extends Controller
                 $order -> rece_user_name = $address['uname'];
                 $order -> rece_user_address = $address['address'];
                 $order -> save();
-
                 Carts::find($id) -> delete();
-                
+               
             }
                 echo 1;
             
@@ -253,4 +252,6 @@ class OrderController extends Controller
     {
         //
     }
+    
+
 }

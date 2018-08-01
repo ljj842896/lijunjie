@@ -185,16 +185,7 @@
 </div>
 
 <!-- 文章start -->
-<div class="article">    
-          
-        <a target="_blank" href="/article/ ">
-            <img src="http://bfs.biyao.com/group1/M00/25/01/rBACW1owSW6ABrNqAAAWQIF__tQ201.png" alt="">
-            <span></span>
-            <i></i>
-            <i>必要</i>
-        </a>
-        
-</div>
+
 <!-- 文章end -->
 
 

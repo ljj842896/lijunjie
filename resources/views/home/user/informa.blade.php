@@ -14,9 +14,7 @@
 
                     </a>
                 </li>
-
                 <li class="f14 col_fff mg_t10 t_c">{{$user_name}}</li>
- 
             </ul>
         </div>
 
@@ -24,7 +22,7 @@
             <div class="perleft_menu pdtb_20">
                 <ul>
                     <li class=" "><a href="/order" ><i class="f_r mcMIcon3 inline"></i>我的订单</a> </li>
-                    <li class=" "><a href="/collects" ><i class="f_r mcMIcon4 inline"></i>我的收藏</a></li>
+                    <li class=" "><a href="/address" ><i class="f_r mcMIcon4 inline"></i>退款管理</a></li>
                     <!--<li class=" "><a href="/MyCenter/MyIncomeRules.html" ><i class="f_r mcMIcon5 inline"></i>我的收益</a></li>-->
                     <li class="a_check "><a href="/Informa" ><i class="f_r mcMIcon8 inline"></i>个人设置</a></li>
                     <!-- <div class="div_line"></div> -->
@@ -47,8 +45,6 @@
  
 
     <div class="per_right_out backg_fff">
-
-      @section('info')
         <div class="per_right ">
             <div class="">
                 <div class="relative">
@@ -100,12 +96,12 @@
                         </table>  <p class="per_imgp clearfix mg_l40">
                          <input type="submit" class="btnCom1 btnComS btnBg2 btnH1 w80 inline J_save"></p>
                     </form>
-                  </div>
+                </div>
                 </div>
               </div>
             </div>
-      @show  
-</div>
+        </div>
+    </div>
     <div>
     </div>
     @if(session('success'))

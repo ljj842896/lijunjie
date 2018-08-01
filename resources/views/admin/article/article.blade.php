@@ -24,19 +24,17 @@
             <div class="mws-form-inline">
                 <div class="mws-form-row">
                     <div class="mws-form-item">
-                              文章名:　<input type="text" name="article" class="small"  value="{{old('goods_name')}}"><br><br>
+                              <h4>文章名:</h4>　<input type="text" name="article" class="small"  value="{{old('goods_name')}}" style="width:730px"><br><br>
  
             
-                                        文章内容:
-
+                                       <h4> 文章内容:<br></h4>
+                                       
                                        <!-- 加载编辑器的容器 -->
-                                        <script id="container" class="small" name="content" style="width: 80%;height: 150px" type="text/plain">
-                                          请填写文章的内容
-                                        </script>
+                                        <script id="container" class="small" name="content" style="width:750px;height: 300px" type="text/plain"></script>
                                         <!-- 实例化编辑器 -->
                                         <script type="text/javascript">
                                             var ue = UE.getEditor('container',{
-                                              toolbars: [
+                                              toolbars:[
                                                             ['fullscreen', 'snapscreen','italic','underline','blockquote','selectall','sdate','time','fontfamily','fontsize','simpleupload','insertimage','emotion','spechars','searchreplace','map','forecolor','backcolor','wordimage','touppercase','music','inserttable','customstyle','indent', 'source', 'undo', 'redo', 'bold']
                                                   ]
                                             });

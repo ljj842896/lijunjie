@@ -10,7 +10,7 @@
         <div class="wrap">
             <div class="content">
                 <div class="logo">
-                    <a href="index.html"><h1>邮箱已激活</h1></a>
+                    <a href="index.html"><h1>邮箱已经激活</h1></a>
                 </div>                        
                  <p><a href="/login"><font style="color:blue">请点击进入登录页面</font></a></p>           
                 <div class="footer">

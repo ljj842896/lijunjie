@@ -12,11 +12,6 @@ use DB;
 use Mail;
 class RedistesController extends Controller
 {
-
-     public function __construct()
-    {
-       $this -> middleware('sys');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -36,9 +31,9 @@ class RedistesController extends Controller
     {
 
 
-         if($request->input('password')!=$request->input('password_confirmation')){
+         if($request->input('password')!=$request->input('password_confirmation1')){
  
-               return back()->with('error','密码失败');
+               return back()->with('error','密码不匹配');
 
          }  
          $arr['email'] = $request->input('email');
@@ -49,22 +44,20 @@ class RedistesController extends Controller
           $token = $arr['token'];
           $email = $arr['email'];
               self::sendmail($email,$id,$token);
-              return view('home.user.emailzhuce',['email'=>$email,'cemail'=>'cemail','id'=>$id]); 
-             
+             // echo "注册成功请激活邮箱";
+              return view('home.user.emailzhuce',['email'=>$email,'cemail'=>'cemail','id'=>$id]);
           }else{
                 echo "失败";     
           }
           
 
     }
-      
-
+    
+  
 
      //激活邮件
-          public function getJihuo($id,$token,Request $request){
-               
-                
-
+          public function getJihuo($id,$token){
+              
                   $user = DB::table('s_users')->where('user_id',$id)->first();
 
                    if($user['token']==$token){
@@ -74,29 +67,28 @@ class RedistesController extends Controller
                                    $res = DB::table('s_users')->where('user_id',$id)->update(['status'=>2,'token'=>str_random(50)]);
 
                             if($res){
-                                echo "11111";
+                                   return view('home.user.emailsuccess');  
                             }else{
 
-                                 echo "失败";
+                                 return view('home.user.emailerror');
                             }
                         }else{
 
-                             echo "已经激活";
+                             return view('home.user.emailchange');
                         }
                    }else{
 
-                         echo '链接失效';
+                         return view('home.user.emailshixiao');
                    }
 
             }
-
 
       //发送邮件
       
       static public function sendmail($email,$id,$token)
       {     
             
-            Mail::send('home.user.email', ['id'=>$id,'token'=> $token], function ($m) use ($email) {
+            Mail::send('home.user.email', ['id'=>$id,'token'=>$token], function ($m) use ($email) {
              $m->to($email)->subject('BiYao 注册邮件，欢迎加入必要');
             });
 
@@ -138,7 +130,7 @@ class RedistesController extends Controller
                 $pho = $request->input('phone');
                 if (session('phonecode') != $request->input('phonecode')) {
                
-                 return back()->with(['error'=>'验证码不匹配','pho'=>$pho]);
+                 return back()->with(['errors'=>'验证码不匹配','pho'=>$pho]);
                  
            }else{
 
@@ -235,11 +227,9 @@ class RedistesController extends Controller
         $data=user::where('user_id',$id)->first();
         $data['user_name']=$request->input('user_name');
         $data['phone']=$request->input('phone');
-        $jihuos = $data['status'];
-
-            
+        $jihuo = $data['status'];
        if($data->save()){
-       return redirect('/login')->with(['emailjihuo'=>'请激活后登录时','jihuo'=>$jihuo]);
+       return redirect('/login')->with(['emailjihuo'=>'邮箱注册请激活后登录时','jihuo'=>$jihuo]);
         /* $emailjihuo='注册成功请在邮箱里激活后再登录';
          return view('home.user.login',['emailjihuo'=>$emailjihuo,'jihuo'=>$jihuo]);*/
          /* $emailjihuo='注册成功请在邮箱里激活后再登录';

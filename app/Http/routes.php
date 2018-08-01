@@ -121,6 +121,12 @@ Route::get('Admin/deletes','Admin\UserController@destroys');//多删
 Route::get('Admin/serach','Admin\UserController@index');
 Route::get('Admin/article','Admin\ArticleController@index');
 Route::post('Admin/artcreate','Admin\ArticleController@create');
+Route::get('/Admin/artmanage','Admin\ArticleController@scanned');//文章浏览页面
+Route::get('/Admin/articlelook/{id}','Admin\ArticleController@articlelook');//文章浏览页面
+//Route::get('/Admin/articledel/{id}','Admin\ArticleController@articledel');//执行删除
+//Route::get('/Admin/articleupdate/{id}','Admin\ArticleController@articleupdate');//跳转修改
+Route::post('/Admin/articleupdate','Admin\ArticleController@articlestore');//执行修改
+
 
 //前台登录页面
 Route::get('login','Home\LoginController@login');//前台登录页面
@@ -142,11 +148,11 @@ Route::get('ajaxpass','Home\LoginController@ajaxpass');//ajax验证密码
 Route::get('lethe','Home\LoginController@lethe');
 Route::get('/phones','Home\LoginController@phones');
 Route::post('/letheupdate','Home\RedistesController@letheupdate');
-Route::post('passset','Home\RedistesController@passset');
+Route::post('passset','Home\RedistesController@passset');//密码设置
 Route::get('/getJihuo/Jihuo/{id}/{token}','Home\RedistesController@getJihuo');
 Route::post('/email/zhuce','Home\RedistesController@emailzhuce');//添加基本信息
-Route::get('article/{id}','Home\ArticleController@index');//添加基本信息
-
+Route::get('/ajaxemail','Home\LoginController@ajaxemail');//基本信息昵称验证
+Route::get('article/{id}','Home\ArticleController@index');//文章添加页面
 
 
 

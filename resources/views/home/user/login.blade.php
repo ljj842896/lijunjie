@@ -73,7 +73,7 @@
 </script>
 <div class="bd_bottom_ea">
     <div class="wrap pub_logo_box clearfix">
-        <div class="pub_logo f_l"><a href="/"><img alt="" src="/h/pc/www/img/logo.png?v=biyao_4637d54"></a></div>
+        <div class="pub_logo f_l"><a href="/h//home/index.html"><img alt="" src="/h/pc/www/img/logo.png?v=biyao_4637d54"></a></div>
         <div class="f_r">
             <ul class="sizeZero merchant_info_box">
                 <li class="inline mg_l40 mg_t40">
@@ -91,7 +91,7 @@
             <div class="inline loginTitBox"><i class="inline loginListBg spIcon mg_r10"></i><span class="inline">用户登录</span></div>
             <dl class="mg_t20 ">
         
-                <dd class="inline mg_r5"><input value="请输入用户名" type="text" id="username" name="username" class=" loginTxt  w360 col_999"/></dd>
+                <dd class="inline mg_r5"><input value="请输入用户名/手机号/邮箱" type="text" id="username" name="username" class=" loginTxt  w360 col_999"/></dd>
                 <dd class="J_validate inline col_f90 "><span id="users"></span></dd>
             </dl>
          
@@ -192,12 +192,17 @@
  @endif
  @if(session('emailjihuo'))
       <script type="text/javascript">
-         layer.msg('请在邮箱里激活后再登录', {icon: 5});
+         layer.msg('请在邮箱里激活后再登录', {icon: 1});
      </script>
  @endif
  @if(session('loginerror'))
       <script type="text/javascript">
          layer.msg('请激活', {icon: 5});
+     </script>
+ @endif
+  @if(session('userserror'))
+      <script type="text/javascript">
+         layer.msg('请输入正确的用户名', {icon: 5});
      </script>
  @endif
 <script type="text/javascript">

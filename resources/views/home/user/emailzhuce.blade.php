@@ -28,8 +28,8 @@
     </script>
     <link href="/h/pc/common/css/common.css?v=biyao_1227846" rel="stylesheet" />
     <link href="/h/pc/www/css/cm_www.css?v=biyao_3f1d92e" rel="stylesheet" />
-    <script type="text/javascript"	src="/h/pc/common/js/jquery-1.8.3.js?v=biyao_7d074dc"></script>
-    <script type="text/javascript"	src="/h/pc/common/js/jquery.extention.js?v=biyao_98daa33"></script>
+    <script type="text/javascript"  src="/h/pc/common/js/jquery-1.8.3.js?v=biyao_7d074dc"></script>
+    <script type="text/javascript"  src="/h/pc/common/js/jquery.extention.js?v=biyao_98daa33"></script>
     <script type="text/javascript" src="/h/pc/common/js/lazyload.js?v=biyao_80d4f78"></script>
      <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
             <script type="text/javascript" src="/layui/layui.all.js"></script>
@@ -70,7 +70,7 @@
                 $(this).val("");
             }
 
-        });
+        })
 
         $("#passwd_show").focus(function(){
             $(this).addClass("none");
@@ -156,7 +156,7 @@
                  <dl class="mg_t20">
                     <span>昵称：</span>
                     <dd class="inline mg_r5">
-                        <input  type="text" value="" class="loginTxt w360 col_999 border" name="user_name" data-type="mobile-number" maxlength="50" id="us" />
+                        <input  type="text" value="" class="loginTxt w360 col_999 border" name="user_name" data-type="mobile-number" maxlength="50" id="us" class="aaa" />
                     </dd>
                     <dd class="J_validate inline col_f90"></dd>
                 </dl> 
@@ -224,9 +224,30 @@
            }    
         } 
      })
-     
+</script>
+<script type="text/javascript">
+         $(function(){
+            $("input").eq(1).blur(function(){
+            var username  = $("input[name='user_name']").val();
+               
+            $.get('/ajaxemail',{'username':username},function(msg){
+                 
+                       if(msg=='3'){
+                              layer.msg('昵称不能为空', {icon: 5});
+                       }
+                       if(msg=='1'){
 
+                                layer.msg('用户名已存在', {icon: 5});
+                       }
+                       if(msg=='2'){
 
+                                layer.msg('用户名可用', {icon: 1});
+                       }
+                  });
+
+            });
+
+         })
 
 
 
@@ -328,10 +349,8 @@
  </script>
  @endif 
  @if($cemail)
- <script>
-    
+ <script> 
             layer.msg('注册成功请填写基本信息', {icon: 1});
-
  </script>
  @endif    
               

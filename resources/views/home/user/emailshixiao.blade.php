@@ -10,9 +10,9 @@
         <div class="wrap">
             <div class="content">
                 <div class="logo">
-                    <a href="index.html"><h1>邮箱已激活</h1></a>
+                    <a href="index.html"><h1>连接已经失效请重新注册</h1></a>
                 </div>                        
-                 <p><a href="/login"><font style="color:blue">请点击进入登录页面</font></a></p>           
+                 <p><a href="/register"><font style="color:blue">请进入注册页面</font></a></p>           
                 <div class="footer">
                 <div class="social-icons">
                        <a href="#"><span class="simptip-position-bottom simptip-movable" data-tooltip="Facebook"><img src="/ema/img/f.png"></span></a>

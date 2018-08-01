@@ -44,11 +44,11 @@
                 <div class="login-box">
                     <div class="am-tabs" id="doc-my-tabs">
                         <ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
-                           <!--  <li class="am-active">
+                            <li class="am-active">
                                 <a href="">
                                     邮箱注册
                                 </a>
-                            </li> -->
+                            </li>
                             <li>
                                 <a href="">
                                     手机号注册
@@ -56,7 +56,7 @@
                             </li>
                         </ul>
                         
-                        <!-- <div class="am-tabs-bd">
+                        <div class="am-tabs-bd">
                             <div class="am-tab-panel am-active">
                                 <form method="post" action="/emails" >
                                 	 {{csrf_field()}}
@@ -65,7 +65,7 @@
                                             <i class="am-icon-envelope-o">
                                             </i>
                                         </label>
-                                        <input type="email" name="email" id="email" placeholder="请输入邮箱账号">
+                                        <input type="email" name="email" id="emails" placeholder="请输入邮箱账号">
                                     </div>
                                   
                                     <div class="user-pass">
@@ -73,7 +73,7 @@
                                             <i class="am-icon-lock">
                                             </i>
                                         </label>
-                                        <input type="password" name="password" id="password" placeholder="设置密码">
+                                        <input type="password" name="password" id="ppassword" placeholder="设置密码">
                                     </div>
                                     <div class="user-pass">
                                         <label for="passwordRepeat">
@@ -92,7 +92,7 @@
                                         点击表示您同意商城《服务协议》
                                     </label>
                                 </div>
-                            </div> -->
+                            </div>
                              <div class="am-tab-panel">
                                 <form method="post"  id="submitFor" action="/Home/phoneinsert">
                                 	{{ csrf_field() }}
@@ -184,21 +184,60 @@
                                     $('#doc-my-tabs').tabs();
                                 })
                             </script>
-						    @if(session('error'))
+						             @if(session('errors'))
                             <script>
-						         layer.msg('验证码不匹配', {icon: 5});
+						                   layer.msg('验证码不匹配', {icon: 5});
                             </script>
-                            @endif
+                          @endif
                             @if(session('pass'))
                             <script>
 						         layer.msg('密码不匹配请重新输入', {icon: 5});
                             </script>
                             @endif  
 
+                           <script type="text/javascript">
+                                $('form').eq(0).submit(function(){
+                                       
+                                      var es = document.getElementById('emails').value.trim();
+                                      var pps = document.getElementById('ppassword').value.trim();
+                                      var pasc = document.getElementById('password_confirmation1').value.trim();
+                                       
+                                       if (pps!=pasc){
+                                            
+                                              layer.msg('密码不匹配请重新输入', {icon: 5});
+                                              return false;
+
+                                       }
+                                        res=/^\w+@[a-z0-9]+\.[a-z]{2,4}$/;
+                                       if (!res.test(es)){
+
+                                              layer.msg('邮箱不能为空', {icon: 5});
+                                              return false;
+                                       }
+                                         reg=/^[A-Za-z]+[0-9]+[A-Za-z0-9]*|[0-9]+[A-Za-z]+[A-Za-z0-9]*$/g;
+                                              if (!reg.test(pps)){
+                                              layer.msg('密码必须由6-16个英文字母和数字的字符串组成！', {icon: 5});            
+                                              return false;
+                                          }
+                                       if(es.length==0){
+                                           layer.msg('密码不能为空', {icon: 5});
+                                           return false;
+                                       }
+                                       if(pps.length==0||pasc.length==0){
+                                          layer.msg('密码不能为空', {icon: 5});
+                                          return false;
+
+                                       }
+                               
+                                })
+
+                           </script>
+
+
                              <script type="text/javascript">
                                    
- 
-                                 $('form').eq(0).submit(function(){
+
+                                 $('form').eq(1).submit(function(){
  
                                          var pho = document.getElementById('pho').value.trim();
                                          var pass = document.getElementById('passwordss').value.trim();

@@ -281,7 +281,7 @@
                     <li><a href=""><i class="icon-wrench"></i> 文章配置</a>
                        <ul class="closed">
                             <li><a href="/Admin/article"><i class="icon-indent-left"></i> 文章添加</a></li>
-                            <li><a href="/Admin/ad"><i class="icon-list"></i>文章管理</a></li>
+                            <li><a href="/Admin/artmanage"><i class="icon-list"></i>文章管理</a></li>
                             
                         </ul>
                     </li>

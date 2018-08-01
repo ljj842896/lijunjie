@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 @extends('home_index')
 @section('content')
     <link rel="stylesheet" type="text/css" href="/h/css/new.order.css"/>
