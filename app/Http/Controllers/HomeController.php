@@ -10,7 +10,11 @@ use App\Models\Goods;
 use App\Models\Links;
 use App\Models\Ads;
 use App\Models\Carts;
+use App\Models\Collect;
+use App\Models\user;
+use App\Models\Article;
 use Cache;
+use DB;
 
 use App\Http\Controllers\Controller;
 
@@ -29,6 +33,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         //取数据
         //轮播图数据调取
         $ads = Ads::get();
@@ -45,7 +50,6 @@ class HomeController extends Controller
                 $cate[] = $val;
             }
         }
-        $cat_key = array_rand($cate,10);
         //筛选所有有商品的分类$cate_goods
         // dd($cate);
         foreach ($cat as $key => $val) {
@@ -53,21 +57,21 @@ class HomeController extends Controller
                 $cate_goods[] = $val;
             }
         }
+        
+        $cat_key = array_rand($cate_goods,10);
 
-
-
-        // dd($cart_count);
+        $articles = Article::first();
         //购物车中的数量
         if (session('users')) {
             # code...
             $cart_count = Carts::where('user_id',session('users') -> user_id) -> count();
 
 
-            return view('home.index',['ads' => $ads, 'links' => $links, 'cat_key' => $cat_key, 'cate' => $cate, 'cate_goods' => $cate_goods, 'cart_count' => $cart_count]);
+            return view('home.index',['ads' => $ads, 'links' => $links, 'cat_key' => $cat_key, 'cate_goods' => $cate_goods, 'cart_count' => $cart_count, 'articles' => $articles]);
 
         }else{
 
-            return view('home.index',['ads' => $ads, 'links' => $links, 'cat_key' => $cat_key, 'cate' => $cate, 'cate_goods' => $cate_goods]);
+            return view('home.index',['ads' => $ads, 'links' => $links, 'cat_key' => $cat_key, 'cate_goods' => $cate_goods, 'articles' => $articles]);
         
         }
     }
@@ -125,25 +129,64 @@ class HomeController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
+     *  用户收藏
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit()
     {
-        //
+        if (isset($_GET['goods_id'])) {
+            # code...
+            $data = Collect::where('goods_id',$_GET['goods_id']) -> where('user_id',session('users') -> user_id) -> first();
+
+            if (empty($data)) {
+                
+                $collect = new Collect;
+                $collect -> user_id = session('users') -> user_id;
+                $collect -> goods_id = $_GET['goods_id'];
+                $res = $collect -> save();
+                if ($res) {
+                    echo 1;
+                    exit;    
+                }else{
+                    echo 2;
+                    exit;    
+                }
+
+            }else{
+                echo 3;
+                exit;
+            }
+            
+        }
+       
+
     }
 
     /**
      * Update the specified resource in storage.
-     *
+     *  取消收藏
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update()
     {
         //
+        $user_id = session('users') -> user_id;
+
+        $goods_id = $_GET['goods_id'];
+
+        $res = Collect::where('user_id',$user_id) -> where('goods_id',$goods_id) -> delete();
+
+        if ($res) {
+            
+            echo 1;
+        }else{
+            
+            echo 0;
+        }
+
     }
 
     /**
@@ -152,8 +195,27 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        //
+        // 
+        $user = user::find(session('users') -> user_id);
+
+
+        return view('home/user/collect',['user' => $user]);
+
+    }
+
+    //全局搜索
+    public function search()
+    {
+        $search = $_GET['search'];
+        // $search = '卫衣';
+
+        //查询商品
+        $goods = DB::table('s_goods') -> where('goods_name','like',"%{$search}%") -> orwhere('keywords','like',"%{$search}%") -> get();    
+        // echo 1;
+        // // dd($goods);
+        echo json_encode($goods);
+        // return view('home/search_good');   
     }
 }

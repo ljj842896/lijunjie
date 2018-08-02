@@ -15,6 +15,7 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     
      public function __construct()
     {
@@ -81,7 +82,7 @@ class ArticleController extends Controller
     {
         //
         $user_detail = session('data');
-//       dd($user_detail -> qx);
+       // dd($user_detail -> qx);
         if($user_detail -> qx == 1){
             return view('admin.article.create');
         }else{
@@ -127,6 +128,14 @@ class ArticleController extends Controller
     public function show($id)
     {
         //
+    }
+
+
+    public function details($id)
+    {
+      $articles = Article::find($id);
+      // dd($articles);
+      return view('home.article.article',['articles_data' => $articles]);
     }
 
     /**
@@ -190,4 +199,5 @@ class ArticleController extends Controller
         }
 
     }
+
 }

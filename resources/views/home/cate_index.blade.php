@@ -21,11 +21,9 @@
             layui.use(['layer', 'form'], function(){
               var layer = layui.layer
               ,form = layui.form;
-              
-       
+             
             });
         </script> 
-
 
 
 <link rel="stylesheet" type="text/css" href="/h/css/new.category.css" />
@@ -82,7 +80,7 @@
                         <span class="inline upArre"></span>
                         <div class="bg_fff down_list_box">
                             <a class="inline" href="/order">我的订单</a>
-                            <a class="inline" href="/address">地址管理</a>
+                            <a class="inline" href="/collects">我的收藏</a>
 
                             <a href="/Informa" class="inline">个人设置</a>
 
@@ -92,7 +90,9 @@
                 <li class="inline last pd_r0 shopping_cart vTop">
                     <a class="inline sizeZero" href="/cart">
                         <i class="inline"></i>
-                        <span id="shopcarNumID" class="inline">购物车</span>
+ 
+                        <span id="shopcarNumID" class="inline">购物车 {{$cart_count}}</span>
+ 
                     </a>
                 </li>
             </ul>
@@ -124,7 +124,7 @@
 <!-- 导航栏 -->
 <div class="nav"">
 	<div class="clearfix">
-		<a href="/" class="nav-logo"></a>
+		<div class="pub_logo "><a href="/"><img alt="" src="/h/pc/www/img/logo.png?v=biyao_4637d54"></a></div>
 		<div class="nav-category">
 			<p><span>全部分类</span><i></i></p>
 			<div>
@@ -182,7 +182,7 @@
 			</div>
 		</div>
 		<div class="nav-search">
-			<p><input type="text" id="searchInput"/><span id="searchBtn"></span></p>
+			<p><input type="text" id="searchInput1"/><span id="searchBtn"></span></p>
 			<ul></ul>
 		</div>
 	</div>
@@ -229,7 +229,7 @@
 		</div>
 	</div>
 </div>
-	
+<div id="search_append">
 @section('cate')
 
 <!-- 面包屑 -->
@@ -301,7 +301,7 @@
 </ul>
 
 @show
-
+</div>
 <!-- 底部栏 -->
 <div class="footer">
 	<div>
@@ -410,17 +410,42 @@
 	
 
 <script src="/h/js/classify.js"></script>
-<script>
-	//右侧栏位置调整
-	masterGuy.rightBarPos(550);
-	//分享
-	masterGuy.shareHandle('http://m.biyao.com/classify/categoryList?categoryId=279&title=经典男装');
-	classifyGuy.parentCategoryName = '';
-	classifyGuy.categoryId = 279;
-	classifyGuy.intoId = 279;
-	//分类页跳转相关
-	$(function(){classifyGuy.category()})
-</script>
+    <script type="text/javascript">
+        // alert($)
+            
+          $('#searchInput1').keyup(function() {
+            
+            var search = $(this).val()
+
+            $.get('/search',{'search':search},function(msg){
+ 
+            		//清空搜索区
+            		$('#search_append').empty()
+
+
+            		//拼接插入内容
+            		var p = '<div class="search-result" style="display: block;"><div class="bread"><a href="http://www.biyao.com/home/index.html">首页</a><span><b>&gt;</b>全部分类</span><span><b>&gt;</b>'+search+'</span></div><div class="cateBread"><span></span>根据您搜索的“'+search+'”，为您匹配到以下商品：</div></div><ul class="category-container"><li><ul class="category-list clearfix">'
+
+            		for (var i = 0; i < msg.length; i++) { 
+
+
+            			p += '<li><a target="_blank" href="/good/'+msg[i].goods_id+'"><i><img src="/goods_img/'+msg[i].goods_img+'"></i><dl><dt>'+msg[i].goods_name+'</dt><dd>¥'+msg[i].shop_price+'</dd></dl></a></li>'
+            		
+            		}
+
+            			p += '</ul></li></ul>'
+
+
+
+            		//插入查询结果
+            		$('#search_append').append(p)
+            	 
+
+
+              // console.log(msg)
+            },'json')            
+        })
+    </script>
 	
 	<script type="text/javascript" src="/h/js/bytrack.js"></script>
 </body> 

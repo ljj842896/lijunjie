@@ -9,7 +9,6 @@ use App\Http\Controllers\Controller;
 use App\Models\user;
 use App\Http\Requests\StoreBlogPostRequest;
 use App\Http\Requests\LoginPostRequest;
-
 use DB;
 class LoginController extends Controller
 {

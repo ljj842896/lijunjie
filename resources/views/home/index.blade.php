@@ -66,7 +66,7 @@
             </div>
         </div>
         <div class="nav-search">
-            <p><input type="text" id="searchInput"/><span id="searchBtn"></span></p>
+            <p><input type="text" id="searchInput1"/><span id="searchBtn"></span></p>
             <ul></ul>
         </div>
     </div>
@@ -81,17 +81,18 @@
 
 <div class="nav nav-index">
     <div class="clearfix">
-        <a href="http://www.biyao.com/home/index.html" class="nav-logo"></a>
-      
+    <div class="pub_logo f_l"><a href="/"><img alt="" src="/h/pc/www/img/logo.png?v=biyao_4637d54"></a></div>
         <div class="nav-search">
+
             <p>
-                <input type="text" id="searchInput" name="search" placeholder="请输入要搜索的商品"><span id="searchBtn"></span>
+                <input type="text" id="searchInput2" name="search" placeholder="请输入要搜索的商品"><span id="searchBtn"></span>
             </p>
+
             <ul>
                 <!-- 随机十个三级类 -->
                 @foreach($cat_key as $key)
-                 
-                <li><a href="/cates/{{$cate[$key]['cat_id']}}">{{$cate[$key]['cat_name']}}</a></li>
+                
+                <li><a href="/cates/{{$cate_goods[$key]['cat_id']}}">{{$cate_goods[$key]['cat_name']}}</a></li>
 
                 @endforeach
                 <!-- 随机十个三级类 -->
@@ -184,12 +185,11 @@
 </div>
 
 <!-- 文章start -->
-<div class="article">
-        <a target="_blank" href="http://news.biyao.com/pc/article/675fccdc275c47d68622d184f49c772e.html">
+<div class="article">    
+        <a target="_blank" href="/articles/{{ $articles -> id}}">
             <img src="http://bfs.biyao.com/group1/M00/25/01/rBACW1owSW6ABrNqAAAWQIF__tQ201.png" alt="">
-            <span>国际大牌成本仅为售价1%！电视台纪录片被刷屏！</span>
-            <i>2018-07-18</i>
-            <i>必要</i>
+            <span style="color:red;">{{ $articles -> title }}</span>
+            <i style="color:purple;">{{ $articles -> anthor }}</i>
         </a>
 </div>
 <!-- 文章end -->
@@ -201,45 +201,10 @@
 <div class="category">
 
     
-<div class="category-recommend-1">
-                        
-                            <div class="category-title">
-                                <p>精选</p>
-                            </div>
-                       
-                    <ul>
-        
-                                <li class="" style="left: 0px;">
-                                    <a target="_blank" href="http://www.biyao.com/classify/saleList.html?type=1">
-                                        <i></i>
-                                        <img src="http://bfs.biyao.com/group1/M00/44/4D/rBACYVtNtnuAOdJ1AAC_fX2iOIg828.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li class="press" style="padding-left: 10px; left: 620px;">
-                                    <a target="_blank" href="http://www.biyao.com/classify/supplier.html?supplierId=130172">
-                                        <i></i>
-                                        <img src="http://bfs.biyao.com/group1/M00/44/54/rBACW1tNtr2AJ5JcAACHtH0hoTo934.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li class="press" style="padding-left: 10px; left: 712px;">
-                                    <a target="_blank" href="http://www.biyao.com/classify/supplier.html?supplierId=130163">
-                                        <i></i>
-                                        <img src="http://bfs.biyao.com/group1/M00/44/4D/rBACYVtNtsqABC9tAADbfQpOm7s802.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li class="press" style="padding-left: 10px; left: 804px;">
-                                    <a target="_blank" href="http://www.biyao.com/classify/supplier.html?supplierId=130201">
-                                        <i></i>
-                                        <img src="http://bfs.biyao.com/group1/M00/44/54/rBACW1tNttmAQnwwAAEqPOymsFw540.jpg" alt="">
-                                    </a>
-                                </li>
-                           
-                    </ul>
-</div>
 
 
 
-
+<div id="search_index">
 <div class="category-recommend-3">
                         
             @foreach($cate_goods as $v)
@@ -316,7 +281,7 @@
  
             </div>
 
-
+</div>
 
 
         <!-- 商品分类start -->
@@ -380,6 +345,78 @@
 
 </div>
 
+ <script type="text/javascript">
+        // alert($)
+          $('#searchInput1').keyup(function() {
+            
+            var search = $(this).val()
+
+            $.get('/search',{'search':search},function(msg){
+ 
+                    //清空搜索区
+                    $('#search_index').empty()
+
+
+                    //拼接插入内容
+                    var p = '<div class="cateBread"><span></span>根据您搜索的“'+search+'”，为您匹配到以下商品：</div></div><ul class="category-container"><li><ul class="category-list clearfix">'
+
+                    for (var i = 0; i < msg.length; i++) { 
+
+
+                        p += '<li><a target="_blank" href="/good/'+msg[i].goods_id+'"><i><img src="/goods_img/'+msg[i].goods_img+'"></i><dl><dt>'+msg[i].goods_name+'</dt><dd>¥'+msg[i].shop_price+'</dd></dl></a></li>'
+                    
+                    }
+
+                        p += '</ul></li></ul>'
+
+
+
+                    //插入查询结果
+                    $('#search_index').append(p)
+                 
+
+
+              // console.log(msg)
+            },'json')            
+        })
+    </script>
+
+
+ <script type="text/javascript">
+        // alert($)
+          $('#searchInput2').keyup(function() {
+            
+            var search = $(this).val()
+
+            $.get('/search',{'search':search},function(msg){
+ 
+                    //清空搜索区
+                    $('#search_index').empty()
+
+
+                    //拼接插入内容
+                    var p = '<div class="cateBread"><span></span>根据您搜索的“'+search+'”，为您匹配到以下商品：</div></div><ul class="category-container"><li><ul class="category-list clearfix">'
+
+                    for (var i = 0; i < msg.length; i++) { 
+
+
+                        p += '<li><a target="_blank" href="/good/'+msg[i].goods_id+'"><i><img src="/goods_img/'+msg[i].goods_img+'"></i><dl><dt>'+msg[i].goods_name+'</dt><dd>¥'+msg[i].shop_price+'</dd></dl></a></li>'
+                    
+                    }
+
+                        p += '</ul></li></ul>'
+
+
+
+                    //插入查询结果
+                    $('#search_index').append(p)
+                 
+
+
+              // console.log(msg)
+            },'json')            
+        })
+    </script>
 
 @endsection
 

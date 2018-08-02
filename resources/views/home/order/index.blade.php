@@ -16,7 +16,7 @@
             <div class="perleft_menu pdtb_20">
                 <ul>
                     <li class="a_check "><a href="/order" ><i class="f_r mcMIcon3 inline"></i>我的订单</a> </li>
-                    <li class=""><a href="/address" ><i class="f_r mcMIcon4 inline"></i>退款管理</a></li>
+                    <li class=""><a href="/collects" ><i class="f_r mcMIcon4 inline"></i>我的收藏</a></li>
                     <!--<li class=" "><a href="/MyCenter/MyIncomeRules.html" ><i class="f_r mcMIcon5 inline"></i>我的收益</a></li>-->
                     <li class=""><a href="/Informa" ><i class="f_r mcMIcon8 inline"></i>个人设置</a></li>
                     <!-- <div class="div_line"></div> -->
@@ -47,7 +47,7 @@
             <div class="perleft_menu pdtb_20">
                 <ul>
                     <li class="a_check "><a href="/order"><i class="f_r mcMIcon3 inline"></i>我的订单</a> </li>
-                    <li class=" "><a href="/address"><i class="f_r mcMIcon4 inline"></i>退款管理</a></li>
+                    <li class=" "><a href="/collects"><i class="f_r mcMIcon4 inline"></i>我的收藏</a></li>
                     <!--<li class=" "><a href="/MyCenter/MyIncomeRules.html" ><i class="f_r mcMIcon5 inline"></i>我的收益</a></li>-->
                     <li class=" "><a href="/Informa"><i class="f_r mcMIcon8 inline"></i>个人设置</a></li>
                     <!-- <div class="div_line"></div> -->
@@ -94,10 +94,10 @@
                                 <td  align="center" class="bd_l vTop pd_t15 lineH20" width="18%"><strong class="col_f60 f14">{{ $v -> order_amount }}￥</strong>
                                 </td>
                                 <td  align="center" class="bd_l vTop pd_t15 lineH20" width="18%">
-                                    <a href="/orderdetails" class="col_link ">订单详情</a>
+                                    <a href="/orderdetails/{{ $v -> order_id }}" class="col_link ">订单详情</a>
                                 </td>
                                 <td  align="center" class="bd_l vTop  pd_l20 pd_r20 pd_t5" width="18%">
-                                    <a id="buynow" class="publicBtn publicBtn_h25 publicBtn_f60 inline mg_t10">立即付款</a><br>
+                                    <a class="buynow publicBtn publicBtn_h25 publicBtn_f60 inline mg_t10">立即付款</a><br>
                                     <form action="/order/{{ $v -> order_id }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
@@ -107,6 +107,9 @@
                             </tr>
                         @endforeach
                         </table>
+                </div>
+                <div style="position:absolute;left:50%;top:60%">
+                    {!! $user_orders -> render() !!}
                 </div>
             </div>
             </div>
@@ -174,7 +177,7 @@
     </script>
     <script type="text/javascript">
 
-    $('#buynow').click(function () {
+    $('.buynow').click(function () {
         //页面层-自定义
         layer.open({
           type: 1,
@@ -187,7 +190,5 @@
         });
     })
     </script>
-<div style="position:absolute;left:50%;top:80%">
-    {!! $user_orders -> render() !!}
-</div>
+
 @endsection

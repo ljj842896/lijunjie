@@ -113,4 +113,7 @@
         // alert($);
     </script>
 
+    <div id="mws-footer" style="margin-left: -200px;margin-bottom: -195px">
+                Copyright Your Website 2012.@<span>{{$sys['sys_file']}}</span> All Rights Reserved.
+    </div>
 @endsection

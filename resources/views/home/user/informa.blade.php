@@ -9,12 +9,14 @@
                     <a href="Profile.html">
 
                         <label for="informa">
-                        <img id="pro" src="/uploads/{{isset(session('users')->user_pic) ? session('users')->user_pic : '6ME8Kv0V19E7c9TDgPV7.jpg'}}" alt="" onerror="javascript:this.src='/h/pc/www/img/avatar/head_150.png'" style="width: 150px; height: 150px">    
+                        <img id="pro" src="/uploads/{{$pic}}" alt="" onerror="javascript:this.src='/h/pc/www/img/avatar/head_150.png'" style="width: 150px; height: 150px">    
                         </label>
 
                     </a>
                 </li>
-                <li class="f14 col_fff mg_t10 t_c">{{ session('users') -> user_name }}</li>
+
+                <li class="f14 col_fff mg_t10 t_c">{{$user_name}}</li>
+ 
             </ul>
         </div>
 
@@ -22,7 +24,7 @@
             <div class="perleft_menu pdtb_20">
                 <ul>
                     <li class=" "><a href="/order" ><i class="f_r mcMIcon3 inline"></i>我的订单</a> </li>
-                    <li class=" "><a href="/address" ><i class="f_r mcMIcon4 inline"></i>退款管理</a></li>
+                    <li class=" "><a href="/collects" ><i class="f_r mcMIcon4 inline"></i>我的收藏</a></li>
                     <!--<li class=" "><a href="/MyCenter/MyIncomeRules.html" ><i class="f_r mcMIcon5 inline"></i>我的收益</a></li>-->
                     <li class="a_check "><a href="/Informa" ><i class="f_r mcMIcon8 inline"></i>个人设置</a></li>
                     <!-- <div class="div_line"></div> -->
@@ -68,29 +70,29 @@
                             <tbody>
                             <tr>
                                 <th>账户名：&nbsp;&nbsp;</th>
-                                <td id="">{{isset(session('users')->phone) ? session('users')->phone : ''}}</td>
+                                <td id="">{{session('users')->phone}}</td>
                             </tr>
                             <tr>
                                 <th>昵　称：&nbsp;&nbsp;</th>
-                                <td><input type="text" onkeyup="$(this).css('color','#000')" value="{{isset(session('users')->user_name) ? session('users')->user_name : ''}}" class="inpCom w200" maxlength="10" name="user_name" id="txtNickname"> <span class="col_b76 inline" id="nicknameHint"></span></td>
+                                <td><input type="text" onkeyup="$(this).css('color','#000')" value="{{$user_name}}" class="inpCom w200" maxlength="10" name="user_name" id="txtNickname"> <span class="col_b76 inline" id="nicknameHint"></span></td>
 
                             </tr>
                              <tr>
                                 <th>邮　箱：&nbsp;&nbsp;</th>
-                                <td id="txtEmail">{{isset(session('users')->email) ? session('users')->email : ''}}</td>
+                                <td id="txtEmail">{{session('users')->email}}</td>
                             </tr>
                             <tr>
                                 <th>性　别：&nbsp;&nbsp;</th>
                                 <td class="J_gender_select">
                                 <label class=" col_666 cursor mg_r10">
                        
-                                    <li style="display: inline;"> <input type="radio" value="0" name="sex" @if(session('users')->sex == 0)checked @endif>&nbsp;&nbsp;保密</li>
+                                    <li style="display: inline;"> <input type="radio" value="0" name="sex" @if($sex == 0)checked @endif>&nbsp;&nbsp;保密</li>
                                 </label> 
                                 <label class=" col_666 cursor mg_r10">
-                                     <li style="display: inline;"> <input type="radio" value="1" name="sex" @if(session('users')->sex == 1)checked @endif>&nbsp;&nbsp;男</li>
+                                     <li style="display: inline;"> <input type="radio" value="1" name="sex" @if($sex == 1)checked @endif>&nbsp;&nbsp;男</li>
                                 </label> 
                                 <label class=" col_666 cursor mg_r10">
-                                     <li style="display: inline;"><input type="radio" value="2" name="sex" @if(session('users')->sex == 2)checked @endif>&nbsp;&nbsp;女</li>
+                                     <li style="display: inline;"><input type="radio" value="2" name="sex" @if($sex == 2)checked @endif>&nbsp;&nbsp;女</li>
                                 </label>
                             </td>
                             </tr>
@@ -98,13 +100,12 @@
                         </table>  <p class="per_imgp clearfix mg_l40">
                          <input type="submit" class="btnCom1 btnComS btnBg2 btnH1 w80 inline J_save"></p>
                     </form>
-                </div>
+                  </div>
                 </div>
               </div>
             </div>
-        </div>
       @show  
-    </div>
+</div>
     <div>
     </div>
     @if(session('success'))

@@ -746,9 +746,10 @@
 
             })
         }else{
+            window.location = '/login'
             
-            $('#1532048350284').css('display','block')
-            $('.layer').css('display','block')
+            // $('#1532048350284').css('display','block')
+            // $('.layer').css('display','block')
             // alert('未登录呢')
  
         }    

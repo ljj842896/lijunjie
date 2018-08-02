@@ -19,22 +19,20 @@
                 <td width="7.5%" align="center"><span class="inline">收货人地址</span></td>
                 <td width="7.5%" align="center"><span class="inline">合计</span></td>
                 <td width="7.5%" align="center"><span class="inline">状态</span></td>
-                <td align="center"><span class="inline">操作</span></td>
             </tr>
         </tbody>
     </table>
     <div class="DZPager mg_b20">
 		<table cellspacing="0" cellpadding="0" class="sop_table4 border ">
-            @foreach($user_orders as $v)
             <tr>
                 <td width="7.5%" class="bd_l" align="center">
-                    <a target="_blank" href="/products/1300910000000030000-0.html#editor">
-                        <img style="width:90px;height:65px" alt="" src="{{ $v -> goods_img }}">
+                    <a target="_blank" href="/good/{{ $v -> goods_id }}">
+                        <img style="width:90px;height:65px" alt="" src="/goods_img/{{ $v -> goods_img }}">
                     </a>
                 </td>
                 <td width="7.5%" class="bd_l" align="center">
                 	<div class="inline mg_l10 vTop mg_t5 lineH20 w50">
-                        <a class="col_666" href="/products/1300910000000030000-0.html#editor" target="_blank">
+                        <a class="col_666" href="/good/{{ $v -> goods_id }}" target="_blank">
                             <span class="col_666">{{ $v -> goods_name}}</span>
                         </a><br>
                         <span class=" col_999">规格:<br></span>
@@ -90,17 +88,13 @@
                     </span>
                     <br><br>
                 </td>
-                <td width="7.5" align="center" class="bd_l">
-                    <a href="#" class="publicBtn publicBtn_h25 publicBtn_f60 inline mg_t10">立即付款</a><br>
-                    <a href="javascript:void(0)" class=" cancelOrder  mg_t10 inline" orderid="122007043946180978">取消订单</a>
-                <br>
-                </td>
+
             </tr>
-            @endforeach
+
         </table>
     </div>
     <div style="position:absolute;left:50%;top:100%">
-        {!! $user_orders -> render() !!}
+
     </div>
 </div>
 @endsection

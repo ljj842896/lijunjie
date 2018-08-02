@@ -43,8 +43,6 @@
 </head>
 
 <body>
-    
-    
 
 	<!-- Themer (Remove if not needed) -->  
 	<div id="mws-themer">
@@ -286,12 +284,11 @@
                 
                     <li><a href="/Admin/config"><i class="icon-wrench"></i> 网站配置</a></li>
                     
-                    <!-- qwer -->
+                    
 
 
 
 
-                    <!-- xzcv -->
                 </ul>
             </div>         
         </div>
@@ -344,12 +341,7 @@
         
     </div>
 
-            
- 
-    <div id="mws-footer">
-                Copyright Your Website 2012.@<span>{{$sys['sys_file']}}</span> All Rights Reserved.
-    </div>
-
+</div>
     <div id="mws-themer">
         <div id="mws-themer-content" style="right: 0px;">
             <div id="mws-themer-ribbon"></div>

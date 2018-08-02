@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Orders;
+ 
 use App\Models\Address;
 use App\Models\Carts;
 use App\Models\user;
 use App\Models\Goods;
+ 
 use Cache;
 class OrderController extends Controller
 {
@@ -19,19 +21,31 @@ class OrderController extends Controller
     {
        $this -> middleware('sys');
     }
+ 
+    public function pay($id)
+    {
+
+        // dd($id);
+
+        $address = Address::find($id);
+        return view('home.order.pay',['addres' => $address]);
+ 
+    }
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function details()
+    public function details($id)
     {
         $user_data = session('users');
         $user_id = $user_data['user_id'];
-        $data = Orders::where('user_id',$user_id) -> paginate(4);
-        // $orders = Orders::find(3);
+        //$data = Orders::where('user_id',$user_id) -> paginate(4);
+        $data = Orders::find($id);
         // dd($data);
-        return view('home.order.detail',['user_orders' => $data]);
+        return view('home.order.detail',['v' => $data]);
     }
 
     public function index()
@@ -52,6 +66,8 @@ class OrderController extends Controller
     public function create()
     {
         //
+ 
+
         $data = Cache::pull('cart_data',null);
         $user_detail = session('users');
         $user_id = $user_detail['user_id'];
@@ -63,6 +79,7 @@ class OrderController extends Controller
         //订单页模板
         // dd($data);
         return view('home.order.create',['data' => $data,'user_addr' => $user_address]);
+ 
 
     }
 
@@ -182,9 +199,13 @@ class OrderController extends Controller
             foreach ($ids as $key => $id) {
                 //取出购物车数据
                 $data[] = Carts::find($id);
+ 
+
             }
             //把取出的数据存入缓存
             $res = Cache::forever('cart_data',$data);
+ 
+
             // dd($res);
    
             echo 1;
@@ -194,12 +215,12 @@ class OrderController extends Controller
         }
 
     }
-
+ 
     public function buy()
     {
         return view('home.order.erweima');
     }
-
+ 
     /**
      * Show the form for editing the specified resource.
      *

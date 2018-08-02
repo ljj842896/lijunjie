@@ -32,10 +32,6 @@
                                          {{$good -> goods_cate -> cat_name}}
                                         </div>
                                         <br><br>
-
-                                                                                            
-                                         
- 
                               商品颜色:<input type="text" name="" class="small" disabled value="{{$good -> goods_attr_color}}"><br><br>
                               尺 &nbsp;&nbsp; 寸： <input name="goods_attr_rule" type="text" class="small" value="{{ $good -> goods_attr_rule }}" disabled><br><br>
                               关键字:　<input name="keywords" type="text" name="keywords" class="small" value="{{ $good -> keywords }}" disabled><br><br>
@@ -44,7 +40,7 @@
                               本店售价:<input name="shop_price" type="text" class="small" value="{{ $good -> shop_price }}/元" disabled><br><br>
                                        
                                         <br><br>
-                                        <div class="text-left text-"><h2>商品详情描述：</h2</div>
+                                        <div class="text-left text-"><h2>商品详情描述：</h2></div>
                                         {!!$good -> goods_brief!!}                                           
  
                                         
@@ -63,7 +59,7 @@
                                    </div>
                               </div>
 
- 
+                  
             </div>
           </div>
         </div>
@@ -95,7 +91,7 @@
                   </font>
                 </span>
           </div>           
-                    <div class="mws-panel-body">
+<div class="mws-panel-body">
                           
                     <ul class="thumbnails mws-gallery">
 
@@ -114,6 +110,6 @@
                     </ul>
                  
                     </div>
-        </div>
+</div>
 
 @endsection

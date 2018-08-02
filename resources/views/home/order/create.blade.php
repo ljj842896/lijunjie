@@ -9,7 +9,7 @@
                     <input id="i_address_id"
                            type="hidden"
                            value="0">
-                    <input
+                    <input 
                             id="i_area_id" type="hidden" value="">
 
                     @foreach($user_addr as $v)
@@ -17,9 +17,9 @@
                         address_id="2176926" area_id="110228">
                         <input type="hidden" id="addressId" value="{{$v['id']}}">
                         <div class="contact_box"><span class=" inline col_666 f14">{{ $v['uname'] }}</span>&nbsp;&nbsp;<span
-                                    class=" inline col_666 f14">15115624521</span></div>
-                        <div class="detailed_address_box"><p title="北京市县密云县" class=" f14 col_666 mg_t15 w250 escp">北京市&nbsp;&nbsp;密云县</p>
-                            <p class=" f12 col_666 lineH20">六里屯</p></div>
+                                    class=" inline col_666 f14"></span></div>
+                        <div class="detailed_address_box"><p title="北京市县密云县" class=" f14 col_666 mg_t15 w250 escp">{{$v['tel']}}</p>
+                            <p class=" f12 col_666 lineH20">{{$v['address']}}</p></div>
                         <div class="edit_btn_box "><a class="inline col_link f14 mg_r15" href="javascript:;"
                                                       onclick="s_update_address('2176926','15115624521','北京市','县','密云县','110228','1','110000','110200','',this);">修改</a><a
                                     class="inline col_link f14" href="javascript:;"
@@ -90,12 +90,12 @@
 							@if($data)
 							@foreach($data as $v)
                             <tr>
-                                <td width="23%" align="center"><a target="_blank"
+                                <td width="10%" align="center"><a target="_blank"
                                                                   href="/good/{{$v['goods_id']}}">
                                         <img class="border" width="100" height="100" alt=""
                                              src="/goods_img/{{$v['goods_img']}}">
                                     </a></td>
-                                <td width="41%" align="left">
+                                <td width="8%" align="left">
                                     <div>
                                         <a target="_blank"
                                            href="http://www.biyao.com/products/1301775165060100001-0.html">
@@ -104,6 +104,8 @@
 
                                     </div>
                                     <input type="hidden" class="cart_id" value="{{$v['cart_id']}}" 尺寸:均码="{{$v['goods_attr_rule']}}">
+ 
+
 
 
                                     <div class="col_999 mg_t5 w300 escp">
@@ -119,36 +121,36 @@
 
                                 </td>
                                 <td width="10%" align="center" class="none"><span class="col_333">0积分</span></td>
-                                <td width="13%" align="center" class="col_333"><span class="col_666">￥{{$v['shop_price']}}</span></td>
+                                <td width="8%" align="center" class="col_333"><span class="col_666">￥{{$v['shop_price']}}</span></td>
                                 <td width="10%" align="center" class="col_333 td_buy_num relative" data-weight="0.0"
                                     data-id="4643578" data-pt="0" data-pd="0" data-pc="0"
                                     designid="1301775165060100001"><span class="col_333" id="cart_counts">{{$v['cart_count']}}</span></td>
-                                <td width="12%" align="center" class="col_333 none"><span class="col_333">普通包装</span>
+                                <td width="2%" align="center" class="col_333 none"><span class="col_333">普通包装</span>
                                     <span class="col_333">(免费)</span></td>
-                                <td width="22%" align="right"><strong>￥<span class="cart_xjs">{{$v['shop_price']*$v['cart_count']}}</span></strong></td>
+                                <td width="9%" align="right"><strong>￥<span class="cart_xjs">{{$v['shop_price']*$v['cart_count']}}</span></strong></td>
                             </tr>
 							@endforeach
 							@else
 							<tr id="good_tr">
                                 <td width="10%" align="center"><a id="goods_id" target="_blank"
-                                                                  href="/good/{{$v['goods_id']}}">
+                                                                  href="">
                                         <img class="border" id="goods_img" width="100" height="100" alt=""
-                                             src="{{$v['goods_img']}}">
+                                             src="">
                                     </a></td>
                                 <td width="8%" align="left">
                                     <div>
                                         <a target="_blank"
                                            href="http://www.biyao.com/products/1301775165060100001-0.html">
-                                            <span class="col_333" id="goods_name">{{$v['goods_name']}}</span>
+                                            <span class="col_333" id="goods_name"></span>
                                         </a>
 
                                     </div>
-                                    <input type="hidden" class="sizeno" id="goods_attr_color" value="颜色:{{$v['goods_attr_color']}}" 尺寸:均码="{{$v['goods_attr_rule']}}">
+                                    <input type="hidden" class="sizeno" id="goods_attr_color" value="颜色:" 尺寸:均码="">
 
 
                                     <div class="col_999 mg_t5 w300 escp">
-                                        颜色:<span id="goods_attr_color">{{$v['goods_attr_color']}}</span><br>
-                                        尺寸:<span id="goods_attr_rule">{{$v['goods_attr_rule']}}</span>
+                                        颜色:<span id="goods_attr_color"></span><br>
+                                        尺寸:<span id="goods_attr_rule"></span>
                                     </div>
                                     <!-- 无模型商品和低模普通商品签字 -->
 
@@ -160,13 +162,13 @@
 
                                 </td>
                                 <td width="10%" align="center" class="none"><span class="col_333">0积分</span></td>
-                                <td width="10%" align="center" class="col_333"><span class="col_666" id="shop_price">￥{{$v['shop_price']}}</span></td>
+                                <td width="10%" align="center" class="col_333"><span class="col_666"><span id="shop_price">￥</span></span></td>
                                 <td width="8%" align="center" class="col_333 td_buy_num relative" data-weight="0.0"
                                     data-id="4643578" data-pt="0" data-pd="0" data-pc="0"
-                                    designid="1301775165060100001"><span class="col_333" id="cart_count">{{$v['cart_count']}}</span></td>
+                                    designid="1301775165060100001"><span class="col_333" id="cart_count"></span></td>
                                 <td width="2%" align="center" class="col_333 none"><span class="col_333">普通包装</span>
                                     <span class="col_333">(免费)</span></td>
-                                <td width="9%" align="right"><strong class="  mg_r20">￥<span id="zj">{{$v['shop_price']*$v['cart_count']}}</span></strong></td>
+                                <td width="9%" align="right"><strong class="  mg_r20">￥<span id="zj"></span></strong></td>
                             </tr>
 							@endif
                             </tbody>
@@ -341,8 +343,8 @@
                     </div>
                 </div>
                 <div class="pd_t10 t_r pd_r20 mg_b20">
-                    <a href="/shopcars/index.html" class=" col_999 back_pay_btn inline f16 mg_r20">返回购物车</a> <a
-                            id="submitorder" href="/order/buy" class="inline f16 order_qr_btn t_c ">提交订单</a>
+                    <a href="/cart" class=" col_999 back_pay_btn inline f16 mg_r20">返回购物车</a> <a
+                            id="submitorder" class="inline f16 order_qr_btn t_c ">提交订单</a>
                 </div>
             </div>
         </div>
@@ -374,6 +376,8 @@
 		$('#cart_count').text($.cookie('order_good_number'))
 		$('#productNum').text($.cookie('order_good_number'))
 			var zj = $.cookie('order_good_number')*$.cookie('order_good_price')
+
+            //判断
 			if ($('.cart_xjs').text()) {
 					var i = 0
 					var j = 0
@@ -420,9 +424,12 @@
 						// console.log(idss)
 						// alert('购物车数据')
 						$.get('/store/'+addressId,{'idss':idss},function(msg){
+ 
 							if (msg == 1) {
-								alert('支付成功!')
-								// window.location = '/'
+                                var order_zongji = $('.zjj').text()
+                                $.cookie('order_zongji',order_zongji,{path:'/'}) 
+								layer.msg('支付成功!')
+								window.location = '/order'
 							}else{
 								alert('支付失败!')
 							}
@@ -430,7 +437,7 @@
 
 				}else{
 					goods_id = 	$.cookie('order_good_id') 
-					goods_img = $.cookie('goods_img')	 
+					goods_img = $.cookie('goods_img').replace('/goods_img/','')	 
 					goods_name = $.cookie('order_good_name') 
 					goods_attr_color = $.cookie('order_good_color')		 
 					goods_attr_rule = $.cookie('order_good_rule')		 
@@ -440,7 +447,13 @@
 					// alert('立即购买数据')
 					$.get('/store/'+addressId,{'goods_id':goods_id, 'goods_img':goods_img, 'goods_name':goods_name, 'goods_attr_color':goods_attr_color, 'goods_attr_rule':goods_attr_rule, 'shop_price':shop_price, 'cart_count':cart_count},function(msg){
                             if (msg == 1) {
-                                alert('购买成功!')
+                                // console.log(msg)
+                                var order_zongji = $('.zjj').text()
+                                $.cookie('order_zongji',order_zongji,{path:'/'}) 
+                                layer.msg('购买成功!')
+                                window.location = '/pay/'+addressId
+                 
+
                             }else{
                                 alert('购买失败!')
                             }

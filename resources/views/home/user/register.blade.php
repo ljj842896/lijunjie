@@ -31,24 +31,24 @@
     <body>
         <div class="login-boxtitle">
             <a href="home/demo.html">
-                <img alt="" src="/r/images/logobig.png" />
+                <img alt="" src="/a/images/logo.png" style="position: absolute;left: 200px" />
             </a>
         </div>
-        <div class="res-banner">
+        <div class="">
             <div class="res-main">
                 <div class="login-banner-bg">
                     <span>
                     </span>
-                    <img src="/r/images/big.jpg" />
+                    <img src="/r/images/main.jpg" style="width: 550px;height: 430px;margin: 20px;position:" />
                 </div>
                 <div class="login-box">
                     <div class="am-tabs" id="doc-my-tabs">
                         <ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
-                            <li class="am-active">
+                           <!--  <li class="am-active">
                                 <a href="">
                                     邮箱注册
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="">
                                     手机号注册
@@ -56,7 +56,7 @@
                             </li>
                         </ul>
                         
-                        <div class="am-tabs-bd">
+                        <!-- <div class="am-tabs-bd">
                             <div class="am-tab-panel am-active">
                                 <form method="post" action="/emails" >
                                 	 {{csrf_field()}}
@@ -80,7 +80,7 @@
                                             <i class="am-icon-lock">
                                             </i>
                                         </label>
-                                        <input type="password" name="password_confirmation" id="password_confirmation" placeholder="确认密码">
+                                        <input type="password" name="password_confirmation1" id="password_confirmation1" placeholder="确认密码">
                                     </div>
 	                                <div class="am-cf">
 	                                    <input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
@@ -92,16 +92,16 @@
                                         点击表示您同意商城《服务协议》
                                     </label>
                                 </div>
-                            </div>
+                            </div> -->
                              <div class="am-tab-panel">
-                                <form method="post"  action="/Home/phoneinsert">
+                                <form method="post"  id="submitFor" action="/Home/phoneinsert">
                                 	{{ csrf_field() }}
                                     <div class="user-phone">
                                         <label for="phone">
                                             <i class="am-icon-mobile-phone am-icon-md">
                                             </i>
                                         </label>
-                                        <input type="tel" name="phone" id="phone" placeholder="请输入手机号" @if(session('pho'))value="{{session('pho')}}"@else @endif>
+                                        <input type="tel" name="phone" id="pho" placeholder="请输入手机号" @if(session('pho'))value="{{session('pho')}}"@else @endif>
                                     </div>
                                     <div class="verification">
                                         <label for="code">
@@ -142,23 +142,7 @@
                             </div>
 
                              <script type="text/javascript">
-                             //	function sendCodes(){
-                                   //alert($('#emails').val()); 
-                              //   $.get('/emails',{'email': $('#emails').val()},//function(msg){
-                                       
-                                //           alert(msg);
-
-                                 //    },'html');
-
-
-                             	//}
-
-
-
                              </script>
-                       
-                           
-                         
                               <script type="text/javascript" charset="utf-8">
                                    function sendCode(){
 
@@ -166,11 +150,10 @@
                                       var obj = $("#dyMobileButton");
                                       settime(obj);
                                       $.get('/Home/Zhuce/sendcode',{'phone': $('#phone').val()},function(msg){
-
                                       	   if(msg == 2){
-                                      	     	alert('发送成功请稍等');
+                                      	     	layer.msg('发送成功请稍后', {icon: 1});
                                       	     }else{
-                                      	     	alert('网络异常');
+                                      	     	layer.msg('网络异常', {icon: 5});
                                       	     }
                                       	    
                                       },'html');
@@ -211,6 +194,36 @@
 						         layer.msg('密码不匹配请重新输入', {icon: 5});
                             </script>
                             @endif  
+
+                             <script type="text/javascript">
+                                   
+ 
+                                 $('form').eq(0).submit(function(){
+ 
+                                         var pho = document.getElementById('pho').value.trim();
+                                         var pass = document.getElementById('passwordss').value.trim();
+                               
+                                         if(pho.length==0||pho.length!=0){  
+                                                reg=/^[1][3,4,5,7,8][0-9]{9}$/;
+                                                if (!reg.test(pho)){
+                                                   layer.msg('请输入正确的手机号', {icon: 5});  
+                                                   return false;
+                                                }
+
+                                           }
+                  
+                                          if(pass.length==0||pass.length!=0){  
+                                                re=/^[A-Za-z]+[0-9]+[A-Za-z0-9]*|[0-9]+[A-Za-z]+[A-Za-z0-9]*$/g;
+                                                if (!re.test(pass)){
+                                                   layer.msg('密码必须由6-16个英文字母和数字的字符串组成！', {icon: 5});  
+                                                   return false;
+                                                }
+         
+                                          }
+
+                                       });
+
+                               </script>
                            
                         </div>
                     </div>
@@ -220,7 +233,7 @@
                 <div class="footer-hd ">
                     <p>
                         <a href="# ">
-                            恒望科技
+                            必要科技
                         </a>
                         <b>
                             |
@@ -245,7 +258,7 @@
                 <div class="footer-bd ">
                     <p>
                         <a href="# ">
-                            关于恒望
+                            关于必要
                         </a>
                         <a href="# ">
                             合作伙伴

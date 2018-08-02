@@ -46,10 +46,8 @@
 
     <script type="text/javascript" src="/bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/h/pc/common/js/jquery-1.8.3.js"></script>
     <script type="text/javascript" src="/h/pc/common/js/jquery.extention.js"></script>
     <script type="text/javascript" src="/h/pc/common/js/lazyload.js"></script>
-    <script type="text/javascript" src="/h/pc/minisite/byshoes/js/jquery.cookie.js"></script>
  
     <script type="text/javascript"  src="/h/js/jquery-1.8.3.js"></script>
     <script type="text/javascript"  src="/h/js/jquery.cookie.js"></script>
@@ -111,7 +109,7 @@
                         <span class="inline upArre"></span>
                         <div class="bg_fff down_list_box">
                             <a class="inline" href="/order">我的订单</a>
-                            <a class="inline" href="/address">地址管理</a>
+                            <a class="inline" href="/collects">我的收藏</a>
 
                             <a href="/Informa" class="inline">个人设置</a>
 
@@ -121,7 +119,9 @@
                 <li class="inline last pd_r0 shopping_cart vTop">
                     <a class="inline sizeZero" href="/cart">
                         <i class="inline"></i>
-                        <span id="shopcarNumID" class="inline">购物车</span>
+ 
+                        <span id="shopcarNumID" class="inline">购物车 {{$cart_count}}</span>
+ 
                     </a>
                 </li>
             </ul>
@@ -205,7 +205,7 @@
                 </li>
 
             </ul>
-            <p class="col_999 lineH18 mg_t10">◎BIYAO.COM 2015 版权所有
+            <p class="col_999 lineH18 mg_t10">◎{{$sys['sys_file']}} 版权所有
             </p>
             <p class="col_999 lineH18 mg_t10"><i class="gwab_icon inline"></i><a class="col_999 inline mg_r5" href=".beian.gov.cn/portal/registerSystemInfo?recordcode=44049102496139" target="_blank">粤公网安备44049102496139号</a> <a class="col_999 inline" href=".miitbeian.gov.cn/state/outPortal/loginPortal.action" target="_blank">粤ICP备15017094号</a>
             </p>
@@ -229,18 +229,19 @@
     </div>
 
 </div>
-<script src="/h/pc/common/js/common.js?v=biyao_c83c46d" type="text/javascript"></script>
-<script type="text/javascript"  src="/h/pc/www/js/common.js?v=biyao_bd8bd36"></script>
-<script type="text/javascript" src="/h/pc/common/js/ui/dialog.js?v=biyao_130c013"></script>
-<script type="text/javascript" src="/h/pc/common/js/ui/select.js?v=biyao_1dcaa7c"></script>
-<script type="text/javascript" src="/h/pc/common/js/ui/jquery.pagination.js?v=biyao_1a0a135"></script>
-<script type="text/javascript" src="/h/pc/common/js/ui/pages.js?v=biyao_5fd7a00"></script>
-<script type="text/javascript" src="/h/pc/www/js/product/fcode.js?v=biyao_1810c31"></script>
-<script type="text/javascript" src="/h/pc/www/js/home/checkbook.js?v=biyao_8351fee"></script>
-<script type="text/javascript" src="/h/pc/common/js/jquery.lazyload.min.js?v=biyao_75578ef"></script>
-<script type="text/javascript" src="/h/pc/www/js/home/newhome.js?v=biyao_3ea3ba3" ></script>
+<script src="/h/pc/common/js/common.js" type="text/javascript"></script>
+<script type="text/javascript"  src="/h/pc/www/js/common.js"></script>
+<script type="text/javascript" src="/h/pc/common/js/ui/dialog.js"></script>
+<script type="text/javascript" src="/h/pc/common/js/ui/select.js"></script>
+<script type="text/javascript" src="/h/pc/common/js/ui/jquery.pagination.js"></script>
+<script type="text/javascript" src="/h/pc/common/js/ui/pages.js"></script>
+<script type="text/javascript" src="/h/pc/www/js/product/fcode.js"></script>
+<script type="text/javascript" src="/h/pc/www/js/home/checkbook.js"></script>
+<script type="text/javascript" src="/h/pc/common/js/jquery.lazyload.min.js"></script>
+<script type="text/javascript" src="/h/pc/www/js/home/newhome.js" ></script>
 </body>
 
 <script type="text/javascript" src="/h/pc/common/js/bytrack.js?v=biyao_8b3cc7e"></script>
+
 
 </html>

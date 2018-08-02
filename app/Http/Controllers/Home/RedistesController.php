@@ -26,6 +26,7 @@ class RedistesController extends Controller
     {
          return view('home.user.register');
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -33,20 +34,77 @@ class RedistesController extends Controller
      */
     public function emails(Request $request)
     {
-       
+
+
+         if($request->input('password')!=$request->input('password_confirmation')){
+ 
+               return back()->with('error','密码失败');
+
+         }  
+         $arr['email'] = $request->input('email');
+         $arr['password'] = Hash::make($request->input('password'));
+         $arr['token'] = str_random(50);
+         $id = DB::table('s_users')->insertGetId($arr);
+         if($id){
+          $token = $arr['token'];
+          $email = $arr['email'];
+              self::sendmail($email,$id,$token);
+              return view('home.user.emailzhuce',['email'=>$email,'cemail'=>'cemail','id'=>$id]); 
+             
+          }else{
+                echo "失败";     
+          }
+          
 
     }
       
+
+
+     //激活邮件
+          public function getJihuo($id,$token,Request $request){
+               
+                
+
+                  $user = DB::table('s_users')->where('user_id',$id)->first();
+
+                   if($user['token']==$token){
+
+                           if($user['status']==1){
+
+                                   $res = DB::table('s_users')->where('user_id',$id)->update(['status'=>2,'token'=>str_random(50)]);
+
+                            if($res){
+                                echo "11111";
+                            }else{
+
+                                 echo "失败";
+                            }
+                        }else{
+
+                             echo "已经激活";
+                        }
+                   }else{
+
+                         echo '链接失效';
+                   }
+
+            }
+
+
       //发送邮件
       
       static public function sendmail($email,$id,$token)
       {     
             
-            Mail::send('home.user.email', [], function ($m) use ($email) {
+            Mail::send('home.user.email', ['id'=>$id,'token'=> $token], function ($m) use ($email) {
              $m->to($email)->subject('BiYao 注册邮件，欢迎加入必要');
             });
 
       }
+
+
+
+      
     /**
      * Store a newly created resource in storage.
      *
@@ -60,7 +118,7 @@ class RedistesController extends Controller
          $phone = $request->input('phone','15910543236');
          $str = rand(1000,9999);
          session(['phonecode'=>$str]);  
-          $url = 'http://106.ihuyi.com/webservice/sms.php?method=Submit&account=C32346016&password=731b866851f7ea32684cfae2d8711120&mobile='.$phone.'&format=json&content=您的验证码是：'.$str.'。请不要把验证码泄露给其他人。 ';
+          $url = 'http://106.ihuyi.com/webservice/sms.php?method=Submit&account=C13487006&password=52dbfd377fef8097743cc220ad59199d&mobile='.$phone.'&format=json&content=您的验证码是：'.$str.'。请不要把验证码泄露给其他人。 ';
          $ch = curl_init();
          curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
          curl_setopt($ch , CURLOPT_URL , $url);
@@ -171,8 +229,27 @@ class RedistesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function emailzhuce(Request $request)
     {
-        //
+        $id=$request->input('id');
+        $data=user::where('user_id',$id)->first();
+        $data['user_name']=$request->input('user_name');
+        $data['phone']=$request->input('phone');
+        $jihuos = $data['status'];
+
+            
+       if($data->save()){
+       return redirect('/login')->with(['emailjihuo'=>'请激活后登录时','jihuo'=>$jihuo]);
+        /* $emailjihuo='注册成功请在邮箱里激活后再登录';
+         return view('home.user.login',['emailjihuo'=>$emailjihuo,'jihuo'=>$jihuo]);*/
+         /* $emailjihuo='注册成功请在邮箱里激活后再登录';
+          return view('home.user.login',['emailjihuo'=>$emailjihuo,'jihuos'=>$jihuos]);*/
+        }else{
+
+                    
+                  return back()->with('noupdate','添加失败');
+        }
+                
+        
     }
 }
