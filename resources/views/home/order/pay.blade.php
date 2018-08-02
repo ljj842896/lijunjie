@@ -5,7 +5,7 @@
 <div class="bd_bottom_ea">
   		<div class="wrap pub_logo_box clearfix">
 		<div class="pub_logo">
-			<a href="http://www.biyao.com/home/index.html"><img src="http://static.biyao.com/pc/www/img/logo.png?v=biyao_e06b35d"></a>
+			<a href="/"><img src="/h/pc/www/img/logo.png?v=biyao_e06b35d"></a>
   		</div>
   	</div>
 </div>

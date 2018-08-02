@@ -6,10 +6,10 @@
             <ul class="per_leftul">
                 <li class="t_c">
                     <a href="Profile.html">
-                        <img src="/h/pc/www/img/avatar/head_150.png" alt="" onerror="javascript:this.src='pc/www/img/avatar/head_150.png'" style="width: 150px; height: 150px"/>
+                        <img src="/uploads/{{ $user['user_pic'] }}" alt="头像" style="width: 150px; height: 150px"/>
                     </a>
                 </li>
-                <li class="f14 col_fff mg_t10 t_c">by_3444810</li>
+                <li class="f14 col_fff mg_t10 t_c">{{ $user['user_name'] }}</li>
             </ul>
         </div>
         <div class="per_leftbox">

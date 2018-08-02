@@ -107,10 +107,11 @@ class RedistesController extends Controller
     public function getSendcode(Request $request)
     {
        
-         $phone = $request->input('phone','15910543236');
+         $phone = $request->input('phone','17744491415');
+         
          $str = rand(1000,9999);
          session(['phonecode'=>$str]);  
-          $url = 'http://106.ihuyi.com/webservice/sms.php?method=Submit&account=C13487006&password=52dbfd377fef8097743cc220ad59199d&mobile='.$phone.'&format=json&content=您的验证码是：'.$str.'。请不要把验证码泄露给其他人。 ';
+          $url = 'http://106.ihuyi.com/webservice/sms.php?method=Submit&account=C32346016&password=731b866851f7ea32684cfae2d8711120&mobile='.$phone.'&format=json&content=您的验证码是：'.$str.'。请不要把验证码泄露给其他人。 ';
          $ch = curl_init();
          curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
          curl_setopt($ch , CURLOPT_URL , $url);

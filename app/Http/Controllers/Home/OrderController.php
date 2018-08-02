@@ -54,7 +54,9 @@ class OrderController extends Controller
         $user_id = $user_data['user_id'];
         $data = Orders::where('user_id',$user_id) -> paginate(5);
         // dd(session('users'));
-        return view('home.order.index',['user_orders' => $data]);
+        $user = user::find($user_id);
+        // dd($user);
+        return view('home.order.index',['user_orders' => $data,'user' => $user]);
     }
 
     /**

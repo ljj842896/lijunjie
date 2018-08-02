@@ -194,7 +194,66 @@
 <!-- 模块 -->
 <div class="category">
 
-    
+  <!-- 精选 -->
+  <div class="category-recommend-1">
+                        
+                            <div class="category-title">
+                                <p>精选</p>
+                            </div>
+                        
+                        
+                    <ul>
+                            
+                                
+                                
+                            
+                                
+                                
+                            
+                                
+                                
+                            
+                                
+                                
+                            
+                                
+                                
+                            
+                                
+                                
+                            
+                        <li style="left: 0px;">
+                                    <a target="_blank" href="http://www.biyao.com/classify/saleList.html?type=2">
+                                        <i></i>
+                                        <img src="http://bfs.biyao.com/group1/M00/46/C2/rBACVFtgIKSAKdIoAACof5GiD5g402.jpg" alt="">
+                                    </a>
+                                </li><li class="press" style="padding-left: 10px; left: 620px;">
+                                    <a target="_blank" href="http://www.biyao.com/classify/supplier.html?supplierId=130164">
+                                        <i></i>
+                                        <img src="http://bfs.biyao.com/group1/M00/46/C2/rBACVFtgILKAAblJAAByaWFXsmg976.jpg" alt="">
+                                    </a>
+                                </li><li class="press" style="padding-left: 10px; left: 712px;">
+                                    <a target="_blank" href="http://www.biyao.com/classify/supplier.html?supplierId=130066">
+                                        <i></i>
+                                        <img src="http://bfs.biyao.com/group1/M00/48/71/rBACYVtgIOCALuXeAACqWFjV7gw185.jpg" alt="">
+                                    </a>
+                                </li><li class="press" style="padding-left: 10px; left: 804px;">
+                                    <a target="_blank" href="http://www.biyao.com/classify/supplier.html?supplierId=130132">
+                                        <i></i>
+                                        <img src="http://bfs.biyao.com/group1/M00/46/C2/rBACVFtgIPWAUplgAAC6IKE8MA0312.jpg" alt="">
+                                    </a>
+                                </li><li class="press" style="padding-left: 10px; left: 896px;">
+                                    <a target="_blank" href="http://www.biyao.com/classify/supplier.html?supplierId=130094">
+                                        <i></i>
+                                        <img src="http://bfs.biyao.com/group1/M00/48/77/rBACW1tgIRiAWge5AAB9L_6oq9M195.jpg" alt="">
+                                    </a>
+                                </li><li class="press" style="padding-left: 10px; left: 988px;">
+                                    <a target="_blank" href="http://www.biyao.com/classify/supplier.html?supplierId=130065">
+                                        <i></i>
+                                        <img src="http://bfs.biyao.com/group1/M00/48/77/rBACW1tgIQOAW1NFAACL4z1gYGQ334.jpg" alt="">
+                                    </a>
+                                </li></ul></div>
+  <!-- 精选 -->
 
 
 
@@ -279,47 +338,7 @@
 
 
         <!-- 商品分类start -->
-        @foreach($cate_goods as $v)
-
-        <div class="pd_t30 wrap auto">
-            <div class="banner_tit t_c">
-                <h3>{{$v['cat_name']}}</h3>
-            </div>
-
-            <!-- 单个商品遍历区start -->
-            @foreach($com_goods as $good)
-            @if($good['cat_id'] == $v['cat_id'])
-            <div class="banner_con" style="width: 1080px">
-                <div class="" style="height: 280px;float: left;">
-                    <div class="" style="width: 40%;height: 100%;background-color: #ccc;float:left;">
-                        <div class="text-center" style="margin: auto;margin-top: 40px; width: 60%;height: 30%;overflow: hidden;text-overflow: ellipsis;border-bottom: 3px solid #ccc">
-                            <p style="font-size: 28px;">{{$good['goods_name']}}</p>
-                        </div>
-                        <div class="text-center" style="margin: auto;margin-top: 5px; width: 50%;height: 20%;overflow: hidden;text-overflow: ellipsis;">
-
-                            <p style="font-size: 20px;">{{$good['keywords']}}</p>
-                        </div>
-                        <div class="text-center" style="margin: auto;margin-top: 10px;  width: 60%;height: 30%">
-                            <p style="font-size: 20px;color: red; line-height: 50px;"><font size="40px">{{$good['shop_price']}}</font><strong>/元</strong></p>
-                        </div>
-                    </div>
-                    <div class="" style="width: 60%;height: 100%;background-color: green;float: left;">
-
-                       <img width="660px" height="280" src="/goods_img/{{$good['goods_img']}}">
-                    </div>
-                    
-                  
-                </div>
-                <div class="" style="height: 20px;clear: both;">
-
-                </div>
-            </div>
-            @endif
-            @endforeach
-            
-            <!-- 单个商品遍历区end -->
-        </div>
-        @endforeach
+       
         <!-- 商品分类end -->
         
 
