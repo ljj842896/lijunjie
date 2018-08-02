@@ -97,7 +97,7 @@
                                     <a href="/orderdetails/{{ $v -> order_id }}" class="col_link ">订单详情</a>
                                 </td>
                                 <td  align="center" class="bd_l vTop  pd_l20 pd_r20 pd_t5" width="18%">
-                                    <a class="buynow publicBtn publicBtn_h25 publicBtn_f60 inline mg_t10">立即付款</a><br>
+                                    <a href="/payok" class="publicBtn publicBtn_h25 publicBtn_f60 inline mg_t10">立即付款</a><br>
                                     <form action="/order/{{ $v -> order_id }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}

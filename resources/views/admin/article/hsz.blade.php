@@ -17,8 +17,9 @@
                 </tr>
             </thead>
             <tbody>
+            @foreach($data as $v)
                 <tr>
-                @foreach($data as $v)
+                
                     <td>{{ $v -> title }}</td>
                     <td>{{ $v -> anthor }}</td>
                     <td>{{ $v -> deleted_at }}</td>
@@ -26,8 +27,9 @@
 						<a href="/Admin/article/huifu/{{ $v -> id }}" class="btn btn-info" style="display:inline;">恢复</a>
 						<a href="/Admin/article/cdsc/{{ $v -> id }}" class="btn btn-warning" style="display:inline;">删除</a>
                     </td>
-                @endforeach
+                
                 </tr>
+            @endforeach
             </tbody>
         </table>
 		<div style="position:absolute;left:45%;top:450px">

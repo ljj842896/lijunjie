@@ -44,7 +44,7 @@ class ArticleController extends Controller
     public function huishou()
     {
         $data = Article::onlyTrashed() -> get();
-        dump($data);
+        
         return view('admin.article.hsz',['data' => $data]);
     }
 
