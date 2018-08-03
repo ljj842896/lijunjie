@@ -9,12 +9,16 @@
                     <a href="Profile.html">
 
                         <label for="informa">
+
                         <img id="pro" src="/uploads/{{isset($user['user_pic']) ? $user['user_pic'] : '6ME8Kv0V19E7c9TDgPV7.jpg'}}" alt="" onerror="javascript:this.src='/h/pc/www/img/avatar/head_150.png'" style="width: 150px; height: 150px">    
+
                         </label>
 
                     </a>
                 </li>
+
                 <li class="f14 col_fff mg_t10 t_c">{{ $user['user_name'] }}</li>
+
             </ul>
         </div>
 

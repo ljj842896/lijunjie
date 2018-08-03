@@ -429,7 +429,10 @@
                                 var order_zongji = $('.zjj').text()
                                 $.cookie('order_zongji',order_zongji,{path:'/'}) 
 								layer.msg('支付成功!')
+ 
 								window.location = '/pay/'+addressId
+ 
+ 
 							}else{
 								alert('支付失败!')
 							}
@@ -464,19 +467,6 @@
 
 
 			})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 			</script>
 @endsection

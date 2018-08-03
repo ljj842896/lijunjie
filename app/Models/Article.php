@@ -3,11 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+ 
+use Illuminate\Database\Eloquent\SoftDeletes;
 class Article extends Model
 {
     //
-    public $table = 's_article';
+    use SoftDeletes;
+    public $table = 'article';
     public $primaryKey = 'id';
-    public $fillable = ['article','content'];
+    public $dates = ['deleted_at'];
+ 
 }

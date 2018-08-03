@@ -705,7 +705,6 @@
             $(this).toggleClass('checked')
         })
 
-
         //总计的计算
 
         var i = 0

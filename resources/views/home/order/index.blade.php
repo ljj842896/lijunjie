@@ -94,16 +94,22 @@
                                 <td  align="center" class="bd_l vTop pd_t15 lineH20" width="18%"><strong class="col_f60 f14">{{ $v -> order_amount }}￥</strong>
                                 </td>
                                 <td  align="center" class="bd_l vTop pd_t15 lineH20" width="18%">
-                                    <a href="/orderdetails" class="col_link ">订单详情</a>
+                                    <a href="/orderdetails/{{ $v -> order_id }}" class="col_link ">订单详情</a>
                                 </td>
                                 <td  align="center" class="bd_l vTop  pd_l20 pd_r20 pd_t5" width="18%">
-                                    <a id="buynow" class="publicBtn publicBtn_h25 publicBtn_f60 inline mg_t10">立即付款</a><br>
-                                    <a href="javascript:void(0)" class=" cancelOrder  mg_t10 inline" orderid="122007043946180978">取消订单</a>
-                                    <br>
+                                    <a href="/payok" class="publicBtn publicBtn_h25 publicBtn_f60 inline mg_t10">立即付款</a><br>
+                                    <form action="/order/{{ $v -> order_id }}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <input type="submit" name="" class="publicBtn cancelOrder mg_t10 inline" onclick="return confirm('是否确认取消订单?')" value="取消订单">
+                                    </form><br>
                                 </td>
                             </tr>
                         @endforeach
                         </table>
+                </div>
+                <div style="position:absolute;left:50%;top:60%">
+                    {!! $user_orders -> render() !!}
                 </div>
             </div>
             </div>
@@ -171,7 +177,7 @@
     </script>
     <script type="text/javascript">
 
-    $('#buynow').click(function () {
+    $('.buynow').click(function () {
         //页面层-自定义
         layer.open({
           type: 1,
@@ -184,7 +190,5 @@
         });
     })
     </script>
-<div style="position:absolute;left:50%;top:80%">
-    {!! $user_orders -> render() !!}
-</div>
+
 @endsection

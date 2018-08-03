@@ -28,8 +28,10 @@
     </script>
     <link href="/h/pc/common/css/common.css?v=biyao_1227846" rel="stylesheet" />
     <link href="/h/pc/www/css/cm_www.css?v=biyao_3f1d92e" rel="stylesheet" />
+
     <script type="text/javascript"  src="/h/pc/common/js/jquery-1.8.3.js?v=biyao_7d074dc"></script>
     <script type="text/javascript"  src="/h/pc/common/js/jquery.extention.js?v=biyao_98daa33"></script>
+
     <script type="text/javascript" src="/h/pc/common/js/lazyload.js?v=biyao_80d4f78"></script>
      <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
             <script type="text/javascript" src="/layui/layui.all.js"></script>
@@ -71,6 +73,7 @@
             }
 
         })
+
 
         $("#passwd_show").focus(function(){
             $(this).addClass("none");
@@ -157,6 +160,7 @@
                     <span>昵称：</span>
                     <dd class="inline mg_r5">
                         <input  type="text" value="" class="loginTxt w360 col_999 border" name="user_name" data-type="mobile-number" maxlength="50" id="us" class="aaa" />
+
                     </dd>
                     <dd class="J_validate inline col_f90"></dd>
                 </dl> 
@@ -224,6 +228,7 @@
            }    
         } 
      })
+<<<<<<< HEAD
 </script>
 <script type="text/javascript">
          $(function(){
@@ -248,6 +253,11 @@
             });
 
          })
+=======
+     
+
+
+>>>>>>> origin/liudahai
 
 
 
@@ -349,8 +359,15 @@
  </script>
  @endif 
  @if($cemail)
+<<<<<<< HEAD
  <script> 
             layer.msg('注册成功请填写基本信息', {icon: 1});
+=======
+ <script>
+    
+            layer.msg('注册成功请填写基本信息', {icon: 1});
+
+>>>>>>> origin/liudahai
  </script>
  @endif    
               

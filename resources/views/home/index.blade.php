@@ -185,7 +185,15 @@
 </div>
 
 <!-- 文章start -->
-
+ 
+<div class="article">    
+        <a target="_blank" href="/articles/{{ $articles -> id}}">
+            <img src="http://bfs.biyao.com/group1/M00/25/01/rBACW1owSW6ABrNqAAAWQIF__tQ201.png" alt="">
+            <span style="color:red;">{{ $articles -> title }}</span>
+            <i style="color:purple;">{{ $articles -> anthor }}</i>
+        </a>
+</div>
+ 
 <!-- 文章end -->
 
 
@@ -193,7 +201,7 @@
 
 <!-- 模块 -->
 <div class="category">
-
+ 
   <!-- 精选 -->
   <div class="category-recommend-1">
                         
@@ -203,24 +211,7 @@
                         
                         
                     <ul>
-                            
-                                
-                                
-                            
-                                
-                                
-                            
-                                
-                                
-                            
-                                
-                                
-                            
-                                
-                                
-                            
-                                
-                                
+                        
                             
                         <li style="left: 0px;">
                                     <a target="_blank" href="http://www.biyao.com/classify/saleList.html?type=2">
@@ -254,6 +245,7 @@
                                     </a>
                                 </li></ul></div>
   <!-- 精选 -->
+ 
 
 
 

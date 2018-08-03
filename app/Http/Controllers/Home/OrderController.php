@@ -22,11 +22,12 @@ class OrderController extends Controller
        $this -> middleware('sys');
     }
  
-    public function pay(Request $request,$id)
+
+    public function pay($id)
     {
-           
-        
+
         // dd($id);
+
         $address = Address::find($id);
         return view('home.order.pay',['addres' => $address]);
  
@@ -38,25 +39,27 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function details()
+    public function details($id)
     {
         $user_data = session('users');
         $user_id = $user_data['user_id'];
-        $data = Orders::where('user_id',$user_id) -> paginate(4);
-        // $orders = Orders::find(3);
+        //$data = Orders::where('user_id',$user_id) -> paginate(4);
+        $data = Orders::find($id);
         // dd($data);
-        return view('home.order.detail',['user_orders' => $data]);
+        return view('home.order.detail',['v' => $data]);
     }
 
     public function index()
     {
         $user_data = session('users');
         $user_id = $user_data['user_id'];
-        $data = Orders::where('user_id',$user_id) -> paginate(5);
+        $data = Orders::where('user_id',$user_id) -> paginate(4);
         // dd(session('users'));
+
         $user = user::find($user_id);
         // dd($user);
         return view('home.order.index',['user_orders' => $data,'user' => $user]);
+
     }
 
     /**
@@ -253,6 +256,17 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
+        $del_date = Orders::find($id);
+        if ($del_date) {
+            $res = $del_date -> delete();
+            if ($res) {
+                return redirect('/order') -> with('success','订单取消成功!');
+            }else{
+                return back() -> with('error','订单取消失败!');
+            }
+        }else{
+            return back() -> with('error','订单取消失败!');
+        }
     }
     
 

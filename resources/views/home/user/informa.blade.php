@@ -14,7 +14,9 @@
 
                     </a>
                 </li>
+
                 <li class="f14 col_fff mg_t10 t_c">{{$user_name}}</li>
+
             </ul>
         </div>
 
@@ -96,12 +98,14 @@
                         </table>  <p class="per_imgp clearfix mg_l40">
                          <input type="submit" class="btnCom1 btnComS btnBg2 btnH1 w80 inline J_save"></p>
                     </form>
-                </div>
+                  </div>
                 </div>
               </div>
             </div>
+
         </div>
     </div>
+
     <div>
     </div>
     @if(session('success'))

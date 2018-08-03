@@ -1,6 +1,6 @@
 @extends('home_index')
 @section('content')
- 
+
 <div class="wrap  posR mg_t20 mH810 pd_b40">
     <div class="per_left">
         <div class="per_leftbox  pd_t14">
@@ -11,6 +11,7 @@
                         <label for="informa">
                         <img id="pro" src="/uploads/{{$pic}}" alt="" onerror="javascript:this.src='/h/pc/www/img/avatar/head_150.png'" style="width: 150px; height: 150px">    
                         </label>
+
 
                     </a>
                 </li>
@@ -40,6 +41,7 @@
 
                         <a href="/address"><span>管理收货地址</span></a>
 
+
                         <a class="bd_r_none" href="javascript:void(0)" id="forgetPasswordID"><span>修改密码</span></a>
                     </h3>
                 </div>
@@ -58,6 +60,7 @@
                              <tr>
                                 <th>旧密码：</th>
                                 <td><input type="password" onkeyup="$(this).css('color','#000')" value="" class="inpCom w200" maxlength="16" name="password" id="txtNickname" style="color: rgb(0, 0, 0);"> <span class="col_b76 inline" id="nicknameHint"></span></td>
+
 
                             </tr>
                              <tr>

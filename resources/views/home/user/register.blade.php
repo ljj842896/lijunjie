@@ -140,9 +140,6 @@
                                 </div>
                                 <hr>
                             </div>
-
-                             <script type="text/javascript">
-                             </script>
                               <script type="text/javascript" charset="utf-8">
                                    function sendCode(){
 
@@ -177,9 +174,10 @@
                                   	 	 settime(obj)
                                   	 },1000)
                                   }
-							 </script>
-                            <script>
+							                  </script>
 
+
+                            <script>
                                 $(function() {
                                     $('#doc-my-tabs').tabs();
                                 })
